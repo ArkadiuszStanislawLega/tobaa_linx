@@ -19,16 +19,18 @@ class DetailBaa extends StatelessWidget {
           children:
           [
             PropertyView(
-              'Nazwa', '${this.battleAirAsset.name} ${this.battleAirAsset
+                'Nazwa', '${this.battleAirAsset.name} ${this.battleAirAsset
                 .explosionClass.toString()}'
             ),
             PropertyView(
-                'Podklasa wybuchowości:', this.battleAirAsset.explosionClass.explosionSubclass
-                .description
+                'Podklasa wybuchowości:',
+                this.battleAirAsset.explosionClass.explosionSubclass
+                    .description
             ),
             PropertyView(
-                'Grupa kompatybilności:', this.battleAirAsset.explosionClass.compatibilityGroup
-                .description
+                'Grupa kompatybilności:',
+                this.battleAirAsset.explosionClass.compatibilityGroup
+                    .description
             ),
             PropertyView(
                 'Długość:', '${this.battleAirAsset.dimensions.length} mm'
@@ -46,7 +48,8 @@ class DetailBaa extends StatelessWidget {
                 'Waga netto:', '${this.battleAirAsset.weights.net} g'
             ),
             PropertyView(
-                'Waga ładunków wybuchowych:', '${this.battleAirAsset.weights.netExplosive} g'
+                'Waga ładunków wybuchowych:',
+                '${this.battleAirAsset.weights.netExplosive} g'
             ),
             PropertyView(
                 'Kontener:', '${box.name}'
@@ -58,7 +61,8 @@ class DetailBaa extends StatelessWidget {
                 'Waga brutto załadowanego kontenera:', '${box.weights.gross} g'
             ),
             PropertyView(
-                'Waga środków wybuchowych w pełni załadowanego kontenera:', '${box.weights.netExplosive} g'
+                'Waga środków wybuchowych w pełni załadowanego kontenera:',
+                '${box.weights.netExplosive} g'
             ),
             PropertyView(
                 'Wysokość:', '${box.dimensions.height} mm'
@@ -73,7 +77,8 @@ class DetailBaa extends StatelessWidget {
                 'Pojemność:', '${box.capacities.maximum} mm'
             ),
             PropertyView(
-                'Maksymalna wysokość stosu w trakcie transportu:','${box.maxStackLevel} szt.'
+                'Maksymalna wysokość stosu w trakcie transportu:',
+                '${box.maxStackLevel} szt.'
             ),
           ]
       ),
