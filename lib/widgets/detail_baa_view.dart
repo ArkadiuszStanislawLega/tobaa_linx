@@ -14,15 +14,12 @@ class DetailBaa extends StatelessWidget {
     var box = DatabaseBoxes.container[this.battleAirAsset.boxType]!;
     return Scaffold(
       appBar: AppBar(
-          title: Text("Transporting Organiser of Battle Air Assets List")),
+          title: Text('${this.battleAirAsset.name} ${this.battleAirAsset
+              .explosionClass.toString()}')),
       body: Column(
           children:
           [
-            PropertyView(
-                'Nazwa', '${this.battleAirAsset.name} ${this.battleAirAsset
-                .explosionClass.toString()}'
-            ),
-            PropertyView(
+              PropertyView(
                 'Podklasa wybuchowości:',
                 this.battleAirAsset.explosionClass.explosionSubclass
                     .description
