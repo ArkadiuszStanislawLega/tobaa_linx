@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_assets.dart';
-import 'package:tobaa/widgets/baa_list_view.dart';
+import 'package:tobaa/widgets/content_baa_list.dart';
 import 'package:tobaa/widgets/detail_baa_view.dart';
 import 'enumerators/baa_type.dart';
 

@@ -4,6 +4,7 @@ import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_assets.dart';
 
 import '../main.dart';
+import 'baa_list_item.dart';
 
 class ContentBaaList extends StatefulWidget {
   @override
@@ -25,8 +26,7 @@ class _ContentBaaListState extends State<ContentBaaList> {
               TOBAAApp.index = assets.elementAt(index).type;
               Navigator.pushNamed(context, '/detail');
             },
-            title: Text(assets.elementAt(index).name),
-          ),
+            title: BaaListItem(assets.elementAt(index))),
         );
       },
     );
