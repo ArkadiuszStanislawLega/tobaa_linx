@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
+import 'package:tobaa/widgets/property_view.dart';
 
 class DetailBaa extends StatelessWidget {
   final BattleAirAsset battleAirAsset;
@@ -17,103 +18,62 @@ class DetailBaa extends StatelessWidget {
       body: Column(
           children:
           [
-            Row(children: [
-              Text('Nazwa:'),
-              Text('${this.battleAirAsset.name} ${this.battleAirAsset
-                  .explosionClass.toString()}'),
-            ],
+            PropertyView(
+              'Nazwa', '${this.battleAirAsset.name} ${this.battleAirAsset
+                .explosionClass.toString()}'
             ),
-            Row(children: [
-              Text('Podklasa wybuchowości:'),
-              Flexible(
-                child: Text(this.battleAirAsset.explosionClass.explosionSubclass
-                    .description, overflow: TextOverflow.ellipsis),
-              )
-            ],
+            PropertyView(
+                'Podklasa wybuchowości:', this.battleAirAsset.explosionClass.explosionSubclass
+                .description
             ),
-            Row(children: [
-              Text('Grupa kompatybilności:'),
-              Flexible(
-                  child: Text(
-                      this.battleAirAsset.explosionClass.compatibilityGroup
-                          .description, textAlign: TextAlign.left)
-              ),
-            ],
+            PropertyView(
+                'Grupa kompatybilności:', this.battleAirAsset.explosionClass.compatibilityGroup
+                .description
             ),
-            Row(children: [
-              Text('Długość:'),
-              Text('${this.battleAirAsset.dimensions.length} mm'),
-            ],
+            PropertyView(
+                'Długość:', '${this.battleAirAsset.dimensions.length} mm'
             ),
-            Row(children: [
-              Text('Szerokość:'),
-              Text('${this.battleAirAsset.dimensions.width} mm'),
-            ],
+            PropertyView(
+                'Szerokość:', '${this.battleAirAsset.dimensions.width} mm'
             ),
-            Row(children: [
-              Text('Wysokość:'),
-              Text('${this.battleAirAsset.dimensions.height} mm'),
-            ],
+            PropertyView(
+                'Wysokość:', '${this.battleAirAsset.dimensions.height} mm'
             ),
-            Row(children: [
-              Text('Waga brutton:'),
-              Text('${this.battleAirAsset.weights.gross} g'),
-            ],
+            PropertyView(
+                'Waga brutton:', '${this.battleAirAsset.weights.gross} g'
             ),
-            Row(children: [
-              Text('Waga netto:'),
-              Text('${this.battleAirAsset.weights.net} g'),
-            ],
+            PropertyView(
+                'Waga netto:', '${this.battleAirAsset.weights.net} g'
             ),
-            Row(children: [
-              Text('Waga ładunków wybuchowych:'),
-              Text('${this.battleAirAsset.weights.netExplosive} g'),
-            ],
+            PropertyView(
+                'Waga ładunków wybuchowych:', '${this.battleAirAsset.weights.netExplosive} g'
             ),
-            Row(children: [
-              Text('Kontener:'),
-              Text('${box.name}'),
-            ],
+            PropertyView(
+                'Kontener:', '${box.name}'
             ),
-            Row(children: [
-              Text('Waga netto kontenera:'),
-              Text('${box.weights.net} g'),
-            ],
+            PropertyView(
+                'Waga netto kontenera:', '${box.weights.net} g'
             ),
-            Row(children: [
-              Text('Waga brutto załadowanego kontenera:'),
-              Text('${box.weights.gross} g'),
-            ],
+            PropertyView(
+                'Waga brutto załadowanego kontenera:', '${box.weights.gross} g'
             ),
-            Row(children: [
-              Text('Waga środków wybuchowych w pełni załadowanego kontenera:'),
-              Text('${box.weights.netExplosive} g'),
-            ],
+            PropertyView(
+                'Waga środków wybuchowych w pełni załadowanego kontenera:', '${box.weights.netExplosive} g'
             ),
-            Row(children: [
-              Text('Wysokość:'),
-              Text('${box.dimensions.height} mm'),
-            ],
+            PropertyView(
+                'Wysokość:', '${box.dimensions.height} mm'
             ),
-            Row(children: [
-              Text('Szerokość:'),
-              Text('${box.dimensions.width} mm'),
-            ],
+            PropertyView(
+                'Szerokość:', '${box.dimensions.width} mm'
             ),
-            Row(children: [
-              Text('Długość:'),
-              Text('${box.dimensions.length} mm'),
-            ],
+            PropertyView(
+                'Długośc:', '${box.dimensions.length} mm'
             ),
-            Row(children: [
-              Text('Pojemność:'),
-              Text('${box.capacities.maximum} mm'),
-            ],
+            PropertyView(
+                'Pojemność:', '${box.capacities.maximum} mm'
             ),
-            Row(children: [
-              Text('Maksymalna wysokość stosu w trakcie transportu:'),
-              Text('${box.maxStackLevel} szt.'),
-            ],
+            PropertyView(
+                'Maksymalna wysokość stosu w trakcie transportu:','${box.maxStackLevel} szt.'
             ),
           ]
       ),
