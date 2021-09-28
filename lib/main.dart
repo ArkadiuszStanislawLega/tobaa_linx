@@ -12,6 +12,10 @@ void main() {
 class TOBAAApp extends StatelessWidget {
   static BattleAirAssetType index = BattleAirAssetType.None;
 
+  static int value = 0;
+  static BattleAirAssetType baa = BattleAirAssetType.None;
+  static Map<BattleAirAssetType, int> values = {};
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,9 +25,18 @@ class TOBAAApp extends StatelessWidget {
       routes: {
         '/' : (context) => BaaList(),
         '/home': (context) => BaaList(),
-        '/detail' : (context) => DetailBaa(DatabaseAssets.container[index]!)
+        '/detail' : (context) => DetailBaa(DatabaseAssets.container[index]!, this._addValue)
       },
     );
+  }
+
+
+  void _addValue(){
+    values[baa] = 100;
+    print('${values[baa]}');
+    // setState(() {
+    //   values[baa] = 100;
+    // });
   }
 }
 

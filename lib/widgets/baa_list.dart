@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/enumerators/baa_type.dart';
 
 import 'content_baa_list.dart';
 
@@ -9,7 +10,9 @@ class BaaList extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             title: Text("Transporting Organiser of Battle Air Assets Lista")),
-        body: ContentBaaList()
+        body: ContentBaaList(),
     );
   }
+
+
 }

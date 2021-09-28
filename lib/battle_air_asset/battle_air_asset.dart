@@ -1,8 +1,8 @@
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/weights/weights.dart';
+import '/dimensions/dimensions.dart';
+import '/enumerators/box_type.dart';
+import '/enumerators/baa_type.dart';
+import '/explosion_class/explosion_class.dart';
+import '/weights/weights.dart';
 
 class BattleAirAsset {
   String name;

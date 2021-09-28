@@ -4,10 +4,23 @@ import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/widgets/property_view.dart';
 
-class DetailBaa extends StatelessWidget {
-  final BattleAirAsset battleAirAsset;
+import '../main.dart';
 
-  DetailBaa(this.battleAirAsset);
+class DetailBaa extends StatefulWidget {
+  final BattleAirAsset battleAirAsset;
+  final VoidCallback selectHandler;
+
+  DetailBaa(this.battleAirAsset, this.selectHandler);
+  @override
+  State<StatefulWidget> createState() {
+    return _DetailBaa(this.battleAirAsset);
+  }
+}
+
+class _DetailBaa extends State<DetailBaa> {
+  BattleAirAsset battleAirAsset;
+
+  _DetailBaa(this.battleAirAsset);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +32,7 @@ class DetailBaa extends StatelessWidget {
       body: Column(
           children:
           [
-              PropertyView(
+            PropertyView(
                 'Podklasa wybuchowości:',
                 this.battleAirAsset.explosionClass.explosionSubclass
                     .description
@@ -55,7 +68,8 @@ class DetailBaa extends StatelessWidget {
                 'Waga netto kontenera:', '${box.weights.net} g'
             ),
             PropertyView(
-                'Waga brutto załadowanego kontenera:', '${box.weights.gross} g'
+                'Waga brutto załadowanego kontenera:',
+                '${box.weights.gross} g'
             ),
             PropertyView(
                 'Waga środków wybuchowych w pełni załadowanego kontenera:',
@@ -77,8 +91,23 @@ class DetailBaa extends StatelessWidget {
                 'Maksymalna wysokość stosu w trakcie transportu:',
                 '${box.maxStackLevel} szt.'
             ),
+            PropertyView(
+                'Ilość wybranych środków:',
+                TOBAAApp.values.containsKey(box.battleAirAsset.type) ?
+                '${TOBAAApp.values[box.battleAirAsset.type]} szt.' :
+                '0 szt.'
+            ),
+            ElevatedButton(child: Text("Dodaj"),
+              onPressed: () =>
+              {
+                setState(() {
+                  TOBAAApp.values[box.battleAirAsset.type] = 100;
+                })
+              },)
           ]
       ),
     );
   }
 }
+
+

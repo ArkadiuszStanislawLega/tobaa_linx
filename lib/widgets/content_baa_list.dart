@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_assets.dart';
+import 'package:tobaa/enumerators/baa_type.dart';
 
 import '../main.dart';
 import 'baa_list_item.dart';
@@ -14,6 +15,8 @@ class ContentBaaList extends StatefulWidget {
 }
 
 class _ContentBaaListState extends State<ContentBaaList> {
+  _ContentBaaListState();
+
   @override
   Widget build(BuildContext context) {
     Iterable<BattleAirAsset> assets = DatabaseAssets.container.values;
@@ -26,11 +29,13 @@ class _ContentBaaListState extends State<ContentBaaList> {
               TOBAAApp.index = assets.elementAt(index).type;
               Navigator.pushNamed(context, '/detail');
             },
-            title: BaaListItem(assets.elementAt(index))),
+            title: BaaListItem(assets.elementAt(index))
+          ),
         );
       },
     );
 
     return listItem;
   }
+
 }
