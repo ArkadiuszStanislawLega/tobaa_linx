@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/widgets/property_view.dart';
@@ -24,6 +25,7 @@ class _DetailBaa extends State<DetailBaa> {
 
   @override
   Widget build(BuildContext context) {
+    var inputStr = "";
     var box = DatabaseBoxes.container[this.battleAirAsset.boxType]!;
     return Scaffold(
       appBar: AppBar(
@@ -97,11 +99,15 @@ class _DetailBaa extends State<DetailBaa> {
                 '${TOBAAApp.values[box.battleAirAsset.type]} szt.' :
                 '0 szt.'
             ),
+            TextField(
+              decoration: InputDecoration(hintText: "Podaj ilość środków"),
+              onChanged: (String str) => inputStr = str,),
             ElevatedButton(child: Text("Dodaj"),
               onPressed: () =>
               {
                 setState(() {
-                  TOBAAApp.values[box.battleAirAsset.type] = 100;
+                  TOBAAApp.values[box.battleAirAsset.type] =
+                  int.tryParse(inputStr)!;
                 })
               },)
           ]
