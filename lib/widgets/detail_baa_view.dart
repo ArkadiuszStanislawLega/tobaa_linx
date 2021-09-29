@@ -25,7 +25,7 @@ class _DetailBaa extends State<DetailBaa> {
 
   @override
   Widget build(BuildContext context) {
-    var inputStr = "";
+    var value = 0;
     var box = DatabaseBoxes.container[this.battleAirAsset.boxType]!;
     return Scaffold(
       appBar: AppBar(
@@ -95,19 +95,22 @@ class _DetailBaa extends State<DetailBaa> {
             ),
             PropertyView(
                 'Ilość wybranych środków:',
-                TOBAAApp.values.containsKey(box.battleAirAsset.type) ?
-                '${TOBAAApp.values[box.battleAirAsset.type]} szt.' :
+                TOBAAApp.values.containsKey(this.battleAirAsset.type) ?
+                '${TOBAAApp.values[this.battleAirAsset.type]} szt.' :
                 '0 szt.'
             ),
             TextField(
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ],
               decoration: InputDecoration(hintText: "Podaj ilość środków"),
-              onChanged: (String str) => inputStr = str,),
+              onChanged: (String str) => str.isNotEmpty ? value = int.tryParse(str)! : {},),
             ElevatedButton(child: Text("Dodaj"),
               onPressed: () =>
               {
                 setState(() {
-                  TOBAAApp.values[box.battleAirAsset.type] =
-                  int.tryParse(inputStr)!;
+                  TOBAAApp.values[this.battleAirAsset.type] = value;
                 })
               },)
           ]

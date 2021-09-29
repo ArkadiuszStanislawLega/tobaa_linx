@@ -30,7 +30,6 @@ class _BaaListItemState extends State<BaaListItem> {
             Text(baa.name, textAlign: TextAlign.center,),
             Text(baa.explosionClass.toString(), textAlign: TextAlign.center,)
           ]),
-
       TOBAAApp.values.containsKey(baa.type) ?
       Text('${TOBAAApp.values[baa.type]!}') :
       Text('${0}')
