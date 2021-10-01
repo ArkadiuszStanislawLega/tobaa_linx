@@ -28,93 +28,99 @@ class _DetailBaa extends State<DetailBaa> {
     var value = 0;
     var box = DatabaseBoxes.container[this.battleAirAsset.boxType]!;
     return Scaffold(
-      appBar: AppBar(
-          title: Text('${this.battleAirAsset.name} ${this.battleAirAsset
-              .explosionClass.toString()}')),
-      body: Column(
-          children:
-          [
-            PropertyView(
-                'Podklasa wybuchowości:',
-                this.battleAirAsset.explosionClass.explosionSubclass
-                    .description
-            ),
-            PropertyView(
-                'Grupa kompatybilności:',
-                this.battleAirAsset.explosionClass.compatibilityGroup
-                    .description
-            ),
-            PropertyView(
-                'Długość:', '${this.battleAirAsset.dimensions.length} mm'
-            ),
-            PropertyView(
-                'Szerokość:', '${this.battleAirAsset.dimensions.width} mm'
-            ),
-            PropertyView(
-                'Wysokość:', '${this.battleAirAsset.dimensions.height} mm'
-            ),
-            PropertyView(
-                'Waga brutton:', '${this.battleAirAsset.weights.gross} g'
-            ),
-            PropertyView(
-                'Waga netto:', '${this.battleAirAsset.weights.net} g'
-            ),
-            PropertyView(
-                'Waga ładunków wybuchowych:',
-                '${this.battleAirAsset.weights.netExplosive} g'
-            ),
-            PropertyView(
-                'Kontener:', '${box.name}'
-            ),
-            PropertyView(
-                'Waga netto kontenera:', '${box.weights.net} g'
-            ),
-            PropertyView(
-                'Waga brutto załadowanego kontenera:',
-                '${box.weights.gross} g'
-            ),
-            PropertyView(
-                'Waga środków wybuchowych w pełni załadowanego kontenera:',
-                '${box.weights.netExplosive} g'
-            ),
-            PropertyView(
-                'Wysokość:', '${box.dimensions.height} mm'
-            ),
-            PropertyView(
-                'Szerokość:', '${box.dimensions.width} mm'
-            ),
-            PropertyView(
-                'Długośc:', '${box.dimensions.length} mm'
-            ),
-            PropertyView(
-                'Pojemność:', '${box.capacities.maximum} mm'
-            ),
-            PropertyView(
-                'Maksymalna wysokość stosu w trakcie transportu:',
-                '${box.maxStackLevel} szt.'
-            ),
-            PropertyView(
-                'Ilość wybranych środków:',
-                TOBAAApp.values.containsKey(this.battleAirAsset.type) ?
-                '${TOBAAApp.values[this.battleAirAsset.type]} szt.' :
-                '0 szt.'
-            ),
-            TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
-              ],
-              decoration: InputDecoration(hintText: "Podaj ilość środków"),
-              onChanged: (String str) => str.isNotEmpty ? value = int.tryParse(str)! : {},),
-            ElevatedButton(child: Text("Dodaj"),
-              onPressed: () =>
-              {
-                setState(() {
-                  TOBAAApp.values[this.battleAirAsset.type] = value;
-                })
-              },)
-          ]
-      ),
+        appBar: AppBar(
+            title: Text('${this.battleAirAsset.name} ${this.battleAirAsset
+                .explosionClass.toString()}')),
+        body:
+        Container(child:
+        SingleChildScrollView(child:
+        Column(
+            children:
+            [
+              PropertyView(
+                  'Podklasa wybuchowości:',
+                  this.battleAirAsset.explosionClass.explosionSubclass
+                      .description
+              ),
+              PropertyView(
+                  'Grupa kompatybilności:',
+                  this.battleAirAsset.explosionClass.compatibilityGroup
+                      .description
+              ),
+              PropertyView(
+                  'Długość:', '${this.battleAirAsset.dimensions.length} mm'
+              ),
+              PropertyView(
+                  'Szerokość:', '${this.battleAirAsset.dimensions.width} mm'
+              ),
+              PropertyView(
+                  'Wysokość:', '${this.battleAirAsset.dimensions.height} mm'
+              ),
+              PropertyView(
+                  'Waga brutton:', '${this.battleAirAsset.weights.gross} g'
+              ),
+              PropertyView(
+                  'Waga netto:', '${this.battleAirAsset.weights.net} g'
+              ),
+              PropertyView(
+                  'Waga ładunków wybuchowych:',
+                  '${this.battleAirAsset.weights.netExplosive} g'
+              ),
+              PropertyView(
+                  'Kontener:', '${box.name}'
+              ),
+              PropertyView(
+                  'Waga netto kontenera:', '${box.weights.net} g'
+              ),
+              PropertyView(
+                  'Waga brutto załadowanego kontenera:',
+                  '${box.weights.gross} g'
+              ),
+              PropertyView(
+                  'Waga środków wybuchowych w pełni załadowanego kontenera:',
+                  '${box.weights.netExplosive} g'
+              ),
+              PropertyView(
+                  'Wysokość:', '${box.dimensions.height} mm'
+              ),
+              PropertyView(
+                  'Szerokość:', '${box.dimensions.width} mm'
+              ),
+              PropertyView(
+                  'Długośc:', '${box.dimensions.length} mm'
+              ),
+              PropertyView(
+                  'Pojemność:', '${box.capacities.maximum} mm'
+              ),
+              PropertyView(
+                  'Maksymalna wysokość stosu w trakcie transportu:',
+                  '${box.maxStackLevel} szt.'
+              ),
+              PropertyView(
+                  'Ilość wybranych środków:',
+                  TOBAAApp.values.containsKey(this.battleAirAsset.type) ?
+                  '${TOBAAApp.values[this.battleAirAsset.type]} szt.' :
+                  '0 szt.'
+              ),
+              TextField(
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                decoration: InputDecoration(hintText: "Podaj ilość środków"),
+                onChanged: (String str) =>
+                str.isNotEmpty ? value = int.tryParse(str)! : {},),
+              ElevatedButton(child: Text("Dodaj"),
+                onPressed: () =>
+                {
+                  setState(() {
+                    TOBAAApp.values[this.battleAirAsset.type] = value;
+                  })
+                },)
+            ]
+        )
+        )
+        )
     );
   }
 }
