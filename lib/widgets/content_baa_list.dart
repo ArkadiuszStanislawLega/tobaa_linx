@@ -21,6 +21,8 @@ class _ContentBaaListState extends State<ContentBaaList> {
   Widget build(BuildContext context) {
     Iterable<BattleAirAsset> assets = DatabaseAssets.container.values;
     var listItem = new ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
       itemCount: assets.length,
       itemBuilder: (context, index){
         return Card(

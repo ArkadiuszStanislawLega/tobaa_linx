@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/widgets/content_baa_list.dart';
 
@@ -18,7 +19,7 @@ class BaaListItem extends StatefulWidget {
 
 class _BaaListItemState extends State<BaaListItem> {
   final BattleAirAsset baa;
-
+  int _userInput = 0;
   _BaaListItemState(this.baa);
 
   @override
@@ -28,14 +29,56 @@ class _BaaListItemState extends State<BaaListItem> {
           children:
           [
             Text(baa.name, textAlign: TextAlign.center,),
-            Text(baa.explosionClass.toString(), textAlign: TextAlign.center,)
+            Text(baa.explosionClass.toString(), textAlign: TextAlign.center,),
           ]),
-      TOBAAApp.values.containsKey(baa.type) ?
-      Text('${TOBAAApp.values[baa.type]!}') :
-      Text('${0}')
+      Row(children: [
+        TOBAAApp.values.containsKey(baa.type) ?
+        Text('${TOBAAApp.values[baa.type]!}') :
+        Text('${0}'),
+        ElevatedButton(
+          child: Text("Dodaj środek"),
+          onPressed: () =>
+          {
+            showDialog(builder: (BuildContext context) {
+              return Expanded(child: AlertDialog(
+                  title: Text("Dodaj"),
+                  content: Column(
+                    children:
+                    [
+                      Text('Dodaj do transportu ${baa.name}'),
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                        decoration: InputDecoration(
+                            hintText: "Podaj ilość środków"
+                        ),
+                        onChanged: (String str) =>
+                        str.isNotEmpty ? this._userInput = int.tryParse(str)! : {},
+                      )
+                    ],
+                  ),
+                  actions: [
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          TOBAAApp.values[this.baa.type] = this._userInput;
+                        });
+                        Navigator.pop(context, true);
+                      },
+                      child: Text("Dodaj"),
+                    )
+                  ]
+              ),
+
+              );
+            }, context: context)
+          },
+        ),
+      ]
+      )
     ]
     );
   }
-
-
 }

@@ -20,13 +20,16 @@ class DetailBaa extends StatefulWidget {
 
 class _DetailBaa extends State<DetailBaa> {
   BattleAirAsset battleAirAsset;
+  String _text = "";
 
   _DetailBaa(this.battleAirAsset);
 
   @override
   Widget build(BuildContext context) {
+
     var value = 0;
     var box = DatabaseBoxes.container[this.battleAirAsset.boxType]!;
+    this._text = "wciśnięty";
     return Scaffold(
         appBar: AppBar(
             title: Text('${this.battleAirAsset.name} ${this.battleAirAsset
@@ -42,6 +45,19 @@ class _DetailBaa extends State<DetailBaa> {
                   this.battleAirAsset.explosionClass.explosionSubclass
                       .description
               ),
+              Container(
+                child: Column(
+                  children: [
+                    Text(this._text),
+                    ElevatedButton(
+                        child: Text(this._text),
+                        onPressed: this._changeText
+                    )
+
+                  ],
+                ),
+              )
+              ,
               PropertyView(
                   'Grupa kompatybilności:',
                   this.battleAirAsset.explosionClass.compatibilityGroup
@@ -122,6 +138,17 @@ class _DetailBaa extends State<DetailBaa> {
         )
         )
     );
+  }
+
+  _changeText() {
+    setState(() {
+      if (this._text == "wciśnięty") {
+        this._text = "nie wciśnięty";
+      }
+      else {
+        this._text = "wciśnięty";
+      }
+    });
   }
 }
 
