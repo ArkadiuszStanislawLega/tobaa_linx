@@ -32,19 +32,22 @@ class _BaaListItemState extends State<BaaListItem> {
             Text(baa.name, textAlign: TextAlign.center,),
             Text(baa.explosionClass.toString(), textAlign: TextAlign.center,),
           ]),
-      Row(children: [
-        TOBAAApp.values.containsKey(baa.type) ?
-        Text('${TOBAAApp.values[baa.type]!}') :
-        Text('${0}'),
-        ElevatedButton(
-          child: Text("Dodaj środek"),
-          onPressed: this._addBaa,
-        ),
-      ]
+      Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            TOBAAApp.values.containsKey(baa.type) ?
+            Text('${TOBAAApp.values[baa.type]!}') :
+            Text('${0}'),
+            ElevatedButton(
+              child: Text("Dodaj"),
+              onPressed: this._addBaa,
+            ),
+          ]
       )
     ]
     );
   }
+
   void _addBaa(){
     showDialog(builder: (BuildContext context) {
       return Expanded(child: AlertDialog(
