@@ -20,6 +20,7 @@ class BaaListItem extends StatefulWidget {
 class _BaaListItemState extends State<BaaListItem> {
   final BattleAirAsset baa;
   int _userInput = 0;
+
   _BaaListItemState(this.baa);
 
   @override
@@ -37,48 +38,50 @@ class _BaaListItemState extends State<BaaListItem> {
         Text('${0}'),
         ElevatedButton(
           child: Text("Dodaj środek"),
-          onPressed: () =>
-          {
-            showDialog(builder: (BuildContext context) {
-              return Expanded(child: AlertDialog(
-                  title: Text("Dodaj"),
-                  content: Column(
-                    children:
-                    [
-                      Text('Dodaj do transportu ${baa.name}'),
-                      TextField(
-                        keyboardType: TextInputType.number,
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.digitsOnly
-                        ],
-                        decoration: InputDecoration(
-                            hintText: "Podaj ilość środków"
-                        ),
-                        onChanged: (String str) =>
-                        str.isNotEmpty ? this._userInput = int.tryParse(str)! : {},
-                      )
-                    ],
-                  ),
-                  actions: [
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          TOBAAApp.values[this.baa.type] = this._userInput;
-                        });
-                        Navigator.pop(context, true);
-                      },
-                      child: Text("Dodaj"),
-                    )
-                  ]
-              ),
-
-              );
-            }, context: context)
-          },
+          onPressed: this._addBaa,
         ),
       ]
       )
     ]
     );
+  }
+  void _addBaa(){
+    showDialog(builder: (BuildContext context) {
+      return Expanded(child: AlertDialog(
+          title: Text("Dodaj"),
+          content: Column(
+            children:
+            [
+              Text('Dodaj do transportu ${baa.name}'),
+              TextField(
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.digitsOnly
+                ],
+                decoration: InputDecoration(
+                    hintText: "Podaj ilość środków"
+                ),
+                onChanged: (String str) =>
+                str.isNotEmpty
+                    ? this._userInput = int.tryParse(str)!
+                    : {},
+              )
+            ],
+          ),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  TOBAAApp.values[this.baa.type] = this._userInput;
+                });
+                Navigator.pop(context, true);
+              },
+              child: Text("Dodaj"),
+            )
+          ]
+      ),
+
+      );
+    }, context: context);
   }
 }
