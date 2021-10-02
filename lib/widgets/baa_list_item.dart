@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
+import 'package:tobaa/box/box.dart';
+import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/widgets/content_baa_list.dart';
 
 import '../main.dart';
@@ -27,10 +29,20 @@ class _BaaListItemState extends State<BaaListItem> {
   Widget build(BuildContext context) {
     return Column(children: [
       Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children:
           [
-            Text(baa.name, textAlign: TextAlign.center,),
-            Text(baa.explosionClass.toString(), textAlign: TextAlign.center,),
+            Text(this.baa.name,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(this.baa.explosionClass.toString()),
+            Text('${DatabaseBoxes.container[this.baa.boxType]!.name}',
+              style: TextStyle(
+                fontStyle: FontStyle.italic,
+              ),
+            ),
           ]),
       Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +96,6 @@ class _BaaListItemState extends State<BaaListItem> {
               )
             ]
         ),
-
       );
     }, context: context);
   }
