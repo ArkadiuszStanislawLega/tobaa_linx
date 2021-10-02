@@ -48,41 +48,42 @@ class _BaaListItemState extends State<BaaListItem> {
     );
   }
 
-  void _addBaa(){
+  void _addBaa() {
     showDialog(builder: (BuildContext context) {
-      return Expanded(child: AlertDialog(
-          title: Text("Dodaj"),
-          content: Column(
-            children:
-            [
-              Text('Dodaj do transportu ${baa.name}'),
-              TextField(
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly
-                ],
-                decoration: InputDecoration(
-                    hintText: "Podaj ilość środków"
-                ),
-                onChanged: (String str) =>
-                str.isNotEmpty
-                    ? this._userInput = int.tryParse(str)!
-                    : {},
+      return Expanded(
+        child: AlertDialog(
+            title: Text("Dodaj"),
+            content: Column(
+              children:
+              [
+                Text('Dodaj do transportu ${baa.name}'),
+                TextField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  decoration: InputDecoration(
+                      hintText: "Podaj ilość środków"
+                  ),
+                  onChanged: (String str) =>
+                  str.isNotEmpty
+                      ? this._userInput = int.tryParse(str)!
+                      : {},
+                )
+              ],
+            ),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    TOBAAApp.values[this.baa.type] = this._userInput;
+                  });
+                  Navigator.pop(context, true);
+                },
+                child: Text("Dodaj"),
               )
-            ],
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  TOBAAApp.values[this.baa.type] = this._userInput;
-                });
-                Navigator.pop(context, true);
-              },
-              child: Text("Dodaj"),
-            )
-          ]
-      ),
+            ]
+        ),
 
       );
     }, context: context);

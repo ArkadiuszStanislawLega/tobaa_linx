@@ -75,40 +75,8 @@ class ExplosionClass implements Comparable {
     return 0;
   }
 
-  String _convertCompatibilityGroup(CompatibilityGroupType compatibilityGroupType){
-    switch(compatibilityGroupType){
-      case CompatibilityGroupType.A:
-        return "A";
-      case CompatibilityGroupType.B:
-        return "B";
-      case CompatibilityGroupType.C:
-        return "C";
-      case CompatibilityGroupType.D:
-        return "D";
-      case CompatibilityGroupType.E:
-        return "E";
-      case CompatibilityGroupType.F:
-        return "F";
-      case CompatibilityGroupType.G:
-        return "G";
-      case CompatibilityGroupType.H:
-        return "H";
-      case CompatibilityGroupType.J:
-        return "J";
-      case CompatibilityGroupType.K:
-        return "K";
-      case CompatibilityGroupType.L:
-        return "L";
-      case CompatibilityGroupType.N:
-        return "N";
-      case CompatibilityGroupType.S:
-        return "S";
-      case CompatibilityGroupType.None:
-        return "None";
-    }
-  }
   @override
   String toString() {
-    return '${this.explosionSubclass.id} ${this._convertCompatibilityGroup(this.compatibilityGroup.group)}';
+    return '${this.explosionSubclass.id} ${this.compatibilityGroup.convertCompatibilityGroup(this.compatibilityGroup.group)}';
   }
 }
