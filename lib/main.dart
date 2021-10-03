@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/widgets/baa_list.dart';
+import 'package:tobaa/widgets/counted_view.dart';
 import 'package:tobaa/widgets/detail_baa_view.dart';
+import 'package:tobaa/widgets/settings_view.dart';
 import 'enumerators/baa_type.dart';
 
 
@@ -25,7 +27,9 @@ class TOBAAApp extends StatelessWidget {
       routes: {
         '/' : (context) => BaaList(),
         '/home': (context) => BaaList(),
-        '/detail' : (context) => DetailBaa(DatabaseAssets.container[index]!, this._addValue)
+        '/detail' : (context) => DetailBaa(DatabaseAssets.container[index]!, this._addValue),
+        '/settings' : (context) => SettingsView(),
+        '/counted' : (context) => CountedView()
       },
     );
   }

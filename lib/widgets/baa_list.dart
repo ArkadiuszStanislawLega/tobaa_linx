@@ -20,11 +20,15 @@ class _BaaList extends State<BaaList> {
               children: [
                 ElevatedButton(
                   child: Text("Ustawienia"),
-                  onPressed: () => {},
+                  onPressed: () => {
+                  Navigator.pushNamed(context, '/settings')
+                  },
                 ),
                 ElevatedButton(
                   child: Text("Przelicz"),
-                  onPressed: () => {},
+                  onPressed: () => {
+                    Navigator.pushNamed(context, '/counted')
+                  },
                 )
               ],
             )),
