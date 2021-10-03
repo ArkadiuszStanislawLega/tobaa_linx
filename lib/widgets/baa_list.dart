@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
 
 import 'content_baa_list.dart';
 
@@ -12,13 +11,23 @@ class BaaList extends StatefulWidget {
 
 }
 class _BaaList extends State<BaaList> {
-  String _text = "wcisnij";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text("Transporting Organiser of Battle Air Assets Lista")),
+            title: Row(
+              children: [
+                ElevatedButton(
+                  child: Text("Ustawienia"),
+                  onPressed: () => {},
+                ),
+                ElevatedButton(
+                  child: Text("Przelicz"),
+                  onPressed: () => {},
+                )
+              ],
+            )),
         body: ContentBaaList()
     );
   }
