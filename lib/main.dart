@@ -12,6 +12,7 @@ void main() {
 }
 
 class TOBAAApp extends StatelessWidget {
+  static const String URL_EMPTY = '/';
   static const String URL_HOME = '/home';
   static const String URL_DETAIL = '/detail';
   static const String URL_SETTINGS = '/settings';
@@ -30,7 +31,7 @@ class TOBAAApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       initialRoute: URL_HOME,
       routes: {
-        '/': (context) => BaaList(),
+        URL_EMPTY: (context) => BaaList(),
         URL_HOME: (context) => BaaList(),
         URL_DETAIL: (context) => DetailBaa(DatabaseAssets.container[index]!),
         URL_SETTINGS: (context) => SettingsView(),
