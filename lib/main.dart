@@ -12,6 +12,11 @@ void main() {
 }
 
 class TOBAAApp extends StatelessWidget {
+  static const String URL_HOME = '/home';
+  static const String URL_DETAIL = '/detail';
+  static const String URL_SETTINGS = '/settings';
+  static const String URL_COUNTED = '/counted';
+
   static BattleAirAssetType index = BattleAirAssetType.None;
 
   static int value = 0;
@@ -23,19 +28,20 @@ class TOBAAApp extends StatelessWidget {
     return MaterialApp(
       title: 'Transporting Organiser of Battle Air Assets',
       theme: ThemeData(primarySwatch: Colors.blueGrey),
-      initialRoute: '/home',
+      initialRoute: URL_HOME,
       routes: {
-        '/' : (context) => BaaList(),
-        '/home': (context) => BaaList(),
-        '/detail' : (context) => DetailBaa(DatabaseAssets.container[index]!, this._addValue),
-        '/settings' : (context) => SettingsView(),
-        '/counted' : (context) => CountedView()
+        '/': (context) => BaaList(),
+        URL_HOME: (context) => BaaList(),
+        URL_DETAIL: (context) =>
+            DetailBaa(DatabaseAssets.container[index]!, this._addValue),
+        URL_SETTINGS: (context) => SettingsView(),
+        URL_COUNTED: (context) => CountedView()
       },
     );
   }
 
 
-  void _addValue(){
+  void _addValue() {
     values[baa] = 100;
     print('${values[baa]}');
     // setState(() {

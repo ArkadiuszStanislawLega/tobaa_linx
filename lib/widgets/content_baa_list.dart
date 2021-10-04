@@ -29,7 +29,7 @@ class _ContentBaaListState extends State<ContentBaaList> {
           child: ListTile(
             onTap: (){
               TOBAAApp.index = assets.elementAt(index).type;
-              Navigator.pushNamed(context, '/detail');
+              Navigator.pushNamed(context, TOBAAApp.URL_DETAIL);
             },
             title: BaaListItem(assets.elementAt(index))
           ),

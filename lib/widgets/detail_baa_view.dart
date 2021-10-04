@@ -20,6 +20,7 @@ class DetailBaa extends StatefulWidget {
 
 class _DetailBaa extends State<DetailBaa> {
   BattleAirAsset battleAirAsset;
+
   _DetailBaa(this.battleAirAsset);
 
   @override
@@ -33,7 +34,8 @@ class _DetailBaa extends State<DetailBaa> {
                 Text('${this.battleAirAsset.name}'),
                 ElevatedButton(
                   child: Text(
-                      '${this.battleAirAsset.explosionClass.toString()}'),
+                      '${this.battleAirAsset.explosionClass.toString()}'
+                  ),
                   onPressed: this._showExplosionClass,
                 )
               ],
@@ -122,7 +124,7 @@ class _DetailBaa extends State<DetailBaa> {
                           Row(
                               children: [
                                 Text('Podklasa wybuchowości: ',
-                              ),
+                                ),
                                 Text('${this.battleAirAsset.explosionClass
                                     .explosionSubclass.id}',
                                   style: TextStyle(
@@ -131,9 +133,10 @@ class _DetailBaa extends State<DetailBaa> {
                                 ),
                               ]),
                           Text('${this.battleAirAsset.explosionClass
-                              .explosionSubclass.description}',  style: TextStyle(
-                              fontStyle: FontStyle.italic
-                          )
+                              .explosionSubclass.description}',
+                              style: TextStyle(
+                                  fontStyle: FontStyle.italic
+                              )
                           ),
                         ])
                 ),
@@ -141,7 +144,7 @@ class _DetailBaa extends State<DetailBaa> {
                     padding: EdgeInsets.all(10),
                     child: Column(
                       children: [
-                        Row( children: [
+                        Row(children: [
                           Text('Grupa kompatybilności: '),
                           Text('$compatibilityGroup',
                             style: TextStyle(
@@ -153,7 +156,7 @@ class _DetailBaa extends State<DetailBaa> {
                         Text('${this
                             .battleAirAsset.explosionClass
                             .compatibilityGroup
-                            .description}',  style: TextStyle(
+                            .description}', style: TextStyle(
                             fontStyle: FontStyle.italic
                         )),
                       ],
