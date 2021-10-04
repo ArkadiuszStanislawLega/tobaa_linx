@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsView extends StatelessWidget {
-
+  bool isWar = true;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -11,7 +11,11 @@ class SettingsView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text("Content")
+          Switch(value: isWar, onChanged: (bool value) =>
+          {
+
+          }),
+          Text("Czas wojny")
         ],
       ),
     );
