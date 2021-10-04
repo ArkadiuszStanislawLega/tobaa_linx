@@ -32,21 +32,11 @@ class TOBAAApp extends StatelessWidget {
       routes: {
         '/': (context) => BaaList(),
         URL_HOME: (context) => BaaList(),
-        URL_DETAIL: (context) =>
-            DetailBaa(DatabaseAssets.container[index]!, this._addValue),
+        URL_DETAIL: (context) => DetailBaa(DatabaseAssets.container[index]!),
         URL_SETTINGS: (context) => SettingsView(),
         URL_COUNTED: (context) => CountedView()
       },
     );
-  }
-
-
-  void _addValue() {
-    values[baa] = 100;
-    print('${values[baa]}');
-    // setState(() {
-    //   values[baa] = 100;
-    // });
   }
 }
 

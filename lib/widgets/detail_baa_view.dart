@@ -9,9 +9,8 @@ import '../main.dart';
 
 class DetailBaa extends StatefulWidget {
   final BattleAirAsset battleAirAsset;
-  final VoidCallback selectHandler;
 
-  DetailBaa(this.battleAirAsset, this.selectHandler);
+  DetailBaa(this.battleAirAsset);
   @override
   State<StatefulWidget> createState() {
     return _DetailBaa(this.battleAirAsset);
