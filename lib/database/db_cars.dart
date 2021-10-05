@@ -35,7 +35,7 @@ class DatabaseCars {
           gross: 1,
           net: 1
       ),
-      name: 'Test car',
+      name: 'Small car test',
       stacks: [],
       dimensionOfLoadingArea: LoadingAreaDimensions(
           height: 6,
