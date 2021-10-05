@@ -30,9 +30,7 @@ class TOBAAApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DatabaseCars.container.forEach((key, value) {
-      selectedCars[key] = true;
-    });
+    this._fillSelectedCarList();
     return MaterialApp(
       title: 'Transporting Organiser of Battle Air Assets',
       theme: ThemeData(primarySwatch: Colors.blueGrey),
@@ -45,6 +43,12 @@ class TOBAAApp extends StatelessWidget {
         URL_COUNTED: (context) => CountedView()
       },
     );
+  }
+
+  void _fillSelectedCarList(){
+    DatabaseCars.container.forEach((key, value) {
+      selectedCars[key] = true;
+    });
   }
 }
 
