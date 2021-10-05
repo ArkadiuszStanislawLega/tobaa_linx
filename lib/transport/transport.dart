@@ -60,6 +60,10 @@ class Transport {
 
   bool get isWarTime => _isWarTime;
 
+  set isWarTime(bool value) {
+    _isWarTime = value;
+  }
+
   List<Car> get cars => _cars;
 
   int get numberOfCars {

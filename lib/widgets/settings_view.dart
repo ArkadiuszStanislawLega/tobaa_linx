@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_cars.dart';
-import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/widgets/settings_car_list_item.dart';
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/enumerators/car_type.dart';
+import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/baa_list.dart';
 import 'package:tobaa/widgets/counted_view.dart';
 import 'package:tobaa/widgets/detail_baa_view.dart';
@@ -27,6 +28,7 @@ class TOBAAApp extends StatelessWidget {
 
   static Map<BattleAirAssetType, int> values = {};
   static Map<CarType, bool> selectedCars = {};
+  static Transport transport = Transport();
 
   @override
   Widget build(BuildContext context) {
