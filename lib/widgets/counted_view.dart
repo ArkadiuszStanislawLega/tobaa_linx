@@ -15,7 +15,7 @@ class CountedView extends StatelessWidget {
        TOBAAApp.transport.addCar(key);
      }
     });
-    //TODO: Sprawdzić dla czego nie wykonuje obliczeń dla normalnych środków, a dla testowych wykonuje normalnie
+
     TOBAAApp.transport.createTransport(TOBAAApp.values);
     return  Scaffold(
         appBar: AppBar(

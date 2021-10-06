@@ -88,8 +88,9 @@ class DatabaseAssets {
             width: 1
         ),
         explosionClass: ExplosionClass(
-            compatibilityGroup: CompatibilityGroup(),
-            explosionSubclass: ExplosionSubclass())
+            compatibilityGroup: DatabaseCompatibilityGroup
+                .container[CompatibilityGroupType.D]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)
     ),
 
     BattleAirAssetType.AGM158: new BattleAirAsset(
