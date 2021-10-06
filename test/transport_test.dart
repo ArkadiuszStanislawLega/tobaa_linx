@@ -20,7 +20,7 @@ void main() {
     expect(transport.numberOfCars, 1);
 
     Map<BattleAirAssetType, int> map = new Map <BattleAirAssetType, int>();
-    map[BattleAirAssetType.test] = 10;
+    map[BattleAirAssetType.AGM65G] = 10;
 
     transport.createTransport(map);
     expect(transport.numberOfCars, 1);

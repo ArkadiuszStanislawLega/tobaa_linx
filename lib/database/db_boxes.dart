@@ -115,7 +115,7 @@ class DatabaseBoxes {
             length: 10
         ),
         maxStackLevel: 2,
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM158]!,
         type: BoxType.test
     ),
 
@@ -133,7 +133,7 @@ class DatabaseBoxes {
             length: 10
         ),
         maxStackLevel: 2,
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM65G]!,
         type: BoxType.test
     ),
 
@@ -151,7 +151,7 @@ class DatabaseBoxes {
             length: 10
         ),
         maxStackLevel: 2,
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM9x]!,
         type: BoxType.test
     ),
 
@@ -169,7 +169,7 @@ class DatabaseBoxes {
             length: 10
         ),
         maxStackLevel: 2,
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
         type: BoxType.test
     ),
   };
