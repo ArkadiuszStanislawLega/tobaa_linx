@@ -42,6 +42,25 @@ class DatabaseCars {
           length: 5,
           width: 6
       ),
+    ),
+
+    CarType.euro_cargo: Car(
+      weightOfLoadingArea: LoadingAreaWeights(
+          maximum: 15990000,
+          maximumNetExplosive: 1.5
+      ),
+      type: CarType.smallCarTest,
+      carWeights: Weights(
+          gross: 6770000,
+          net: 677000
+      ),
+      name: 'IVECO - EUROCARGO',
+      stacks: [],
+      dimensionOfLoadingArea: LoadingAreaDimensions(
+          height: 1807,
+          length: 6054,
+          width: 2470
+      ),
     )
   };
 }

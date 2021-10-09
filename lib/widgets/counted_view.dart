@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/main.dart';
+import 'package:tobaa/stack/stack_level.dart';
 
 class CountedView extends StatelessWidget {
 
@@ -76,6 +77,37 @@ class CountedView extends StatelessWidget {
     );
   }
 
+  Widget _listViewStackLevel(List<StackLevel> levels){
+    return new ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemCount: levels.length,
+      itemBuilder: (context, index){
+        return Card(
+          child: ListTile(
+              onTap: (){
+                // TOBAAApp.selectedCars.add(assets.elementAt(index));
+                // Navigator.pushNamed(context, TOBAAApp.URL_DETAIL);
+              },
+              title: this._stackLevel(levels.elementAt(index))
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _stackLevel(StackLevel level){
+    return Column(
+      children: [
+        Text('NEW: ${level.weights.netExplosive}'),
+        Text('Waga netto: ${level.weights.net}'),
+        Text('Waga brutto: ${level.weights.gross}'),
+        Text('Ilość kontenerów: ${level.boxes.length}'),
+        Text('Ilość środków: ${level.capacities.current}'),
+      ],
+    );
+  }
+
   Widget _stack(ContainerStack.Stack stack){
     return Column(
       children: [
@@ -85,6 +117,7 @@ class CountedView extends StatelessWidget {
         Text('Waga brutto: ${stack.weights.gross}'),
         Text('Ilość kontenerów: ${stack.currentNumberOfBoxes}'),
         Text('Ilość środków: ${stack.battleAirAssetCapacities.current}'),
+        this._listViewStackLevel(stack.levels)
       ],
     );
   }
