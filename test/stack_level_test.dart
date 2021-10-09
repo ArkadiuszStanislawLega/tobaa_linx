@@ -79,19 +79,19 @@ void main() {
 
     expect(stackLevel.isBoxWillBeFit(box), true);
 
-    stackLevel.tryAppendBox(box);
+    stackLevel.appendBox(box);
     expect(stackLevel.capacities.current, 10);
     expect(stackLevel.dimensions.occupied.capacity, 5);
     expect(stackLevel.weights.netExplosive, 5);
     expect(stackLevel.weights.gross, 11);
 
-    stackLevel.tryAppendBox(box);
+    stackLevel.appendBox(box);
     expect(stackLevel.capacities.current, 20);
     expect(stackLevel.dimensions.occupied.capacity, 10);
     expect(stackLevel.weights.netExplosive, 10);
     expect(stackLevel.weights.gross, 22);
 
-    stackLevel.tryAppendBox(box);
+    stackLevel.appendBox(box);
     expect(stackLevel.capacities.current, 30);
     expect(stackLevel.dimensions.occupied.capacity, 15);
     expect(stackLevel.weights.netExplosive, 15);

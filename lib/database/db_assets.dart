@@ -118,9 +118,9 @@ class DatabaseAssets {
         boxType: BoxType.CNU445,
         name: "AGM-65G2 MAVERIC",
         weights: Weights(
-            gross: 306100,
+            gross: 503413,
             netExplosive: 65500,
-            net: 306100
+            net: 197313
         ),
         dimensions: Dimensions(
             height: 1,

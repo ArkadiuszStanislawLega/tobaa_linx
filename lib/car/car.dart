@@ -21,6 +21,7 @@ class Car {
   late List<Stack> stacks;
   late CarType type;
 
+
   Car.empty(){
     this.name = "";
     this.carWeights = new Weights();
@@ -28,6 +29,7 @@ class Car {
     this.dimensionOfLoadingArea = new LoadingAreaDimensions();
     this.stacks = [];
     this.type = CarType.None;
+    this.explosionClass = new ExplosionClass.empty();
   }
 
   Car({
@@ -45,6 +47,12 @@ class Car {
   }
 
   ExplosionClass get explosionClass => _explosionClass;
+
+  int capacity(){
+    int value = 0;
+    this.stacks.forEach((element) {value += element.battleAirAssetCapacities.current;});
+    return value;
+  }
 
   void addBoxes(List<Box> boxes) {
     if (boxes.isNotEmpty) {
@@ -173,7 +181,7 @@ class Car {
         .compatibilityGroup;
     var carCompatibilityGroupType = this.explosionClass.compatibilityGroup;
 
-    var answer = carCompatibilityGroupType.compareTo(boxCompatibilityGroupType);
+    var answer = carCompatibilityGroupType.canBeStorageWith(boxCompatibilityGroupType);
     //TODO: Dopisać case 3, 4, 5.
 
     switch (answer) {

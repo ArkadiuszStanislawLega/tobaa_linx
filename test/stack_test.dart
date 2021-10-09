@@ -137,7 +137,10 @@ void main() {
 
     List<Box> boxes = [box, box, box];
     stack.addAllBoxes(boxes);
-
+    expect(stack.levels[0].capacities.current, 30.0);
+    // expect(stack.levels[0].weights.net, 3.0);
+    expect(stack.levels[0].weights.netExplosive, 15.0);
+    expect(stack.levels[0].weights.gross, 33.0);
     expect(stack.battleAirAssetCapacities.current, 30);
     expect(stack.weights.gross, 33.0);
     expect(stack.weights.net, 30.0);

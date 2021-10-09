@@ -5,6 +5,7 @@ import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/main.dart';
 import 'package:tobaa/stack/stack_level.dart';
+import 'package:tobaa/transport/transport.dart';
 
 class CountedView extends StatelessWidget {
 
@@ -16,7 +17,7 @@ class CountedView extends StatelessWidget {
     //     TOBAAApp.transport.addCar(key);
     //   }
     // });
-
+    TOBAAApp.transport = new Transport();
     TOBAAApp.transport.selectedCar = CarType.euro_cargo;
     TOBAAApp.transport.createTransport(TOBAAApp.values);
 
@@ -28,10 +29,11 @@ class CountedView extends StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                   children: [
-                    Text('${TOBAAApp.transport.transportGrossWeight}'),
-                    Text('${TOBAAApp.transport.transportNetExplosiveWeight}'),
-                    Text('${TOBAAApp.transport.transportNetWeight}'),
-                    Text('${TOBAAApp.transport.numberOfCars}'),
+                    Text('Ilość środków: ${TOBAAApp.transport.capacity()}'),
+                    Text('Waga brutto transportu: ${TOBAAApp.transport.transportGrossWeight}'),
+                    Text('Waga netto ładunków wybuchowych: ${TOBAAApp.transport.transportNetExplosiveWeight}'),
+                    Text('Waga środków bojowych: ${TOBAAApp.transport.transportNetWeight}'),
+                    Text('Ilość pojazdów: ${TOBAAApp.transport.numberOfCars}'),
                     this._carsListView(TOBAAApp.transport.cars
                       // Text('${transport.transportGrossWeight}')
                     )

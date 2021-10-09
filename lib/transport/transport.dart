@@ -35,6 +35,11 @@ class Transport {
 
   static Map<CarType, LoadingAreaWeights> _carWeightLimits = {};
 
+  int capacity(){
+    int value = 0;
+    this._cars.forEach((element) {value+=element.capacity();});
+    return value;
+  }
   Transport() {
     this._initial();
   }
@@ -286,7 +291,6 @@ class Transport {
     var car = DatabaseCars.container[this._selectedCar];
     if (car!.isBoxesWillFit(this._boxesToAdd)) {
       this.addCar(this._selectedCar);
-
       this._cars.last.addBoxes(this._boxesToAdd);
     }
 

@@ -14,24 +14,28 @@ void main() {
   });
 
   test("getters", () {
-    Transport transport = new Transport();
+    // Transport transport = new Transport();
+    //
+    // transport.addCar(CarType.euro_cargo);
+    // expect(transport.numberOfCars, 1);
+    //
+    // Map<BattleAirAssetType, int> map = new Map <BattleAirAssetType, int>();
+    // map[BattleAirAssetType.AGM65G] = 10;
+    //
+    // transport.createTransport(map);
+    // expect(transport.numberOfCars, 1);
+    //
+    // transport = new Transport();
+    // map.clear();
 
-    transport.addCar(CarType.test);
-    expect(transport.numberOfCars, 1);
+    // transport.addCar(CarType.test);
+    // map[BattleAirAssetType.heavyTest] = 1;
+    // transport.createTransport(map);
+    Transport tr = new Transport();
+    tr.selectedCar = CarType.euro_cargo;
+    tr.createTransport({ BattleAirAssetType.AIM120 : 8});
 
-    Map<BattleAirAssetType, int> map = new Map <BattleAirAssetType, int>();
-    map[BattleAirAssetType.AGM65G] = 10;
-
-    transport.createTransport(map);
-    expect(transport.numberOfCars, 1);
-
-    transport = new Transport();
-    map.clear();
-
-    transport.addCar(CarType.test);
-    map[BattleAirAssetType.heavyTest] = 1;
-    transport.createTransport(map);
-
+    print(tr.cars.length);
     //TODO:Przetestować to
     // expect(transport.cars[0].stacks[0].currentNumberOfBoxes, 1);
   });

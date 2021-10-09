@@ -24,6 +24,8 @@ void main() {
     Box boxWithCorrectSize = DatabaseBoxes.container[BoxType.correctSizeTest]!;
     Box boxWithToBigSizes = DatabaseBoxes.container[BoxType.oversizeTest]!;
 
+    expect(car.weightOfLoadingArea.current, GROSS_WEIGHT_OF_THE_TWO_BOXES);
+
     boxWithCorrectSize.fillToMaximum();
 
     // Put to big box.
