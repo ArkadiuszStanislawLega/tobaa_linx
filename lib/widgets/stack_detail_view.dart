@@ -4,6 +4,8 @@ import 'package:tobaa/car/car.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 
+import '../main.dart';
+
 class StackDetailView extends  StatelessWidget {
 
   final ContainerStack.Stack _stack;
@@ -14,7 +16,9 @@ class StackDetailView extends  StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Poziomy stosu: ${this._stack.levels.length}'),
+        title: this._stack.levels.isNotEmpty && this._stack.levels.first.boxes.isNotEmpty ?
+        Text('Stos ${this._stack.levels.first.boxes.first.name}') :
+        Text('Poziomy stosu: ${this._stack.levels.length}'),
       ),
       body: Container(
           child: new SingleChildScrollView(
@@ -45,8 +49,8 @@ class StackDetailView extends  StatelessWidget {
         return Card(
           child: ListTile(
               onTap: (){
-                // TOBAAApp.selectedCars.add(assets.elementAt(index));
-                // Navigator.pushNamed(context, TOBAAApp.URL_DETAIL);
+                TOBAAApp.selectedStackLevel = levels.elementAt(index);
+                Navigator.pushNamed(context, TOBAAApp.URL_STACK_LEVEL_DETAIL);
               },
               title: this._stackLevel(levels.elementAt(index))
           ),

@@ -18,6 +18,11 @@ class ExplosionClass implements Comparable {
   late CompatibilityGroup compatibilityGroup;
   late ExplosionSubclass explosionSubclass;
 
+  ExplosionClass.empty(){
+    this.compatibilityGroup = CompatibilityGroup();
+    this.explosionSubclass = ExplosionSubclass();
+  }
+
   ExplosionClass({
     required this.compatibilityGroup,
     required this.explosionSubclass

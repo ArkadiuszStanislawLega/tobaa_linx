@@ -16,6 +16,17 @@ class Box{
 
   late BoxType type;
 
+  Box.empty(){
+    int maxStackLevel = MINIMUM_STACK_LEVEL;
+    this.name = "";
+    this.dimensions = Dimensions() ;
+    this.weights = BoxWeights();
+    this.capacities = Capacities();
+    this.battleAirAsset = BattleAirAsset.empty();
+    this.type = BoxType.None;
+    this.maxStackLevel = maxStackLevel;
+  }
+
   Box({
         int maxStackLevel = MINIMUM_STACK_LEVEL,
         required this.name,
