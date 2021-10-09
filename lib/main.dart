@@ -5,6 +5,7 @@ import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/transport/transport.dart';
+import 'package:tobaa/widgets/box_detail_view.dart';
 import 'package:tobaa/widgets/baa_list.dart';
 import 'package:tobaa/widgets/car_detail_view.dart';
 import 'package:tobaa/widgets/counted_view.dart';
@@ -62,6 +63,7 @@ class TOBAAApp extends StatelessWidget {
         URL_CAR_DETAIL: (context) => CarDetailView(selectedCar),
         URL_STACK_DETAIL: (context) => StackDetailView(selectedStack),
         URL_STACK_LEVEL_DETAIL: (context) => StackLevelDetailView(selectedStackLevel),
+        URL_BOX_DETAIL: (context) => BoxDetailView(selectedBox)
       },
     );
   }

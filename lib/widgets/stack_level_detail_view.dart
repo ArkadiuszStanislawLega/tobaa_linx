@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
 
+import '../main.dart';
+
 class StackLevelDetailView extends  StatelessWidget {
 
   final StackLevel _stackLevel;
@@ -45,8 +47,8 @@ class StackLevelDetailView extends  StatelessWidget {
         return Card(
           child: ListTile(
               onTap: (){
-                // TOBAAApp.selectedCars.add(assets.elementAt(index));
-                // Navigator.pushNamed(context, TOBAAApp.URL_DETAIL);
+                TOBAAApp.selectedBox = levels.elementAt(index);
+                Navigator.pushNamed(context, TOBAAApp.URL_BOX_DETAIL);
               },
               title: this._box(levels.elementAt(index))
           ),
