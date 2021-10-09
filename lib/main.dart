@@ -9,6 +9,8 @@ import 'package:tobaa/widgets/car_detail_view.dart';
 import 'package:tobaa/widgets/counted_view.dart';
 import 'package:tobaa/widgets/detail_baa_view.dart';
 import 'package:tobaa/widgets/settings_view.dart';
+import 'package:tobaa/stack/stack.dart' as ContainerStack;
+import 'package:tobaa/widgets/stack_detail_view.dart';
 import 'enumerators/baa_type.dart';
 
 
@@ -23,9 +25,11 @@ class TOBAAApp extends StatelessWidget {
   static const String URL_SETTINGS = '/settings';
   static const String URL_COUNTED = '/counted';
   static const String URL_CAR_DETAIL = '/car_detail';
+  static const String URL_STACK_DETAIL = '/stack_detail';
 
   static BattleAirAssetType index = BattleAirAssetType.None;
   static Car selectedCar = Car.empty();
+  static ContainerStack.Stack selectedStack = ContainerStack.Stack.empty();
   static bool isWar = false;
   static int value = 0;
   static BattleAirAssetType baa = BattleAirAssetType.None;
@@ -49,6 +53,7 @@ class TOBAAApp extends StatelessWidget {
         URL_SETTINGS: (context) => SettingsView(),
         URL_COUNTED: (context) => CountedView(),
         URL_CAR_DETAIL: (context) => CarDetailView(selectedCar),
+        URL_STACK_DETAIL: (context) => StackDetailView(selectedStack),
       },
     );
   }

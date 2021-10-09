@@ -16,6 +16,14 @@ class Stack {
   late Box _currentBox;
   late List<Box> _boxesToAdd;
 
+  Stack.empty(){
+    this.maximumStackLevel = 0;
+    this.dimensions = Dimensions();
+    this.weights = StackWeights();
+    this.battleAirAssetCapacities = Capacities();
+    this.defaultStackLevel = StackLevel.empty();
+    this.levels = [];
+  }
 
   Stack({
     required this.maximumStackLevel,

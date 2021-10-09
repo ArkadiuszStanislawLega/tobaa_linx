@@ -9,6 +9,13 @@ class StackLevel {
   late Capacities capacities;
   late List<Box> boxes;
 
+  StackLevel.empty(){
+    this.dimensions = StackDimensions();
+    this.weights = StackWeights();
+    this.capacities = Capacities();
+    this.boxes = [];
+  }
+
   StackLevel({
     required this.dimensions,
     required this.weights,
