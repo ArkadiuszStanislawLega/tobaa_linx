@@ -21,6 +21,15 @@ class Car {
   late List<Stack> stacks;
   late CarType type;
 
+  Car.empty(){
+    this.name = "";
+    this.carWeights = new Weights();
+    this.weightOfLoadingArea = new LoadingAreaWeights();
+    this.dimensionOfLoadingArea = new LoadingAreaDimensions();
+    this.stacks = [];
+    this.type = CarType.None;
+  }
+
   Car({
     required this.name,
     required this.carWeights,

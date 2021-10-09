@@ -47,7 +47,7 @@ class DatabaseCars {
     CarType.euro_cargo: Car(
       weightOfLoadingArea: LoadingAreaWeights(
           maximum: 15990000,
-          maximumNetExplosive: 1.5
+          maximumNetExplosive: 1500000
       ),
       type: CarType.smallCarTest,
       carWeights: Weights(
