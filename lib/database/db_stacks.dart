@@ -125,7 +125,7 @@ class DatabaseStacks {
     BoxType.CNU431: Stack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(
-          maximum: 1
+          maximum: 4
       ),
       defaultStackLevel: DatabaseStackLevels.container[BoxType.CNU431]!,
       weights: StackWeights(

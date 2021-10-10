@@ -1,10 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tobaa/box/box.dart';
+import 'package:tobaa/capacities/capacities.dart';
 import 'package:tobaa/car/car.dart';
+import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/database/db_cars.dart';
+import 'package:tobaa/dimensions/dimensions.dart';
+import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/car_type.dart';
+import 'package:tobaa/weights/box_weights.dart';
 
 void main() {
   test("Add boxes with baa to car war time", () {
@@ -88,4 +93,57 @@ void main() {
     var answerFalse = car.isBoxesWillFit(boxes);
     expect(answerFalse, false);
   });
+
+  test("Add to euro-cargo", () {
+    Car car = DatabaseCars.container[CarType.euro_cargo]!;
+    Box box = new Box(
+        name: "CNU-431",
+        capacities: Capacities(
+            maximum: 4
+        ),
+        weights: BoxWeights(
+            gross: 927000,
+            net: 281000,
+            netExplosive: 232800
+        ),
+        dimensions: Dimensions(
+            height: 480,
+            width: 968,
+            length: 4416
+        ),
+        maxStackLevel: 2,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
+        type: BoxType.CNU431
+    );
+
+    Box box2 = new Box(
+        name: "CNU-431",
+        capacities: Capacities(
+            maximum: 4
+        ),
+        weights: BoxWeights(
+            gross: 927000,
+            net: 281000,
+            netExplosive: 232800
+        ),
+        dimensions: Dimensions(
+            height: 480,
+            width: 968,
+            length: 4416
+        ),
+        maxStackLevel: 2,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
+        type: BoxType.CNU431
+    );
+
+    box.capacities.fillToMaximum();
+    box2.capacities.tryIncreaseCurrent(3);
+
+    List<Box> boxes = [box, box2];
+
+    car.addBoxes(boxes);
+
+    expect(car.capacity(), 7);
+  });
+
 }

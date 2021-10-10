@@ -1,6 +1,10 @@
 import 'package:tobaa/box/box.dart';
+import 'package:tobaa/capacities/capacities.dart';
+import 'package:tobaa/database/db_stack_levels.dart';
 import 'package:tobaa/database/db_stacks.dart';
 import 'package:tobaa/dimensions/loading_area_dimensions.dart';
+import 'package:tobaa/dimensions/stack_dimensions.dart';
+import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/enumerators/compatibility_group_type.dart';
 import 'package:tobaa/explosion_class/compatibility_group.dart';
@@ -8,6 +12,7 @@ import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/explosion_class/explosion_subclass.dart';
 import 'package:tobaa/stack/stack.dart';
 import 'package:tobaa/weights/loading_area_weights.dart';
+import 'package:tobaa/weights/stack_weights.dart';
 import 'package:tobaa/weights/weights.dart';
 
 class Car {
@@ -50,7 +55,9 @@ class Car {
 
   int capacity(){
     int value = 0;
-    this.stacks.forEach((element) {value += element.battleAirAssetCapacities.current;});
+    this.stacks.forEach((element) {
+      value += element.battleAirAssetCapacities.current;
+    });
     return value;
   }
 
@@ -68,7 +75,7 @@ class Car {
   void _ifCarEmptyAddNewStack() {
     var stack = DatabaseStacks.container[this._boxesToAdd.first.type];
     if (this.stacks.isEmpty && this._isNewStackCanBeAdd(stack!)) {
-      this._addNewStack();
+      this._addNewStack(this._boxesToAdd.first.type);
     }
   }
 
@@ -91,28 +98,32 @@ class Car {
   }
 
   void _tryAddBoxesToStacks() {
-    if (this.stacks.isNotEmpty)
-      for (int i = 0; i < this.stacks.length; i++) {
-        var isBoxesCanBeAdded = this.stacks[i].isBoxesCanBeAddedToStack(
-            this._boxesToAdd);
-        var isIteratorHasMaxValue = i == this.stacks.length - 1;
+    this._boxesToAdd.forEach((currentBox) {
+      if (this.stacks.isNotEmpty)
+        for (int i = 0; i < this.stacks.length; i++) {
+          var isBoxCanBeAdd = this.stacks[i].isBoxCanBeAddedToStack(currentBox);
+          var isIteratorHasMaxValue = i == this.stacks.length - 1;
 
-        if (isBoxesCanBeAdded) {
-          this._addBoxes(i);
-          break;
+          if (isBoxCanBeAdd) {
+            this.stacks[i].addBox(currentBox);
+            this._increaseProperties();
+            break;
+          }
+
+          if (!isBoxCanBeAdd && isIteratorHasMaxValue) {
+            this._addBoxesIfNewStackCanBeCreated(i, currentBox);
+            break;
+          }
         }
 
-        if (!isBoxesCanBeAdded && isIteratorHasMaxValue) {
-          this._addBoxesIfNewStackCanBeCreated(i);
-          break;
-        }
-      }
+    });
+
   }
 
 
-  void _addNewStack() {
-    var stack = DatabaseStacks.container[this._boxesToAdd.first.type];
-    this.stacks.add(stack!);
+  void _addNewStack(BoxType boxType) {
+    var stack = this._copyStack(boxType);
+    this.stacks.add(stack);
     this.dimensionOfLoadingArea.append(stack.dimensions);
   }
 
@@ -270,14 +281,34 @@ class Car {
 
   /// Is adding new stack and then add boxes to the new stack.
   /// [index] - iterator of list boxes to add
-  void _addBoxesIfNewStackCanBeCreated(int index) {
-    Stack nextStack = DatabaseStacks.container[this._boxesToAdd.first
-        .type]!;
+  void _addBoxesIfNewStackCanBeCreated(int index, Box box) {
+    Stack nextStack = this._copyStack(box.battleAirAsset.boxType);
     if (this._isNewStackCanBeAdd(nextStack)) {
-      this._addNewStack();
-      this.stacks[index + 1].addAllBoxes(this._boxesToAdd);
+      this._addNewStack(box.type);
+      this.stacks[index + 1].addBox(box);
       this._increaseProperties();
     }
+  }
+
+  Stack _copyStack(BoxType boxType){
+    Stack copied = DatabaseStacks.container[boxType]!;
+    return Stack(
+      maximumStackLevel: copied.maximumStackLevel,
+      battleAirAssetCapacities: Capacities(
+          maximum: copied.battleAirAssetCapacities.maximum
+      ),
+      defaultStackLevel: DatabaseStackLevels.container[boxType]!,
+      weights: StackWeights(
+          maxGross: copied.weights.maxGross,
+          maxNet: copied.weights.maxNet,
+          maxNetExplosion: copied.weights.maxNetExplosion
+      ),
+      dimensions: StackDimensions(
+          length: copied.dimensions.length,
+          width: copied.dimensions.width,
+          height: copied.dimensions.height // maximum stack level * stack level height
+      ),
+    );
   }
 
   /// [index] - iterator of list boxes to add

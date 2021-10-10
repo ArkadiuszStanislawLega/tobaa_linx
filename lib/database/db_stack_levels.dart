@@ -76,13 +76,13 @@ class DatabaseStackLevels {
       weights: StackWeights(
         net: 281000.0,
         gross: 28100.0,
-        netExplosive: 232800.0,
+        netExplosive: 0,
         maxNet: 281000.0,
         maxGross: 927000.0,
         maxNetExplosion: 232800.0,
       ),
       capacities: Capacities(
-          maximum: 1
+          maximum: 4
       ),
     ),
   };

@@ -45,6 +45,26 @@ class Stack {
     return value;
   }
 
+  bool isBoxCanBeAddedToStack(Box box) {
+    this._currentBox = box;
+    if (this._isBoxAreValidated()) {
+      return true;
+    }
+    return false;
+  }
+
+  bool _isBoxAreValidated() {
+    if (this._currentBox.capacities.current > 0) {
+      if (this._isBoxTypeFitToStack()) {
+        if (this._isNumberOfBaaWillBeFit(this._currentBox.capacities.current)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+
   bool isBoxesCanBeAddedToStack(List<Box> boxes) {
     this._boxesToAdd = boxes;
     if (this._isBoxesAreValidated()) {
@@ -64,6 +84,14 @@ class Stack {
       }
     }
     return false;
+  }
+
+  void addBox(Box box) {
+    this._currentBox = box;
+    var isAddingToCurrentLevelWasSuccessful = this._tryAddBox();
+
+    if (!isAddingToCurrentLevelWasSuccessful)
+      this._tryAddBoxToNewStackLevel();
   }
 
   bool _isBoxTypeFitToStack() {

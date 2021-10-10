@@ -157,7 +157,9 @@ class DatabaseBoxes {
 
     BoxType.CNU431: new Box(
         name: "CNU-431",
-        capacities: Capacities(maximum: 4),
+        capacities: Capacities(
+            maximum: 4
+        ),
         weights: BoxWeights(
             gross: 927000,
             net: 281000,
