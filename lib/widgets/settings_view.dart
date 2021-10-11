@@ -37,12 +37,12 @@ class _SettingView extends State<SettingsView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ustawienia"),
+        title: Text('${TOBAAApp.SETTINGS_TITLE}'),
       ),
       body: Column(
         children: [
           Row(children: [
-            Text("Czas wojny"),
+            Text('${TOBAAApp.WAR_TIME_TITLE}'),
             Switch(value: TOBAAApp.isWar, onChanged: (bool value) =>
             {
               setState(() {

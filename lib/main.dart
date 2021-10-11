@@ -54,6 +54,8 @@ class TOBAAApp extends StatelessWidget {
   static const String LOADING_AREA_TITLE = 'Powierzchnia załadunkowa:';
   static const String CAR_NAME_TITLE = 'Nazwa pojazdu:';
   static const String NAME_TITLE = 'Nazwa:';
+  static const String SETTINGS_TITLE = 'Ustawienia';
+  static const String WAR_TIME_TITLE = 'Czas wojny';
 
   static BattleAirAssetType index = BattleAirAssetType.None;
   static Car selectedCar = Car.empty();
