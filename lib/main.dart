@@ -59,6 +59,17 @@ class TOBAAApp extends StatelessWidget {
   static const String MAX_STACK_LEVEL_TITLE = 'Maksymalny poziom stosu:';
   static const String STACKS_LEVEL_TITLE = 'Poziomy stosu:';
   static const String STACK_TITLE = 'Stos';
+  static const String CONTAINER_NAME_TITLE = 'Nazwa kontenera:';
+  static const String CONTAINER_NET_WEIGHT_TITLE = 'Waga netto kontenera:';
+  static const String CONTAINER_FULLY_LOADED_GROSS_WEIGHT_TITLE = 'Waga brutto załadowanego kontenera:';
+  static const String CONTAINER_FULLY_LOADED_NEW_TITLE = 'Waga środków wybuchowych w pełni załadowanego kontenera:';
+  static const String CAPACITY_TITLE = 'Pojemność:';
+  static const String MAX_STACK_HEIGHT_DURING_TRANSPORT_TITLE = 'Maksymalna wysokość stosu w trakcie transportu:';
+  static const String NUMBER_OF_CHOSEN_BAA_TITLE = 'Ilość wybranych środków:';
+  static const String INFORMATION_TITLE = 'Informacje';
+  static const String EXPLOSION_SUBCLASS_TITLE = 'Podklasa wybuchowości:';
+  static const String COMPATIBILITY_GROUP_TITLE = 'Grupa kompatybilności:';
+  static const String CLOSE_TITLE = 'Zamknij';
 
   static BattleAirAssetType index = BattleAirAssetType.None;
   static Car selectedCar = Car.empty();

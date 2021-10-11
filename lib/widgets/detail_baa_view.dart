@@ -45,56 +45,56 @@ class _DetailBaa extends State<DetailBaa> {
             child: Column(
                 children: [
                   PropertyView(
-                      'Długość:', '${this.battleAirAsset.dimensions.length} mm'
+                      TOBAAApp.LENGTH_TITLE, '${this.battleAirAsset.dimensions.length} mm'
                   ),
                   PropertyView(
-                      'Szerokość:', '${this.battleAirAsset.dimensions.width} mm'
+                      TOBAAApp.WIDTH_TITLE, '${this.battleAirAsset.dimensions.width} mm'
                   ),
                   PropertyView(
-                      'Wysokość:', '${this.battleAirAsset.dimensions.height} mm'
+                      TOBAAApp.HEIGHT_TITLE, '${this.battleAirAsset.dimensions.height} mm'
                   ),
                   PropertyView(
-                      'Waga brutto:', '${massConverter(this.battleAirAsset.weights.gross)} g'
+                      TOBAAApp.GROSS_WEIGHT_TITLE, '${massConverter(this.battleAirAsset.weights.gross)} g'
                   ),
                   PropertyView(
-                      'Waga netto:', '${massConverter(this.battleAirAsset.weights.net)} g'
+                      TOBAAApp.NET_WEIGHT_TITLE, '${massConverter(this.battleAirAsset.weights.net)} g'
                   ),
                   PropertyView(
-                      'Waga ładunków wybuchowych:',
+                      TOBAAApp.NEW_TITLE,
                       '${massConverter(this.battleAirAsset.weights.netExplosive)} g'
                   ),
                   PropertyView(
-                      'Kontener:', '${box.name}'
+                      TOBAAApp.CONTAINER_NAME_TITLE, '${box.name}'
                   ),
                   PropertyView(
-                      'Waga netto kontenera:', '${massConverter(box.weights.net)} g'
+                      TOBAAApp.CONTAINER_NET_WEIGHT_TITLE, '${massConverter(box.weights.net)} g'
                   ),
                   PropertyView(
-                      'Waga brutto załadowanego kontenera:',
-                      '${massConverter(box.weights.gross)} g'
+                      TOBAAApp.CONTAINER_FULLY_LOADED_GROSS_WEIGHT_TITLE,
+                      '${massConverter(box.weights.gross)}'
                   ),
                   PropertyView(
-                      'Waga środków wybuchowych w pełni załadowanego kontenera:',
-                      '${massConverter(box.weights.netExplosive)} g'
+                      TOBAAApp.CONTAINER_FULLY_LOADED_NEW_TITLE,
+                      '${massConverter(box.weights.netExplosive)}'
                   ),
                   PropertyView(
-                      'Wysokość:', '${box.dimensions.height} mm'
+                      TOBAAApp.HEIGHT_TITLE, '${box.dimensions.height} mm'
                   ),
                   PropertyView(
-                      'Szerokość:', '${box.dimensions.width} mm'
+                      TOBAAApp.WIDTH_TITLE, '${box.dimensions.width} mm'
                   ),
                   PropertyView(
-                      'Długośc:', '${box.dimensions.length} mm'
+                      TOBAAApp.LENGTH_TITLE, '${box.dimensions.length} mm'
                   ),
                   PropertyView(
-                      'Pojemność:', '${box.capacities.maximum} mm'
+                      TOBAAApp.CAPACITY_TITLE, '${box.capacities.maximum} mm'
                   ),
                   PropertyView(
-                      'Maksymalna wysokość stosu w trakcie transportu:',
+                      TOBAAApp.MAX_STACK_HEIGHT_DURING_TRANSPORT_TITLE,
                       '${box.maxStackLevel} szt.'
                   ),
                   PropertyView(
-                      'Ilość wybranych środków:',
+                      TOBAAApp.NUMBER_OF_CHOSEN_BAA_TITLE,
                       TOBAAApp.values.containsKey(this.battleAirAsset.type) ?
                       '${TOBAAApp.values[this.battleAirAsset.type]} szt.' :
                       '0 szt.'
@@ -112,7 +112,7 @@ class _DetailBaa extends State<DetailBaa> {
     showDialog(builder: (BuildContext context) {
       return Expanded(
         child: AlertDialog(
-            title: Text("Informacje"),
+            title: Text(TOBAAApp.INFORMATION_TITLE),
             content: Column(
               children:
               [
@@ -122,8 +122,7 @@ class _DetailBaa extends State<DetailBaa> {
                         children: [
                           Row(
                               children: [
-                                Text('Podklasa wybuchowości: ',
-                                ),
+                                Text(TOBAAApp.EXPLOSION_SUBCLASS_TITLE),
                                 Text('${this.battleAirAsset.explosionClass
                                     .explosionSubclass.id}',
                                   style: TextStyle(
@@ -144,7 +143,7 @@ class _DetailBaa extends State<DetailBaa> {
                     child: Column(
                       children: [
                         Row(children: [
-                          Text('Grupa kompatybilności: '),
+                          Text('${TOBAAApp.COMPATIBILITY_GROUP_TITLE}'),
                           Text('$compatibilityGroup',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold
@@ -168,7 +167,7 @@ class _DetailBaa extends State<DetailBaa> {
                 onPressed: () {
                   Navigator.pop(context, true);
                 },
-                child: Text("Zamknij"),
+                child: Text(TOBAAApp.CLOSE_TITLE),
               )
             ]
         ),
