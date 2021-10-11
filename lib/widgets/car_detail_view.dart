@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/car/car.dart';
-import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 
 import '../main.dart';
@@ -22,24 +21,24 @@ class CarDetailView extends  StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('Nazwa pojazdu: ${this._car.name}'),
-                  Text('Powierzchnia załadunkowa:'),
+                  Text('${TOBAAApp.CAR_NAME_TITLE} ${this._car.name}'),
+                  Text('${TOBAAApp.LOADING_AREA_TITLE}'),
                   Container(
                     child: Column(
                       children: [
-                        Text('Długość: ${this._car.dimensionOfLoadingArea.length}'),
-                        Text('Szerokość: ${this._car.dimensionOfLoadingArea.width}'),
-                        Text('Wysokość: ${this._car.dimensionOfLoadingArea.height}'),
-                        Text('Dopuszczalna waga: ${massConverter(this._car.weightOfLoadingArea.maximum)}'),
-                        Text('Dopuszczalna waga ładunku wybuchowego: ${massConverter(this._car.weightOfLoadingArea.maximumNetExplosive)}'),
+                        Text('${TOBAAApp.LENGTH_TITLE} ${this._car.dimensionOfLoadingArea.length}'),
+                        Text('${TOBAAApp.WIDTH_TITLE} ${this._car.dimensionOfLoadingArea.width}'),
+                        Text('${TOBAAApp.HEIGHT_TITLE} ${this._car.dimensionOfLoadingArea.height}'),
+                        Text('${TOBAAApp.PERMISSIBLE_WEIGHT_TITLE} ${massConverter(this._car.weightOfLoadingArea.maximum)}'),
+                        Text('${TOBAAApp.PERMISSIBLE_NEW_TITLE} ${massConverter(this._car.weightOfLoadingArea.maximumNetExplosive)}'),
                       ],
                     ),
                   ),
-                  Text('Klasa wybuchowości: ${this._car.explosionClass.toString()}'),
+                  Text('${TOBAAApp.EXPLOSION_CLASS_TITLE} ${this._car.explosionClass.toString()}'),
 
-                  Text('Waga środków wybuchowych: ${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}'),
-                  Text('Waga ładunku: ${massConverter(this._car.weightOfLoadingArea.current)}'),
-                  Text('Ilość stosów: ${this._car.stacks.length}'),
+                  Text('${TOBAAApp.NEW_TITLE} ${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}'),
+                  Text('${TOBAAApp.LOAD_WEIGHT_TITLE} ${massConverter(this._car.weightOfLoadingArea.current)}'),
+                  Text('${TOBAAApp.NUMBER_OF_THE_STACKS_TITLE} ${this._car.stacks.length}'),
                   this._listViewStack(this._car.stacks)
                 ],
               )
@@ -70,11 +69,11 @@ class CarDetailView extends  StatelessWidget {
   Widget _stack(ContainerStack.Stack stack){
     return Column(
       children: [
-        Text('Waga ładunków wybuchowych: ${massConverter(stack.weights.netExplosive)}'),
-        Text('Waga netto: ${massConverter(stack.weights.net)}'),
-        Text('Waga brutto: ${massConverter(stack.weights.gross)}'),
-        Text('Ilość kontenerów: ${stack.currentNumberOfBoxes}'),
-        Text('Ilość środków: ${stack.battleAirAssetCapacities.current}'),
+        Text('${TOBAAApp.NEW_TITLE} ${massConverter(stack.weights.netExplosive)}'),
+        Text('${TOBAAApp.NET_WEIGHT_TITLE} ${massConverter(stack.weights.net)}'),
+        Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${massConverter(stack.weights.gross)}'),
+        Text('${TOBAAApp.NUMBER_OF_THE_CONTAINERS_TITLE} ${stack.currentNumberOfBoxes}'),
+        Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${stack.battleAirAssetCapacities.current}'),
       ],
     );
   }

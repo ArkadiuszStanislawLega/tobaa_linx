@@ -38,6 +38,22 @@ class TOBAAApp extends StatelessWidget {
   static const String URL_STACK_LEVEL_DETAIL = '/stack_level_detail';
   static const String URL_BOX_DETAIL = '/box_detail';
 
+  static const String NEW_TITLE = 'Waga ładunków wybuchowych:';
+  static const String NET_WEIGHT_TITLE = 'Waga netto:';
+  static const String GROSS_WEIGHT_TITLE = 'Waga brutto:';
+  static const String LOAD_WEIGHT_TITLE = 'Waga ładunku:';
+  static const String PERMISSIBLE_WEIGHT_TITLE = 'Dopuszczalna waga:';
+  static const String PERMISSIBLE_NEW_TITLE = 'Dopuszczalna waga ładunku wybuchowego:';
+  static const String EXPLOSION_CLASS_TITLE = 'Klasa wybuchowości:';
+  static const String NUMBER_OF_THE_CONTAINERS_TITLE = 'Ilość kontenerów:';
+  static const String NUMBER_OF_THE_BAA_TITLE = 'Ilość środków:';
+  static const String NUMBER_OF_THE_STACKS_TITLE = 'Ilość stosów:';
+  static const String LENGTH_TITLE = 'Długość:';
+  static const String WIDTH_TITLE = 'Szerokość:';
+  static const String HEIGHT_TITLE = 'Wysokość:';
+  static const String LOADING_AREA_TITLE = 'Powierzchnia załadunkowa:';
+  static const String CAR_NAME_TITLE = 'Nazwa pojazdu:';
+
   static BattleAirAssetType index = BattleAirAssetType.None;
   static Car selectedCar = Car.empty();
   static ContainerStack.Stack selectedStack = ContainerStack.Stack.empty();
