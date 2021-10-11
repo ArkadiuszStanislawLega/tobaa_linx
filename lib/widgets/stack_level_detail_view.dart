@@ -17,19 +17,19 @@ class StackLevelDetailView extends  StatelessWidget {
       appBar: AppBar(
         title: this._stackLevel.boxes.length > 0 ?
         Text('Poziom stosu z ${this._stackLevel.boxes.first.name}') :
-            Text('Ilość środków: ${this._stackLevel.capacities.current}')
+            Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${this._stackLevel.capacities.current}')
       ),
       body: Container(
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('Szerokość: ${this._stackLevel.dimensions.width}'),
-                  Text('Długość: ${this._stackLevel.dimensions.length}'),
-                  Text('Wysokość: ${this._stackLevel.dimensions.height}'),
-                  Text('Waga netto: ${this._stackLevel.weights.net}'),
-                  Text('Waga brutto: ${this._stackLevel.weights.gross}'),
-                  Text('Waga ładunków wybuchowych: ${this._stackLevel.weights.netExplosive}'),
-                  Text('Ilość kontenerów: ${this._stackLevel.boxes.length}'),
+                  Text('${TOBAAApp.WIDTH_TITLE} ${this._stackLevel.dimensions.width}'),
+                  Text('${TOBAAApp.LENGTH_TITLE} ${this._stackLevel.dimensions.length}'),
+                  Text('${TOBAAApp.HEIGHT_TITLE} ${this._stackLevel.dimensions.height}'),
+                  Text('${TOBAAApp.NET_WEIGHT_TITLE} ${this._stackLevel.weights.net}'),
+                  Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${this._stackLevel.weights.gross}'),
+                  Text('${TOBAAApp.NEW_TITLE} ${this._stackLevel.weights.netExplosive}'),
+                  Text('${TOBAAApp.NUMBER_OF_THE_CONTAINERS_TITLE} ${this._stackLevel.boxes.length}'),
                   this._listViewBoxes(this._stackLevel.boxes)
                 ],
               )
@@ -60,11 +60,11 @@ class StackLevelDetailView extends  StatelessWidget {
   Widget _box(Box box) {
     return Column(
       children: [
-        Text('Nazwa: ${box.name}'),
-        Text('Waga ładunków wybuchowych: ${massConverter(box.weights.netExplosive)}'),
-        Text('Waga netto: ${massConverter(box.weights.net)}'),
-        Text('Waga brutto: ${massConverter(box.weights.gross)}'),
-        Text('Ilość środków: ${box.capacities.current}'),
+        Text('${TOBAAApp.NAME_TITLE} ${box.name}'),
+        Text('${TOBAAApp.NEW_TITLE} ${massConverter(box.weights.netExplosive)}'),
+        Text('${TOBAAApp.NET_WEIGHT_TITLE} ${massConverter(box.weights.net)}'),
+        Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${massConverter(box.weights.gross)}'),
+        Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${box.capacities.current}'),
       ],
     );
   }
