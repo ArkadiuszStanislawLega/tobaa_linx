@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/car/car.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 
@@ -17,21 +16,21 @@ class StackDetailView extends  StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: this._stack.levels.isNotEmpty && this._stack.levels.first.boxes.isNotEmpty ?
-        Text('Stos ${this._stack.levels.first.boxes.first.name}') :
-        Text('Poziomy stosu: ${this._stack.levels.length}'),
+        Text('${TOBAAApp.STACK_TITLE} ${this._stack.levels.first.boxes.first.name}') :
+        Text('${TOBAAApp.STACKS_LEVEL_TITLE} ${this._stack.levels.length}'),
       ),
       body: Container(
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('Ilość środków: ${this._stack.battleAirAssetCapacities.current}'),
-                  Text('Szerokość: ${this._stack.dimensions.width}'),
-                  Text('Długość: ${this._stack.dimensions.length}'),
-                  Text('Wysokość: ${this._stack.dimensions.height}'),
-                  Text('Waga netto: ${massConverter(this._stack.weights.net)}'),
-                  Text('Waga brutto: ${massConverter(this._stack.weights.gross)}'),
-                  Text('Waga ładunku wybuchowego: ${massConverter(this._stack.weights.netExplosive)}'),
-                  Text('Maksymalny poziom stosu: ${this._stack.maximumStackLevel}'),
+                  Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${this._stack.battleAirAssetCapacities.current}'),
+                  Text('${TOBAAApp.WIDTH_TITLE} ${this._stack.dimensions.width}'),
+                  Text('${TOBAAApp.LENGTH_TITLE} ${this._stack.dimensions.length}'),
+                  Text('${TOBAAApp.HEIGHT_TITLE} ${this._stack.dimensions.height}'),
+                  Text('${TOBAAApp.NET_WEIGHT_TITLE} ${massConverter(this._stack.weights.net)}'),
+                  Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${massConverter(this._stack.weights.gross)}'),
+                  Text('${TOBAAApp.NEW_TITLE} ${massConverter(this._stack.weights.netExplosive)}'),
+                  Text('${TOBAAApp.MAX_STACK_LEVEL_TITLE} ${this._stack.maximumStackLevel}'),
                   this._listViewStackLevel(this._stack.levels)
                 ],
               )
@@ -62,11 +61,11 @@ class StackDetailView extends  StatelessWidget {
   Widget _stackLevel(StackLevel level) {
     return Column(
       children: [
-        Text('Waga ładunków wybuchowych: ${massConverter(level.weights.netExplosive)}'),
-        Text('Waga netto: ${massConverter(level.weights.net)}'),
-        Text('Waga brutto: ${massConverter(level.weights.gross)}'),
-        Text('Ilość kontenerów: ${level.boxes.length}'),
-        Text('Ilość środków: ${level.capacities.current}'),
+        Text('${TOBAAApp.NET_WEIGHT_TITLE}${massConverter(level.weights.netExplosive)}'),
+        Text('${TOBAAApp.NET_WEIGHT_TITLE} ${massConverter(level.weights.net)}'),
+        Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${massConverter(level.weights.gross)}'),
+        Text('${TOBAAApp.NUMBER_OF_THE_CONTAINERS_TITLE} ${level.boxes.length}'),
+        Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${level.capacities.current}'),
       ],
     );
   }

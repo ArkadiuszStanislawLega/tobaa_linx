@@ -56,6 +56,9 @@ class TOBAAApp extends StatelessWidget {
   static const String NAME_TITLE = 'Nazwa:';
   static const String SETTINGS_TITLE = 'Ustawienia';
   static const String WAR_TIME_TITLE = 'Czas wojny';
+  static const String MAX_STACK_LEVEL_TITLE = 'Maksymalny poziom stosu:';
+  static const String STACKS_LEVEL_TITLE = 'Poziomy stosu:';
+  static const String STACK_TITLE = 'Stos';
 
   static BattleAirAssetType index = BattleAirAssetType.None;
   static Car selectedCar = Car.empty();
