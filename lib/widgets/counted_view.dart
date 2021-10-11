@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/main.dart';
-import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/transport/transport.dart';
 
 class CountedView extends StatelessWidget {
@@ -30,9 +28,9 @@ class CountedView extends StatelessWidget {
               child: Column(
                   children: [
                     Text('Ilość środków: ${TOBAAApp.transport.capacity()}'),
-                    Text('Waga brutto transportu: ${TOBAAApp.transport.transportGrossWeight}'),
-                    Text('Waga netto ładunków wybuchowych: ${TOBAAApp.transport.transportNetExplosiveWeight}'),
-                    Text('Waga środków bojowych: ${TOBAAApp.transport.transportNetWeight}'),
+                    Text('Waga brutto transportu: ${massConverter(TOBAAApp.transport.transportGrossWeight)}'),
+                    Text('Waga netto ładunków wybuchowych: ${massConverter(TOBAAApp.transport.transportNetExplosiveWeight)}'),
+                    Text('Waga środków bojowych: ${massConverter(TOBAAApp.transport.transportNetWeight)}'),
                     Text('Ilość pojazdów: ${TOBAAApp.transport.numberOfCars}'),
                     this._carsListView(TOBAAApp.transport.cars
                       // Text('${transport.transportGrossWeight}')

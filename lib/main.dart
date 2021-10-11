@@ -22,6 +22,11 @@ void main() {
   runApp(TOBAAApp());
 }
 
+String massConverter(var number){
+  var num = number / 1000000;
+  return '${num}t';
+}
+
 class TOBAAApp extends StatelessWidget {
   static const String URL_EMPTY = '/';
   static const String URL_HOME = '/home';

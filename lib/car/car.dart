@@ -106,7 +106,7 @@ class Car {
 
           if (isBoxCanBeAdd) {
             this.stacks[i].addBox(currentBox);
-            this._increaseProperties();
+            this._increaseProperties(currentBox);
             break;
           }
 
@@ -286,7 +286,7 @@ class Car {
     if (this._isNewStackCanBeAdd(nextStack)) {
       this._addNewStack(box.type);
       this.stacks[index + 1].addBox(box);
-      this._increaseProperties();
+      this._increaseProperties(box);
     }
   }
 
@@ -311,21 +311,17 @@ class Car {
     );
   }
 
-  /// [index] - iterator of list boxes to add
-  void _addBoxes(int index) {
-    this.stacks[index].addAllBoxes(this._boxesToAdd);
-    this._increaseProperties();
-  }
+  // /// [index] - iterator of list boxes to add
+  // void _addBoxes(int index) {
+  //   this.stacks[index].addAllBoxes(this._boxesToAdd);
+  //   this._increaseProperties();
+  // }
 
-  void _increaseProperties() {
-    for (int i = 0; i < this._boxesToAdd.length; i++) {
-      var currentBox = this._boxesToAdd[i];
-      this.weightOfLoadingArea.tryIncreaseCurrentWeight(
-          currentBox.weights.currentGross);
-      this.weightOfLoadingArea.tryIncreaseCurrentNetExplosiveWeight(
-          currentBox.weights.currentNetExplosive);
-      this.explosionClass = this._boxesToAdd[i].battleAirAsset.explosionClass;
-    }
+  void _increaseProperties(Box box) {
+    this.weightOfLoadingArea.tryIncreaseCurrentWeight(box.weights.currentGross);
+    this.weightOfLoadingArea.tryIncreaseCurrentNetExplosiveWeight(
+        box.weights.currentNetExplosive);
+    this.explosionClass = box.battleAirAsset.explosionClass;
   }
 
   // Jeżeli środki bojowe należące do różnych podklas klasy 1 załadowane są do

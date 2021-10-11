@@ -28,9 +28,9 @@ class StackDetailView extends  StatelessWidget {
                   Text('Szerokość: ${this._stack.dimensions.width}'),
                   Text('Długość: ${this._stack.dimensions.length}'),
                   Text('Wysokość: ${this._stack.dimensions.height}'),
-                  Text('Waga netto: ${this._stack.weights.net}'),
-                  Text('Waga brutton: ${this._stack.weights.gross}'),
-                  Text('Waga netto: ${this._stack.weights.netExplosive}'),
+                  Text('Waga netto: ${massConverter(this._stack.weights.net)}'),
+                  Text('Waga brutto: ${massConverter(this._stack.weights.gross)}'),
+                  Text('Waga ładunku wybuchowego: ${massConverter(this._stack.weights.netExplosive)}'),
                   Text('Maksymalny poziom stosu: ${this._stack.maximumStackLevel}'),
                   this._listViewStackLevel(this._stack.levels)
                 ],
@@ -62,9 +62,9 @@ class StackDetailView extends  StatelessWidget {
   Widget _stackLevel(StackLevel level) {
     return Column(
       children: [
-        Text('NEW: ${level.weights.netExplosive}'),
-        Text('Waga netto: ${level.weights.net}'),
-        Text('Waga brutto: ${level.weights.gross}'),
+        Text('Waga ładunków wybuchowych: ${massConverter(level.weights.netExplosive)}'),
+        Text('Waga netto: ${massConverter(level.weights.net)}'),
+        Text('Waga brutto: ${massConverter(level.weights.gross)}'),
         Text('Ilość kontenerów: ${level.boxes.length}'),
         Text('Ilość środków: ${level.capacities.current}'),
       ],

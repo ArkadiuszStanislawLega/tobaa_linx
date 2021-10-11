@@ -27,22 +27,18 @@ class CarDetailView extends  StatelessWidget {
                   Container(
                     child: Column(
                       children: [
-                        Text('Długość: ${this._car.dimensionOfLoadingArea
-                            .length}'),
+                        Text('Długość: ${this._car.dimensionOfLoadingArea.length}'),
                         Text('Szerokość: ${this._car.dimensionOfLoadingArea.width}'),
                         Text('Wysokość: ${this._car.dimensionOfLoadingArea.height}'),
-                        Text('Dopuszczalna waga: ${this._car.weightOfLoadingArea.maximum}'),
-                        Text('Dopuszczalna waga ładunku wybuchowego: ${this._car.weightOfLoadingArea.maximumNetExplosive}'),
+                        Text('Dopuszczalna waga: ${massConverter(this._car.weightOfLoadingArea.maximum)}'),
+                        Text('Dopuszczalna waga ładunku wybuchowego: ${massConverter(this._car.weightOfLoadingArea.maximumNetExplosive)}'),
                       ],
                     ),
                   ),
-                  Text('Klasa wybuchowości: ${this._car.explosionClass
-                      .toString()}'),
+                  Text('Klasa wybuchowości: ${this._car.explosionClass.toString()}'),
 
-                  Text('NEW: ${this._car.weightOfLoadingArea
-                      .currentNetExplosive}'),
-                  Text(
-                      'Waga ładunku: ${this._car.weightOfLoadingArea.current}'),
+                  Text('Waga środków wybuchowych: ${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}'),
+                  Text('Waga ładunku: ${massConverter(this._car.weightOfLoadingArea.current)}'),
                   Text('Ilość stosów: ${this._car.stacks.length}'),
                   this._listViewStack(this._car.stacks)
                 ],
@@ -74,9 +70,9 @@ class CarDetailView extends  StatelessWidget {
   Widget _stack(ContainerStack.Stack stack){
     return Column(
       children: [
-        Text('NEW: ${stack.weights.netExplosive}'),
-        Text('Waga netto: ${stack.weights.net}'),
-        Text('Waga brutto: ${stack.weights.gross}'),
+        Text('Waga ładunków wybuchowych: ${massConverter(stack.weights.netExplosive)}'),
+        Text('Waga netto: ${massConverter(stack.weights.net)}'),
+        Text('Waga brutto: ${massConverter(stack.weights.gross)}'),
         Text('Ilość kontenerów: ${stack.currentNumberOfBoxes}'),
         Text('Ilość środków: ${stack.battleAirAssetCapacities.current}'),
       ],

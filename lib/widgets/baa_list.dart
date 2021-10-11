@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/main.dart';
+import 'package:tobaa/transport/transport.dart';
 
 import 'content_baa_list.dart';
 
@@ -22,6 +23,7 @@ class BaaList extends StatelessWidget {
                 ElevatedButton(
                   child: Text("Przelicz"),
                   onPressed: () => {
+                    TOBAAApp.transport = new Transport(),
                     // TOBAAApp.transport.isWarTime = TOBAAApp.isWar,
                     Navigator.pushNamed(context, TOBAAApp.URL_COUNTED),
                   },

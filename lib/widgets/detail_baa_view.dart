@@ -54,28 +54,28 @@ class _DetailBaa extends State<DetailBaa> {
                       'Wysokość:', '${this.battleAirAsset.dimensions.height} mm'
                   ),
                   PropertyView(
-                      'Waga brutton:', '${this.battleAirAsset.weights.gross} g'
+                      'Waga brutto:', '${massConverter(this.battleAirAsset.weights.gross)} g'
                   ),
                   PropertyView(
-                      'Waga netto:', '${this.battleAirAsset.weights.net} g'
+                      'Waga netto:', '${massConverter(this.battleAirAsset.weights.net)} g'
                   ),
                   PropertyView(
                       'Waga ładunków wybuchowych:',
-                      '${this.battleAirAsset.weights.netExplosive} g'
+                      '${massConverter(this.battleAirAsset.weights.netExplosive)} g'
                   ),
                   PropertyView(
                       'Kontener:', '${box.name}'
                   ),
                   PropertyView(
-                      'Waga netto kontenera:', '${box.weights.net} g'
+                      'Waga netto kontenera:', '${massConverter(box.weights.net)} g'
                   ),
                   PropertyView(
                       'Waga brutto załadowanego kontenera:',
-                      '${box.weights.gross} g'
+                      '${massConverter(box.weights.gross)} g'
                   ),
                   PropertyView(
                       'Waga środków wybuchowych w pełni załadowanego kontenera:',
-                      '${box.weights.netExplosive} g'
+                      '${massConverter(box.weights.netExplosive)} g'
                   ),
                   PropertyView(
                       'Wysokość:', '${box.dimensions.height} mm'

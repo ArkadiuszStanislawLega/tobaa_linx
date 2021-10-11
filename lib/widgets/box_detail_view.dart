@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/box/box.dart';
 
+import '../main.dart';
+
 class BoxDetailView extends  StatelessWidget {
 
   final Box _box;
@@ -21,9 +23,9 @@ class BoxDetailView extends  StatelessWidget {
                   Text('Szerokość: ${this._box.dimensions.width}'),
                   Text('Długość: ${this._box.dimensions.length}'),
                   Text('Wysokość: ${this._box.dimensions.height}'),
-                  Text('Waga netto: ${this._box.weights.net}'),
-                  Text('Waga brutton: ${this._box.weights.currentGross}'),
-                  Text('Waga ładunków wybuchowych: ${this._box.weights.currentNetExplosive}'),
+                  Text('Waga netto: ${massConverter(this._box.weights.net)}'),
+                  Text('Waga brutto: ${massConverter(this._box.weights.currentGross)}'),
+                  Text('Waga ładunków wybuchowych: ${massConverter(this._box.weights.currentNetExplosive)}'),
                 ],
               )
           )
