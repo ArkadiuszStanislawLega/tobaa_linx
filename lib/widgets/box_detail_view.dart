@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:tobaa/box/box.dart';
 
 import '../main.dart';
+import '../strings.dart';
 
 class BoxDetailView extends  StatelessWidget {
 
@@ -20,12 +21,12 @@ class BoxDetailView extends  StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('Szerokość: ${this._box.dimensions.width}'),
-                  Text('Długość: ${this._box.dimensions.length}'),
-                  Text('Wysokość: ${this._box.dimensions.height}'),
-                  Text('Waga netto: ${massConverter(this._box.weights.net)}'),
-                  Text('Waga brutto: ${massConverter(this._box.weights.currentGross)}'),
-                  Text('Waga ładunków wybuchowych: ${massConverter(this._box.weights.currentNetExplosive)}'),
+                  Text('${Strings.WIDTH} ${this._box.dimensions.width}'),
+                  Text('${Strings.LENGTH} ${this._box.dimensions.length}'),
+                  Text('${Strings.HEIGHT} ${this._box.dimensions.height}'),
+                  Text('${Strings.NET_WEIGHT} ${massConverter(this._box.weights.net)}'),
+                  Text('${Strings.GROSS_WEIGHT} ${massConverter(this._box.weights.currentGross)}'),
+                  Text('${Strings.NEW} ${massConverter(this._box.weights.currentNetExplosive)}'),
                 ],
               )
           )
