@@ -5,6 +5,8 @@ import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 
+import '../strings.dart';
+
 class CountedView extends StatelessWidget {
 
   @override
@@ -21,17 +23,17 @@ class CountedView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Transport"),
+        title: Text(Strings.TRANSPORT),
       ),
       body: Container(
           child: new SingleChildScrollView(
               child: Column(
                   children: [
-                    Text('Ilość środków: ${TOBAAApp.transport.capacity()}'),
-                    Text('Waga brutto transportu: ${massConverter(TOBAAApp.transport.transportGrossWeight)}'),
-                    Text('Waga netto ładunków wybuchowych: ${massConverter(TOBAAApp.transport.transportNetExplosiveWeight)}'),
-                    Text('Waga środków bojowych: ${massConverter(TOBAAApp.transport.transportNetWeight)}'),
-                    Text('Ilość pojazdów: ${TOBAAApp.transport.numberOfCars}'),
+                    Text('${Strings.NUMBER_OF_THE_BAA} ${TOBAAApp.transport.capacity()}'),
+                    Text('${Strings.GROSS_WEIGHT} ${massConverter(TOBAAApp.transport.transportGrossWeight)}'),
+                    Text('${Strings.NEW} ${massConverter(TOBAAApp.transport.transportNetExplosiveWeight)}'),
+                    Text('${Strings.WEIGHT_OF_ALL_BAA} ${massConverter(TOBAAApp.transport.transportNetWeight)}'),
+                    Text('${Strings.NUMBER_OF_CARS} ${TOBAAApp.transport.numberOfCars}'),
                     this._carsListView(TOBAAApp.transport.cars
                       // Text('${transport.transportGrossWeight}')
                     )
@@ -64,7 +66,7 @@ class CountedView extends StatelessWidget {
   Widget _car(Car car){
     return Column(
       children: [
-        Text('Nazwa pojazdu: ${car.name}'),
+        Text('${Strings.NAME_OF_THE_CAR} ${car.name}'),
 
       ],
     );
