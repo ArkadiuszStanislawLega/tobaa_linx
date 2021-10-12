@@ -4,6 +4,7 @@ import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
 
 import '../main.dart';
+import '../strings.dart';
 
 class StackLevelDetailView extends  StatelessWidget {
 
@@ -17,19 +18,19 @@ class StackLevelDetailView extends  StatelessWidget {
       appBar: AppBar(
         title: this._stackLevel.boxes.length > 0 ?
         Text('Poziom stosu z ${this._stackLevel.boxes.first.name}') :
-            Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${this._stackLevel.capacities.current}')
+            Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel.capacities.current}')
       ),
       body: Container(
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('${TOBAAApp.WIDTH_TITLE} ${this._stackLevel.dimensions.width}'),
-                  Text('${TOBAAApp.LENGTH_TITLE} ${this._stackLevel.dimensions.length}'),
-                  Text('${TOBAAApp.HEIGHT_TITLE} ${this._stackLevel.dimensions.height}'),
-                  Text('${TOBAAApp.NET_WEIGHT_TITLE} ${this._stackLevel.weights.net}'),
-                  Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${this._stackLevel.weights.gross}'),
-                  Text('${TOBAAApp.NEW_TITLE} ${this._stackLevel.weights.netExplosive}'),
-                  Text('${TOBAAApp.NUMBER_OF_THE_CONTAINERS_TITLE} ${this._stackLevel.boxes.length}'),
+                  Text('${Strings.WIDTH} ${this._stackLevel.dimensions.width}'),
+                  Text('${Strings.LENGTH} ${this._stackLevel.dimensions.length}'),
+                  Text('${Strings.HEIGHT} ${this._stackLevel.dimensions.height}'),
+                  Text('${Strings.NET_WEIGHT} ${this._stackLevel.weights.net}'),
+                  Text('${Strings.GROSS_WEIGHT} ${this._stackLevel.weights.gross}'),
+                  Text('${Strings.NEW} ${this._stackLevel.weights.netExplosive}'),
+                  Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stackLevel.boxes.length}'),
                   this._listViewBoxes(this._stackLevel.boxes)
                 ],
               )
@@ -60,11 +61,11 @@ class StackLevelDetailView extends  StatelessWidget {
   Widget _box(Box box) {
     return Column(
       children: [
-        Text('${TOBAAApp.NAME_TITLE} ${box.name}'),
-        Text('${TOBAAApp.NEW_TITLE} ${massConverter(box.weights.netExplosive)}'),
-        Text('${TOBAAApp.NET_WEIGHT_TITLE} ${massConverter(box.weights.net)}'),
-        Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${massConverter(box.weights.gross)}'),
-        Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${box.capacities.current}'),
+        Text('${Strings.NAME} ${box.name}'),
+        Text('${Strings.NEW} ${massConverter(box.weights.netExplosive)}'),
+        Text('${Strings.NET_WEIGHT} ${massConverter(box.weights.net)}'),
+        Text('${Strings.GROSS_WEIGHT} ${massConverter(box.weights.gross)}'),
+        Text('${Strings.NUMBER_OF_THE_BAA} ${box.capacities.current}'),
       ],
     );
   }

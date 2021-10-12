@@ -1,0 +1,34 @@
+class Strings{
+  static const String NEW = 'Waga ładunków wybuchowych:';
+  static const String NET_WEIGHT = 'Waga netto:';
+  static const String GROSS_WEIGHT = 'Waga brutto:';
+  static const String LOAD_WEIGHT = 'Waga ładunku:';
+  static const String PERMISSIBLE_WEIGHT = 'Dopuszczalna waga:';
+  static const String PERMISSIBLE_NEW = 'Dopuszczalna waga ładunku wybuchowego:';
+  static const String EXPLOSION_CLASS = 'Klasa wybuchowości:';
+  static const String NUMBER_OF_THE_CONTAINERS = 'Ilość kontenerów:';
+  static const String NUMBER_OF_THE_BAA = 'Ilość środków:';
+  static const String NUMBER_OF_THE_STACKS = 'Ilość stosów:';
+  static const String LENGTH = 'Długość:';
+  static const String WIDTH = 'Szerokość:';
+  static const String HEIGHT = 'Wysokość:';
+  static const String LOADING_AREA = 'Powierzchnia załadunkowa:';
+  static const String CAR_NAME = 'Nazwa pojazdu:';
+  static const String NAME = 'Nazwa:';
+  static const String SETTINGS = 'Ustawienia';
+  static const String WAR_TIME = 'Czas wojny';
+  static const String MAX_STACK_LEVEL = 'Maksymalny poziom stosu:';
+  static const String STACKS_LEVEL = 'Poziomy stosu:';
+  static const String STACK = 'Stos';
+  static const String CONTAINER_NAME = 'Nazwa kontenera:';
+  static const String CONTAINER_NET_WEIGHT = 'Waga netto kontenera:';
+  static const String CONTAINER_FULLY_LOADED_GROSS_WEIGHT = 'Waga brutto załadowanego kontenera:';
+  static const String CONTAINER_FULLY_LOADED_NEW = 'Waga środków wybuchowych w pełni załadowanego kontenera:';
+  static const String CAPACITY = 'Pojemność:';
+  static const String MAX_STACK_HEIGHT_DURING_TRANSPORT = 'Maksymalna wysokość stosu w trakcie transportu:';
+  static const String NUMBER_OF_CHOSEN_BAA = 'Ilość wybranych środków:';
+  static const String INFORMATION = 'Informacje';
+  static const String EXPLOSION_SUBCLASS = 'Podklasa wybuchowości:';
+  static const String COMPATIBILITY_GROUP = 'Grupa kompatybilności:';
+  static const String CLOSE = 'Zamknij';
+}

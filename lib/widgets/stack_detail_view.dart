@@ -4,6 +4,7 @@ import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 
 import '../main.dart';
+import '../strings.dart';
 
 class StackDetailView extends  StatelessWidget {
 
@@ -16,21 +17,21 @@ class StackDetailView extends  StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: this._stack.levels.isNotEmpty && this._stack.levels.first.boxes.isNotEmpty ?
-        Text('${TOBAAApp.STACK_TITLE} ${this._stack.levels.first.boxes.first.name}') :
-        Text('${TOBAAApp.STACKS_LEVEL_TITLE} ${this._stack.levels.length}'),
+        Text('${Strings.STACK} ${this._stack.levels.first.boxes.first.name}') :
+        Text('${Strings.STACKS_LEVEL} ${this._stack.levels.length}'),
       ),
       body: Container(
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${this._stack.battleAirAssetCapacities.current}'),
-                  Text('${TOBAAApp.WIDTH_TITLE} ${this._stack.dimensions.width}'),
-                  Text('${TOBAAApp.LENGTH_TITLE} ${this._stack.dimensions.length}'),
-                  Text('${TOBAAApp.HEIGHT_TITLE} ${this._stack.dimensions.height}'),
-                  Text('${TOBAAApp.NET_WEIGHT_TITLE} ${massConverter(this._stack.weights.net)}'),
-                  Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${massConverter(this._stack.weights.gross)}'),
-                  Text('${TOBAAApp.NEW_TITLE} ${massConverter(this._stack.weights.netExplosive)}'),
-                  Text('${TOBAAApp.MAX_STACK_LEVEL_TITLE} ${this._stack.maximumStackLevel}'),
+                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stack.battleAirAssetCapacities.current}'),
+                  Text('${Strings.WIDTH} ${this._stack.dimensions.width}'),
+                  Text('${Strings.LENGTH} ${this._stack.dimensions.length}'),
+                  Text('${Strings.HEIGHT} ${this._stack.dimensions.height}'),
+                  Text('${Strings.NET_WEIGHT} ${massConverter(this._stack.weights.net)}'),
+                  Text('${Strings.GROSS_WEIGHT} ${massConverter(this._stack.weights.gross)}'),
+                  Text('${Strings.NEW} ${massConverter(this._stack.weights.netExplosive)}'),
+                  Text('${Strings.MAX_STACK_LEVEL} ${this._stack.maximumStackLevel}'),
                   this._listViewStackLevel(this._stack.levels)
                 ],
               )
@@ -61,11 +62,11 @@ class StackDetailView extends  StatelessWidget {
   Widget _stackLevel(StackLevel level) {
     return Column(
       children: [
-        Text('${TOBAAApp.NET_WEIGHT_TITLE}${massConverter(level.weights.netExplosive)}'),
-        Text('${TOBAAApp.NET_WEIGHT_TITLE} ${massConverter(level.weights.net)}'),
-        Text('${TOBAAApp.GROSS_WEIGHT_TITLE} ${massConverter(level.weights.gross)}'),
-        Text('${TOBAAApp.NUMBER_OF_THE_CONTAINERS_TITLE} ${level.boxes.length}'),
-        Text('${TOBAAApp.NUMBER_OF_THE_BAA_TITLE} ${level.capacities.current}'),
+        Text('${Strings.NET_WEIGHT}${massConverter(level.weights.netExplosive)}'),
+        Text('${Strings.NET_WEIGHT} ${massConverter(level.weights.net)}'),
+        Text('${Strings.GROSS_WEIGHT} ${massConverter(level.weights.gross)}'),
+        Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${level.boxes.length}'),
+        Text('${Strings.NUMBER_OF_THE_BAA} ${level.capacities.current}'),
       ],
     );
   }

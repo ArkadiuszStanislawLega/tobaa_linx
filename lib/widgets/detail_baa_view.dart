@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
+import 'package:tobaa/strings.dart';
 import 'package:tobaa/widgets/property_view.dart';
 
 import '../main.dart';
@@ -45,56 +46,56 @@ class _DetailBaa extends State<DetailBaa> {
             child: Column(
                 children: [
                   PropertyView(
-                      TOBAAApp.LENGTH_TITLE, '${this.battleAirAsset.dimensions.length} mm'
+                      Strings.LENGTH, '${this.battleAirAsset.dimensions.length} mm'
                   ),
                   PropertyView(
-                      TOBAAApp.WIDTH_TITLE, '${this.battleAirAsset.dimensions.width} mm'
+                      Strings.WIDTH, '${this.battleAirAsset.dimensions.width} mm'
                   ),
                   PropertyView(
-                      TOBAAApp.HEIGHT_TITLE, '${this.battleAirAsset.dimensions.height} mm'
+                      Strings.HEIGHT, '${this.battleAirAsset.dimensions.height} mm'
                   ),
                   PropertyView(
-                      TOBAAApp.GROSS_WEIGHT_TITLE, '${massConverter(this.battleAirAsset.weights.gross)} g'
+                      Strings.GROSS_WEIGHT, '${massConverter(this.battleAirAsset.weights.gross)} g'
                   ),
                   PropertyView(
-                      TOBAAApp.NET_WEIGHT_TITLE, '${massConverter(this.battleAirAsset.weights.net)} g'
+                      Strings.NET_WEIGHT, '${massConverter(this.battleAirAsset.weights.net)} g'
                   ),
                   PropertyView(
-                      TOBAAApp.NEW_TITLE,
+                      Strings.NEW,
                       '${massConverter(this.battleAirAsset.weights.netExplosive)} g'
                   ),
                   PropertyView(
-                      TOBAAApp.CONTAINER_NAME_TITLE, '${box.name}'
+                      Strings.CONTAINER_NAME, '${box.name}'
                   ),
                   PropertyView(
-                      TOBAAApp.CONTAINER_NET_WEIGHT_TITLE, '${massConverter(box.weights.net)} g'
+                      Strings.CONTAINER_NET_WEIGHT, '${massConverter(box.weights.net)} g'
                   ),
                   PropertyView(
-                      TOBAAApp.CONTAINER_FULLY_LOADED_GROSS_WEIGHT_TITLE,
+                      Strings.CONTAINER_FULLY_LOADED_GROSS_WEIGHT,
                       '${massConverter(box.weights.gross)}'
                   ),
                   PropertyView(
-                      TOBAAApp.CONTAINER_FULLY_LOADED_NEW_TITLE,
+                      Strings.CONTAINER_FULLY_LOADED_NEW,
                       '${massConverter(box.weights.netExplosive)}'
                   ),
                   PropertyView(
-                      TOBAAApp.HEIGHT_TITLE, '${box.dimensions.height} mm'
+                      Strings.HEIGHT, '${box.dimensions.height} mm'
                   ),
                   PropertyView(
-                      TOBAAApp.WIDTH_TITLE, '${box.dimensions.width} mm'
+                      Strings.WIDTH, '${box.dimensions.width} mm'
                   ),
                   PropertyView(
-                      TOBAAApp.LENGTH_TITLE, '${box.dimensions.length} mm'
+                      Strings.LENGTH, '${box.dimensions.length} mm'
                   ),
                   PropertyView(
-                      TOBAAApp.CAPACITY_TITLE, '${box.capacities.maximum} mm'
+                      Strings.CAPACITY, '${box.capacities.maximum} mm'
                   ),
                   PropertyView(
-                      TOBAAApp.MAX_STACK_HEIGHT_DURING_TRANSPORT_TITLE,
+                      Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
                       '${box.maxStackLevel} szt.'
                   ),
                   PropertyView(
-                      TOBAAApp.NUMBER_OF_CHOSEN_BAA_TITLE,
+                      Strings.NUMBER_OF_CHOSEN_BAA,
                       TOBAAApp.values.containsKey(this.battleAirAsset.type) ?
                       '${TOBAAApp.values[this.battleAirAsset.type]} szt.' :
                       '0 szt.'
@@ -112,7 +113,7 @@ class _DetailBaa extends State<DetailBaa> {
     showDialog(builder: (BuildContext context) {
       return Expanded(
         child: AlertDialog(
-            title: Text(TOBAAApp.INFORMATION_TITLE),
+            title: Text(Strings.INFORMATION),
             content: Column(
               children:
               [
@@ -122,7 +123,7 @@ class _DetailBaa extends State<DetailBaa> {
                         children: [
                           Row(
                               children: [
-                                Text(TOBAAApp.EXPLOSION_SUBCLASS_TITLE),
+                                Text(Strings.EXPLOSION_SUBCLASS),
                                 Text('${this.battleAirAsset.explosionClass
                                     .explosionSubclass.id}',
                                   style: TextStyle(
@@ -143,7 +144,7 @@ class _DetailBaa extends State<DetailBaa> {
                     child: Column(
                       children: [
                         Row(children: [
-                          Text('${TOBAAApp.COMPATIBILITY_GROUP_TITLE}'),
+                          Text('${Strings.COMPATIBILITY_GROUP}'),
                           Text('$compatibilityGroup',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold
@@ -167,7 +168,7 @@ class _DetailBaa extends State<DetailBaa> {
                 onPressed: () {
                   Navigator.pop(context, true);
                 },
-                child: Text(TOBAAApp.CLOSE_TITLE),
+                child: Text(Strings.CLOSE),
               )
             ]
         ),
