@@ -5,6 +5,7 @@ import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 
+import '../strings.dart';
 import 'content_baa_list.dart';
 
 class BaaList extends StatelessWidget {
@@ -15,13 +16,13 @@ class BaaList extends StatelessWidget {
             title: Row(
               children: [
                 ElevatedButton(
-                  child: Text("Ustawienia"),
+                  child: Text(Strings.SETTINGS),
                   onPressed: () => {
                     Navigator.pushNamed(context, TOBAAApp.URL_SETTINGS)
                   },
                 ),
                 ElevatedButton(
-                  child: Text("Przelicz"),
+                  child: Text(Strings.COUNT),
                   onPressed: () => {
                     TOBAAApp.transport = new Transport(),
                     // TOBAAApp.transport.isWarTime = TOBAAApp.isWar,
