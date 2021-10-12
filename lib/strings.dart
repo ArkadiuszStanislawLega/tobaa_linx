@@ -1,4 +1,6 @@
 class Strings{
+  static const String ADD = 'Dodaj';
+  static const String ADD_TO_TRANSPORT = 'Dodaj do transportu';
   static const String CAPACITY = 'Pojemność:';
   static const String CAR_NAME = 'Nazwa pojazdu:';
   static const String CLOSE = 'Zamknij';
@@ -8,6 +10,7 @@ class Strings{
   static const String CONTAINER_NAME = 'Nazwa kontenera:';
   static const String CONTAINER_NET_WEIGHT = 'Waga netto kontenera:';
   static const String COUNT = 'Przelicz';
+  static const String ENTER_NUMBER_OF_BAA = 'Podaj ilość środków';
   static const String EXPLOSION_SUBCLASS = 'Podklasa wybuchowości:';
   static const String GROSS_WEIGHT = 'Waga brutto:';
   static const String HEIGHT = 'Wysokość:';
