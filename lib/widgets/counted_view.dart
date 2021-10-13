@@ -5,6 +5,7 @@ import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/url.dart';
+import 'package:tobaa/app_colors.dart';
 
 import '../strings.dart';
 
@@ -27,32 +28,39 @@ class CountedView extends StatelessWidget {
         title: Text(Strings.TRANSPORT),
       ),
       body: Container(
-          child: new SingleChildScrollView(
+        child: new SingleChildScrollView(
+          child: Container(
+              color: Color(AppColors.TRANSPORT),
               child: Column(
                   children: [
-                    Text('${Strings.NUMBER_OF_THE_BAA} ${TOBAAApp.transport.capacity()}'),
-                    Text('${Strings.NEW} ${massConverter(TOBAAApp.transport.transportNetExplosiveWeight)}'),
-                    Text('${Strings.WEIGHT_OF_ALL_BAA} ${massConverter(TOBAAApp.transport.transportNetWeight)}'),
-                    Text('${Strings.GROSS_WEIGHT} ${massConverter(TOBAAApp.transport.transportGrossWeight)}'),
-                    Text('${Strings.NUMBER_OF_CARS} ${TOBAAApp.transport.numberOfCars}'),
+                    Text('${Strings.NUMBER_OF_THE_BAA} ${TOBAAApp.transport
+                        .capacity()}'),
+                    Text('${Strings.NEW} ${massConverter(
+                        TOBAAApp.transport.transportNetExplosiveWeight)}'),
+                    Text('${Strings.WEIGHT_OF_ALL_BAA} ${massConverter(
+                        TOBAAApp.transport.transportNetWeight)}'),
+                    Text('${Strings.GROSS_WEIGHT} ${massConverter(
+                        TOBAAApp.transport.transportGrossWeight)}'),
+                    Text('${Strings.NUMBER_OF_CARS} ${TOBAAApp.transport
+                        .numberOfCars}'),
                     this._carsListView(TOBAAApp.transport.cars
-                      // Text('${transport.transportGrossWeight}')
                     )
                   ])
-          )
+          ),
+        ),
       ),
     );
   }
 
-  Widget _carsListView(List<Car> cars){
+  Widget _carsListView(List<Car> cars) {
     return new ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemCount: cars.length,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         return Card(
           child: ListTile(
-              onTap: (){
+              onTap: () {
                 TOBAAApp.selectedCar = cars.elementAt(index);
                 Navigator.pushNamed(context, Url.CAR_DETAIL);
               },
@@ -64,11 +72,15 @@ class CountedView extends StatelessWidget {
   }
 
 
-  Widget _car(Car car){
-    return Column(
-      children: [
-        Text('${Strings.NAME_OF_THE_CAR} ${car.name}'),
-      ],
-    );
+  Widget _car(Car car) {
+    return
+      Container(
+        color: Color(AppColors.CAR),
+        child: Column(
+          children: [
+            Text('${Strings.NAME_OF_THE_CAR} ${car.name}'),
+          ],
+        ),
+      );
   }
 }

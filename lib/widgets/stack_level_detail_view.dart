@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/app_colors.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/url.dart';
@@ -17,22 +18,30 @@ class StackLevelDetailView extends  StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: this._stackLevel.boxes.length > 0 ?
-        Text('Poziom stosu z ${this._stackLevel.boxes.first.name}') :
-            Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel.capacities.current}')
+          title: this._stackLevel.boxes.length > 0 ?
+          Text('Poziom stosu z ${this._stackLevel.boxes.first.name}') :
+          Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel.capacities
+              .current}')
       ),
       body: Container(
+          color: Color(AppColors.STACK_LEVEL),
           child: new SingleChildScrollView(
               child: Column(
                 children: [
                   Text('${Strings.WIDTH} ${this._stackLevel.dimensions.width}'),
-                  Text('${Strings.LENGTH} ${this._stackLevel.dimensions.length}'),
-                  Text('${Strings.HEIGHT} ${this._stackLevel.dimensions.height}'),
-                  Text('${Strings.NEW} ${this._stackLevel.weights.netExplosive}'),
+                  Text('${Strings.LENGTH} ${this._stackLevel.dimensions
+                      .length}'),
+                  Text('${Strings.HEIGHT} ${this._stackLevel.dimensions
+                      .height}'),
+                  Text('${Strings.NEW} ${this._stackLevel.weights
+                      .netExplosive}'),
                   Text('${Strings.NET_WEIGHT} ${this._stackLevel.weights.net}'),
-                  Text('${Strings.GROSS_WEIGHT} ${this._stackLevel.weights.gross}'),
-                  Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stackLevel.boxes.length}'),
-                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel.capacities.current}'),
+                  Text('${Strings.GROSS_WEIGHT} ${this._stackLevel.weights
+                      .gross}'),
+                  Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stackLevel
+                      .boxes.length}'),
+                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel
+                      .capacities.current}'),
                   this._listViewBoxes(this._stackLevel.boxes)
                 ],
               )
@@ -41,15 +50,15 @@ class StackLevelDetailView extends  StatelessWidget {
     );
   }
 
-  Widget _listViewBoxes(List<Box> levels){
+  Widget _listViewBoxes(List<Box> levels) {
     return new ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemCount: levels.length,
-      itemBuilder: (context, index){
+      itemBuilder: (context, index) {
         return Card(
           child: ListTile(
-              onTap: (){
+              onTap: () {
                 TOBAAApp.selectedBox = levels.elementAt(index);
                 Navigator.pushNamed(context, Url.BOX_DETAIL);
               },
@@ -61,14 +70,18 @@ class StackLevelDetailView extends  StatelessWidget {
   }
 
   Widget _box(Box box) {
-    return Column(
-      children: [
-        Text('${Strings.NAME} ${box.name}'),
-        Text('${Strings.NEW} ${massConverter(box.weights.netExplosive)}'),
-        Text('${Strings.NET_WEIGHT} ${massConverter(box.weights.net)}'),
-        Text('${Strings.GROSS_WEIGHT} ${massConverter(box.weights.gross)}'),
-        Text('${Strings.NUMBER_OF_THE_BAA} ${box.capacities.current}'),
-      ],
-    );
+    return
+      Container(
+        color: Color(AppColors.BOX),
+        child: Column(
+          children: [
+            Text('${Strings.NAME} ${box.name}'),
+            Text('${Strings.NEW} ${massConverter(box.weights.netExplosive)}'),
+            Text('${Strings.NET_WEIGHT} ${massConverter(box.weights.net)}'),
+            Text('${Strings.GROSS_WEIGHT} ${massConverter(box.weights.gross)}'),
+            Text('${Strings.NUMBER_OF_THE_BAA} ${box.capacities.current}'),
+          ],
+        ),
+      );
   }
 }

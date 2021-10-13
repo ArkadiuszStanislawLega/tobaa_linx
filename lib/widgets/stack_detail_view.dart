@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/app_colors.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/url.dart';
@@ -22,6 +23,7 @@ class StackDetailView extends  StatelessWidget {
         Text('${Strings.STACKS_LEVEL} ${this._stack.levels.length}'),
       ),
       body: Container(
+        color:   Color(AppColors.STACK),
           child: new SingleChildScrollView(
               child: Column(
                 children: [
@@ -61,7 +63,10 @@ class StackDetailView extends  StatelessWidget {
   }
 
   Widget _stackLevel(StackLevel level) {
-    return Column(
+    return
+      Container(
+        color: Color(AppColors.STACK_LEVEL),
+        child:Column(
       children: [
         Text('${Strings.NEW}${massConverter(level.weights.netExplosive)}'),
         Text('${Strings.NET_WEIGHT} ${massConverter(level.weights.net)}'),
@@ -69,6 +74,7 @@ class StackDetailView extends  StatelessWidget {
         Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${level.boxes.length}'),
         Text('${Strings.NUMBER_OF_THE_BAA} ${level.capacities.current}'),
       ],
-    );
+    ),
+      );
   }
 }

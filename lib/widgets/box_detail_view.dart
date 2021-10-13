@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/app_colors.dart';
 import 'package:tobaa/box/box.dart';
 
 import '../main.dart';
@@ -18,6 +19,7 @@ class BoxDetailView extends  StatelessWidget {
           title: Text('${this._box.name}')
       ),
       body: Container(
+        color: Color(AppColors.BOX),
           child: new SingleChildScrollView(
               child: Column(
                 children: [
