@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
 
-
 import '../main.dart';
 import '../strings.dart';
 

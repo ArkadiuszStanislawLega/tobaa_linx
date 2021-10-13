@@ -4,6 +4,7 @@ import 'package:tobaa/car/car.dart';
 import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
+import 'package:tobaa/url.dart';
 
 import '../strings.dart';
 
@@ -53,7 +54,7 @@ class CountedView extends StatelessWidget {
           child: ListTile(
               onTap: (){
                 TOBAAApp.selectedCar = cars.elementAt(index);
-                Navigator.pushNamed(context, TOBAAApp.URL_CAR_DETAIL);
+                Navigator.pushNamed(context, Url.CAR_DETAIL);
               },
               title: this._car(cars.elementAt(index))
           ),

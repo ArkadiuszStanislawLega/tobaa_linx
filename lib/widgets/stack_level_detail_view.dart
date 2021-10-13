@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
+import 'package:tobaa/url.dart';
 
 import '../main.dart';
 import '../strings.dart';
@@ -49,7 +50,7 @@ class StackLevelDetailView extends  StatelessWidget {
           child: ListTile(
               onTap: (){
                 TOBAAApp.selectedBox = levels.elementAt(index);
-                Navigator.pushNamed(context, TOBAAApp.URL_BOX_DETAIL);
+                Navigator.pushNamed(context, Url.BOX_DETAIL);
               },
               title: this._box(levels.elementAt(index))
           ),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_assets.dart';
+import 'package:tobaa/url.dart';
 
 import '../main.dart';
 import 'baa_list_item.dart';
@@ -28,7 +29,7 @@ class _ContentBaaListState extends State<ContentBaaList> {
           child: ListTile(
             onTap: (){
               TOBAAApp.index = assets.elementAt(index).type;
-              Navigator.pushNamed(context, TOBAAApp.URL_DETAIL);
+              Navigator.pushNamed(context, Url.DETAIL);
             },
             title: BaaListItem(assets.elementAt(index))
           ),

@@ -5,6 +5,7 @@ import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/transport/transport.dart';
+import 'package:tobaa/url.dart';
 import 'package:tobaa/widgets/box_detail_view.dart';
 import 'package:tobaa/widgets/baa_list.dart';
 import 'package:tobaa/widgets/car_detail_view.dart';
@@ -28,15 +29,7 @@ String massConverter(var number){
 }
 
 class TOBAAApp extends StatelessWidget {
-  static const String URL_EMPTY = '/';
-  static const String URL_HOME = '/home';
-  static const String URL_DETAIL = '/detail';
-  static const String URL_SETTINGS = '/settings';
-  static const String URL_COUNTED = '/counted';
-  static const String URL_CAR_DETAIL = '/car_detail';
-  static const String URL_STACK_DETAIL = '/stack_detail';
-  static const String URL_STACK_LEVEL_DETAIL = '/stack_level_detail';
-  static const String URL_BOX_DETAIL = '/box_detail';
+
 
   static BattleAirAssetType index = BattleAirAssetType.None;
   static Car selectedCar = Car.empty();
@@ -58,17 +51,17 @@ class TOBAAApp extends StatelessWidget {
     return MaterialApp(
       title: 'Transporting Organiser of Battle Air Assets',
       theme: ThemeData(primarySwatch: Colors.blueGrey),
-      initialRoute: URL_HOME,
+      initialRoute: Url.HOME,
       routes: {
-        URL_EMPTY: (context) => BaaList(),
-        URL_HOME: (context) => BaaList(),
-        URL_DETAIL: (context) => DetailBaa(DatabaseAssets.container[index]!),
-        URL_SETTINGS: (context) => SettingsView(),
-        URL_COUNTED: (context) => CountedView(),
-        URL_CAR_DETAIL: (context) => CarDetailView(selectedCar),
-        URL_STACK_DETAIL: (context) => StackDetailView(selectedStack),
-        URL_STACK_LEVEL_DETAIL: (context) => StackLevelDetailView(selectedStackLevel),
-        URL_BOX_DETAIL: (context) => BoxDetailView(selectedBox)
+        Url.EMPTY: (context) => BaaList(),
+        Url.HOME: (context) => BaaList(),
+        Url.DETAIL: (context) => DetailBaa(DatabaseAssets.container[index]!),
+        Url.SETTINGS: (context) => SettingsView(),
+        Url.COUNTED: (context) => CountedView(),
+        Url.CAR_DETAIL: (context) => CarDetailView(selectedCar),
+        Url.STACK_DETAIL: (context) => StackDetailView(selectedStack),
+        Url.STACK_LEVEL_DETAIL: (context) => StackLevelDetailView(selectedStackLevel),
+        Url.BOX_DETAIL: (context) => BoxDetailView(selectedBox)
       },
     );
   }

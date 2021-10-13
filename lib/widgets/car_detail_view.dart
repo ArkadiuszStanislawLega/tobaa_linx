@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
+import 'package:tobaa/url.dart';
 
 import '../main.dart';
 import '../strings.dart';
@@ -58,7 +59,7 @@ class CarDetailView extends  StatelessWidget {
           child: ListTile(
               onTap: (){
                 TOBAAApp.selectedStack = stacks.elementAt(index);
-                Navigator.pushNamed(context, TOBAAApp.URL_STACK_DETAIL);
+                Navigator.pushNamed(context, Url.STACK_DETAIL);
               },
               title: this._stack(stacks.elementAt(index))
           ),
