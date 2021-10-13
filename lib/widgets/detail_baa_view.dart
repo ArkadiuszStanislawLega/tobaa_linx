@@ -46,29 +46,35 @@ class _DetailBaa extends State<DetailBaa> {
             child: Column(
                 children: [
                   PropertyView(
-                      Strings.LENGTH, '${this.battleAirAsset.dimensions.length} mm'
+                      Strings.LENGTH,
+                      '${sizeConverter(this.battleAirAsset.dimensions.length)}'
                   ),
                   PropertyView(
-                      Strings.WIDTH, '${this.battleAirAsset.dimensions.width} mm'
+                      Strings.WIDTH,
+                      '${sizeConverter(this.battleAirAsset.dimensions.width)}'
                   ),
                   PropertyView(
-                      Strings.HEIGHT, '${this.battleAirAsset.dimensions.height} mm'
+                      Strings.HEIGHT,
+                      '${sizeConverter(this.battleAirAsset.dimensions.height)}'
                   ),
                   PropertyView(
-                      Strings.GROSS_WEIGHT, '${massConverter(this.battleAirAsset.weights.gross)} g'
+                      Strings.GROSS_WEIGHT,
+                      '${massConverter(this.battleAirAsset.weights.gross)}'
                   ),
                   PropertyView(
-                      Strings.NET_WEIGHT, '${massConverter(this.battleAirAsset.weights.net)} g'
+                      Strings.NET_WEIGHT,
+                      '${massConverter(this.battleAirAsset.weights.net)}'
                   ),
                   PropertyView(
                       Strings.NEW,
-                      '${massConverter(this.battleAirAsset.weights.netExplosive)} g'
+                      '${massConverter(this.battleAirAsset.weights.netExplosive)}'
                   ),
                   PropertyView(
                       Strings.CONTAINER_NAME, '${box.name}'
                   ),
                   PropertyView(
-                      Strings.CONTAINER_NET_WEIGHT, '${massConverter(box.weights.net)} g'
+                      Strings.CONTAINER_NET_WEIGHT,
+                      '${massConverter(box.weights.net)}'
                   ),
                   PropertyView(
                       Strings.CONTAINER_FULLY_LOADED_GROSS_WEIGHT,
@@ -79,16 +85,19 @@ class _DetailBaa extends State<DetailBaa> {
                       '${massConverter(box.weights.netExplosive)}'
                   ),
                   PropertyView(
-                      Strings.HEIGHT, '${box.dimensions.height} mm'
+                      Strings.HEIGHT,
+                      '${sizeConverter(box.dimensions.height)}'
                   ),
                   PropertyView(
-                      Strings.WIDTH, '${box.dimensions.width} mm'
+                      Strings.WIDTH,
+                      '${sizeConverter(box.dimensions.width)}'
                   ),
                   PropertyView(
-                      Strings.LENGTH, '${box.dimensions.length} mm'
+                      Strings.LENGTH,
+                      '${sizeConverter(box.dimensions.length)}'
                   ),
                   PropertyView(
-                      Strings.CAPACITY, '${box.capacities.maximum} mm'
+                      Strings.CAPACITY, '${box.capacities.maximum}'
                   ),
                   PropertyView(
                       Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
