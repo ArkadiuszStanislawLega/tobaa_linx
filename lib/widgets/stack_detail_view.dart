@@ -25,13 +25,13 @@ class StackDetailView extends  StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stack.battleAirAssetCapacities.current}'),
                   Text('${Strings.WIDTH} ${this._stack.dimensions.width}'),
                   Text('${Strings.LENGTH} ${this._stack.dimensions.length}'),
                   Text('${Strings.HEIGHT} ${this._stack.dimensions.height}'),
+                  Text('${Strings.NEW} ${massConverter(this._stack.weights.netExplosive)}'),
                   Text('${Strings.NET_WEIGHT} ${massConverter(this._stack.weights.net)}'),
                   Text('${Strings.GROSS_WEIGHT} ${massConverter(this._stack.weights.gross)}'),
-                  Text('${Strings.NEW} ${massConverter(this._stack.weights.netExplosive)}'),
+                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stack.battleAirAssetCapacities.current}'),
                   Text('${Strings.MAX_STACK_LEVEL} ${this._stack.maximumStackLevel}'),
                   this._listViewStackLevel(this._stack.levels)
                 ],
@@ -63,7 +63,7 @@ class StackDetailView extends  StatelessWidget {
   Widget _stackLevel(StackLevel level) {
     return Column(
       children: [
-        Text('${Strings.NET_WEIGHT}${massConverter(level.weights.netExplosive)}'),
+        Text('${Strings.NEW}${massConverter(level.weights.netExplosive)}'),
         Text('${Strings.NET_WEIGHT} ${massConverter(level.weights.net)}'),
         Text('${Strings.GROSS_WEIGHT} ${massConverter(level.weights.gross)}'),
         Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${level.boxes.length}'),

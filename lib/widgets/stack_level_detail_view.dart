@@ -28,10 +28,11 @@ class StackLevelDetailView extends  StatelessWidget {
                   Text('${Strings.WIDTH} ${this._stackLevel.dimensions.width}'),
                   Text('${Strings.LENGTH} ${this._stackLevel.dimensions.length}'),
                   Text('${Strings.HEIGHT} ${this._stackLevel.dimensions.height}'),
+                  Text('${Strings.NEW} ${this._stackLevel.weights.netExplosive}'),
                   Text('${Strings.NET_WEIGHT} ${this._stackLevel.weights.net}'),
                   Text('${Strings.GROSS_WEIGHT} ${this._stackLevel.weights.gross}'),
-                  Text('${Strings.NEW} ${this._stackLevel.weights.netExplosive}'),
                   Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stackLevel.boxes.length}'),
+                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel.capacities.current}'),
                   this._listViewBoxes(this._stackLevel.boxes)
                 ],
               )

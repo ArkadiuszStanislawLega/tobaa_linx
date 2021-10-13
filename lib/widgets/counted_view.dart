@@ -31,9 +31,9 @@ class CountedView extends StatelessWidget {
               child: Column(
                   children: [
                     Text('${Strings.NUMBER_OF_THE_BAA} ${TOBAAApp.transport.capacity()}'),
-                    Text('${Strings.GROSS_WEIGHT} ${massConverter(TOBAAApp.transport.transportGrossWeight)}'),
                     Text('${Strings.NEW} ${massConverter(TOBAAApp.transport.transportNetExplosiveWeight)}'),
                     Text('${Strings.WEIGHT_OF_ALL_BAA} ${massConverter(TOBAAApp.transport.transportNetWeight)}'),
+                    Text('${Strings.GROSS_WEIGHT} ${massConverter(TOBAAApp.transport.transportGrossWeight)}'),
                     Text('${Strings.NUMBER_OF_CARS} ${TOBAAApp.transport.numberOfCars}'),
                     this._carsListView(TOBAAApp.transport.cars
                       // Text('${transport.transportGrossWeight}')
@@ -68,7 +68,6 @@ class CountedView extends StatelessWidget {
     return Column(
       children: [
         Text('${Strings.NAME_OF_THE_CAR} ${car.name}'),
-
       ],
     );
   }

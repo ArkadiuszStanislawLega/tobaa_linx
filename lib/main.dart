@@ -24,8 +24,14 @@ void main() {
 }
 
 String massConverter(var number){
-  var num = number / 1000000;
-  return '$num t';
+  if (number < 1000)
+    return '$number g';
+
+  if (number < 1000000) {
+    return '${number/1000} kg';
+  }
+
+  return '${number / 1000000} t';
 }
 
 class TOBAAApp extends StatelessWidget {
