@@ -19,8 +19,9 @@ class Strings{
   static const String HEIGHT = 'Wysokość:';
   static const String INFORMATION = 'Informacje';
   static const String LENGTH = 'Długość:';
-  static const String LOADING_AREA = 'Powierzchnia załadunkowa:';
   static const String LOAD_WEIGHT = 'Waga ładunku:';
+  static const String LOADED_CARGO_PARAMETERS = 'Parametry załadowanego ładunku:';
+  static const String PARAMETERS_OF_THE_LOADING_AREA = 'Parametry powierzchni załadunkowej:';
   static const String PERMISSIBLE_NEW = 'Dopuszczalna waga ładunku wybuchowego:';
   static const String PERMISSIBLE_WEIGHT = 'Dopuszczalna waga:';
   static const String EXPLOSION_CLASS = 'Klasa wybuchowości:';

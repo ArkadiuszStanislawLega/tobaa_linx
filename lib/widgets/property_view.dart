@@ -8,10 +8,17 @@ class PropertyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(children:
-    [
-      Expanded(child: Text(this.name, textAlign: TextAlign.left,)),
-      Expanded(child: Text(this.value, textAlign: TextAlign.right))],
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children:
+      [
+        Expanded(child: Text(this.name)),
+        Expanded(child:
+        Text(this.value,
+            style: TextStyle(fontWeight: FontWeight.w600,)
+        )
+        )
+      ],
     );
   }
 }

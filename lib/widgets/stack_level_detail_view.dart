@@ -80,7 +80,7 @@ class StackLevelDetailView extends  StatelessWidget {
         color: Color(AppColors.BOX),
         child: Column(
           children: [
-            Text('${Strings.NAME} ${box.name}'),
+            Text('${box.name}', style: TextStyle(fontWeight: FontWeight.w600,)),
             Text('${Strings.NEW} ${massConverter(box.weights.netExplosive)}'),
             Text('${Strings.NET_WEIGHT} ${massConverter(box.weights.net)}'),
             Text('${Strings.GROSS_WEIGHT} ${massConverter(box.weights.gross)}'),

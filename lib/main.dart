@@ -23,15 +23,25 @@ void main() {
   runApp(TOBAAApp());
 }
 
-String massConverter(var number){
-  if (number < 1000)
-    return '$number g';
+String massConverter(var value){
+  if (value < 1000)
+    return '$value g';
 
-  if (number < 1000000) {
-    return '${number/1000} kg';
+  if (value < 1000000) {
+    return '${value/1000} kg';
   }
 
-  return '${number / 1000000} t';
+  return '${value / 1000000} t';
+}
+
+String sizeConverter(var value){
+  if (value < 100)
+    return '$value mm';
+
+  if(value < 1000)
+    return '${value/10} cm';
+
+  return '${value/1000} m';
 }
 
 class TOBAAApp extends StatelessWidget {

@@ -29,9 +29,9 @@ class StackDetailView extends  StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('${Strings.WIDTH} ${this._stack.dimensions.width}'),
-                  Text('${Strings.LENGTH} ${this._stack.dimensions.length}'),
-                  Text('${Strings.HEIGHT} ${this._stack.dimensions.height}'),
+                  Text('${Strings.WIDTH} ${sizeConverter(this._stack.dimensions.width)}'),
+                  Text('${Strings.LENGTH} ${sizeConverter(this._stack.dimensions.length)}'),
+                  Text('${Strings.HEIGHT} ${sizeConverter(this._stack.dimensions.height)}'),
                   Text('${Strings.NEW} ${massConverter(
                       this._stack.weights.netExplosive)}'),
                   PropertyWithHint(Strings.HINT_NET_WEIGHT,
@@ -64,20 +64,23 @@ class StackDetailView extends  StatelessWidget {
                 TOBAAApp.selectedStackLevel = levels.elementAt(index);
                 Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL);
               },
-              title: this._stackLevel(levels.elementAt(index))
+              title: this._stackLevel(levels.elementAt(index), index)
           ),
         );
       },
     );
   }
 
-  Widget _stackLevel(StackLevel level) {
+  Widget _stackLevel(StackLevel level, int index) {
     return
       Container(
         color: Color(AppColors.STACK_LEVEL),
         child: Column(
           children: [
-            Text('${Strings.NEW}${massConverter(level.weights.netExplosive)}'),
+            Text('Poziom stosu: ${index + 1}',
+                style: TextStyle(fontWeight: FontWeight.w600,)
+            ),
+            Text('${Strings.NEW} ${massConverter(level.weights.netExplosive)}'),
             Text('${Strings.NET_WEIGHT} ${massConverter(level.weights.net)}'),
             Text('${Strings.GROSS_WEIGHT} ${massConverter(
                 level.weights.gross)}'),
