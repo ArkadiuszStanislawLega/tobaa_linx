@@ -4,6 +4,7 @@ import 'package:tobaa/app_colors.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/url.dart';
+import 'package:tobaa/widgets/property_with_hint_view.dart';
 
 import '../main.dart';
 import '../strings.dart';
@@ -35,9 +36,13 @@ class StackLevelDetailView extends  StatelessWidget {
                       .height}'),
                   Text('${Strings.NEW} ${this._stackLevel.weights
                       .netExplosive}'),
-                  Text('${Strings.NET_WEIGHT} ${this._stackLevel.weights.net}'),
-                  Text('${Strings.GROSS_WEIGHT} ${this._stackLevel.weights
-                      .gross}'),
+                  PropertyWithHint(Strings.HINT_NET_WEIGHT,
+                      Strings.NET_WEIGHT,
+                      '${this._stackLevel.weights.net}'),
+                  PropertyWithHint(Strings.HINT_GROSS_WEIGHT,
+                      Strings.GROSS_WEIGHT,
+                      '${this._stackLevel.weights
+                          .gross}'),
                   Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stackLevel
                       .boxes.length}'),
                   Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel
