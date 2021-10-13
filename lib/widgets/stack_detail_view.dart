@@ -4,6 +4,7 @@ import 'package:tobaa/app_colors.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/url.dart';
+import 'package:tobaa/widgets/property_with_hint_view.dart';
 
 import '../main.dart';
 import '../strings.dart';
@@ -33,33 +34,12 @@ class StackDetailView extends  StatelessWidget {
                   Text('${Strings.HEIGHT} ${this._stack.dimensions.height}'),
                   Text('${Strings.NEW} ${massConverter(
                       this._stack.weights.netExplosive)}'),
-                  Row(mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(onPressed: () =>
-                        {
-                          showDialog(builder: (BuildContext context) {
-                            return Expanded(
-                              child: AlertDialog(
-                                  title: Text(Strings.HINT),
-                                  content: Text(Strings.HINT_NETTO_WEIGHT),
-                                  actions: [
-                                    ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.pop(context, true);
-                                      },
-                                      child: Text(Strings.CLOSE),
-                                    )
-                                  ]
-                              ),
-                            );
-                          }, context: context)
-                        }, icon: Icon(Icons.help)),
-                        Text('${Strings.NET_WEIGHT} ${massConverter(
-                            this._stack.weights.net)}'),
-                      ]
-                  ),
-                  Text('${Strings.GROSS_WEIGHT} ${massConverter(
-                      this._stack.weights.gross)}'),
+                  PropertyWithHint(Strings.HINT_NET_WEIGHT,
+                      Strings.NET_WEIGHT,
+                      '${massConverter(this._stack.weights.net)}'),
+                  PropertyWithHint(Strings.HINT_GROSS_WEIGHT,
+                      Strings.GROSS_WEIGHT,
+                      '${massConverter(this._stack.weights.gross)}'),
                   Text('${Strings.NUMBER_OF_THE_BAA} ${this._stack
                       .battleAirAssetCapacities.current}'),
                   Text('${Strings.MAX_STACK_LEVEL} ${this._stack
