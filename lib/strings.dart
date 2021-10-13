@@ -13,6 +13,8 @@ class Strings{
   static const String ENTER_NUMBER_OF_BAA = 'Podaj ilość środków';
   static const String EXPLOSION_SUBCLASS = 'Podklasa wybuchowości:';
   static const String GROSS_WEIGHT = 'Waga brutto:';
+  static const String HINT = 'Podpowiedź';
+  static const String HINT_NETTO_WEIGHT = 'Waga netto - to łączna waga środków bojowych bez opakowania.';
   static const String HEIGHT = 'Wysokość:';
   static const String INFORMATION = 'Informacje';
   static const String LENGTH = 'Długość:';
