@@ -25,19 +25,30 @@ class BoxDetailView extends  StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  PropertyView(Strings.WIDTH, '${this._box.dimensions.width}'),
                   PropertyView(
-                      Strings.LENGTH, '${this._box.dimensions.length}'),
+                      Strings.WIDTH,
+                      '${sizeConverter(this._box.dimensions.width)}'
+                  ),
                   PropertyView(
-                      Strings.HEIGHT, '${this._box.dimensions.height}'),
+                      Strings.LENGTH,
+                      '${sizeConverter(this._box.dimensions.length)}'
+                  ),
+                  PropertyView(
+                      Strings.HEIGHT,
+                      '${sizeConverter(this._box.dimensions.height)}'
+                  ),
                   PropertyWithHint(Strings.HINT_NET_WEIGHT,
                       Strings.NET_WEIGHT,
-                      '${massConverter(this._box.weights.net)}'),
+                      '${massConverter(this._box.weights.net)}'
+                  ),
                   PropertyWithHint(Strings.HINT_GROSS_WEIGHT,
                       Strings.GROSS_WEIGHT,
-                      '${massConverter(this._box.weights.currentGross)}'),
-                  PropertyView(Strings.NEW, '${massConverter(
-                      this._box.weights.currentNetExplosive)}')
+                      '${massConverter(this._box.weights.currentGross)}'
+                  ),
+                  PropertyView(
+                      Strings.NEW,
+                      '${massConverter(this._box.weights.currentNetExplosive)}'
+                  )
                 ],
               )
           )
