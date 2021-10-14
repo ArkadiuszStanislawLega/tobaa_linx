@@ -31,25 +31,24 @@ class StackLevelDetailView extends  StatelessWidget {
               child: Column(
                 children: [
                   PropertyView(Strings.WIDTH,
-                      '${this._stackLevel.dimensions.width}'
+                      '${sizeConverter(this._stackLevel.dimensions.width)}'
                   ),
                   PropertyView(Strings.LENGTH,
-                      '${this._stackLevel.dimensions.length}'
+                      '${sizeConverter(this._stackLevel.dimensions.length)}'
                   ),
                   PropertyView(Strings.HEIGHT,
-                      '${this._stackLevel.dimensions.height}'
+                      '${sizeConverter(this._stackLevel.dimensions.height)}'
                   ),
                   PropertyView(Strings.NEW,
-                      '${this._stackLevel.weights.netExplosive}'
+                      '${massConverter(this._stackLevel.weights.netExplosive)}'
                   ),
                   PropertyWithHint(Strings.HINT_NET_WEIGHT,
                       Strings.NET_WEIGHT,
-                      '${this._stackLevel.weights.net}'
+                      '${massConverter(this._stackLevel.weights.net)}'
                   ),
                   PropertyWithHint(Strings.HINT_GROSS_WEIGHT,
                       Strings.GROSS_WEIGHT,
-                      '${this._stackLevel.weights
-                          .gross}'
+                      '${massConverter(this._stackLevel.weights.gross)}'
                   ),
                   PropertyView(Strings.NUMBER_OF_THE_CONTAINERS,
                       '${this._stackLevel.boxes.length}'
