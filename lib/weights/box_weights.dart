@@ -22,6 +22,7 @@ class BoxWeights extends Weights {
 
   double get currentGross => _currentGross;
   double get currentNetExplosive => _currentNetExplosive;
+  double get currentNetOfBaa => this._currentGross - this.net;
 
   set currentNetExplosive(double value) {
     this._netExplosiveToAdd = value;

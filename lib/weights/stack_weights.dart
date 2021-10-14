@@ -61,7 +61,7 @@ class StackWeights extends Weights {
 
   void _increaseValues(){
     this._increaseGross();
-    // this._increaseNet();
+    this._increaseNet();
     this._increaseNetExplosive();
   }
 
@@ -99,7 +99,7 @@ class StackWeights extends Weights {
   }
 
   void _increaseNet(){
-    this.gross += this._currentBox.weights.net;
+    this.net += this._currentBox.weights.currentNetOfBaa;
   }
 
   void fillToMaximum() {
