@@ -6,6 +6,7 @@ import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/url.dart';
 import 'package:tobaa/app_colors.dart';
+import 'package:tobaa/widgets/property_view.dart';
 
 import '../strings.dart';
 
@@ -33,16 +34,24 @@ class CountedView extends StatelessWidget {
               color: Color(AppColors.TRANSPORT),
               child: Column(
                   children: [
-                    Text('${Strings.NUMBER_OF_THE_BAA} ${TOBAAApp.transport
-                        .capacity()}'),
-                    Text('${Strings.NEW} ${massConverter(
-                        TOBAAApp.transport.transportNetExplosiveWeight)}'),
-                    Text('${Strings.WEIGHT_OF_ALL_BAA} ${massConverter(
-                        TOBAAApp.transport.transportNetWeight)}'),
-                    Text('${Strings.GROSS_WEIGHT} ${massConverter(
-                        TOBAAApp.transport.transportGrossWeight)}'),
-                    Text('${Strings.NUMBER_OF_CARS} ${TOBAAApp.transport
-                        .numberOfCars}'),
+                    PropertyView(Strings.NUMBER_OF_THE_BAA,
+                        '${TOBAAApp.transport.capacity()}'
+                    ),
+                    PropertyView(Strings.NEW,
+                        ' ${massConverter(
+                            TOBAAApp.transport.transportNetExplosiveWeight)}'
+                    ),
+                    PropertyView(Strings.WEIGHT_OF_ALL_BAA,
+                        '${massConverter(
+                            TOBAAApp.transport.transportNetWeight)}'
+                    ),
+                    PropertyView(Strings.GROSS_WEIGHT,
+                        '${massConverter(
+                            TOBAAApp.transport.transportGrossWeight)}'
+                    ),
+                    PropertyView(Strings.NUMBER_OF_CARS,
+                        '${TOBAAApp.transport.numberOfCars}'
+                    ),
                     this._carsListView(TOBAAApp.transport.cars
                     )
                   ])

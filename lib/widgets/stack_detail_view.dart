@@ -4,6 +4,7 @@ import 'package:tobaa/app_colors.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/url.dart';
+import 'package:tobaa/widgets/property_view.dart';
 import 'package:tobaa/widgets/property_with_hint_view.dart';
 
 import '../main.dart';
@@ -29,21 +30,32 @@ class StackDetailView extends  StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('${Strings.WIDTH} ${sizeConverter(this._stack.dimensions.width)}'),
-                  Text('${Strings.LENGTH} ${sizeConverter(this._stack.dimensions.length)}'),
-                  Text('${Strings.HEIGHT} ${sizeConverter(this._stack.dimensions.height)}'),
-                  Text('${Strings.NEW} ${massConverter(
-                      this._stack.weights.netExplosive)}'),
+                  PropertyView(Strings.WIDTH,
+                      '${sizeConverter(this._stack.dimensions.width)}'
+                  ),
+                  PropertyView(Strings.LENGTH,
+                      '${sizeConverter(this._stack.dimensions.length)}'
+                  ),
+                  PropertyView(Strings.HEIGHT,
+                      '${sizeConverter(this._stack.dimensions.height)}'
+                  ),
+                  PropertyView(Strings.NEW,
+                      '${massConverter(this._stack.weights.netExplosive)}'
+                  ),
                   PropertyWithHint(Strings.HINT_NET_WEIGHT,
                       Strings.NET_WEIGHT,
-                      '${massConverter(this._stack.weights.net)}'),
+                      '${massConverter(this._stack.weights.net)}'
+                  ),
                   PropertyWithHint(Strings.HINT_GROSS_WEIGHT,
                       Strings.GROSS_WEIGHT,
-                      '${massConverter(this._stack.weights.gross)}'),
-                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stack
-                      .battleAirAssetCapacities.current}'),
-                  Text('${Strings.MAX_STACK_LEVEL} ${this._stack
-                      .maximumStackLevel}'),
+                      '${massConverter(this._stack.weights.gross)}'
+                  ),
+                  PropertyView(Strings.NUMBER_OF_THE_BAA,
+                      '${this._stack.battleAirAssetCapacities.current}'
+                  ),
+                  PropertyView(Strings.MAX_STACK_LEVEL,
+                      '${this._stack.maximumStackLevel}'
+                  ),
                   this._listViewStackLevel(this._stack.levels)
                 ],
               )

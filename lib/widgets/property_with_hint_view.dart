@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../strings.dart';
 
-class PropertyWithHint extends StatelessWidget{
+class PropertyWithHint extends StatelessWidget {
   final String hint;
   final String propertyName;
   final String propertyValue;
@@ -14,6 +14,9 @@ class PropertyWithHint extends StatelessWidget{
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Expanded(child: Text(this.propertyName)),
+          Expanded(child: Text(propertyValue,
+              style: TextStyle(fontWeight: FontWeight.w600,))),
           IconButton(onPressed: () =>
           {
             showDialog(builder: (BuildContext context) {
@@ -32,8 +35,9 @@ class PropertyWithHint extends StatelessWidget{
                 ),
               );
             }, context: context)
-          }, icon: Icon(Icons.help)),
-          Text('$propertyName $propertyValue'),
+          },
+              icon: Icon(Icons.help)),
+
         ]
     );
   }

@@ -4,6 +4,7 @@ import 'package:tobaa/app_colors.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/url.dart';
+import 'package:tobaa/widgets/property_view.dart';
 import 'package:tobaa/widgets/property_with_hint_view.dart';
 
 import '../main.dart';
@@ -29,24 +30,33 @@ class StackLevelDetailView extends  StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
                 children: [
-                  Text('${Strings.WIDTH} ${this._stackLevel.dimensions.width}'),
-                  Text('${Strings.LENGTH} ${this._stackLevel.dimensions
-                      .length}'),
-                  Text('${Strings.HEIGHT} ${this._stackLevel.dimensions
-                      .height}'),
-                  Text('${Strings.NEW} ${this._stackLevel.weights
-                      .netExplosive}'),
+                  PropertyView(Strings.WIDTH,
+                      '${this._stackLevel.dimensions.width}'
+                  ),
+                  PropertyView(Strings.LENGTH,
+                      '${this._stackLevel.dimensions.length}'
+                  ),
+                  PropertyView(Strings.HEIGHT,
+                      '${this._stackLevel.dimensions.height}'
+                  ),
+                  PropertyView(Strings.NEW,
+                      '${this._stackLevel.weights.netExplosive}'
+                  ),
                   PropertyWithHint(Strings.HINT_NET_WEIGHT,
                       Strings.NET_WEIGHT,
-                      '${this._stackLevel.weights.net}'),
+                      '${this._stackLevel.weights.net}'
+                  ),
                   PropertyWithHint(Strings.HINT_GROSS_WEIGHT,
                       Strings.GROSS_WEIGHT,
                       '${this._stackLevel.weights
-                          .gross}'),
-                  Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stackLevel
-                      .boxes.length}'),
-                  Text('${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel
-                      .capacities.current}'),
+                          .gross}'
+                  ),
+                  PropertyView(Strings.NUMBER_OF_THE_CONTAINERS,
+                      '${this._stackLevel.boxes.length}'
+                  ),
+                  PropertyView(Strings.NUMBER_OF_THE_BAA,
+                      '${this._stackLevel.capacities.current}'
+                  ),
                   this._listViewBoxes(this._stackLevel.boxes)
                 ],
               )

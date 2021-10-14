@@ -126,50 +126,8 @@ class _DetailBaa extends State<DetailBaa> {
             content: Column(
               children:
               [
-                Container(
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                        children: [
-                          Row(
-                              children: [
-                                Text(Strings.EXPLOSION_SUBCLASS),
-                                Text('${this.battleAirAsset.explosionClass
-                                    .explosionSubclass.id}',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold
-                                  ),
-                                ),
-                              ]),
-                          Text('${this.battleAirAsset.explosionClass
-                              .explosionSubclass.description}',
-                              style: TextStyle(
-                                  fontStyle: FontStyle.italic
-                              )
-                          ),
-                        ])
-                ),
-                Container(
-                    padding: EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        Row(children: [
-                          Text('${Strings.COMPATIBILITY_GROUP}'),
-                          Text('$compatibilityGroup',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold
-                            ),
-                          ),
-                        ],
-                        ),
-                        Text('${this
-                            .battleAirAsset.explosionClass
-                            .compatibilityGroup
-                            .description}', style: TextStyle(
-                            fontStyle: FontStyle.italic
-                        )),
-                      ],
-                    )
-                )
+               this._explosionClass(),
+               this._compatibilityGroup(compatibilityGroup)
               ],
             ),
             actions: [
@@ -183,5 +141,55 @@ class _DetailBaa extends State<DetailBaa> {
         ),
       );
     }, context: this.context);
+  }
+
+  Widget _explosionClass(){
+    return  Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+            children: [
+              Row(
+                  children: [
+                    Text(Strings.EXPLOSION_SUBCLASS),
+                    Text('${this.battleAirAsset.explosionClass
+                        .explosionSubclass.id}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ]),
+              Text('${this.battleAirAsset.explosionClass
+                  .explosionSubclass.description}',
+                  style: TextStyle(
+                      fontStyle: FontStyle.italic
+                  )
+              ),
+            ])
+    );
+  }
+
+  Widget _compatibilityGroup(String compatibilityGroup){
+    return Container(
+        padding: EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Row(children: [
+              Text('${Strings.COMPATIBILITY_GROUP}'),
+              Text('$compatibilityGroup',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold
+                ),
+              ),
+            ],
+            ),
+            Text('${this
+                .battleAirAsset.explosionClass
+                .compatibilityGroup
+                .description}', style: TextStyle(
+                fontStyle: FontStyle.italic
+            )),
+          ],
+        )
+    );
   }
 }
