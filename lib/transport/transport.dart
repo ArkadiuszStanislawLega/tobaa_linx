@@ -228,19 +228,19 @@ class Transport {
   }
 
   void _spendBoxesToNewCarWarTime() {
-    var car = DatabaseCars.container[this._selectedTypeOfCar];
-    if (car!.isBoxesWillFit(this._boxesToAdd)) {
-      this.addCar(this._selectedTypeOfCar);
+    if (this._createCar().isBoxesWillFit(this._boxesToAdd)) {
+      this.addCar();
       this._cars.last.addBoxes(this._boxesToAdd);
     }
   }
 
-  void addCar(CarType carType) {
+  void addCar() {
     this._cars.add(this._createCar());
   }
 
   void _spendToCarInPeaceTime() {
     if (!this.isWarTime) {
+      //TODO: Pętla która powraca do dodawania kolejnych skrzyń
       if (!this._isAddedBoxToAnIncompleteCarPeaceTime()) {
         this._spendBoxesToNewCarPeaceTime();
       }
@@ -295,7 +295,7 @@ class Transport {
 
   void _spendBoxesToNewCarPeaceTime(){
     if (this._createCar().isBoxesWillFit(this._boxesToAdd)) {
-      this.addCar(this._selectedTypeOfCar);
+      this.addCar();
       this._cars.last.addBoxes(this._boxesToAdd);
     }
 

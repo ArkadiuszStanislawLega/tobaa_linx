@@ -13,7 +13,7 @@ void main() {
     expect(transport.transportNetWeight, 0);
   });
 
-  test("getters", () {
+  test("Create transport", () {
     // Transport transport = new Transport();
     //
     // transport.addCar(CarType.euro_cargo);
@@ -42,9 +42,16 @@ void main() {
     expect(tr.transportNetExplosiveWeight, 0);
     expect(tr.transportNetWeight, 0);
 
-    tr.createTransport({ BattleAirAssetType.AIM120 : 8});
-    print(tr.cars.length);
+    tr.createTransport({ BattleAirAssetType.AIM120 : 28});
+    expect(tr.capacity(), 28);
+
 
   });
-
+  test("Create transport with more then one car", () {
+    Transport tr = new Transport();
+    tr.selectedCar = CarType.euro_cargo;
+    tr.createTransport({ BattleAirAssetType.AIM120 : 28});
+    expect(tr.cars.length, 2);
+    expect(tr.capacity(), 28);
+  });
 }
