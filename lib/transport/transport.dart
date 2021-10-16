@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/capacities/capacities.dart';
@@ -228,42 +229,45 @@ class Transport {
   }
 
   void _spendBoxesToNewCarWarTime() {
-    if (this._createCar().isBoxesWillFit(this._boxesToAdd)) {
+    if (this._copyCarFromDB().isBoxesWillFit(this._boxesToAdd)) {
       this.addCar();
       this._cars.last.addBoxes(this._boxesToAdd);
     }
   }
 
   void addCar() {
-    this._cars.add(this._createCar());
+    this._cars.add(this._copyCarFromDB());
   }
 
   void _spendToCarInPeaceTime() {
     if (!this.isWarTime) {
-      //TODO: Pętla która powraca do dodawania kolejnych skrzyń
-      if (!this._isAddedBoxToAnIncompleteCarPeaceTime()) {
-        this._spendBoxesToNewCarPeaceTime();
+      for(int i = 0; i < this._boxesToAdd.length; i++) {
+          this._boxToAdd = this._boxesToAdd[i];
+          if (!this._isAddedBoxToAnIncompleteCarPeaceTime()) {
+            this._spendBoxesToNewCarPeaceTime();
+        }
+        //TODO: Pętla która powraca do dodawania kolejnych skrzyń
       }
     }
   }
 
   bool _isAddedBoxToAnIncompleteCarPeaceTime(){
-    bool isBoxesFit = false;
-    bool isBoxesFitInThePeacetimeLimits = false;
+    bool isBoxFit = false;
+    bool isBoxFitInThePeacetimeLimits = false;
 
-    for (int i = 0; i < this._cars.length; i++) {
+    this._cars.forEach((car) {
 
-      this._currentCarToFill = this._cars[i];
+      this._currentCarToFill = car;
 
-      isBoxesFit = this._currentCarToFill.isBoxesWillFit(this._boxesToAdd);
-      isBoxesFitInThePeacetimeLimits = this.isBoxInPeacetimeLimit();
+      isBoxFit = this._currentCarToFill.isBoxWillFit(this._boxToAdd);
+      isBoxFitInThePeacetimeLimits = this.isBoxInPeacetimeLimit();
 
-      if (isBoxesFit && isBoxesFitInThePeacetimeLimits) {
-        this._currentCarToFill.addBoxes(this._boxesToAdd);
-        break;
+      if (isBoxFit && isBoxFitInThePeacetimeLimits) {
+        this._currentCarToFill.addBox(this._boxToAdd);
       }
-    }
-    return isBoxesFit && isBoxesFitInThePeacetimeLimits;
+    });
+
+    return isBoxFit && isBoxFitInThePeacetimeLimits;
   }
 
 
@@ -272,12 +276,10 @@ class Transport {
     return this._isMetLimitNetExplosiveWeightOfTheLoad();
   }
 
-  void _countTheWightOfTheChestToAdd(){
-    for (int i = 0; i < this._boxesToAdd.length; i++) {
-      BoxWeights boxWeights = this._boxesToAdd[i].weights;
-      this._grossWeightOfNewBoxes += boxWeights.currentGross;
-      this._netExplosiveWeightOfNewPackages += boxWeights.currentNetExplosive;
-    }
+  void _countTheWightOfTheChestToAdd() {
+    BoxWeights boxWeights = this._boxToAdd.weights;
+    this._grossWeightOfNewBoxes += boxWeights.currentGross;
+    this._netExplosiveWeightOfNewPackages += boxWeights.currentNetExplosive;
   }
 
   bool _isMetLimitNetExplosiveWeightOfTheLoad(){
@@ -294,14 +296,14 @@ class Transport {
   }
 
   void _spendBoxesToNewCarPeaceTime(){
-    if (this._createCar().isBoxesWillFit(this._boxesToAdd)) {
+    if (this._copyCarFromDB().isBoxWillFit(this._boxToAdd)) {
       this.addCar();
-      this._cars.last.addBoxes(this._boxesToAdd);
+      this._cars.last.addBox(this._boxToAdd);
     }
 
   }
 
-  Car _createCar(){
+  Car _copyCarFromDB(){
     Car dbCar = DatabaseCars.container[this._selectedTypeOfCar]!;
     return Car(
       weightOfLoadingArea: LoadingAreaWeights(

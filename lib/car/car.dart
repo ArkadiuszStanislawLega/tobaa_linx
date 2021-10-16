@@ -18,6 +18,7 @@ import 'package:tobaa/weights/weights.dart';
 class Car {
   late ExplosionClass _explosionClass;
   late List<Box> _boxesToAdd;
+  late Box _boxToAdd;
 
   late String name;
   late Weights carWeights;
@@ -35,6 +36,7 @@ class Car {
     this.stacks = [];
     this.type = CarType.None;
     this.explosionClass = new ExplosionClass.empty();
+    this._boxToAdd = new Box.empty();
   }
 
   Car({
@@ -49,6 +51,7 @@ class Car {
       compatibilityGroup: CompatibilityGroup(),
       explosionSubclass: ExplosionSubclass()
     );
+    this._boxToAdd = new Box.empty();
   }
 
   ExplosionClass get explosionClass => _explosionClass;
@@ -71,17 +74,43 @@ class Car {
     }
     this._boxesToAdd.clear();
   }
+  
+  void addBox(Box box) {
+    this._boxToAdd = box;
+    bool isBoxAdded = false;
+    this._ifCarEmptyAddNewStack();
 
-  void _ifCarEmptyAddNewStack() {
-    var stack = DatabaseStacks.container[this._boxesToAdd.first.type];
-    if (this.stacks.isEmpty && this._isNewStackCanBeAdd(stack!)) {
-      this._addNewStack(this._boxesToAdd.first.type);
+    if (this.stacks.isNotEmpty) {
+      for (int i = 0; i < this.stacks.length; i++) {
+        if (this.stacks[i].isBoxCanBeAddedToStack(this._boxToAdd)) {
+          this._addBox(i);
+          isBoxAdded = true;
+          break;
+        }
+      }
+    }
+
+    if (!isBoxAdded && this._isNewStackCanBeAdd()) {
+      this._addNewStack();
+      this._addBoxToLastStack();
     }
   }
 
-  bool _isNewStackCanBeAdd(Stack stack) {
-    return this.dimensionOfLoadingArea.isWillBeFit(stack.dimensions) &&
-        this._nextStackDoNotOverweightCar(stack);
+  void _addBox(int stackIndex){
+    this.stacks[stackIndex].addBox(this._boxToAdd);
+    this._increaseProperties();
+  }
+
+  void _ifCarEmptyAddNewStack() {
+    if (this.stacks.isEmpty && this._isNewStackCanBeAdd()) {
+      this._addNewStack();
+    }
+  }
+
+  bool _isNewStackCanBeAdd() {
+    Stack nextStack = this._copyStackFromDB();
+    return this.dimensionOfLoadingArea.isWillBeFit(nextStack.dimensions) &&
+        this._nextStackDoNotOverweightCar(nextStack);
   }
 
   bool _nextStackDoNotOverweightCar(Stack stack) {
@@ -106,13 +135,16 @@ class Car {
 
           if (isBoxCanBeAdd) {
             this.stacks[i].addBox(currentBox);
-            this._increaseProperties(currentBox);
+            this._increaseProperties();
             break;
           }
 
           if (!isBoxCanBeAdd && isIteratorHasMaxValue) {
-            this._addBoxesIfNewStackCanBeCreated(i, currentBox);
-            break;
+            if (this._isNewStackCanBeAdd()) {
+              this._addNewStack();
+              this._addBoxToLastStack();
+              break;
+            }
           }
         }
 
@@ -121,8 +153,8 @@ class Car {
   }
 
 
-  void _addNewStack(BoxType boxType) {
-    var stack = this._copyStack(boxType);
+  void _addNewStack() {
+    var stack = this._copyStackFromDB();
     this.stacks.add(stack);
     this.dimensionOfLoadingArea.append(stack.dimensions);
   }
@@ -137,28 +169,28 @@ class Car {
   }
   
   bool isBoxWillFit(Box box){
+    this._boxToAdd = box;
     var isExplosiveCompatible = this._isBoxExplosiveClassIsCompatible(box);
     var isSizeFit = false;
     var isWeightFit = false;
 
     if (isExplosiveCompatible)
-      isSizeFit = this._isBoxSizeFit(box);
+      isSizeFit = this._isBoxSizeFit();
       if (isSizeFit)
-        isWeightFit = this._isBoxWeightsFit(box);
+        isWeightFit = this._isBoxWeightsFit();
 
     return isExplosiveCompatible && isSizeFit && isWeightFit;
   }
 
-  bool _isBoxWeightsFit(Box box) {
-    return _isGrossWeightNotExceeded(box.weights.currentGross) &&
-    _isNetExplosiveWeightNotExceeded(box.weights.currentNetExplosive);
+  bool _isBoxWeightsFit() {
+    return _isGrossWeightNotExceeded(this._boxToAdd.weights.currentGross) &&
+    _isNetExplosiveWeightNotExceeded(this._boxToAdd.weights.currentNetExplosive);
   }
 
-  bool _isBoxSizeFit(Box box){
-    var answer = this._isBoxFitIntoAnIncompleteStack(box);
+  bool _isBoxSizeFit(){
+    var answer = this._isBoxFitIntoAnIncompleteStack(this._boxToAdd);
     if (!answer) {
-      var stack = DatabaseStacks.container[box.type];
-      answer = this._isNewStackCanBeAdd(stack!);
+      answer = this._isNewStackCanBeAdd();
     }
     return answer;
   }
@@ -281,23 +313,19 @@ class Car {
 
   /// Is adding new stack and then add boxes to the new stack.
   /// [index] - iterator of list boxes to add
-  void _addBoxesIfNewStackCanBeCreated(int index, Box box) {
-    Stack nextStack = this._copyStack(box.battleAirAsset.boxType);
-    if (this._isNewStackCanBeAdd(nextStack)) {
-      this._addNewStack(box.type);
-      this.stacks[index + 1].addBox(box);
-      this._increaseProperties(box);
-    }
+  void _addBoxToLastStack() {
+      this.stacks.last.addBox(this._boxToAdd);
+      this._increaseProperties();
   }
 
-  Stack _copyStack(BoxType boxType){
-    Stack copied = DatabaseStacks.container[boxType]!;
+  Stack _copyStackFromDB(){
+    Stack copied = DatabaseStacks.container[this._boxToAdd.type]!;
     return Stack(
       maximumStackLevel: copied.maximumStackLevel,
       battleAirAssetCapacities: Capacities(
           maximum: copied.battleAirAssetCapacities.maximum
       ),
-      defaultStackLevel: DatabaseStackLevels.container[boxType]!,
+      defaultStackLevel: DatabaseStackLevels.container[this._boxToAdd.type]!,
       weights: StackWeights(
           maxGross: copied.weights.maxGross,
           maxNet: copied.weights.maxNet,
@@ -317,11 +345,11 @@ class Car {
   //   this._increaseProperties();
   // }
 
-  void _increaseProperties(Box box) {
-    this.weightOfLoadingArea.tryIncreaseCurrentWeight(box.weights.currentGross);
+  void _increaseProperties() {
+    this.weightOfLoadingArea.tryIncreaseCurrentWeight(this._boxToAdd.weights.currentGross);
     this.weightOfLoadingArea.tryIncreaseCurrentNetExplosiveWeight(
-        box.weights.currentNetExplosive);
-    this.explosionClass = box.battleAirAsset.explosionClass;
+        this._boxToAdd.weights.currentNetExplosive);
+    this.explosionClass = this._boxToAdd.battleAirAsset.explosionClass;
   }
 
   // Jeżeli środki bojowe należące do różnych podklas klasy 1 załadowane są do

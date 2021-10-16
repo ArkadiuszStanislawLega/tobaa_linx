@@ -47,11 +47,12 @@ void main() {
 
 
   });
+
   test("Create transport with more then one car", () {
     Transport tr = new Transport();
     tr.selectedCar = CarType.euro_cargo;
     tr.createTransport({ BattleAirAssetType.AIM120 : 28});
-    expect(tr.cars.length, 2);
     expect(tr.capacity(), 28);
+    expect(tr.cars.length, 2);
   });
 }
