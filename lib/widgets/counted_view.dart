@@ -20,7 +20,7 @@ class CountedView extends StatelessWidget {
     //     TOBAAApp.transport.addCar(key);
     //   }
     // });
-    TOBAAApp.transport = new Transport();
+    // TOBAAApp.transport = new Transport();
     TOBAAApp.transport.selectedCar = CarType.euro_cargo;
     TOBAAApp.transport.createTransport(TOBAAApp.values);
 

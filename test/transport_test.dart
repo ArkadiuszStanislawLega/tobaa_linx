@@ -34,10 +34,17 @@ void main() {
     Transport tr = new Transport();
     tr.selectedCar = CarType.euro_cargo;
     tr.createTransport({ BattleAirAssetType.AIM120 : 8});
+    tr.clear();
 
+    expect(tr.cars.length, 0);
+    expect(tr.numberOfCars, 0);
+    expect(tr.transportGrossWeight, 0);
+    expect(tr.transportNetExplosiveWeight, 0);
+    expect(tr.transportNetWeight, 0);
+
+    tr.createTransport({ BattleAirAssetType.AIM120 : 8});
     print(tr.cars.length);
-    //TODO:Przetestować to
-    // expect(transport.cars[0].stacks[0].currentNumberOfBoxes, 1);
+
   });
 
 }
