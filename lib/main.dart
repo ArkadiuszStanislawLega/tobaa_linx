@@ -31,7 +31,7 @@ String massConverter(var value){
     return '${value/1000} kg';
   }
 
-  return '${value / 1000000} t';
+  return '${value/1000000} t';
 }
 
 String sizeConverter(var value){

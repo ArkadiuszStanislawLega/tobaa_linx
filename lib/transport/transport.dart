@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/capacities/capacities.dart';
@@ -65,8 +64,6 @@ class Transport {
         maximumNetExplosive: 10000.0
     );
   }
-
-
 
   List<Car> get cars => _cars;
 
@@ -147,13 +144,13 @@ class Transport {
 
   void _prepareBoxesToSpendOnCars() {
     do {
-      this._boxToAdd = this._createBox(this._battleAirAssetToAdd.boxType);
+      this._boxToAdd = this._copyBoxFromDB(this._battleAirAssetToAdd.boxType);
       this._fillBox();
       this._boxesToAdd.add(this._boxToAdd);
     } while (this._currentValueOfBaaToAdd > 0);
   }
 
-  Box _createBox(BoxType boxType) {
+  Box _copyBoxFromDB(BoxType boxType) {
     Box modelBox = DatabaseBoxes.container[boxType]!;
     return new Box(
       name: modelBox.name,
@@ -229,6 +226,7 @@ class Transport {
   }
 
   void _spendBoxesToNewCarWarTime() {
+    //TODO: Przetestować
     if (this._copyCarFromDB().isBoxesWillFit(this._boxesToAdd)) {
       this.addCar();
       this._cars.last.addBoxes(this._boxesToAdd);
@@ -246,7 +244,6 @@ class Transport {
           if (!this._isAddedBoxToAnIncompleteCarPeaceTime()) {
             this._spendBoxesToNewCarPeaceTime();
         }
-        //TODO: Pętla która powraca do dodawania kolejnych skrzyń
       }
     }
   }

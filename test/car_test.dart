@@ -6,15 +6,16 @@ import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/dimensions/dimensions.dart';
+import 'package:tobaa/dimensions/loading_area_dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/weights/box_weights.dart';
+import 'package:tobaa/weights/loading_area_weights.dart';
+import 'package:tobaa/weights/weights.dart';
 
 void main() {
   test("Add boxes with baa to car war time", () {
-
-
     const int DIMENSIONS_ONE_STACK_LEVEL_CAPACITY = 45;
     const double MAXIMUM_GROSS_WEIGHT = 6.0;
     const double MAXIMUM_NET_EXPLOSIVE_WEIGHT = 1.5;
@@ -71,13 +72,11 @@ void main() {
         DIMENSIONS_ONE_STACK_LEVEL_CAPACITY);
   });
 
-
   test("Is boxes can be add", () {
     Car car = DatabaseCars.container[CarType.test]!;
-    Box boxWithCorrectSize = DatabaseBoxes.container[BoxType
-        .correctSizeTest]!;
-    Box boxWithIncorrectExplosionClass = DatabaseBoxes.container[BoxType
-        .heavyTest]!;
+    Box boxWithCorrectSize = DatabaseBoxes.container[BoxType.correctSizeTest]!;
+    Box boxWithIncorrectExplosionClass =
+        DatabaseBoxes.container[BoxType.heavyTest]!;
 
     boxWithCorrectSize.fillToMaximum();
     boxWithIncorrectExplosionClass.fillToMaximum();
@@ -95,46 +94,34 @@ void main() {
   });
 
   test("Add to euro-cargo", () {
-    Car car = DatabaseCars.container[CarType.euro_cargo]!;
+    Car car = Car(
+      weightOfLoadingArea:
+          LoadingAreaWeights(maximum: 15990000, maximumNetExplosive: 1500000),
+      type: CarType.smallCarTest,
+      carWeights: Weights(gross: 6770000, net: 677000),
+      name: 'IVECO - EUROCARGO',
+      stacks: [],
+      dimensionOfLoadingArea:
+          LoadingAreaDimensions(height: 1807, length: 6054, width: 2470),
+    );
+
     Box box = new Box(
         name: "CNU-431",
-        capacities: Capacities(
-            maximum: 4
-        ),
-        weights: BoxWeights(
-            gross: 927000,
-            net: 281000,
-            netExplosive: 232800
-        ),
-        dimensions: Dimensions(
-            height: 480,
-            width: 968,
-            length: 4416
-        ),
+        capacities: Capacities(maximum: 4),
+        weights: BoxWeights(gross: 927000, net: 281000, netExplosive: 232800),
+        dimensions: Dimensions(height: 480, width: 968, length: 4416),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
-        type: BoxType.CNU431
-    );
+        type: BoxType.CNU431);
 
     Box box2 = new Box(
         name: "CNU-431",
-        capacities: Capacities(
-            maximum: 4
-        ),
-        weights: BoxWeights(
-            gross: 927000,
-            net: 281000,
-            netExplosive: 232800
-        ),
-        dimensions: Dimensions(
-            height: 480,
-            width: 968,
-            length: 4416
-        ),
+        capacities: Capacities(maximum: 4),
+        weights: BoxWeights(gross: 927000, net: 281000, netExplosive: 232800),
+        dimensions: Dimensions(height: 480, width: 968, length: 4416),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
-        type: BoxType.CNU431
-    );
+        type: BoxType.CNU431);
 
     box.capacities.fillToMaximum();
     box2.capacities.tryIncreaseCurrent(3);
@@ -144,6 +131,38 @@ void main() {
     car.addBoxes(boxes);
 
     expect(car.capacity(), 7);
+  });
+
+  test("euro-cargo tests", () {
+    Car car = Car(
+      weightOfLoadingArea:
+      LoadingAreaWeights(maximum: 15990000, maximumNetExplosive: 1500000),
+      type: CarType.smallCarTest,
+      carWeights: Weights(gross: 6770000, net: 677000),
+      name: 'IVECO - EUROCARGO',
+      stacks: [],
+      dimensionOfLoadingArea:
+      LoadingAreaDimensions(height: 1807, length: 6054, width: 2470),
+    );
+
+    Box box = new Box(
+        name: "CNU-431",
+        capacities: Capacities(maximum: 4),
+        weights: BoxWeights(gross: 927000, net: 281000, netExplosive: 232800),
+        dimensions: Dimensions(height: 480, width: 968, length: 4416),
+        maxStackLevel: 2,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
+        type: BoxType.CNU431);
+
+    box.capacities.fillToMaximum();
+
+    List<Box> boxes = [box, box, box];
+
+    boxes.forEach((element) {
+      car.addBox(element);
+    });
+
+    expect(car.capacity(), 8);
   });
 
 }

@@ -11,6 +11,7 @@ class LoadingAreaDimensions extends Dimensions{
   Dimensions get occupied => _occupied;
 
   bool isWillBeFit(Dimensions dimensions) {
+    //TODO: Found next issue.
     var dimensionAddedToCurrentOccupiedWidth = this._occupied.width +
         dimensions.width;
     var capacityWithAddedDimension = dimensions.length * dimensions.height *

@@ -4,7 +4,6 @@ import 'package:tobaa/database/db_stack_levels.dart';
 import 'package:tobaa/database/db_stacks.dart';
 import 'package:tobaa/dimensions/loading_area_dimensions.dart';
 import 'package:tobaa/dimensions/stack_dimensions.dart';
-import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/enumerators/compatibility_group_type.dart';
 import 'package:tobaa/explosion_class/compatibility_group.dart';

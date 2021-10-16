@@ -15,7 +15,6 @@ void main() {
     dimensions.width = 1;
     dimensions.height = 1;
 
-    loadingAreaDimensions.isWillBeFit(dimensions);
     expect(loadingAreaDimensions.isWillBeFit(dimensions), true);
 
     loadingAreaDimensions.append(dimensions);

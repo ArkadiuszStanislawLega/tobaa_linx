@@ -25,8 +25,6 @@ class BaaList extends StatelessWidget {
                 ElevatedButton(
                   child: Text(Strings.COUNT),
                   onPressed: () => {
-                    // TOBAAApp.transport.createTransport(TOBAAApp.values),
-                    // TOBAAApp.transport.isWarTime = TOBAAApp.isWar,
                     Navigator.pushNamed(context, Url.COUNTED),
                   },
                 )
