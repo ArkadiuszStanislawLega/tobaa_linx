@@ -14,7 +14,7 @@ import 'package:tobaa/weights/box_weights.dart';
 import 'package:tobaa/weights/loading_area_weights.dart';
 import 'package:tobaa/weights/weights.dart';
 
-enum Property{
+enum Property {
   netWeight,
   grossWeight,
   netExplosiveWeight,
@@ -37,11 +37,14 @@ class Transport {
 
   static Map<CarType, LoadingAreaWeights> _carWeightLimits = {};
 
-  int capacity(){
+  int capacity() {
     int value = 0;
-    this._cars.forEach((element) {value+=element.capacity();});
+    this._cars.forEach((element) {
+      value += element.capacity();
+    });
     return value;
   }
+
   Transport() {
     this._initial();
   }
@@ -58,11 +61,9 @@ class Transport {
     this._createCarsWeightLimits();
   }
 
-  void _createCarsWeightLimits(){
-    _carWeightLimits[CarType.test] = new LoadingAreaWeights(
-        maximum: 10000.0,
-        maximumNetExplosive: 10000.0
-    );
+  void _createCarsWeightLimits() {
+    _carWeightLimits[CarType.test] =
+        new LoadingAreaWeights(maximum: 10000.0, maximumNetExplosive: 10000.0);
   }
 
   List<Car> get cars => _cars;
@@ -124,7 +125,7 @@ class Transport {
     map.forEach((key, value) => this._addBattleAirAssetType(key, value));
   }
 
-  void clear(){
+  void clear() {
     this._cars.clear();
     this._boxesToAdd.clear();
     this._currentValueOfBaaToAdd = 0;
@@ -153,22 +154,19 @@ class Transport {
   Box _copyBoxFromDB(BoxType boxType) {
     Box modelBox = DatabaseBoxes.container[boxType]!;
     return new Box(
-      name: modelBox.name,
+        name: modelBox.name,
         capacities: Capacities(maximum: modelBox.capacities.maximum),
         weights: BoxWeights(
             gross: modelBox.weights.gross,
             net: modelBox.weights.net,
-            netExplosive: modelBox.weights.netExplosive
-        ),
+            netExplosive: modelBox.weights.netExplosive),
         dimensions: Dimensions(
-          height: modelBox.dimensions.height,
-          width: modelBox.dimensions.width,
-          length: modelBox.dimensions.length
-        ),
-      maxStackLevel: modelBox.maxStackLevel,
-      battleAirAsset: modelBox.battleAirAsset,
-      type: modelBox.type
-    );
+            height: modelBox.dimensions.height,
+            width: modelBox.dimensions.width,
+            length: modelBox.dimensions.length),
+        maxStackLevel: modelBox.maxStackLevel,
+        battleAirAsset: modelBox.battleAirAsset,
+        type: modelBox.type);
   }
 
   void _fillBox() {
@@ -203,8 +201,8 @@ class Transport {
     this._spendToCarInPeaceTime();
   }
 
-  void _spendToCarInWarTime(){
-    if(this.isWarTime){
+  void _spendToCarInWarTime() {
+    if (this.isWarTime) {
       if (!this._isAddedBoxToAnIncompleteCarWarTime()) {
         this._spendBoxesToNewCarWarTime();
       }
@@ -239,34 +237,32 @@ class Transport {
 
   void _spendToCarInPeaceTime() {
     if (!this.isWarTime) {
-      for(int i = 0; i < this._boxesToAdd.length; i++) {
-          this._boxToAdd = this._boxesToAdd[i];
-          if (!this._isAddedBoxToAnIncompleteCarPeaceTime()) {
-            this._spendBoxesToNewCarPeaceTime();
+      for (int i = 0; i < this._boxesToAdd.length; i++) {
+        this._boxToAdd = this._boxesToAdd[i];
+        if (!this._isAddedBoxToAnIncompleteCarPeaceTime()) {
+          this._spendBoxesToNewCarPeaceTime();
         }
       }
     }
   }
 
-  bool _isAddedBoxToAnIncompleteCarPeaceTime(){
+  bool _isAddedBoxToAnIncompleteCarPeaceTime() {
     bool isBoxFit = false;
     bool isBoxFitInThePeacetimeLimits = false;
-
-    this._cars.forEach((car) {
-
-      this._currentCarToFill = car;
+    for (int i = 0; i < this._cars.length; i++) {
+      this._currentCarToFill = this._cars[i];
 
       isBoxFit = this._currentCarToFill.isBoxWillFit(this._boxToAdd);
       isBoxFitInThePeacetimeLimits = this.isBoxInPeacetimeLimit();
 
       if (isBoxFit && isBoxFitInThePeacetimeLimits) {
         this._currentCarToFill.addBox(this._boxToAdd);
+        break;
       }
-    });
+    }
 
     return isBoxFit && isBoxFitInThePeacetimeLimits;
   }
-
 
   bool isBoxInPeacetimeLimit() {
     this._countTheWightOfTheChestToAdd();
@@ -279,53 +275,43 @@ class Transport {
     this._netExplosiveWeightOfNewPackages += boxWeights.currentNetExplosive;
   }
 
-  bool _isMetLimitNetExplosiveWeightOfTheLoad(){
-    if (this._isCurrentCarHasNotExplosionClassAssigned())
-      return true;
-
-    double currentNetExplosiveWeightOfTheLoad = this._currentCarToFill
-        .weightOfLoadingArea.currentNetExplosive;
+  bool _isMetLimitNetExplosiveWeightOfTheLoad() {
+    if (this._isCurrentCarHasNotExplosionClassAssigned()) return true;
 
     double carNetExplosiveWithNewBoxes =
-        currentNetExplosiveWeightOfTheLoad + this._netExplosiveWeightOfNewPackages;
+        this._currentCarToFill.weightOfLoadingArea.currentNetExplosive +
+            this._netExplosiveWeightOfNewPackages;
 
+    this._netExplosiveWeightOfNewPackages = 0;
     return carNetExplosiveWithNewBoxes <= this._currentCarToFill.explosionClass.weightLimit;
   }
 
-  void _spendBoxesToNewCarPeaceTime(){
+  void _spendBoxesToNewCarPeaceTime() {
     if (this._copyCarFromDB().isBoxWillFit(this._boxToAdd)) {
       this.addCar();
       this._cars.last.addBox(this._boxToAdd);
     }
-
   }
 
-  Car _copyCarFromDB(){
+  Car _copyCarFromDB() {
     Car dbCar = DatabaseCars.container[this._selectedTypeOfCar]!;
     return Car(
       weightOfLoadingArea: LoadingAreaWeights(
-        maximum: dbCar.weightOfLoadingArea.maximum,
-        maximumNetExplosive: dbCar.weightOfLoadingArea.maximumNetExplosive
-    ),
+          maximum: dbCar.weightOfLoadingArea.maximum,
+          maximumNetExplosive: dbCar.weightOfLoadingArea.maximumNetExplosive),
       type: CarType.smallCarTest,
-      carWeights: Weights(
-          gross: dbCar.carWeights.gross,
-          net: dbCar.carWeights.net
-      ),
+      carWeights:
+          Weights(gross: dbCar.carWeights.gross, net: dbCar.carWeights.net),
       name: dbCar.name,
       stacks: [],
       dimensionOfLoadingArea: LoadingAreaDimensions(
           height: dbCar.dimensionOfLoadingArea.height,
           length: dbCar.dimensionOfLoadingArea.length,
-          width: dbCar.dimensionOfLoadingArea.width
-      ),
+          width: dbCar.dimensionOfLoadingArea.width),
     );
   }
 
-  bool _isCurrentCarHasNotExplosionClassAssigned(){
-      return this._currentCarToFill.explosionClass.explosionSubclass.id == 0;
+  bool _isCurrentCarHasNotExplosionClassAssigned() {
+    return this._currentCarToFill.explosionClass.explosionSubclass.id == 0;
   }
-
-
-
 }

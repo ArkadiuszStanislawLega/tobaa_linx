@@ -88,7 +88,7 @@ class CountedView extends StatelessWidget {
         child: Column(
           children: [
             Text('Pojazd numer: ${index+1}'),
-            Text('${Strings.NAME_OF_THE_CAR} ${car.name}'),
+            Text('${car.name}'),
             Text('Ilość środków: ${car.capacity()}'),
           ],
         ),

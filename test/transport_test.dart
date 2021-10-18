@@ -51,8 +51,16 @@ void main() {
   test("Create transport with more then one car", () {
     Transport tr = new Transport();
     tr.selectedCar = CarType.euro_cargo;
-    tr.createTransport({ BattleAirAssetType.AIM120 : 28});
-    expect(tr.capacity(), 28);
+    tr.createTransport({ BattleAirAssetType.AIM120 : 16});
+    expect(tr.capacity(), 16);
     expect(tr.cars.length, 2);
+  });
+
+  test("Create transport with more then 3 euro-cargos with CNU431", () {
+    Transport tr = new Transport();
+    tr.selectedCar = CarType.euro_cargo;
+    tr.createTransport({ BattleAirAssetType.AIM120 : 40});
+    expect(tr.capacity(), 40);
+    expect(tr.cars.length, 5);
   });
 }
