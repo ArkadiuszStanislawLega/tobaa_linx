@@ -9,8 +9,7 @@ import 'package:tobaa/widgets/property_view.dart';
 import '../main.dart';
 import '../strings.dart';
 
-class CarDetailView extends  StatelessWidget {
-
+class CarDetailView extends StatelessWidget {
   final Car _car;
 
   CarDetailView(this._car);
@@ -25,71 +24,48 @@ class CarDetailView extends  StatelessWidget {
           color: Color(AppColors.CAR),
           child: new SingleChildScrollView(
               child: Column(
-                children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Text('${Strings.PARAMETERS_OF_THE_LOADING_AREA}',
-                          style: TextStyle(fontStyle: FontStyle.italic),
-                        ),
-                        PropertyView(Strings.LENGTH,
-                            '${sizeConverter(
-                                this._car.dimensionOfLoadingArea.length)}'
-                        ),
-                        PropertyView(
-                            Strings.WIDTH,
-                            '${sizeConverter(
-                                this._car.dimensionOfLoadingArea.width)}'
-                        ),
-                        PropertyView(Strings.HEIGHT,
-                            '${sizeConverter(
-                                this._car.dimensionOfLoadingArea.height)}'
-                        ),
-                        PropertyView(
-                            Strings.PERMISSIBLE_WEIGHT,
-                            '${massConverter(
-                                this._car.weightOfLoadingArea.maximum)}'
-                        ),
-                        PropertyView(Strings.PERMISSIBLE_NEW,
-                            '${massConverter(
-                                this._car.weightOfLoadingArea
-                                    .maximumNetExplosive)}'),
-                      ],
+            children: [
+              Container(
+                child: Column(
+                  children: [
+                    Text(
+                      '${Strings.PARAMETERS_OF_THE_LOADING_AREA}',
+                      style: TextStyle(fontStyle: FontStyle.italic),
                     ),
-                  ),
-
-                  Container(
-                    child: Column(
-                      children: [
-                        Text(Strings.LOADED_CARGO_PARAMETERS,
-                          style: TextStyle(fontStyle: FontStyle.italic),
-                        ),
-                        PropertyView(
-                            Strings.EXPLOSION_CLASS,
-                            '${this._car.explosionClass.toString()}'
-                        ),
-                        PropertyView(Strings.NEW,
-                            '${massConverter(
-                                this._car.weightOfLoadingArea
-                                    .currentNetExplosive)}'
-                        ),
-                        PropertyView(Strings.LOAD_WEIGHT,
-                            '${massConverter(
-                                this._car.weightOfLoadingArea.current)}'
-                        ),
-                        PropertyView(
-                            Strings.NUMBER_OF_THE_STACKS,
-                            '${this._car.stacks.length}'
-                        ),
-                      ],
+                    PropertyView(Strings.LENGTH,
+                        '${sizeConverter(this._car.dimensionOfLoadingArea.length)}'),
+                    PropertyView(Strings.WIDTH,
+                        '${sizeConverter(this._car.dimensionOfLoadingArea.width)}'),
+                    PropertyView(Strings.HEIGHT,
+                        '${sizeConverter(this._car.dimensionOfLoadingArea.height)}'),
+                    PropertyView(Strings.PERMISSIBLE_WEIGHT,
+                        '${massConverter(this._car.weightOfLoadingArea.maximum)}'),
+                    PropertyView(Strings.PERMISSIBLE_NEW,
+                        '${massConverter(this._car.weightOfLoadingArea.maximumNetExplosive)}'),
+                  ],
+                ),
+              ),
+              Container(
+                child: Column(
+                  children: [
+                    Text(
+                      Strings.LOADED_CARGO_PARAMETERS,
+                      style: TextStyle(fontStyle: FontStyle.italic),
                     ),
-                  ),
-
-                  this._listViewStack(this._car.stacks)
-                ],
-              )
-          )
-      ),
+                    PropertyView(Strings.EXPLOSION_CLASS,
+                        '${this._car.explosionClass.toString()}'),
+                    PropertyView(Strings.NEW,
+                        '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}'),
+                    PropertyView(Strings.LOAD_WEIGHT,
+                        '${massConverter(this._car.weightOfLoadingArea.current)}'),
+                    PropertyView(Strings.NUMBER_OF_THE_STACKS,
+                        '${this._car.stacks.length}'),
+                  ],
+                ),
+              ),
+              this._listViewStack(this._car.stacks)
+            ],
+          ))),
     );
   }
 
@@ -105,8 +81,7 @@ class CarDetailView extends  StatelessWidget {
                 TOBAAApp.selectedStack = stacks.elementAt(index);
                 Navigator.pushNamed(context, Url.STACK_DETAIL);
               },
-              title: this._stack(stacks.elementAt(index), index)
-          ),
+              title: this._stack(stacks.elementAt(index), index)),
         );
       },
     );
@@ -117,19 +92,21 @@ class CarDetailView extends  StatelessWidget {
       color: Color(AppColors.STACK),
       child: Column(
         children: [
-          Text('${Strings.STACK}: ${index + 1}',
-            style: TextStyle(fontWeight: FontWeight.w600,),
+          Text(
+            '${Strings.STACK} ${index + 1}${stack.levels.length > 0 ? ": " + stack.levels.first.boxes.first.battleAirAsset.name : ""} ${index + 1}',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+            ),
           ),
           Text('${Strings.NEW} ${massConverter(stack.weights.netExplosive)}'),
           Text('${Strings.NET_WEIGHT} ${massConverter(stack.weights.net)}'),
           Text('${Strings.GROSS_WEIGHT} ${massConverter(stack.weights.gross)}'),
-          Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${stack
-              .currentNumberOfBoxes}'),
-          Text('${Strings.NUMBER_OF_THE_BAA} ${stack.battleAirAssetCapacities
-              .current}'),
+          Text(
+              '${Strings.NUMBER_OF_THE_CONTAINERS} ${stack.currentNumberOfBoxes}'),
+          Text(
+              '${Strings.NUMBER_OF_THE_BAA} ${stack.battleAirAssetCapacities.current}'),
         ],
       ),
     );
   }
-
 }
