@@ -85,5 +85,24 @@ class DatabaseStackLevels {
           maximum: 4
       ),
     ),
+
+    BoxType.CNU609: StackLevel(
+      dimensions: StackDimensions(
+          height: 584,
+          width: 1067,
+          length: 3505
+      ),
+      weights: StackWeights(
+        net: 283495.0,
+        gross: 283495.0,
+        netExplosive: 0,
+        maxNet: 283495.0,
+        maxGross: 623495.0,
+        maxNetExplosion: 123200.0,
+      ),
+      capacities: Capacities(
+          maximum: 4
+      ),
+    ),
   };
 }

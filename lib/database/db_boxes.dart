@@ -137,24 +137,6 @@ class DatabaseBoxes {
         type: BoxType.test
     ),
 
-    BoxType.CNU609: new Box(
-        name: "CNU-609",
-        capacities: Capacities(maximum: 4),
-        weights: BoxWeights(
-            gross: 623495,
-            net: 283495,
-            netExplosive: 255000
-        ),
-        dimensions: Dimensions(
-            height: 584,
-            width: 1067,
-            length: 3505
-        ),
-        maxStackLevel: 2,
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM9x]!,
-        type: BoxType.test
-    ),
-
     BoxType.CNU431: new Box(
         name: "CNU-431",
         capacities: Capacities(
@@ -173,6 +155,26 @@ class DatabaseBoxes {
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
         type: BoxType.CNU431
+    ),
+
+    BoxType.CNU609: new Box(
+        name: "CNU-609",
+        capacities: Capacities(
+            maximum: 4
+        ),
+        weights: BoxWeights(
+            gross: 623495,
+            net: 283495,
+            netExplosive: 123200
+        ),
+        dimensions: Dimensions(
+            height: 584,
+            width: 1067,
+            length: 3505
+        ),
+        maxStackLevel: 2,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM9x]!,
+        type: BoxType.CNU609
     ),
   };
 }

@@ -10,6 +10,7 @@ import 'package:tobaa/dimensions/loading_area_dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/car_type.dart';
+import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/weights/box_weights.dart';
 import 'package:tobaa/weights/loading_area_weights.dart';
 import 'package:tobaa/weights/weights.dart';
@@ -199,6 +200,7 @@ class Transport {
   void _spendBoxesToCars() {
     this._spendToCarInWarTime();
     this._spendToCarInPeaceTime();
+    this._boxesToAdd.clear();
   }
 
   void _spendToCarInWarTime() {

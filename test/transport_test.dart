@@ -33,7 +33,7 @@ void main() {
     // transport.createTransport(map);
     Transport tr = new Transport();
     tr.selectedCar = CarType.euro_cargo;
-    tr.createTransport({ BattleAirAssetType.AIM120 : 8});
+    tr.createTransport({BattleAirAssetType.AIM120: 8});
     tr.clear();
 
     expect(tr.cars.length, 0);
@@ -42,10 +42,8 @@ void main() {
     expect(tr.transportNetExplosiveWeight, 0);
     expect(tr.transportNetWeight, 0);
 
-    tr.createTransport({ BattleAirAssetType.AIM120 : 28});
+    tr.createTransport({BattleAirAssetType.AIM120: 28});
     expect(tr.capacity(), 28);
-
-
   });
 
   test("Create transport with more then 3 euro-cargos with CNU431", () {
@@ -53,7 +51,17 @@ void main() {
 
     Transport tr = new Transport();
     tr.selectedCar = CarType.euro_cargo;
-    tr.createTransport({ BattleAirAssetType.AIM120 : 40});
+    tr.createTransport({BattleAirAssetType.AIM120: 40});
+    expect(tr.capacity(), 40);
+    expect(tr.cars.length, 5);
+  });
+
+  test("Two type of boxes", () {
+    Transport tr = new Transport();
+    tr.selectedCar = CarType.euro_cargo;
+    tr.createTransport(
+        {BattleAirAssetType.AIM120: 20,
+          BattleAirAssetType.AIM9x: 20});
     expect(tr.capacity(), 40);
     expect(tr.cars.length, 5);
   });

@@ -140,5 +140,23 @@ class DatabaseStacks {
       ),
     ),
 
+    BoxType.CNU609: Stack(
+      maximumStackLevel: 2,
+      battleAirAssetCapacities: Capacities(
+          maximum: 4
+      ),
+      defaultStackLevel: DatabaseStackLevels.container[BoxType.CNU609]!,
+      weights: StackWeights(
+          maxGross: DatabaseStackLevels.container[BoxType.CNU609]!.weights.maxGross,
+          maxNet: DatabaseStackLevels.container[BoxType.CNU609]!.weights.maxNet,
+          maxNetExplosion: DatabaseStackLevels.container[BoxType.CNU609]!.weights.maxNetExplosion
+      ),
+      dimensions: StackDimensions(
+          length: DatabaseStackLevels.container[BoxType.CNU609]!.dimensions.length,
+          width: DatabaseStackLevels.container[BoxType.CNU609]!.dimensions.width,
+          height: 1168 // maximum stack level * stack level height
+      ),
+    ),
+
   };
 }
