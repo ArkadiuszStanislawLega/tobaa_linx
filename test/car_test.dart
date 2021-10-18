@@ -30,6 +30,9 @@ void main() {
     Box boxWithCorrectSize = DatabaseBoxes.container[BoxType.correctSizeTest]!;
     Box boxWithToBigSizes = DatabaseBoxes.container[BoxType.oversizeTest]!;
 
+    car.addBox(boxWithCorrectSize);
+    car.addBox(boxWithToBigSizes);
+
     expect(car.weightOfLoadingArea.current, GROSS_WEIGHT_OF_THE_TWO_BOXES);
 
     boxWithCorrectSize.fillToMaximum();
@@ -126,9 +129,8 @@ void main() {
     box.capacities.fillToMaximum();
     box2.capacities.tryIncreaseCurrent(3);
 
-    List<Box> boxes = [box, box2];
-
-    car.addBoxes(boxes);
+    car.addBox(box);
+    car.addBox(box2);
 
     expect(car.capacity(), 7);
   });
@@ -136,13 +138,13 @@ void main() {
   test("euro-cargo tests", () {
     Car car = Car(
       weightOfLoadingArea:
-      LoadingAreaWeights(maximum: 15990000, maximumNetExplosive: 1500000),
+          LoadingAreaWeights(maximum: 15990000, maximumNetExplosive: 1500000),
       type: CarType.smallCarTest,
       carWeights: Weights(gross: 6770000, net: 677000),
       name: 'IVECO - EUROCARGO',
       stacks: [],
       dimensionOfLoadingArea:
-      LoadingAreaDimensions(height: 1807, length: 6054, width: 2470),
+          LoadingAreaDimensions(height: 1807, length: 6054, width: 2470),
     );
 
     Box box = new Box(
@@ -164,5 +166,4 @@ void main() {
 
     expect(car.capacity(), 8);
   });
-
 }

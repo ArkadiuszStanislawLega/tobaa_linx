@@ -73,7 +73,7 @@ class CountedView extends StatelessWidget {
                 TOBAAApp.selectedCar = cars.elementAt(index);
                 Navigator.pushNamed(context, Url.CAR_DETAIL);
               },
-              title: this._car(cars.elementAt(index))
+              title: this._car(cars.elementAt(index), index)
           ),
         );
       },
@@ -81,13 +81,15 @@ class CountedView extends StatelessWidget {
   }
 
 
-  Widget _car(Car car) {
+  Widget _car(Car car, int index) {
     return
       Container(
         color: Color(AppColors.CAR),
         child: Column(
           children: [
+            Text('Pojazd numer: ${index+1}'),
             Text('${Strings.NAME_OF_THE_CAR} ${car.name}'),
+            Text('Ilość środków: ${car.capacity()}'),
           ],
         ),
       );
