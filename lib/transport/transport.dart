@@ -283,7 +283,8 @@ class Transport {
             this._netExplosiveWeightOfNewPackages;
 
     this._netExplosiveWeightOfNewPackages = 0;
-    return carNetExplosiveWithNewBoxes <= this._currentCarToFill.explosionClass.weightLimit;
+    return carNetExplosiveWithNewBoxes <=
+        this._currentCarToFill.explosionClass.weightLimit;
   }
 
   void _spendBoxesToNewCarPeaceTime() {

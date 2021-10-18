@@ -48,15 +48,9 @@ void main() {
 
   });
 
-  test("Create transport with more then one car", () {
-    Transport tr = new Transport();
-    tr.selectedCar = CarType.euro_cargo;
-    tr.createTransport({ BattleAirAssetType.AIM120 : 16});
-    expect(tr.capacity(), 16);
-    expect(tr.cars.length, 2);
-  });
-
   test("Create transport with more then 3 euro-cargos with CNU431", () {
+    //Do jednego eurocargo wchodzą dwa kontenery CNU431
+
     Transport tr = new Transport();
     tr.selectedCar = CarType.euro_cargo;
     tr.createTransport({ BattleAirAssetType.AIM120 : 40});
