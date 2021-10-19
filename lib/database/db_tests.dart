@@ -17,7 +17,6 @@ import 'package:tobaa/weights/loading_area_weights.dart';
 import 'package:tobaa/weights/stack_weights.dart';
 import 'package:tobaa/weights/weights.dart';
 
-import 'db_assets.dart';
 import 'db_compatibility_group.dart';
 import 'db_explosion_subclasses.dart';
 
@@ -89,7 +88,7 @@ class DatabaseTests {
       capacities: Capacities(maximum: 10),
       dimensions: Dimensions(width: 11, length: 7, height: 2),
       weights: BoxWeights(gross: 11, net: 1, netExplosive: 5),
-      battleAirAsset: DatabaseAssets.container[BattleAirAssetType.test]!,
+      battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
     ),
     BoxType.oversizeTest: Box(
         type: BoxType.oversizeTest,
@@ -97,7 +96,7 @@ class DatabaseTests {
         capacities: Capacities(maximum: 10),
         dimensions: Dimensions(width: 7, length: 7, height: 7),
         weights: BoxWeights(gross: 2.0, net: 1.0, netExplosive: 0.5),
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.test]!,
+        battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
         maxStackLevel: 2),
     BoxType.correctSizeTest: Box(
         type: BoxType.correctSizeTest,
@@ -105,7 +104,7 @@ class DatabaseTests {
         capacities: Capacities(maximum: 10),
         dimensions: Dimensions(width: 1, length: 5, height: 10),
         weights: BoxWeights(gross: 2.0, net: 1.0, netExplosive: 0.5),
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.test]!,
+        battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
         maxStackLevel: 2),
     BoxType.heavyTest: Box(
         type: BoxType.heavyTest,
@@ -113,7 +112,7 @@ class DatabaseTests {
         capacities: Capacities(maximum: 10),
         dimensions: Dimensions(width: 1, length: 5, height: 1),
         weights: BoxWeights(gross: 1500001, net: 1500000, netExplosive: 0.5),
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.test]!,
+        battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
         maxStackLevel: 2),
   };
   static Map<BoxType, StackLevel> stackLevelContainer = {
