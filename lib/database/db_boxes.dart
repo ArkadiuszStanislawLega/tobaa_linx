@@ -23,7 +23,7 @@ class DatabaseBoxes {
         ),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
-        type: BoxType.test
+        type: BoxType.CNU672
     ),
 
     BoxType.CNU614: new Box(
@@ -41,7 +41,7 @@ class DatabaseBoxes {
         ),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM158]!,
-        type: BoxType.test
+        type: BoxType.CNU614
     ),
 
     BoxType.CNU445: new Box(
@@ -59,7 +59,7 @@ class DatabaseBoxes {
         ),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM65G]!,
-        type: BoxType.test
+        type: BoxType.CNU445
     ),
 
     BoxType.CNU431: new Box(

@@ -42,6 +42,56 @@ class DatabaseStacks {
           height: 1168 // maximum stack level * stack level height
       ),
     ),
-
+    BoxType.CNU445: Stack(
+      maximumStackLevel: 2,
+      battleAirAssetCapacities: Capacities(
+          maximum: 1
+      ),
+      defaultStackLevel: DatabaseStackLevels.container[BoxType.CNU445]!,
+      weights: StackWeights(
+          maxGross: DatabaseStackLevels.container[BoxType.CNU445]!.weights.maxGross,
+          maxNet: DatabaseStackLevels.container[BoxType.CNU445]!.weights.maxNet,
+          maxNetExplosion: DatabaseStackLevels.container[BoxType.CNU445]!.weights.maxNetExplosion
+      ),
+      dimensions: StackDimensions(
+          length: DatabaseStackLevels.container[BoxType.CNU445]!.dimensions.length,
+          width: DatabaseStackLevels.container[BoxType.CNU445]!.dimensions.width,
+          height: DatabaseStackLevels.container[BoxType.CNU445]!.dimensions.height // maximum stack level * stack level height
+      ),
+    ),
+    BoxType.CNU614: Stack(
+      maximumStackLevel: 2,
+      battleAirAssetCapacities: Capacities(
+          maximum: 1
+      ),
+      defaultStackLevel: DatabaseStackLevels.container[BoxType.CNU614]!,
+      weights: StackWeights(
+          maxGross: DatabaseStackLevels.container[BoxType.CNU614]!.weights.maxGross,
+          maxNet: DatabaseStackLevels.container[BoxType.CNU614]!.weights.maxNet,
+          maxNetExplosion: DatabaseStackLevels.container[BoxType.CNU614]!.weights.maxNetExplosion
+      ),
+      dimensions: StackDimensions(
+          length: DatabaseStackLevels.container[BoxType.CNU614]!.dimensions.length,
+          width: DatabaseStackLevels.container[BoxType.CNU614]!.dimensions.width,
+          height: DatabaseStackLevels.container[BoxType.CNU614]!.dimensions.height // maximum stack level * stack level height
+      ),
+    ),
+    BoxType.CNU672: Stack(
+      maximumStackLevel: 2,
+      battleAirAssetCapacities: Capacities(
+          maximum: 1
+      ),
+      defaultStackLevel: DatabaseStackLevels.container[BoxType.CNU672]!,
+      weights: StackWeights(
+          maxGross: DatabaseStackLevels.container[BoxType.CNU672]!.weights.maxGross,
+          maxNet: DatabaseStackLevels.container[BoxType.CNU672]!.weights.maxNet,
+          maxNetExplosion: DatabaseStackLevels.container[BoxType.CNU672]!.weights.maxNetExplosion
+      ),
+      dimensions: StackDimensions(
+          length: DatabaseStackLevels.container[BoxType.CNU672]!.dimensions.length,
+          width: DatabaseStackLevels.container[BoxType.CNU672]!.dimensions.width,
+          height: DatabaseStackLevels.container[BoxType.CNU672]!.dimensions.height // maximum stack level * stack level height
+      ),
+    ),
   };
 }
