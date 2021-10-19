@@ -6,44 +6,6 @@ import 'package:tobaa/weights/weights.dart';
 
 class DatabaseCars {
   static final Map<CarType, Car> container = {
-    CarType.test: Car(
-      weightOfLoadingArea: LoadingAreaWeights(
-          maximum: 200000,
-          maximumNetExplosive: 200000
-      ),
-      type: CarType.test,
-      carWeights: Weights(
-          gross: 1,
-          net: 1
-      ),
-      name: 'Test car',
-      stacks: [],
-      dimensionOfLoadingArea: LoadingAreaDimensions(
-          height: 10,
-          length: 100,
-          width: 50
-      ),
-    ),
-
-    CarType.smallCarTest: Car(
-      weightOfLoadingArea: LoadingAreaWeights(
-          maximum: 6.0,
-          maximumNetExplosive: 1.5
-      ),
-      type: CarType.smallCarTest,
-      carWeights: Weights(
-          gross: 1,
-          net: 1
-      ),
-      name: 'Small car test',
-      stacks: [],
-      dimensionOfLoadingArea: LoadingAreaDimensions(
-          height: 6,
-          length: 5,
-          width: 6
-      ),
-    ),
-
     CarType.euro_cargo: Car(
       weightOfLoadingArea: LoadingAreaWeights(
           maximum: 15990000,
