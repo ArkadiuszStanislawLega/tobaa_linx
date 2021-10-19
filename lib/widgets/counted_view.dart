@@ -18,6 +18,7 @@ class CountedView extends StatelessWidget {
       if (value) {
         var tr = new Transport();
         tr.selectedCar = key;
+        tr.isWarTime = TOBAAApp.isWar;
         tr.createTransport(TOBAAApp.values);
         TOBAAApp.transports[key] = tr;
       }
