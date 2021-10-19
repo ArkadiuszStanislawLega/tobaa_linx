@@ -8,5 +8,7 @@ enum BoxType{
   CNU445,
   CNU431,
   CNU672,
-  CNU614
+  CNU614,
+  MHU149,
+  MK79,
 }
