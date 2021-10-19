@@ -13,66 +13,6 @@ import 'db_explosion_subclasses.dart';
 
 class DatabaseAssets {
   static Map<BattleAirAssetType, BattleAirAsset> container = {
-    BattleAirAssetType.test: BattleAirAsset(
-        type: BattleAirAssetType.test,
-        boxType: BoxType.test,
-        name: "test baa",
-        weights: Weights(
-            gross: 1,
-            netExplosive: 0.5,
-            net: 1
-        ),
-        dimensions: Dimensions(
-            height: 1,
-            length: 5,
-            width: 1
-        ),
-        explosionClass: ExplosionClass(
-            compatibilityGroup: DatabaseCompatibilityGroup
-                .container[CompatibilityGroupType.A]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)
-    ),
-
-    BattleAirAssetType.heavyTest: BattleAirAsset(
-        type: BattleAirAssetType.heavyTest,
-        boxType: BoxType.heavyTest,
-        name: "test baa",
-        weights: Weights(
-            gross: 150000,
-            netExplosive: 0.5,
-            net: 150001
-        ),
-        dimensions: Dimensions(
-            height: 1,
-            length: 5,
-            width: 1
-        ),
-        explosionClass: ExplosionClass(
-            compatibilityGroup: DatabaseCompatibilityGroup
-                .container[CompatibilityGroupType.B]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)
-    ),
-
-    BattleAirAssetType.oversizeTest: BattleAirAsset(
-        type: BattleAirAssetType.oversizeTest,
-        boxType: BoxType.oversizeTest,
-        name: "test baa",
-        weights: Weights(
-            gross: 150000,
-            netExplosive: 0.5,
-            net: 150001
-        ),
-        dimensions: Dimensions(
-            height: 1,
-            length: 5,
-            width: 1
-        ),
-        explosionClass: ExplosionClass(
-            compatibilityGroup: DatabaseCompatibilityGroup
-                .container[CompatibilityGroupType.C]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)
-    ),
-
     BattleAirAssetType.AGM154: new BattleAirAsset(
         type: BattleAirAssetType.AGM154,
         boxType: BoxType.CNU672,
