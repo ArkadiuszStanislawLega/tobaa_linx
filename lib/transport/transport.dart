@@ -58,13 +58,6 @@ class Transport {
     this._currentValueOfBaaToAdd = 0;
     this._netExplosiveWeightOfNewPackages = 0;
     this._grossWeightOfNewBoxes = 0;
-
-    this._createCarsWeightLimits();
-  }
-
-  void _createCarsWeightLimits() {
-    _carWeightLimits[CarType.test] =
-        new LoadingAreaWeights(maximum: 10000.0, maximumNetExplosive: 10000.0);
   }
 
   List<Car> get cars => _cars;

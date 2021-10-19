@@ -8,4 +8,5 @@ class Url {
   static const String STACK_DETAIL = '/stack_detail';
   static const String STACK_LEVEL_DETAIL = '/stack_level_detail';
   static const String BOX_DETAIL = '/box_detail';
+  static const String TRANSPORT_DETAIL = '/transport_detail';
 }

@@ -15,6 +15,7 @@ import 'package:tobaa/widgets/settings_view.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/widgets/stack_detail_view.dart';
 import 'package:tobaa/widgets/stack_level_detail_view.dart';
+import 'package:tobaa/widgets/transport_detail_view.dart';
 import 'box/box.dart';
 import 'enumerators/baa_type.dart';
 
@@ -59,7 +60,8 @@ class TOBAAApp extends StatelessWidget {
   static Map<BattleAirAssetType, int> values = {};
   static Map<CarType, bool> selectedCars = {};
 
-  static Transport transport = Transport();
+  static Transport selectedTransport = Transport();
+  static Map<CarType, Transport> transports = {};
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,8 @@ class TOBAAApp extends StatelessWidget {
         Url.CAR_DETAIL: (context) => CarDetailView(selectedCar),
         Url.STACK_DETAIL: (context) => StackDetailView(selectedStack),
         Url.STACK_LEVEL_DETAIL: (context) => StackLevelDetailView(selectedStackLevel),
-        Url.BOX_DETAIL: (context) => BoxDetailView(selectedBox)
+        Url.BOX_DETAIL: (context) => BoxDetailView(selectedBox),
+        Url.TRANSPORT_DETAIL: (context) => TransportDetailView(selectedTransport),
       },
     );
   }
