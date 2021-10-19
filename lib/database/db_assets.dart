@@ -3,9 +3,7 @@ import 'package:tobaa/dimensions/dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/explosion_class/compatibility_group.dart';
 import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/explosion_class/explosion_subclass.dart';
 import 'package:tobaa/weights/weights.dart';
 
 import 'db_compatibility_group.dart';
