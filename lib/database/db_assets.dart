@@ -25,7 +25,7 @@ class DatabaseAssets {
         type: BattleAirAssetType.AGM158,
         boxType: BoxType.CNU614,
         name: "AGM-158-6 JASSM",
-        weights: Weights(gross: 497000, netExplosive: 88900, net: 497000),
+        weights: Weights(gross: 497000, netExplosive: 108860, net: 497000),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:

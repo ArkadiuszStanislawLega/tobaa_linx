@@ -65,4 +65,13 @@ void main() {
     expect(tr.capacity(), 40);
     expect(tr.cars.length, 5);
   });
+
+  test("AGM154", () {
+    Transport tr = new Transport();
+    tr.selectedCar = CarType.euro_cargo;
+    tr.createTransport(
+        {BattleAirAssetType.AGM154: 1});
+    expect(tr.capacity(), 1);
+    expect(tr.cars.length, 1);
+  });
 }

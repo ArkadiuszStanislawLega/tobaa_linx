@@ -14,7 +14,7 @@ class DatabaseBoxes {
         weights: BoxWeights(
             gross: 523129,
             net: 523129,
-            netExplosive: 497000
+            netExplosive: 88900
         ),
         dimensions: Dimensions(
             height: 787,
@@ -32,7 +32,7 @@ class DatabaseBoxes {
         weights: BoxWeights(
             gross: 497000+1,
             net: 1,
-            netExplosive: 497000
+            netExplosive: 108860
         ),
         dimensions: Dimensions(
             height:940,
