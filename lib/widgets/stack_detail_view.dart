@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/app_colors.dart';
+import 'package:tobaa/database/db_assets.dart';
+import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/url.dart';
@@ -84,6 +86,20 @@ class StackDetailView extends  StatelessWidget {
   }
 
   Widget _stackLevel(StackLevel level, int index) {
+    String baa = "";
+    Map<BattleAirAssetType, int> container = {};
+
+      level.boxes.forEach((box) {
+        var value = 0;
+        if (container.containsKey(box.battleAirAsset.type))
+          value = container[box.battleAirAsset.type]!;
+        container[box.battleAirAsset.type] = value + box.capacities.current;
+      });
+
+    container.forEach((key, value) {
+      var ba = DatabaseAssets.container[key]!;
+      baa += "${ba.name}: $value szt., ";
+    });
     return
       Container(
         color: Color(AppColors.STACK_LEVEL),
@@ -98,6 +114,7 @@ class StackDetailView extends  StatelessWidget {
                 level.weights.gross)}'),
             Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${level.boxes.length}'),
             Text('${Strings.NUMBER_OF_THE_BAA} ${level.capacities.current}'),
+            Text('$baa')
           ],
         ),
       );
