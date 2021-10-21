@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
+import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_cars.dart';
+import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 
@@ -64,12 +66,32 @@ class TransportDetailView extends StatelessWidget {
   }
 
   Widget _car(Car car, int index) {
+    String baa = "";
+    Map<BattleAirAssetType, int> container = {};
+    car.stacks.forEach((stack) {
+      stack.levels.forEach((level) {
+        level.boxes.forEach((box) {
+          var value = 0;
+          if (container.containsKey(box.battleAirAsset.type))
+            value = container[box.battleAirAsset.type]!;
+          container[box.battleAirAsset.type] = value+box.capacities.current;
+        });
+      });
+    });
+
+    container.forEach((key, value) {
+      var ba = DatabaseAssets.container[key]!;
+      baa += "${ba.name}: $value szt., ";
+    });
+
+
     return Container(
       color: Color(AppColors.CAR),
       child: Column(
         children: [
-          Text('Pojazd numer: ${index + 1}'),
-          Text('Ilość środków: ${car.capacity()}'),
+          PropertyView('Pojazd numer:', '${index + 1}'),
+          PropertyView('Ilość środków:', '${car.capacity()}'),
+          Text('$baa')
         ],
       ),
     );

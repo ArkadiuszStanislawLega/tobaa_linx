@@ -93,7 +93,7 @@ class CarDetailView extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            '${Strings.STACK} ${index + 1}${stack.levels.length > 0 ? ": " + stack.levels.first.boxes.first.battleAirAsset.name : ""} ${index + 1}',
+            '${Strings.STACK} ${index + 1}${stack.levels.length > 0 ? ": " + stack.levels.first.boxes.first.battleAirAsset.name : ""}',
             style: TextStyle(
               fontWeight: FontWeight.w600,
             ),
