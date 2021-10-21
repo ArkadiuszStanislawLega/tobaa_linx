@@ -39,6 +39,7 @@ class Strings{
   static const String SETTINGS = 'Ustawienia';
   static const String STACK = 'Stos';
   static const String STACKS_LEVEL = 'Poziomy stosu:';
+  static const String STACK_LEVEL = 'Poziom stosu:';
   static const String TRANSPORT = 'Transport';
   static const String WIDTH = 'Szerokość:';
   static const String WAR_TIME = 'Czas wojny';

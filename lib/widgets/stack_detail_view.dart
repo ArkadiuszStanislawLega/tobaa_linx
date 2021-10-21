@@ -105,7 +105,7 @@ class StackDetailView extends  StatelessWidget {
         color: Color(AppColors.STACK_LEVEL),
         child: Column(
           children: [
-            Text('Poziom stosu: ${index + 1}',
+            Text('${Strings.STACK_LEVEL} ${index + 1}',
                 style: TextStyle(fontWeight: FontWeight.w600,)
             ),
             Text('${Strings.NEW} ${massConverter(level.weights.netExplosive)}'),
