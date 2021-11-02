@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/url.dart';
+import 'package:tobaa/widgets/Constants/url.dart';
 
-import '../strings.dart';
+import 'Constants/strings.dart';
 import 'content_baa_list.dart';
 
 class BaaList extends StatelessWidget {

@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/transport/transport.dart';
-import 'package:tobaa/url.dart';
+import 'package:tobaa/widgets/Constants/url.dart';
 
-import '../app_colors.dart';
+import 'Constants/app_colors.dart';
 import '../main.dart';
-import '../strings.dart';
+import 'Constants/strings.dart';
 
 class CountedView extends StatelessWidget {
 

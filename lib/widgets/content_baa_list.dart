@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_assets.dart';
-import 'package:tobaa/url.dart';
+import 'package:tobaa/widgets/Constants/url.dart';
 
 import '../main.dart';
-import 'baa_list_item.dart';
+import 'ListItems/baa_list_item.dart';
 
 class ContentBaaList extends StatefulWidget {
   @override

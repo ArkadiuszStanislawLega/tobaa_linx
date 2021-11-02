@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/app_colors.dart';
+import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
-import 'package:tobaa/url.dart';
-import 'package:tobaa/widgets/property_view.dart';
+import 'package:tobaa/widgets/Constants/url.dart';
+import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 
-import '../main.dart';
-import '../strings.dart';
+import '../../main.dart';
+import '../Constants/strings.dart';
 
 class CarDetailView extends StatelessWidget {
   final Car _car;

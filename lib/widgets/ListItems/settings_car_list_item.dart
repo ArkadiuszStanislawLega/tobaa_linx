@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 
 
-import '../main.dart';
+import '../../main.dart';
 
 class SettingsCarListItem extends StatefulWidget {
   final Car _car;

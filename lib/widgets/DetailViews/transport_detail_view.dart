@@ -7,11 +7,11 @@ import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 
-import 'package:tobaa/url.dart';
-import 'package:tobaa/app_colors.dart';
-import 'package:tobaa/widgets/property_view.dart';
+import 'package:tobaa/widgets/Constants/url.dart';
+import 'package:tobaa/widgets/Constants/app_colors.dart';
+import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 
-import '../strings.dart';
+import '../Constants/strings.dart';
 
 class TransportDetailView extends StatelessWidget {
   final Transport _transport;

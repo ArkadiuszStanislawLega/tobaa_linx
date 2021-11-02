@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/main.dart';
-import 'package:tobaa/widgets/settings_car_list_item.dart';
+import 'package:tobaa/widgets/ListItems/settings_car_list_item.dart';
 
-import '../strings.dart';
+import 'Constants/strings.dart';
 
 class SettingsView extends StatefulWidget {
   @override

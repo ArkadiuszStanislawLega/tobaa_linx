@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
-import 'package:tobaa/strings.dart';
-import 'package:tobaa/widgets/property_view.dart';
+import 'package:tobaa/widgets/Constants/strings.dart';
+import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class DetailBaa extends StatefulWidget {
   final BattleAirAsset battleAirAsset;

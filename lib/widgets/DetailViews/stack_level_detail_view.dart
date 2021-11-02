@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/app_colors.dart';
+import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/url.dart';
-import 'package:tobaa/widgets/property_view.dart';
-import 'package:tobaa/widgets/property_with_hint_view.dart';
+import 'package:tobaa/widgets/Constants/url.dart';
+import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
+import 'package:tobaa/widgets/SmallWidgets/property_with_hint_view.dart';
 
-import '../main.dart';
-import '../strings.dart';
+import '../../main.dart';
+import '../Constants/strings.dart';
 
 class StackLevelDetailView extends  StatelessWidget {
 
