@@ -18,7 +18,7 @@ Widget stackLevelsListView(List<StackLevel> levels) {
               TOBAAApp.selectedStackLevel = levels.elementAt(index);
               Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL);
             },
-            title: stackLevelListItem(levels.elementAt(index), index)
+            title: StackLevelListItem(levels.elementAt(index), index)
         ),
       );
     },
