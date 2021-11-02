@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/widgets/Constants/app_colors.dart';
-import 'package:tobaa/box/box.dart';
 import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/widgets/Constants/url.dart';
+import 'package:tobaa/widgets/ListViews/boxesListView.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_with_hint_view.dart';
 
@@ -56,7 +55,7 @@ class StackLevelDetailView extends  StatelessWidget {
                   PropertyView(Strings.NUMBER_OF_THE_BAA,
                       '${this._stackLevel.capacities.current}'
                   ),
-                  this._listViewBoxes(this._stackLevel.boxes)
+                  boxesListView(this._stackLevel.boxes)
                 ],
               )
           )
@@ -64,38 +63,6 @@ class StackLevelDetailView extends  StatelessWidget {
     );
   }
 
-  Widget _listViewBoxes(List<Box> levels) {
-    return new ListView.builder(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: levels.length,
-      itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
-              onTap: () {
-                TOBAAApp.selectedBox = levels.elementAt(index);
-                Navigator.pushNamed(context, Url.BOX_DETAIL);
-              },
-              title: this._box(levels.elementAt(index))
-          ),
-        );
-      },
-    );
-  }
 
-  Widget _box(Box box) {
-    return
-      Container(
-        color: Color(AppColors.BOX),
-        child: Column(
-          children: [
-            Text('${box.name}', style: TextStyle(fontWeight: FontWeight.w600,)),
-            Text('${Strings.NEW} ${massConverter(box.weights.netExplosive)}'),
-            Text('${Strings.NET_WEIGHT} ${massConverter(box.weights.net)}'),
-            Text('${Strings.GROSS_WEIGHT} ${massConverter(box.weights.gross)}'),
-            Text('${Strings.NUMBER_OF_THE_BAA} ${box.capacities.current}'),
-          ],
-        ),
-      );
-  }
+
 }

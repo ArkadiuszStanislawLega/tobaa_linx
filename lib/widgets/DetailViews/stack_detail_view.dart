@@ -67,7 +67,4 @@ class StackDetailView extends  StatelessWidget {
       ),
     );
   }
-
-
-
 }
