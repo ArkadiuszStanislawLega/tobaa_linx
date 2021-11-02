@@ -6,6 +6,8 @@ import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/widgets/Constants/url.dart';
+import 'package:tobaa/widgets/ListItems/stack_level_list_item.dart';
+import 'package:tobaa/widgets/ListViews/stack_level_list_view.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_with_hint_view.dart';
 
@@ -58,7 +60,7 @@ class StackDetailView extends  StatelessWidget {
                   PropertyView(Strings.MAX_STACK_LEVEL,
                       '${this._stack.maximumStackLevel}'
                   ),
-                  this._listViewStackLevel(this._stack.levels)
+                  stackLevelListView(this._stack.levels)
                 ],
               )
           )
@@ -66,57 +68,6 @@ class StackDetailView extends  StatelessWidget {
     );
   }
 
-  Widget _listViewStackLevel(List<StackLevel> levels) {
-    return new ListView.builder(
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: levels.length,
-      itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
-              onTap: () {
-                TOBAAApp.selectedStackLevel = levels.elementAt(index);
-                Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL);
-              },
-              title: this._stackLevel(levels.elementAt(index), index)
-          ),
-        );
-      },
-    );
-  }
 
-  Widget _stackLevel(StackLevel level, int index) {
-    String baa = "";
-    Map<BattleAirAssetType, int> container = {};
 
-      level.boxes.forEach((box) {
-        var value = 0;
-        if (container.containsKey(box.battleAirAsset.type))
-          value = container[box.battleAirAsset.type]!;
-        container[box.battleAirAsset.type] = value + box.capacities.current;
-      });
-
-    container.forEach((key, value) {
-      var ba = DatabaseAssets.container[key]!;
-      baa += "${ba.name}: $value szt., ";
-    });
-    return
-      Container(
-        color: Color(AppColors.STACK_LEVEL),
-        child: Column(
-          children: [
-            Text('${Strings.STACK_LEVEL} ${index + 1}',
-                style: TextStyle(fontWeight: FontWeight.w600,)
-            ),
-            Text('${Strings.NEW} ${massConverter(level.weights.netExplosive)}'),
-            Text('${Strings.NET_WEIGHT} ${massConverter(level.weights.net)}'),
-            Text('${Strings.GROSS_WEIGHT} ${massConverter(
-                level.weights.gross)}'),
-            Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${level.boxes.length}'),
-            Text('${Strings.NUMBER_OF_THE_BAA} ${level.capacities.current}'),
-            Text('$baa')
-          ],
-        ),
-      );
-  }
 }
