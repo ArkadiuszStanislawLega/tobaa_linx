@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/car/car.dart';
-import 'package:tobaa/widgets/ListViews/stack_list_view.dart';
+import 'package:tobaa/widgets/ListViews/stacks_list_view.dart';
 
 import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 
@@ -63,7 +63,7 @@ class CarDetailView extends StatelessWidget {
                   ],
                 ),
               ),
-              stackListView(this._car.stacks)
+              stacksListView(this._car.stacks)
             ],
           ))),
     );

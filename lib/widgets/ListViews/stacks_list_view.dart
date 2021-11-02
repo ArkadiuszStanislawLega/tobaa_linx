@@ -5,7 +5,7 @@ import 'package:tobaa/widgets/ListItems/stack_list_item.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import '../../main.dart';
 
-Widget stackListView(List<ContainerStack.Stack> stacks) {
+Widget stacksListView(List<ContainerStack.Stack> stacks) {
   return new ListView.builder(
     scrollDirection: Axis.vertical,
     shrinkWrap: true,

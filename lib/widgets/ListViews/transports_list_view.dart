@@ -6,7 +6,7 @@ import 'package:tobaa/widgets/ListItems/transport_list_item.dart';
 
 import '../../main.dart';
 
-Widget transportListView(List<Transport> transport) {
+Widget transportsListView(List<Transport> transport) {
   return new ListView.builder(
     scrollDirection: Axis.vertical,
     shrinkWrap: true,

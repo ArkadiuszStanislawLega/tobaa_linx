@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/widgets/ListViews/boxesListView.dart';
+import 'package:tobaa/widgets/ListViews/boxes_list_view.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_with_hint_view.dart';
 

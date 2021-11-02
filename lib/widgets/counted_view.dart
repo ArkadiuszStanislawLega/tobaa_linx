@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/transport/transport.dart';
-import 'package:tobaa/widgets/ListViews/transport_list_view.dart';
+import 'package:tobaa/widgets/ListViews/transports_list_view.dart';
 
 import 'Constants/app_colors.dart';
 import '../main.dart';
@@ -31,7 +31,7 @@ class CountedView extends StatelessWidget {
         child: new SingleChildScrollView(
           child: Container(
               color: Color(AppColors.TRANSPORT),
-              child: transportListView(TOBAAApp.transports.values.toList())
+              child: transportsListView(TOBAAApp.transports.values.toList())
           ),
         ),
       ),

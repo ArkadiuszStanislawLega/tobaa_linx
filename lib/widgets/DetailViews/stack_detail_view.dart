@@ -7,7 +7,7 @@ import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/widgets/Constants/url.dart';
 import 'package:tobaa/widgets/ListItems/stack_level_list_item.dart';
-import 'package:tobaa/widgets/ListViews/stack_level_list_view.dart';
+import 'package:tobaa/widgets/ListViews/stack_levels_list_view.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
 import 'package:tobaa/widgets/SmallWidgets/property_with_hint_view.dart';
 
@@ -60,7 +60,7 @@ class StackDetailView extends  StatelessWidget {
                   PropertyView(Strings.MAX_STACK_LEVEL,
                       '${this._stack.maximumStackLevel}'
                   ),
-                  stackLevelListView(this._stack.levels)
+                  stackLevelsListView(this._stack.levels)
                 ],
               )
           )
