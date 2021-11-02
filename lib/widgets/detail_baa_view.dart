@@ -123,13 +123,13 @@ class _DetailBaa extends State<DetailBaa> {
       return Expanded(
         child: AlertDialog(
             title: Text(Strings.INFORMATION),
-            content: Column(
+            content: Container(child: SingleChildScrollView( child: Column(
               children:
               [
                this._explosionClass(),
                this._compatibilityGroup(compatibilityGroup)
               ],
-            ),
+            ))),
             actions: [
               ElevatedButton(
                 onPressed: () {
