@@ -12,7 +12,7 @@ class BaaList extends StatelessWidget {
         appBar: AppBar(
             title: Row(
               children: [
-                Text('Tobaa', style:
+                Text('Tobaa ', style:
                 TextStyle(
                   fontSize: 20.0,
                   fontFamily: 'MiddleAgesDeco'
