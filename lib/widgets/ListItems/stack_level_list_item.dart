@@ -10,7 +10,7 @@ import '../../main.dart';
 class StackLevelListItem extends StatelessWidget{
   final StackLevel _level;
   final int _index;
-
+  
    StackLevelListItem(this._level, this._index);
 
   @override

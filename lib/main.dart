@@ -13,7 +13,7 @@ import 'package:tobaa/widgets/DetailViews/car_detail_view.dart';
 import 'package:tobaa/widgets/DetailViews/stack_detail_view.dart';
 import 'package:tobaa/widgets/DetailViews/stack_level_detail_view.dart';
 import 'package:tobaa/widgets/DetailViews/transport_detail_view.dart';
-import 'package:tobaa/widgets/baa_list.dart';
+import 'package:tobaa/widgets/select_view.dart';
 import 'package:tobaa/widgets/counted_view.dart';
 import 'package:tobaa/widgets/settings_view.dart';
 
@@ -72,8 +72,8 @@ class TOBAAApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       initialRoute: Url.HOME,
       routes: {
-        Url.EMPTY: (context) => BaaList(),
-        Url.HOME: (context) => BaaList(),
+        Url.EMPTY: (context) => SelectView(),
+        Url.HOME: (context) => SelectView(),
         Url.DETAIL: (context) => DetailBaa(DatabaseAssets.container[index]!),
         Url.SETTINGS: (context) => SettingsView(),
         Url.COUNTED: (context) => CountedView(),

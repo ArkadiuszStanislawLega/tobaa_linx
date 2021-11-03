@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 
-
 import '../../main.dart';
 
 class SettingsCarListItem extends StatefulWidget {
@@ -18,32 +17,30 @@ class SettingsCarListItem extends StatefulWidget {
 
 class _SettingsCarListItem extends State<SettingsCarListItem> {
   final Car _car;
-  late bool _isCarSelected= false;
+  late bool _isCarSelected = false;
 
-  _SettingsCarListItem(this._car){
+  _SettingsCarListItem(this._car) {
     this._isCarSelected = TOBAAApp.selectedCars[this._car.type]!;
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children:
-          [
-            Text(this._car.name,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            Switch(value: TOBAAApp.selectedCars[this._car.type]!,
-                onChanged: (bool value)=>{
+      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Text(
+          this._car.name,
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        Switch(
+            value: TOBAAApp.selectedCars[this._car.type]!,
+            onChanged: (bool value) => {
                   setState(() {
                     TOBAAApp.selectedCars[this._car.type] = value;
                   })
                 })
-          ]),
-    ]
-    );
+      ]),
+    ]);
   }
 }

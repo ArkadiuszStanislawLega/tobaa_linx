@@ -4,18 +4,18 @@ import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/widgets/Constants/url.dart';
 
-import '../main.dart';
-import 'ListItems/baa_list_item.dart';
+import '../../main.dart';
+import '../ListItems/baa_list_item.dart';
 
-class ContentBaaList extends StatefulWidget {
+class AvailableBaaListView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _ContentBaaListState();
+    return _AvailableBaaListViewState();
   }
 }
 
-class _ContentBaaListState extends State<ContentBaaList> {
-  _ContentBaaListState();
+class _AvailableBaaListViewState extends State<AvailableBaaListView> {
+  _AvailableBaaListViewState();
 
   @override
   Widget build(BuildContext context) {
