@@ -3,16 +3,22 @@ import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/Constants/app_colors.dart';
 
-Widget transportListItem(Transport transport) {
-  var car = DatabaseCars.container[transport.selectedCar]!;
-  return
-    Container(
+class TransportListItem extends StatelessWidget {
+  final Transport _transport;
+
+  TransportListItem(this._transport);
+
+  @override
+  Widget build(BuildContext context) {
+    var car = DatabaseCars.container[this._transport.selectedCar]!;
+    return Container(
       color: Color(AppColors.CAR),
       child: Column(
         children: [
           Text('${car.name}'),
-          Text('Ilość pojazdów: ${transport.cars.length}'),
+          Text('Ilość pojazdów: ${this._transport.cars.length}'),
         ],
       ),
     );
+  }
 }

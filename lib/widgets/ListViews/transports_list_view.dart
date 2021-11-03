@@ -25,7 +25,7 @@ class TransportsListView extends StatelessWidget{
                 TOBAAApp.selectedTransport = this._transports.elementAt(index);
                 Navigator.pushNamed(context, Url.TRANSPORT_DETAIL);
               },
-              title: transportListItem(this._transports.elementAt(index))
+              title: TransportListItem(this._transports.elementAt(index))
           ),
         );
       },

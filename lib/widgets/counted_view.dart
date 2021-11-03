@@ -31,7 +31,7 @@ class CountedView extends StatelessWidget {
         child: new SingleChildScrollView(
           child: Container(
               color: Color(AppColors.TRANSPORT),
-              child: transportsListView(TOBAAApp.transports.values.toList())
+              child: TransportsListView(TOBAAApp.transports.values.toList())
           ),
         ),
       ),
