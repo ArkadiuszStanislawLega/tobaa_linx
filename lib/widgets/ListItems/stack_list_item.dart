@@ -7,11 +7,11 @@ import 'package:tobaa/widgets/Constants/strings.dart';
 
 import '../../main.dart';
 
-class StackItemView extends StatelessWidget {
+class StackListItem extends StatelessWidget {
   final ContainerStack.Stack _stack;
   final int _index;
 
-  StackItemView(this._stack, this._index);
+  StackListItem(this._stack, this._index);
 
   @override
   Widget build(BuildContext context) {

@@ -24,7 +24,7 @@ class StacksListView extends StatelessWidget {
                 TOBAAApp.selectedStack = this._stacks.elementAt(index);
                 Navigator.pushNamed(context, Url.STACK_DETAIL);
               },
-              title: stackItemView(this._stacks.elementAt(index), index)),
+              title: StackListItem(this._stacks.elementAt(index), index)),
         );
       },
     );
