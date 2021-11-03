@@ -6,21 +6,27 @@ import 'package:tobaa/widgets/ListItems/box_list_item.dart';
 
 import '../../main.dart';
 
-Widget boxesListView(List<Box> levels) {
-  return new ListView.builder(
-    scrollDirection: Axis.vertical,
-    shrinkWrap: true,
-    itemCount: levels.length,
-    itemBuilder: (context, index) {
-      return Card(
-        child: ListTile(
-            onTap: () {
-              TOBAAApp.selectedBox = levels.elementAt(index);
-              Navigator.pushNamed(context, Url.BOX_DETAIL);
-            },
-            title: BoxListItem(levels.elementAt(index))
-        ),
-      );
-    },
-  );
+class BoxesListView extends StatelessWidget {
+  final List<Box> _boxes;
+
+  BoxesListView(this._boxes);
+
+  @override
+  Widget build(BuildContext context) {
+    return new ListView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemCount: this._boxes.length,
+      itemBuilder: (context, index) {
+        return Card(
+          child: ListTile(
+              onTap: () {
+                TOBAAApp.selectedBox = this._boxes.elementAt(index);
+                Navigator.pushNamed(context, Url.BOX_DETAIL);
+              },
+              title: BoxListItem(this._boxes.elementAt(index))),
+        );
+      },
+    );
+  }
 }
