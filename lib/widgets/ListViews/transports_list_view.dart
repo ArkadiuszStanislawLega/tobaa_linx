@@ -6,8 +6,7 @@ import 'package:tobaa/widgets/ListItems/transport_list_item.dart';
 
 import '../../main.dart';
 
-class TransportsListView extends StatelessWidget{
-
+class TransportsListView extends StatelessWidget {
   final List<Transport> _transports;
 
   TransportsListView(this._transports);
@@ -25,8 +24,7 @@ class TransportsListView extends StatelessWidget{
                 TOBAAApp.selectedTransport = this._transports.elementAt(index);
                 Navigator.pushNamed(context, Url.TRANSPORT_DETAIL);
               },
-              title: TransportListItem(this._transports.elementAt(index))
-          ),
+              title: TransportListItem(this._transports.elementAt(index))),
         );
       },
     );
