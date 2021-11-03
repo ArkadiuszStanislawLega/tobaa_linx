@@ -3,19 +3,20 @@ import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/enumerators/car_type.dart';
+import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/Constants/url.dart';
+import 'package:tobaa/widgets/DetailViews/baa_detail_view.dart';
 import 'package:tobaa/widgets/DetailViews/box_detail_view.dart';
+import 'package:tobaa/widgets/DetailViews/car_detail_view.dart';
+import 'package:tobaa/widgets/DetailViews/stack_detail_view.dart';
 import 'package:tobaa/widgets/DetailViews/stack_level_detail_view.dart';
 import 'package:tobaa/widgets/DetailViews/transport_detail_view.dart';
 import 'package:tobaa/widgets/baa_list.dart';
-import 'package:tobaa/widgets/DetailViews/car_detail_view.dart';
 import 'package:tobaa/widgets/counted_view.dart';
-import 'package:tobaa/widgets/DetailViews/baa_detail_view.dart';
 import 'package:tobaa/widgets/settings_view.dart';
-import 'package:tobaa/stack/stack.dart' as ContainerStack;
-import 'package:tobaa/widgets/DetailViews/stack_detail_view.dart';
+
 import 'box/box.dart';
 import 'enumerators/baa_type.dart';
 
