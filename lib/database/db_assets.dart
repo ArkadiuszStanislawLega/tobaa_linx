@@ -65,7 +65,7 @@ class DatabaseAssets {
         type: BattleAirAssetType.BBU35,
         boxType: BoxType.BBU35BOX,
         name: "BBU-35/B",
-        weights: Weights(gross: 10, netExplosive: 4, net: 10),
+        weights: Weights(gross: 10, netExplosive: 0.3628739, net: 10),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
@@ -75,7 +75,7 @@ class DatabaseAssets {
         type: BattleAirAssetType.BBU36,
         boxType: BoxType.BBU36BOX,
         name: "BBU-36/B",
-        weights: Weights(gross: 17, netExplosive: 10, net: 17),
+        weights: Weights(gross: 17, netExplosive: 0.997903, net: 17),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:

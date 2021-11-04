@@ -68,7 +68,7 @@ class TOBAAApp extends StatelessWidget {
   Widget build(BuildContext context) {
     this._fillSelectedCarList();
     return MaterialApp(
-      title: 'Transporting Organiser of Battle Air Assets',
+      title: 'Organizator transportu środków bojowych',
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       initialRoute: Url.HOME,
       routes: {
