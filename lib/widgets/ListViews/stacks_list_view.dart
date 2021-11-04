@@ -18,7 +18,7 @@ class StacksListView extends StatelessWidget {
       shrinkWrap: true,
       itemCount: this._stacks.length,
       itemBuilder: (context, index) {
-        return Card(
+        return Center(
           child: ListTile(
               onTap: () {
                 TOBAAApp.selectedStack = this._stacks.elementAt(index);
