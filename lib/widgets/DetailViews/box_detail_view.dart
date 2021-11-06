@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/widgets/Constants/app_colors.dart';
-import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
-import 'package:tobaa/widgets/SmallWidgets/property_with_hint_view.dart';
+import 'package:tobaa/widgets/Templates/property_template.dart';
+import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
 import '../../main.dart';
 import '../Constants/strings.dart';
@@ -22,17 +22,17 @@ class BoxDetailView extends StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
             children: [
-              PropertyView(Strings.WIDTH,
+              PropertyTemplate(Strings.WIDTH,
                   '${sizeConverter(this._box.dimensions.width)}'),
-              PropertyView(Strings.LENGTH,
+              PropertyTemplate(Strings.LENGTH,
                   '${sizeConverter(this._box.dimensions.length)}'),
-              PropertyView(Strings.HEIGHT,
+              PropertyTemplate(Strings.HEIGHT,
                   '${sizeConverter(this._box.dimensions.height)}'),
-              PropertyWithHint(Strings.HINT_NET_WEIGHT, Strings.NET_WEIGHT,
+              PropertyWithHintTemplate(Strings.HINT_NET_WEIGHT, Strings.NET_WEIGHT,
                   '${massConverter(this._box.weights.net)}'),
-              PropertyWithHint(Strings.HINT_GROSS_WEIGHT, Strings.GROSS_WEIGHT,
+              PropertyWithHintTemplate(Strings.HINT_GROSS_WEIGHT, Strings.GROSS_WEIGHT,
                   '${massConverter(this._box.weights.currentGross)}'),
-              PropertyView(Strings.NEW,
+              PropertyTemplate(Strings.NEW,
                   '${massConverter(this._box.weights.currentNetExplosive)}')
             ],
           ))),

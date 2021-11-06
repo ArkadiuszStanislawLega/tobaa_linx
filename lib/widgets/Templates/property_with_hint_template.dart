@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../Constants/strings.dart';
 
-class PropertyWithHint extends StatelessWidget {
+class PropertyWithHintTemplate extends StatelessWidget {
   final String hint;
   final String propertyName;
   final String propertyValue;
 
-  PropertyWithHint(this.hint, this.propertyName, this.propertyValue);
+  PropertyWithHintTemplate(this.hint, this.propertyName, this.propertyValue);
 
   @override
   Widget build(BuildContext context) {

@@ -18,14 +18,12 @@ class CarsListView extends StatelessWidget {
       shrinkWrap: true,
       itemCount: this._cars.length,
       itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
-              onTap: () {
-                TOBAAApp.selectedCar = this._cars.elementAt(index);
-                Navigator.pushNamed(context, Url.CAR_DETAIL);
-              },
-              title: CarListItem(this._cars.elementAt(index), index)),
-        );
+        return ListTile(
+            onTap: () {
+              TOBAAApp.selectedCar = this._cars.elementAt(index);
+              Navigator.pushNamed(context, Url.CAR_DETAIL);
+            },
+            title: CarListItem(this._cars.elementAt(index), index));
       },
     );
   }

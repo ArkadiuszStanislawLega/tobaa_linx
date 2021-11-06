@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class PropertyView extends StatelessWidget {
+class PropertyTemplate extends StatelessWidget {
   final String name;
   final String value;
 
-  PropertyView(this.name, this.value);
+  PropertyTemplate(this.name, this.value);
 
   @override
   Widget build(BuildContext context) {

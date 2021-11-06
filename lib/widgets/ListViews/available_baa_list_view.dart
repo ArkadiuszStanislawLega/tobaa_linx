@@ -20,7 +20,7 @@ class _AvailableBaaListViewState extends State<AvailableBaaListView> {
   @override
   Widget build(BuildContext context) {
     Iterable<BattleAirAsset> assets = DatabaseAssets.container.values;
-    var listItem = new ListView.builder(
+    return ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemCount: assets.length,
@@ -36,8 +36,5 @@ class _AvailableBaaListViewState extends State<AvailableBaaListView> {
         );
       },
     );
-
-    return listItem;
   }
-
 }

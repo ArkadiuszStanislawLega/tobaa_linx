@@ -3,7 +3,7 @@ import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/widgets/Constants/app_colors.dart';
-import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
+import 'package:tobaa/widgets/Templates/property_template.dart';
 
 class CarListItem extends StatelessWidget {
   final Car _car;
@@ -35,8 +35,8 @@ class CarListItem extends StatelessWidget {
       color: Color(AppColors.CAR),
       child: Column(
         children: [
-          PropertyView('Pojazd numer:', '${this._index + 1}'),
-          PropertyView('Ilość środków:', '${this._car.capacity()}'),
+          PropertyTemplate('Pojazd numer:', '${this._index + 1}'),
+          PropertyTemplate('Ilość środków:', '${this._car.capacity()}'),
           Text('$baa')
         ],
       ),

@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/widgets/ListViews/stack_levels_list_view.dart';
-import 'package:tobaa/widgets/SmallWidgets/property_view.dart';
-import 'package:tobaa/widgets/SmallWidgets/property_with_hint_view.dart';
+import 'package:tobaa/widgets/Templates/property_template.dart';
+import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
 import '../../main.dart';
 import '../Constants/strings.dart';
@@ -29,21 +29,21 @@ class StackDetailView extends StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
             children: [
-              PropertyView(Strings.WIDTH,
+              PropertyTemplate(Strings.WIDTH,
                   '${sizeConverter(this._stack.dimensions.width)}'),
-              PropertyView(Strings.LENGTH,
+              PropertyTemplate(Strings.LENGTH,
                   '${sizeConverter(this._stack.dimensions.length)}'),
-              PropertyView(Strings.HEIGHT,
+              PropertyTemplate(Strings.HEIGHT,
                   '${sizeConverter(this._stack.dimensions.height)}'),
-              PropertyView(Strings.NEW,
+              PropertyTemplate(Strings.NEW,
                   '${massConverter(this._stack.weights.netExplosive)}'),
-              PropertyWithHint(Strings.HINT_NET_WEIGHT, Strings.NET_WEIGHT,
+              PropertyWithHintTemplate(Strings.HINT_NET_WEIGHT, Strings.NET_WEIGHT,
                   '${massConverter(this._stack.weights.net)}'),
-              PropertyWithHint(Strings.HINT_GROSS_WEIGHT, Strings.GROSS_WEIGHT,
+              PropertyWithHintTemplate(Strings.HINT_GROSS_WEIGHT, Strings.GROSS_WEIGHT,
                   '${massConverter(this._stack.weights.gross)}'),
-              PropertyView(Strings.NUMBER_OF_THE_BAA,
+              PropertyTemplate(Strings.NUMBER_OF_THE_BAA,
                   '${this._stack.battleAirAssetCapacities.current}'),
-              PropertyView(
+              PropertyTemplate(
                   Strings.MAX_STACK_LEVEL, '${this._stack.maximumStackLevel}'),
               StackLevelsListView(this._stack.levels)
             ],
