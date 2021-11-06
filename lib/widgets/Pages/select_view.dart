@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/widgets/Constants/url.dart';
 
-import 'Constants/strings.dart';
-import 'ListViews/available_baa_list_view.dart';
+import '../Constants/strings.dart';
+import '../ListViews/available_baa_list_view.dart';
 
 class SelectView extends StatelessWidget {
   @override

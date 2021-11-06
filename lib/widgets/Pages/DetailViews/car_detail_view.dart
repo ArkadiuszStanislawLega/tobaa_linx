@@ -5,8 +5,8 @@ import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/widgets/ListViews/stacks_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 
-import '../../main.dart';
-import '../Constants/strings.dart';
+import '../../../main.dart';
+import '../../Constants/strings.dart';
 
 class CarDetailView extends StatelessWidget {
   final Car _car;

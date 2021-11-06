@@ -5,7 +5,8 @@ import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/widgets/Constants/strings.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 
-import '../../main.dart';
+import '../../../main.dart';
+
 
 class DetailBaa extends StatefulWidget {
   final BattleAirAsset battleAirAsset;

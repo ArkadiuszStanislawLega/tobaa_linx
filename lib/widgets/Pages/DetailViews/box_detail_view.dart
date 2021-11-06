@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/widgets/Constants/app_colors.dart';
+import 'package:tobaa/widgets/Constants/strings.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
-import '../../main.dart';
-import '../Constants/strings.dart';
+import '../../../main.dart';
+
 
 class BoxDetailView extends StatelessWidget {
   final Box _box;

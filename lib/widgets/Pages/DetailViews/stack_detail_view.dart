@@ -6,8 +6,8 @@ import 'package:tobaa/widgets/ListViews/stack_levels_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
-import '../../main.dart';
-import '../Constants/strings.dart';
+import '../../../main.dart';
+import '../../Constants/strings.dart';
 
 class StackDetailView extends StatelessWidget {
   final ContainerStack.Stack _stack;
