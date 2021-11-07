@@ -8,7 +8,6 @@ import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
 import '../../../main.dart';
 
-
 class BoxDetailView extends StatelessWidget {
   final Box _box;
 
@@ -19,24 +18,41 @@ class BoxDetailView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('${this._box.name}')),
       body: Container(
-          color: Color(AppColors.BOX),
-          child: new SingleChildScrollView(
-              child: Column(
+        color: Color(AppColors.BOX),
+        child: new SingleChildScrollView(
+          child: Column(
             children: [
-              PropertyTemplate(Strings.WIDTH,
-                  '${sizeConverter(this._box.dimensions.width)}'),
-              PropertyTemplate(Strings.LENGTH,
-                  '${sizeConverter(this._box.dimensions.length)}'),
-              PropertyTemplate(Strings.HEIGHT,
-                  '${sizeConverter(this._box.dimensions.height)}'),
-              PropertyWithHintTemplate(Strings.HINT_NET_WEIGHT, Strings.NET_WEIGHT,
-                  '${massConverter(this._box.weights.net)}'),
-              PropertyWithHintTemplate(Strings.HINT_GROSS_WEIGHT, Strings.GROSS_WEIGHT,
-                  '${massConverter(this._box.weights.currentGross)}'),
-              PropertyTemplate(Strings.NEW,
-                  '${massConverter(this._box.weights.currentNetExplosive)}')
+              PropertyTemplate(
+                name: Strings.WIDTH,
+                value: '${sizeConverter(this._box.dimensions.width)}',
+              ),
+              PropertyTemplate(
+                name: Strings.LENGTH,
+                value: '${sizeConverter(this._box.dimensions.length)}',
+              ),
+              PropertyTemplate(
+                name: Strings.HEIGHT,
+                value: '${sizeConverter(this._box.dimensions.height)}',
+              ),
+              PropertyWithHintTemplate(
+                Strings.HINT_NET_WEIGHT,
+                Strings.NET_WEIGHT,
+                '${massConverter(this._box.weights.net)}',
+              ),
+              PropertyWithHintTemplate(
+                Strings.HINT_GROSS_WEIGHT,
+                Strings.GROSS_WEIGHT,
+                '${massConverter(this._box.weights.currentGross)}',
+              ),
+              PropertyTemplate(
+                name: Strings.NEW,
+                value:
+                    '${massConverter(this._box.weights.currentNetExplosive)}',
+              )
             ],
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }

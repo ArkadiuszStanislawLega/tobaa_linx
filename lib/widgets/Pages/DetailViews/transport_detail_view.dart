@@ -17,28 +17,38 @@ class TransportDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var car = DatabaseCars.container[this._transport.selectedCar]!;
-    var list = Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text(car.name),
       ),
       body: SingleChildScrollView(
-        child: Container(
-            color: Color(AppColors.TRANSPORT),
-            child: Column(children: [
-              PropertyTemplate(
-                  Strings.NUMBER_OF_THE_BAA, '${this._transport.capacity()}'),
-              PropertyTemplate(Strings.NEW,
-                  ' ${massConverter(this._transport.transportNetExplosiveWeight)}'),
-              PropertyTemplate(Strings.WEIGHT_OF_ALL_BAA,
-                  '${massConverter(this._transport.transportNetWeight)}'),
-              PropertyTemplate(Strings.GROSS_WEIGHT,
-                  '${massConverter(this._transport.transportGrossWeight)}'),
-              PropertyTemplate(
-                  Strings.NUMBER_OF_CARS, '${this._transport.numberOfCars}'),
-              CarsListView(this._transport.cars)
-            ])),
+        child: Column(
+          children: [
+            PropertyTemplate(
+              name: Strings.NUMBER_OF_THE_BAA,
+              value: '${this._transport.capacity()}',
+            ),
+            PropertyTemplate(
+              name: Strings.NEW,
+              value: '${massConverter(this._transport.transportNetExplosiveWeight)}',
+            ),
+            PropertyTemplate(
+              name: Strings.WEIGHT_OF_ALL_BAA,
+              value: '${massConverter(this._transport.transportNetWeight)}',
+            ),
+            PropertyTemplate(
+              name: Strings.GROSS_WEIGHT,
+              value: '${massConverter(this._transport.transportGrossWeight)}',
+            ),
+            PropertyTemplate(
+              name: Strings.NUMBER_OF_CARS,
+              value: '${this._transport.numberOfCars}',
+            ),
+            SizedBox(height: 10),
+            CarsListView(this._transport.cars)
+          ],
+        ),
       ),
     );
-    return list;
   }
 }

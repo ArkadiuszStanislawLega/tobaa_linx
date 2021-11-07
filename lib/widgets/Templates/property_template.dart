@@ -4,7 +4,7 @@ class PropertyTemplate extends StatelessWidget {
   final String name;
   final String value;
 
-  PropertyTemplate(this.name, this.value);
+  PropertyTemplate({this.name='', this.value=''});
 
   @override
   Widget build(BuildContext context) {

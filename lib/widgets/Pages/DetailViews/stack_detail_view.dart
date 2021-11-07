@@ -25,29 +25,49 @@ class StackDetailView extends StatelessWidget {
             : Text('${Strings.STACKS_LEVEL} ${this._stack.levels.length}'),
       ),
       body: Container(
-          color: Color(AppColors.STACK),
-          child: new SingleChildScrollView(
-              child: Column(
+        color: Color(AppColors.STACK),
+        child: new SingleChildScrollView(
+          child: Column(
             children: [
-              PropertyTemplate(Strings.WIDTH,
-                  '${sizeConverter(this._stack.dimensions.width)}'),
-              PropertyTemplate(Strings.LENGTH,
-                  '${sizeConverter(this._stack.dimensions.length)}'),
-              PropertyTemplate(Strings.HEIGHT,
-                  '${sizeConverter(this._stack.dimensions.height)}'),
-              PropertyTemplate(Strings.NEW,
-                  '${massConverter(this._stack.weights.netExplosive)}'),
-              PropertyWithHintTemplate(Strings.HINT_NET_WEIGHT, Strings.NET_WEIGHT,
-                  '${massConverter(this._stack.weights.net)}'),
-              PropertyWithHintTemplate(Strings.HINT_GROSS_WEIGHT, Strings.GROSS_WEIGHT,
-                  '${massConverter(this._stack.weights.gross)}'),
-              PropertyTemplate(Strings.NUMBER_OF_THE_BAA,
-                  '${this._stack.battleAirAssetCapacities.current}'),
               PropertyTemplate(
-                  Strings.MAX_STACK_LEVEL, '${this._stack.maximumStackLevel}'),
+                name: Strings.WIDTH,
+                value: '${sizeConverter(this._stack.dimensions.width)}',
+              ),
+              PropertyTemplate(
+                name: Strings.LENGTH,
+                value: '${sizeConverter(this._stack.dimensions.length)}',
+              ),
+              PropertyTemplate(
+                name: Strings.HEIGHT,
+                value: '${sizeConverter(this._stack.dimensions.height)}',
+              ),
+              PropertyTemplate(
+                name: Strings.NEW,
+                value: '${massConverter(this._stack.weights.netExplosive)}',
+              ),
+              PropertyWithHintTemplate(
+                Strings.HINT_NET_WEIGHT,
+                Strings.NET_WEIGHT,
+                '${massConverter(this._stack.weights.net)}',
+              ),
+              PropertyWithHintTemplate(
+                Strings.HINT_GROSS_WEIGHT,
+                Strings.GROSS_WEIGHT,
+                '${massConverter(this._stack.weights.gross)}',
+              ),
+              PropertyTemplate(
+                name: Strings.NUMBER_OF_THE_BAA,
+                value: '${this._stack.battleAirAssetCapacities.current}',
+              ),
+              PropertyTemplate(
+                name: Strings.MAX_STACK_LEVEL,
+                value: '${this._stack.maximumStackLevel}',
+              ),
               StackLevelsListView(this._stack.levels)
             ],
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }

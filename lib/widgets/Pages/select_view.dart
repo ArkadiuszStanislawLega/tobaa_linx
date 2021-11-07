@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/widgets/Constants/url.dart';
+import 'package:tobaa/widgets/Templates/main_menu.dart';
 
+import '../../main.dart';
 import '../Constants/strings.dart';
 import '../ListViews/available_baa_list_view.dart';
 
@@ -11,10 +13,6 @@ class SelectView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          ElevatedButton(
-            child: Text(Strings.SETTINGS),
-            onPressed: () => {Navigator.pushNamed(context, Url.SETTINGS)},
-          ),
           ElevatedButton(
             child: Text(Strings.COUNT),
             onPressed: () => {
@@ -27,6 +25,7 @@ class SelectView extends StatelessWidget {
           style: TextStyle(fontSize: 20.0, fontFamily: 'MiddleAgesDeco'),
         ),
       ),
+      drawer: MainMenu(),
       body: SafeArea(
         child: Container(
           child: AvailableBaaListView(),

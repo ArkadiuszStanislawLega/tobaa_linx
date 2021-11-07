@@ -20,9 +20,9 @@ class CarDetailView extends StatelessWidget {
         title: Text(this._car.name),
       ),
       body: Container(
-          color: Color(AppColors.CAR),
-          child: new SingleChildScrollView(
-              child: Column(
+        color: Color(AppColors.CAR),
+        child: new SingleChildScrollView(
+          child: Column(
             children: [
               Container(
                 child: Column(
@@ -31,16 +31,31 @@ class CarDetailView extends StatelessWidget {
                       '${Strings.PARAMETERS_OF_THE_LOADING_AREA}',
                       style: TextStyle(fontStyle: FontStyle.italic),
                     ),
-                    PropertyTemplate(Strings.LENGTH,
-                        '${sizeConverter(this._car.dimensionOfLoadingArea.length)}'),
-                    PropertyTemplate(Strings.WIDTH,
-                        '${sizeConverter(this._car.dimensionOfLoadingArea.width)}'),
-                    PropertyTemplate(Strings.HEIGHT,
-                        '${sizeConverter(this._car.dimensionOfLoadingArea.height)}'),
-                    PropertyTemplate(Strings.PERMISSIBLE_WEIGHT,
-                        '${massConverter(this._car.weightOfLoadingArea.maximum)}'),
-                    PropertyTemplate(Strings.PERMISSIBLE_NEW,
-                        '${massConverter(this._car.weightOfLoadingArea.maximumNetExplosive)}'),
+                    PropertyTemplate(
+                      name: Strings.LENGTH,
+                      value:
+                          '${sizeConverter(this._car.dimensionOfLoadingArea.length)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.WIDTH,
+                      value:
+                          '${sizeConverter(this._car.dimensionOfLoadingArea.width)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.HEIGHT,
+                      value:
+                          '${sizeConverter(this._car.dimensionOfLoadingArea.height)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.PERMISSIBLE_WEIGHT,
+                      value:
+                          '${massConverter(this._car.weightOfLoadingArea.maximum)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.PERMISSIBLE_NEW,
+                      value:
+                          '${massConverter(this._car.weightOfLoadingArea.maximumNetExplosive)}',
+                    ),
                   ],
                 ),
               ),
@@ -51,20 +66,32 @@ class CarDetailView extends StatelessWidget {
                       Strings.LOADED_CARGO_PARAMETERS,
                       style: TextStyle(fontStyle: FontStyle.italic),
                     ),
-                    PropertyTemplate(Strings.EXPLOSION_CLASS,
-                        '${this._car.explosionClass.toString()}'),
-                    PropertyTemplate(Strings.NEW,
-                        '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}'),
-                    PropertyTemplate(Strings.LOAD_WEIGHT,
-                        '${massConverter(this._car.weightOfLoadingArea.current)}'),
-                    PropertyTemplate(Strings.NUMBER_OF_THE_STACKS,
-                        '${this._car.stacks.length}'),
+                    PropertyTemplate(
+                      name: Strings.EXPLOSION_CLASS,
+                      value: '${this._car.explosionClass.toString()}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.NEW,
+                      value:
+                          '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.LOAD_WEIGHT,
+                      value:
+                          '${massConverter(this._car.weightOfLoadingArea.current)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.NUMBER_OF_THE_STACKS,
+                      value: '${this._car.stacks.length}',
+                    ),
                   ],
                 ),
               ),
               StacksListView(this._car.stacks)
             ],
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }

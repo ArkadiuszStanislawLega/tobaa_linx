@@ -27,22 +27,41 @@ class StackLevelDetailView extends StatelessWidget {
           child: new SingleChildScrollView(
               child: Column(
             children: [
-              PropertyTemplate(Strings.WIDTH,
-                  '${sizeConverter(this._stackLevel.dimensions.width)}'),
-              PropertyTemplate(Strings.LENGTH,
-                  '${sizeConverter(this._stackLevel.dimensions.length)}'),
-              PropertyTemplate(Strings.HEIGHT,
-                  '${sizeConverter(this._stackLevel.dimensions.height)}'),
-              PropertyTemplate(Strings.NEW,
-                  '${massConverter(this._stackLevel.weights.netExplosive)}'),
-              PropertyWithHintTemplate(Strings.HINT_NET_WEIGHT, Strings.NET_WEIGHT,
-                  '${massConverter(this._stackLevel.weights.net)}'),
-              PropertyWithHintTemplate(Strings.HINT_GROSS_WEIGHT, Strings.GROSS_WEIGHT,
-                  '${massConverter(this._stackLevel.weights.gross)}'),
-              PropertyTemplate(Strings.NUMBER_OF_THE_CONTAINERS,
-                  '${this._stackLevel.boxes.length}'),
-              PropertyTemplate(Strings.NUMBER_OF_THE_BAA,
-                  '${this._stackLevel.capacities.current}'),
+              PropertyTemplate(
+                name: Strings.WIDTH,
+                value: '${sizeConverter(this._stackLevel.dimensions.width)}',
+              ),
+              PropertyTemplate(
+                name: Strings.LENGTH,
+                value: '${sizeConverter(this._stackLevel.dimensions.length)}',
+              ),
+              PropertyTemplate(
+                name: Strings.HEIGHT,
+                value: '${sizeConverter(this._stackLevel.dimensions.height)}',
+              ),
+              PropertyTemplate(
+                name: Strings.NEW,
+                value:
+                    '${massConverter(this._stackLevel.weights.netExplosive)}',
+              ),
+              PropertyWithHintTemplate(
+                Strings.HINT_NET_WEIGHT,
+                Strings.NET_WEIGHT,
+                '${massConverter(this._stackLevel.weights.net)}',
+              ),
+              PropertyWithHintTemplate(
+                Strings.HINT_GROSS_WEIGHT,
+                Strings.GROSS_WEIGHT,
+                '${massConverter(this._stackLevel.weights.gross)}',
+              ),
+              PropertyTemplate(
+                name: Strings.NUMBER_OF_THE_CONTAINERS,
+                value: '${this._stackLevel.boxes.length}',
+              ),
+              PropertyTemplate(
+                name: Strings.NUMBER_OF_THE_BAA,
+                value: '${this._stackLevel.capacities.current}',
+              ),
               BoxesListView(this._stackLevel.boxes)
             ],
           ))),

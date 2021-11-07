@@ -14,7 +14,6 @@ class CarsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new ListView.builder(
-      scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemCount: this._cars.length,
       itemBuilder: (context, index) {

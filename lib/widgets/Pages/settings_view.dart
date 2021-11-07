@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_cars.dart';
-import 'package:tobaa/main.dart';
 import 'package:tobaa/widgets/ListItems/settings_car_list_item.dart';
 
 import '../Constants/strings.dart';
@@ -12,7 +11,6 @@ class SettingsView extends StatefulWidget {
   State<StatefulWidget> createState() {
     return _SettingView();
   }
-
 }
 
 class _SettingView extends State<SettingsView> {
@@ -41,22 +39,7 @@ class _SettingView extends State<SettingsView> {
       appBar: AppBar(
         title: Text('${Strings.SETTINGS}'),
       ),
-      body: Column(
-        children: [
-          Row(children: [
-            Text('${Strings.WAR_TIME}'),
-            Switch(value: TOBAAApp.isWar, onChanged: (bool value) =>
-            {
-              setState(() {
-                TOBAAApp.isWar = value;
-              })
-            },),
-          ]
-          ),
-          listItem
-        ],
-
-      ),
+      body: listItem
     );
   }
 }
