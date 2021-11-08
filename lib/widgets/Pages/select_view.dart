@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/Constants/url.dart';
 import 'package:tobaa/widgets/Templates/main_menu.dart';
 
@@ -12,8 +11,8 @@ class SelectView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
-          ElevatedButton(
-            child: Text(Strings.COUNT),
+          IconButton(
+            icon: Icon(Icons.double_arrow),
             onPressed: () => {
               Navigator.pushNamed(context, Url.COUNTED),
             },

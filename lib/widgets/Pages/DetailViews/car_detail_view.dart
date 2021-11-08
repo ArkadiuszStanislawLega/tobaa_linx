@@ -21,7 +21,7 @@ class CarDetailView extends StatelessWidget {
           title: Text(this._car.name),
           bottom: TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.content_paste)),
+              Tab(icon: Icon(Icons.developer_board)),
               Tab(icon: Icon(Icons.list)),
             ],
           ),
