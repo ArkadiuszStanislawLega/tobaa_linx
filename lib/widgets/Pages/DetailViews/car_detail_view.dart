@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/car/car.dart';
-import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/widgets/ListViews/stacks_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 
 import '../../../main.dart';
-import '../../Constants/strings.dart';
 
 class CarDetailView extends StatelessWidget {
   final Car _car;
@@ -15,17 +14,23 @@ class CarDetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(this._car.name),
-      ),
-      body: Container(
-        color: Color(AppColors.CAR),
-        child: new SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                child: Column(
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(this._car.name),
+          bottom: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.content_paste)),
+              Tab(icon: Icon(Icons.list)),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            Column(
+              children: [
+                Column(
                   children: [
                     Text(
                       '${Strings.PARAMETERS_OF_THE_LOADING_AREA}',
@@ -58,9 +63,7 @@ class CarDetailView extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              Container(
-                child: Column(
+                Column(
                   children: [
                     Text(
                       Strings.LOADED_CARGO_PARAMETERS,
@@ -86,10 +89,10 @@ class CarDetailView extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              StacksListView(this._car.stacks)
-            ],
-          ),
+              ],
+            ),
+            StacksListView(this._car.stacks)
+          ],
         ),
       ),
     );

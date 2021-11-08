@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/ListViews/cars_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
-
-import '../../Constants/strings.dart';
 
 class TransportDetailView extends StatelessWidget {
   final Transport _transport;

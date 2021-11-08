@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/widgets/ListItems/settings_car_list_item.dart';
-
-import '../Constants/strings.dart';
 
 class SettingsView extends StatefulWidget {
   @override

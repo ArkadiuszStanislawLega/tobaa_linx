@@ -30,14 +30,12 @@ class _DetailBaa extends State<DetailBaa> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          bottom: TabBar(tabs: [
-            Tab(
-              text: '${this.battleAirAsset.name}',
-            ),
-            Tab(
-              text: '${box.name}',
-            ),
-          ]),
+          bottom: TabBar(
+            tabs: [
+              Tab(text: '${this.battleAirAsset.name}'),
+              Tab(text: '${box.name}'),
+            ],
+          ),
           title: Row(
             children: [
               Text('${this.battleAirAsset.name}'),

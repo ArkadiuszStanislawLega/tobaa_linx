@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/app_colors.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/transport/transport.dart';
-import 'package:tobaa/widgets/Constants/app_colors.dart';
-import 'package:tobaa/widgets/Constants/strings.dart';
 import 'package:tobaa/widgets/ListViews/transports_list_view.dart';
 
 import '../../main.dart';
