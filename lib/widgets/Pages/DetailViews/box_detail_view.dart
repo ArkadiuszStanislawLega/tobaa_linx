@@ -35,14 +35,14 @@ class BoxDetailView extends StatelessWidget {
                 value: '${sizeConverter(this._box.dimensions.height)}',
               ),
               PropertyWithHintTemplate(
-                Strings.HINT_NET_WEIGHT,
-                Strings.NET_WEIGHT,
-                '${massConverter(this._box.weights.net)}',
+                hint: Strings.HINT_NET_WEIGHT,
+                propertyName: Strings.NET_WEIGHT,
+                propertyValue: '${massConverter(this._box.weights.net)}',
               ),
               PropertyWithHintTemplate(
-                Strings.HINT_GROSS_WEIGHT,
-                Strings.GROSS_WEIGHT,
-                '${massConverter(this._box.weights.currentGross)}',
+                hint: Strings.HINT_GROSS_WEIGHT,
+                propertyName:Strings.GROSS_WEIGHT,
+                propertyValue: '${massConverter(this._box.weights.currentGross)}',
               ),
               PropertyTemplate(
                 name: Strings.NEW,

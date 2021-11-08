@@ -123,23 +123,26 @@ class _DetailBaa extends State<DetailBaa> {
         builder: (BuildContext context) {
           return Expanded(
             child: AlertDialog(
-                title: Text(Strings.INFORMATION),
-                content: Container(
-                    child: SingleChildScrollView(
-                        child: Column(
-                  children: [
-                    this._explosionClass(),
-                    this._compatibilityGroup(compatibilityGroup)
-                  ],
-                ))),
-                actions: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context, true);
-                    },
-                    child: Text(Strings.CLOSE),
-                  )
-                ]),
+              title: Text(Strings.INFORMATION),
+              content: Container(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      this._explosionClass(),
+                      this._compatibilityGroup(compatibilityGroup)
+                    ],
+                  ),
+                ),
+              ),
+              actions: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context, true);
+                  },
+                  child: Text(Strings.CLOSE),
+                ),
+              ],
+            ),
           );
         },
         context: this.context);
@@ -147,39 +150,46 @@ class _DetailBaa extends State<DetailBaa> {
 
   Widget _explosionClass() {
     return Container(
-        padding: EdgeInsets.all(10),
-        child: Column(children: [
-          Row(children: [
-            Text(Strings.EXPLOSION_SUBCLASS),
-            Text(
-              '${this.battleAirAsset.explosionClass.explosionSubclass.id}',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ]),
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(Strings.EXPLOSION_SUBCLASS),
+              Text(
+                '${this.battleAirAsset.explosionClass.explosionSubclass.id}',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
           Text(
               '${this.battleAirAsset.explosionClass.explosionSubclass.description}',
               style: TextStyle(fontStyle: FontStyle.italic)),
-        ]));
+        ],
+      ),
+    );
   }
 
   Widget _compatibilityGroup(String compatibilityGroup) {
     return Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Text('${Strings.COMPATIBILITY_GROUP}'),
-                Text(
-                  '$compatibilityGroup',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Text(
-                '${this.battleAirAsset.explosionClass.compatibilityGroup.description}',
-                style: TextStyle(fontStyle: FontStyle.italic)),
-          ],
-        ));
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text('${Strings.COMPATIBILITY_GROUP}'),
+              Text(
+                '$compatibilityGroup',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          Text(
+            '${this.battleAirAsset.explosionClass.compatibilityGroup.description}',
+            style: TextStyle(fontStyle: FontStyle.italic),
+          ),
+        ],
+      ),
+    );
   }
 }

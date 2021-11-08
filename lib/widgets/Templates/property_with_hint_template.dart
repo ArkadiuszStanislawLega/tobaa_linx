@@ -8,23 +8,30 @@ class PropertyWithHintTemplate extends StatelessWidget {
   final String propertyName;
   final String propertyValue;
 
-  PropertyWithHintTemplate(this.hint, this.propertyName, this.propertyValue);
+  PropertyWithHintTemplate({this.hint = "", this.propertyName = "", this.propertyValue = ""});
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Expanded(child: Text(this.propertyName)),
-      Expanded(
-          child: Text(propertyValue,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-              ))),
-      IconButton(
-          onPressed: () => {
-                showDialog(
-                    builder: (BuildContext context) {
-                      return Expanded(
-                        child: AlertDialog(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Expanded(
+          child: Text(this.propertyName),
+        ),
+        Expanded(
+          child: Text(
+            propertyValue,
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+        IconButton(
+            onPressed: () => {
+                  showDialog(
+                      builder: (BuildContext context) {
+                        return Expanded(
+                          child: AlertDialog(
                             title: Text(Strings.HINT),
                             content: Text(this.hint),
                             actions: [
@@ -34,12 +41,14 @@ class PropertyWithHintTemplate extends StatelessWidget {
                                 },
                                 child: Text(Strings.CLOSE),
                               )
-                            ]),
-                      );
-                    },
-                    context: context)
-              },
-          icon: Icon(Icons.help)),
-    ]);
+                            ],
+                          ),
+                        );
+                      },
+                      context: context)
+                },
+            icon: Icon(Icons.help)),
+      ],
+    );
   }
 }

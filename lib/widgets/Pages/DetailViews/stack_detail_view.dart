@@ -46,14 +46,14 @@ class StackDetailView extends StatelessWidget {
                 value: '${massConverter(this._stack.weights.netExplosive)}',
               ),
               PropertyWithHintTemplate(
-                Strings.HINT_NET_WEIGHT,
-                Strings.NET_WEIGHT,
-                '${massConverter(this._stack.weights.net)}',
+                hint: Strings.HINT_NET_WEIGHT,
+                propertyName:Strings.NET_WEIGHT,
+                propertyValue: '${massConverter(this._stack.weights.net)}',
               ),
               PropertyWithHintTemplate(
-                Strings.HINT_GROSS_WEIGHT,
-                Strings.GROSS_WEIGHT,
-                '${massConverter(this._stack.weights.gross)}',
+                hint: Strings.HINT_GROSS_WEIGHT,
+                propertyName:Strings.GROSS_WEIGHT,
+                propertyValue: '${massConverter(this._stack.weights.gross)}',
               ),
               PropertyTemplate(
                 name: Strings.NUMBER_OF_THE_BAA,

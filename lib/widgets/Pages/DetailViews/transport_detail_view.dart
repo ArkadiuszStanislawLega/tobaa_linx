@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
-import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/widgets/ListViews/cars_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 

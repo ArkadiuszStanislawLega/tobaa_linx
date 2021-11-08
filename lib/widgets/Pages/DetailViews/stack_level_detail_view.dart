@@ -45,14 +45,14 @@ class StackLevelDetailView extends StatelessWidget {
                     '${massConverter(this._stackLevel.weights.netExplosive)}',
               ),
               PropertyWithHintTemplate(
-                Strings.HINT_NET_WEIGHT,
-                Strings.NET_WEIGHT,
-                '${massConverter(this._stackLevel.weights.net)}',
+                hint: Strings.HINT_NET_WEIGHT,
+                propertyName:Strings.NET_WEIGHT,
+                propertyValue: '${massConverter(this._stackLevel.weights.net)}',
               ),
               PropertyWithHintTemplate(
-                Strings.HINT_GROSS_WEIGHT,
-                Strings.GROSS_WEIGHT,
-                '${massConverter(this._stackLevel.weights.gross)}',
+                hint: Strings.HINT_GROSS_WEIGHT,
+                propertyName:Strings.GROSS_WEIGHT,
+                propertyValue: '${massConverter(this._stackLevel.weights.gross)}',
               ),
               PropertyTemplate(
                 name: Strings.NUMBER_OF_THE_CONTAINERS,
