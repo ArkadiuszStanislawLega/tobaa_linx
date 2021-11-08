@@ -6,7 +6,7 @@ class Strings{
   static const String CLOSE = 'Zamknij';
   static const String COMPATIBILITY_GROUP = 'Grupa kompatybilności:';
   static const String CONTAINER_FULLY_LOADED_GROSS_WEIGHT = 'Waga brutto załadowanego kontenera:';
-  static const String CONTAINER_FULLY_LOADED_NEW = 'Waga środków wybuchowych w pełni załadowanego kontenera:';
+  static const String CONTAINER_FULLY_LOADED_NEW = 'Waga środków wybuchowych załadowanego kontenera:';
   static const String CONTAINER_NAME = 'Nazwa kontenera:';
   static const String CONTAINER_NET_WEIGHT = 'Waga netto kontenera:';
   static const String COUNT = 'Przelicz';

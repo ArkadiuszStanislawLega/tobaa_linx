@@ -18,14 +18,15 @@ class StackLevelDetailView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: this._stackLevel.boxes.length > 0
-              ? Text('Poziom stosu z ${this._stackLevel.boxes.first.name}')
-              : Text(
-                  '${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel.capacities.current}')),
+        title: this._stackLevel.boxes.length > 0
+            ? Text('Poziom stosu z ${this._stackLevel.boxes.first.name}')
+            : Text(
+                '${Strings.NUMBER_OF_THE_BAA} ${this._stackLevel.capacities.current}'),
+      ),
       body: Container(
-          color: Color(AppColors.STACK_LEVEL),
-          child: new SingleChildScrollView(
-              child: Column(
+        color: Color(AppColors.STACK_LEVEL),
+        child: new SingleChildScrollView(
+          child: Column(
             children: [
               PropertyTemplate(
                 name: Strings.WIDTH,
@@ -46,13 +47,14 @@ class StackLevelDetailView extends StatelessWidget {
               ),
               PropertyWithHintTemplate(
                 hint: Strings.HINT_NET_WEIGHT,
-                propertyName:Strings.NET_WEIGHT,
+                propertyName: Strings.NET_WEIGHT,
                 propertyValue: '${massConverter(this._stackLevel.weights.net)}',
               ),
               PropertyWithHintTemplate(
                 hint: Strings.HINT_GROSS_WEIGHT,
-                propertyName:Strings.GROSS_WEIGHT,
-                propertyValue: '${massConverter(this._stackLevel.weights.gross)}',
+                propertyName: Strings.GROSS_WEIGHT,
+                propertyValue:
+                    '${massConverter(this._stackLevel.weights.gross)}',
               ),
               PropertyTemplate(
                 name: Strings.NUMBER_OF_THE_CONTAINERS,
@@ -64,7 +66,9 @@ class StackLevelDetailView extends StatelessWidget {
               ),
               BoxesListView(this._stackLevel.boxes)
             ],
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }

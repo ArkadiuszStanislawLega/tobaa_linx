@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/url.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_cars.dart';
@@ -6,7 +7,6 @@ import 'package:tobaa/enumerators/car_type.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/transport/transport.dart';
-import 'package:tobaa/widgets/Constants/url.dart';
 import 'package:tobaa/widgets/Pages/DetailViews/baa_detail_view.dart';
 import 'package:tobaa/widgets/Pages/DetailViews/box_detail_view.dart';
 import 'package:tobaa/widgets/Pages/DetailViews/car_detail_view.dart';

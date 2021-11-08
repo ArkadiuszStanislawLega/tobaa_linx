@@ -8,7 +8,8 @@ class PropertyWithHintTemplate extends StatelessWidget {
   final String propertyName;
   final String propertyValue;
 
-  PropertyWithHintTemplate({this.hint = "", this.propertyName = "", this.propertyValue = ""});
+  PropertyWithHintTemplate(
+      {this.hint = "", this.propertyName = "", this.propertyValue = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -27,27 +28,28 @@ class PropertyWithHintTemplate extends StatelessWidget {
           ),
         ),
         IconButton(
-            onPressed: () => {
-                  showDialog(
-                      builder: (BuildContext context) {
-                        return Expanded(
-                          child: AlertDialog(
-                            title: Text(Strings.HINT),
-                            content: Text(this.hint),
-                            actions: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.pop(context, true);
-                                },
-                                child: Text(Strings.CLOSE),
-                              )
-                            ],
-                          ),
-                        );
-                      },
-                      context: context)
+          onPressed: () => {
+            showDialog(
+                builder: (BuildContext context) {
+                  return Expanded(
+                    child: AlertDialog(
+                      title: Text(Strings.HINT),
+                      content: Text(this.hint),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context, true);
+                          },
+                          child: Text(Strings.CLOSE),
+                        )
+                      ],
+                    ),
+                  );
                 },
-            icon: Icon(Icons.help)),
+                context: context)
+          },
+          icon: Icon(Icons.help),
+        ),
       ],
     );
   }

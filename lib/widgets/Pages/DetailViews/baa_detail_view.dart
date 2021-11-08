@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
-import 'package:tobaa/widgets/Constants/strings.dart';
-import 'package:tobaa/widgets/Templates/property_template.dart';
+import 'package:tobaa/widgets/Templates/property_game_template.dart';
 
 import '../../../main.dart';
 
@@ -26,86 +26,132 @@ class _DetailBaa extends State<DetailBaa> {
   @override
   Widget build(BuildContext context) {
     var box = DatabaseBoxes.container[this.battleAirAsset.boxType]!;
-    return Scaffold(
-      appBar: AppBar(
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(tabs: [
+            Tab(
+              text: '${this.battleAirAsset.name}',
+            ),
+            Tab(
+              text: '${box.name}',
+            ),
+          ]),
           title: Row(
-        children: [
-          Text('${this.battleAirAsset.name}'),
-          ElevatedButton(
-            child: Text('${this.battleAirAsset.explosionClass.toString()}'),
-            onPressed: this._showExplosionClass,
-          )
-        ],
-      )),
-      body: SingleChildScrollView(
-        child: Column(
+            children: [
+              Text('${this.battleAirAsset.name}'),
+              ElevatedButton(
+                child: Text('${this.battleAirAsset.explosionClass.toString()}'),
+                onPressed: this._showExplosionClass,
+              )
+            ],
+          ),
+        ),
+        body: TabBarView(
           children: [
-            PropertyTemplate(
-              name: Strings.LENGTH,
-              value: '${sizeConverter(this.battleAirAsset.dimensions.length)}',
+            GridView.count(
+              primary: false,
+              padding: const EdgeInsets.all(20),
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 3,
+              children: [
+                PropertyGameTemplate(
+                  name: Strings.LENGTH,
+                  value:
+                      '${sizeConverter(this.battleAirAsset.dimensions.length)}',
+                  background: Colors.grey[100]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.WIDTH,
+                  value:
+                      '${sizeConverter(this.battleAirAsset.dimensions.width)}',
+                  background: Colors.grey[200]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.HEIGHT,
+                  value:
+                      '${sizeConverter(this.battleAirAsset.dimensions.height)}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.GROSS_WEIGHT,
+                  value: '${massConverter(this.battleAirAsset.weights.gross)}',
+                  background: Colors.grey[400]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NET_WEIGHT,
+                  value: '${massConverter(this.battleAirAsset.weights.net)}',
+                  background: Colors.grey[500]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NEW,
+                  value:
+                      '${massConverter(this.battleAirAsset.weights.netExplosive)}',
+                  background: Colors.grey[600]!,
+                ),
+              ],
             ),
-            PropertyTemplate(
-              name: Strings.WIDTH,
-              value: '${sizeConverter(this.battleAirAsset.dimensions.width)}',
+            GridView.count(
+              primary: false,
+              padding: const EdgeInsets.all(20),
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 3,
+              children: [
+                PropertyGameTemplate(
+                  name: Strings.LENGTH,
+                  value: '${sizeConverter(box.dimensions.length)}',
+                  background: Colors.grey[100]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.WIDTH,
+                  value: '${sizeConverter(box.dimensions.width)}',
+                  background: Colors.grey[200]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.HEIGHT,
+                  value: '${sizeConverter(box.dimensions.height)}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.CONTAINER_NET_WEIGHT,
+                  value: '${massConverter(box.weights.net)}',
+                  background: Colors.grey[400]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.CONTAINER_FULLY_LOADED_GROSS_WEIGHT,
+                  value: '${massConverter(box.weights.gross)}',
+                  background: Colors.grey[500]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.CONTAINER_FULLY_LOADED_NEW,
+                  value: '${massConverter(box.weights.netExplosive)}',
+                  background: Colors.grey[600]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.CAPACITY,
+                  value: '${box.capacities.maximum}',
+                  background: Colors.grey[700]!,
+                  fontColor: Colors.white70,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
+                  value: '${box.maxStackLevel} szt.',
+                  background: Colors.grey[800]!,
+                  fontColor: Colors.white70,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_CHOSEN_BAA,
+                  value: TOBAAApp.values.containsKey(this.battleAirAsset.type)
+                      ? '${TOBAAApp.values[this.battleAirAsset.type]} szt.'
+                      : '0 szt.',
+                  background: Colors.grey[900]!,
+                  fontColor: Colors.white70,
+                )
+              ],
             ),
-            PropertyTemplate(
-              name: Strings.HEIGHT,
-              value: '${sizeConverter(this.battleAirAsset.dimensions.height)}',
-            ),
-            PropertyTemplate(
-              name: Strings.GROSS_WEIGHT,
-              value: '${massConverter(this.battleAirAsset.weights.gross)}',
-            ),
-            PropertyTemplate(
-              name: Strings.NET_WEIGHT,
-              value: '${massConverter(this.battleAirAsset.weights.net)}',
-            ),
-            PropertyTemplate(
-              name: Strings.NEW,
-              value:
-                  '${massConverter(this.battleAirAsset.weights.netExplosive)}',
-            ),
-            PropertyTemplate(
-              name: Strings.CONTAINER_NAME,
-              value: '${box.name}',
-            ),
-            PropertyTemplate(
-              name: Strings.CONTAINER_NET_WEIGHT,
-              value: '${massConverter(box.weights.net)}',
-            ),
-            PropertyTemplate(
-              name: Strings.CONTAINER_FULLY_LOADED_GROSS_WEIGHT,
-              value: '${massConverter(box.weights.gross)}',
-            ),
-            PropertyTemplate(
-              name: Strings.CONTAINER_FULLY_LOADED_NEW,
-              value: '${massConverter(box.weights.netExplosive)}',
-            ),
-            PropertyTemplate(
-              name: Strings.HEIGHT,
-              value: '${sizeConverter(box.dimensions.height)}',
-            ),
-            PropertyTemplate(
-              name: Strings.WIDTH,
-              value: '${sizeConverter(box.dimensions.width)}',
-            ),
-            PropertyTemplate(
-              name: Strings.LENGTH,
-              value: '${sizeConverter(box.dimensions.length)}',
-            ),
-            PropertyTemplate(
-              name: Strings.CAPACITY,
-              value: '${box.capacities.maximum}',
-            ),
-            PropertyTemplate(
-              name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
-              value: '${box.maxStackLevel} szt.',
-            ),
-            PropertyTemplate(
-                name: Strings.NUMBER_OF_CHOSEN_BAA,
-                value: TOBAAApp.values.containsKey(this.battleAirAsset.type)
-                    ? '${TOBAAApp.values[this.battleAirAsset.type]} szt.'
-                    : '0 szt.'),
           ],
         ),
       ),
@@ -163,8 +209,9 @@ class _DetailBaa extends State<DetailBaa> {
             ],
           ),
           Text(
-              '${this.battleAirAsset.explosionClass.explosionSubclass.description}',
-              style: TextStyle(fontStyle: FontStyle.italic)),
+            '${this.battleAirAsset.explosionClass.explosionSubclass.description}',
+            style: TextStyle(fontStyle: FontStyle.italic),
+          ),
         ],
       ),
     );
