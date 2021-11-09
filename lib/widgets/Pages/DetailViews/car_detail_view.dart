@@ -10,7 +10,7 @@ import '../../../main.dart';
 class CarDetailView extends StatelessWidget {
   final Car _car;
 
-  CarDetailView(this._car);
+  CarDetailView(this._car, );
 
   @override
   Widget build(BuildContext context) {

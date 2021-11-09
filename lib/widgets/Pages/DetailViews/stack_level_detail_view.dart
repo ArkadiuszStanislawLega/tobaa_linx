@@ -4,6 +4,7 @@ import 'package:tobaa/Constants/app_colors.dart';
 import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/widgets/ListViews/boxes_list_view.dart';
+import 'package:tobaa/widgets/Templates/property_game_template.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
@@ -35,24 +36,29 @@ class StackLevelDetailView extends StatelessWidget {
           color: Color(AppColors.STACK_LEVEL),
           child: TabBarView(
             children: [
-              Column(
+              GridView.count(
+                primary: false,
+                padding: const EdgeInsets.all(20),
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: 3,
                 children: [
-                  PropertyTemplate(
+                  PropertyGameTemplate(
                     name: Strings.WIDTH,
                     value:
                         '${sizeConverter(this._stackLevel.dimensions.width)}',
                   ),
-                  PropertyTemplate(
+                  PropertyGameTemplate(
                     name: Strings.LENGTH,
                     value:
                         '${sizeConverter(this._stackLevel.dimensions.length)}',
                   ),
-                  PropertyTemplate(
+                  PropertyGameTemplate(
                     name: Strings.HEIGHT,
                     value:
                         '${sizeConverter(this._stackLevel.dimensions.height)}',
                   ),
-                  PropertyTemplate(
+                  PropertyGameTemplate(
                     name: Strings.NEW,
                     value:
                         '${massConverter(this._stackLevel.weights.netExplosive)}',
@@ -69,11 +75,11 @@ class StackLevelDetailView extends StatelessWidget {
                     propertyValue:
                         '${massConverter(this._stackLevel.weights.gross)}',
                   ),
-                  PropertyTemplate(
+                  PropertyGameTemplate(
                     name: Strings.NUMBER_OF_THE_CONTAINERS,
                     value: '${this._stackLevel.boxes.length}',
                   ),
-                  PropertyTemplate(
+                  PropertyGameTemplate(
                     name: Strings.NUMBER_OF_THE_BAA,
                     value: '${this._stackLevel.capacities.current}',
                   ),
