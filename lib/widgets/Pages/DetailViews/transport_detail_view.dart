@@ -6,7 +6,6 @@ import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/ListViews/cars_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
-import 'package:tobaa/widgets/Templates/property_template.dart';
 
 class TransportDetailView extends StatelessWidget {
   final Transport _transport;
