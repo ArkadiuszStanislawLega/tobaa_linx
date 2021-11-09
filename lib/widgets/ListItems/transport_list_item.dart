@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/Constants/app_colors.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/transport/transport.dart';
-import 'package:tobaa/widgets/Constants/app_colors.dart';
 
 class TransportListItem extends StatelessWidget {
   final Transport _transport;

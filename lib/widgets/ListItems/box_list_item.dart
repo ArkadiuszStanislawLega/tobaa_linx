@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/Constants/app_colors.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/box/box.dart';
-import 'package:tobaa/widgets/Constants/app_colors.dart';
-import 'package:tobaa/widgets/Constants/strings.dart';
 
 import '../../main.dart';
 

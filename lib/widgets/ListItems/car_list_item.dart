@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:tobaa/Constants/app_colors.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/widgets/Constants/app_colors.dart';
 import 'package:tobaa/widgets/Templates/property_template.dart';
 
 class CarListItem extends StatelessWidget {

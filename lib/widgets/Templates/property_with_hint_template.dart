@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../Constants/strings.dart';
+import 'package:tobaa/Constants/strings.dart';
 
 class PropertyWithHintTemplate extends StatelessWidget {
   final String hint;

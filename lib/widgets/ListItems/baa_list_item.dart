@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/database/db_boxes.dart';
 
 import '../../main.dart';
-import '../Constants/strings.dart';
 
 class BaaListItem extends StatefulWidget {
   final BattleAirAsset baa;

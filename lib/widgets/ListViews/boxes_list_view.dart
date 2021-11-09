@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/Constants/url.dart';
 import 'package:tobaa/box/box.dart';
-import 'package:tobaa/widgets/Constants/url.dart';
 import 'package:tobaa/widgets/ListItems/box_list_item.dart';
 
 import '../../main.dart';
