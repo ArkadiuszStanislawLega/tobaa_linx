@@ -16,54 +16,68 @@ class StackDetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: this._stack.levels.isNotEmpty &&
-                this._stack.levels.first.boxes.isNotEmpty
-            ? Text(
-                '${Strings.STACK} ${this._stack.levels.first.boxes.first.name}')
-            : Text('${Strings.STACKS_LEVEL} ${this._stack.levels.length}'),
-      ),
-      body: Container(
-        color: Color(AppColors.STACK),
-        child: new SingleChildScrollView(
-          child: Column(
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(tabs: [
+            Tab(icon: Icon(Icons.developer_board)),
+            Tab(icon: Icon(Icons.list)),
+          ]),
+          title: this._stack.levels.isNotEmpty &&
+                  this._stack.levels.first.boxes.isNotEmpty
+              ? Text(
+                  '${Strings.STACK} ${this._stack.levels.first.boxes.first.name}')
+              : Text('${Strings.STACKS_LEVEL} ${this._stack.levels.length}'),
+        ),
+        body: Container(
+          color: Color(AppColors.STACK),
+          child: TabBarView(
             children: [
-              PropertyTemplate(
-                name: Strings.WIDTH,
-                value: '${sizeConverter(this._stack.dimensions.width)}',
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    PropertyTemplate(
+                      name: Strings.WIDTH,
+                      value: '${sizeConverter(this._stack.dimensions.width)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.LENGTH,
+                      value: '${sizeConverter(this._stack.dimensions.length)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.HEIGHT,
+                      value: '${sizeConverter(this._stack.dimensions.height)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.NEW,
+                      value:
+                          '${massConverter(this._stack.weights.netExplosive)}',
+                    ),
+                    PropertyWithHintTemplate(
+                      hint: Strings.HINT_NET_WEIGHT,
+                      propertyName: Strings.NET_WEIGHT,
+                      propertyValue:
+                          '${massConverter(this._stack.weights.net)}',
+                    ),
+                    PropertyWithHintTemplate(
+                      hint: Strings.HINT_GROSS_WEIGHT,
+                      propertyName: Strings.GROSS_WEIGHT,
+                      propertyValue:
+                          '${massConverter(this._stack.weights.gross)}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.NUMBER_OF_THE_BAA,
+                      value: '${this._stack.battleAirAssetCapacities.current}',
+                    ),
+                    PropertyTemplate(
+                      name: Strings.MAX_STACK_LEVEL,
+                      value: '${this._stack.maximumStackLevel}',
+                    ),
+                  ],
+                ),
               ),
-              PropertyTemplate(
-                name: Strings.LENGTH,
-                value: '${sizeConverter(this._stack.dimensions.length)}',
-              ),
-              PropertyTemplate(
-                name: Strings.HEIGHT,
-                value: '${sizeConverter(this._stack.dimensions.height)}',
-              ),
-              PropertyTemplate(
-                name: Strings.NEW,
-                value: '${massConverter(this._stack.weights.netExplosive)}',
-              ),
-              PropertyWithHintTemplate(
-                hint: Strings.HINT_NET_WEIGHT,
-                propertyName:Strings.NET_WEIGHT,
-                propertyValue: '${massConverter(this._stack.weights.net)}',
-              ),
-              PropertyWithHintTemplate(
-                hint: Strings.HINT_GROSS_WEIGHT,
-                propertyName:Strings.GROSS_WEIGHT,
-                propertyValue: '${massConverter(this._stack.weights.gross)}',
-              ),
-              PropertyTemplate(
-                name: Strings.NUMBER_OF_THE_BAA,
-                value: '${this._stack.battleAirAssetCapacities.current}',
-              ),
-              PropertyTemplate(
-                name: Strings.MAX_STACK_LEVEL,
-                value: '${this._stack.maximumStackLevel}',
-              ),
-              StackLevelsListView(this._stack.levels)
+              StackLevelsListView(this._stack.levels),
             ],
           ),
         ),
