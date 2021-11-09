@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/Constants/app_colors.dart';
 import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
@@ -31,29 +30,26 @@ class StackListItem extends StatelessWidget {
       baa += "${ba.name}: $value szt., ";
     });
 
-    return Container(
-      color: Color(AppColors.STACK),
-      child: Column(
-        children: [
-          Text(
-            '${Strings.STACK} ${this._index + 1}: ',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-            ),
+    return Column(
+      children: [
+        Text(
+          '${Strings.STACK} ${this._index + 1}: ',
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
           ),
-          Text(
-              '${Strings.NEW} ${massConverter(this._stack.weights.netExplosive)}'),
-          Text(
-              '${Strings.NET_WEIGHT} ${massConverter(this._stack.weights.net)}'),
-          Text(
-              '${Strings.GROSS_WEIGHT} ${massConverter(this._stack.weights.gross)}'),
-          Text(
-              '${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stack.currentNumberOfBoxes}'),
-          Text(
-              '${Strings.NUMBER_OF_THE_BAA} ${this._stack.battleAirAssetCapacities.current}'),
-          Text('$baa')
-        ],
-      ),
+        ),
+        Text(
+            '${Strings.NEW} ${massConverter(this._stack.weights.netExplosive)}'),
+        Text(
+            '${Strings.NET_WEIGHT} ${massConverter(this._stack.weights.net)}'),
+        Text(
+            '${Strings.GROSS_WEIGHT} ${massConverter(this._stack.weights.gross)}'),
+        Text(
+            '${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stack.currentNumberOfBoxes}'),
+        Text(
+            '${Strings.NUMBER_OF_THE_BAA} ${this._stack.battleAirAssetCapacities.current}'),
+        Text('$baa')
+      ],
     );
   }
 }

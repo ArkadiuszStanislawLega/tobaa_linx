@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:tobaa/Constants/app_colors.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
@@ -40,21 +39,18 @@ class CarListItem extends StatelessWidget {
       },
     );
 
-    return Container(
-      color: Color(AppColors.CAR),
-      child: Column(
-        children: [
-          PropertyTemplate(
-            name: 'Pojazd numer:',
-            value: '${this._index + 1}',
-          ),
-          PropertyTemplate(
-            name: 'Ilość środków:',
-            value: '${this._car.capacity()}',
-          ),
-          Text('$baa')
-        ],
-      ),
+    return Column(
+      children: [
+        PropertyTemplate(
+          name: 'Pojazd numer:',
+          value: '${this._index + 1}',
+        ),
+        PropertyTemplate(
+          name: 'Ilość środków:',
+          value: '${this._car.capacity()}',
+        ),
+        Text('$baa')
+      ],
     );
   }
 }

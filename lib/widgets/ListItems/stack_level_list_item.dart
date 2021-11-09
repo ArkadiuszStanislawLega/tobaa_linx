@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/Constants/app_colors.dart';
 import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
@@ -30,22 +29,19 @@ class StackLevelListItem extends StatelessWidget{
       baa += "${ba.name}: $value szt., ";
     });
     return
-      Container(
-        color: Color(AppColors.STACK_LEVEL),
-        child: Column(
-          children: [
-            Text('${Strings.STACK_LEVEL} ${this._index + 1}',
-                style: TextStyle(fontWeight: FontWeight.w600,)
-            ),
-            Text('${Strings.NEW} ${massConverter(this._level.weights.netExplosive)}'),
-            Text('${Strings.NET_WEIGHT} ${massConverter(this._level.weights.net)}'),
-            Text('${Strings.GROSS_WEIGHT} ${massConverter(
-                this._level.weights.gross)}'),
-            Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._level.boxes.length}'),
-            Text('${Strings.NUMBER_OF_THE_BAA} ${this._level.capacities.current}'),
-            Text('$baa')
-          ],
-        ),
+      Column(
+        children: [
+          Text('${Strings.STACK_LEVEL} ${this._index + 1}',
+              style: TextStyle(fontWeight: FontWeight.w600,)
+          ),
+          Text('${Strings.NEW} ${massConverter(this._level.weights.netExplosive)}'),
+          Text('${Strings.NET_WEIGHT} ${massConverter(this._level.weights.net)}'),
+          Text('${Strings.GROSS_WEIGHT} ${massConverter(
+              this._level.weights.gross)}'),
+          Text('${Strings.NUMBER_OF_THE_CONTAINERS} ${this._level.boxes.length}'),
+          Text('${Strings.NUMBER_OF_THE_BAA} ${this._level.capacities.current}'),
+          Text('$baa')
+        ],
       );
 
   }
