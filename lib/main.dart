@@ -50,7 +50,6 @@ class TOBAAApp extends StatelessWidget {
 
 
   static BattleAirAssetType index = BattleAirAssetType.None;
-  static Car selectedCar = Car.empty();
   static ContainerStack.Stack selectedStack = ContainerStack.Stack.empty();
   static StackLevel selectedStackLevel = StackLevel.empty();
   static Box selectedBox = Box.empty();
@@ -61,7 +60,6 @@ class TOBAAApp extends StatelessWidget {
   static Map<BattleAirAssetType, int> values = {};
   static Map<CarType, bool> selectedCars = {};
 
-  static Transport selectedTransport = Transport();
   static Map<CarType, Transport> transports = {};
 
   @override
@@ -77,7 +75,7 @@ class TOBAAApp extends StatelessWidget {
         Url.DETAIL: (context) => DetailBaa(DatabaseAssets.container[index]!),
         Url.SETTINGS: (context) => SettingsView(),
         Url.COUNTED: (context) => CountedView(),
-        Url.CAR_DETAIL: (context) => CarDetailView(selectedCar),
+        Url.CAR_DETAIL: (context) => CarDetailView(),
         Url.STACK_DETAIL: (context) => StackDetailView(selectedStack),
         Url.STACK_LEVEL_DETAIL: (context) => StackLevelDetailView(selectedStackLevel),
         Url.BOX_DETAIL: (context) => BoxDetailView(selectedBox),

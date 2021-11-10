@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/Constants/keys.dart';
 import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/widgets/ListViews/stacks_list_view.dart';
@@ -8,17 +9,19 @@ import 'package:tobaa/widgets/Templates/property_game_template.dart';
 import '../../../main.dart';
 
 class CarDetailView extends StatelessWidget {
-  final Car _car;
-
-  CarDetailView(this._car, );
+  CarDetailView();
 
   @override
   Widget build(BuildContext context) {
+    var map = ModalRoute.of(context)!.settings.arguments as Map;
+    Car car = map[Keys.SELECTED_CAR]!;
+    int index = map[Keys.CHOSEN_INDEX]!;
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(this._car.name),
+          title: Text('${car.name} ${index + 1}'),
           bottom: TabBar(
             tabs: [
               Tab(icon: Icon(Icons.developer_board)),
@@ -37,50 +40,45 @@ class CarDetailView extends StatelessWidget {
               children: [
                 PropertyGameTemplate(
                   name: Strings.LENGTH,
-                  value:
-                  '${sizeConverter(this._car.dimensionOfLoadingArea.length)}',
+                  value: '${sizeConverter(car.dimensionOfLoadingArea.length)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.WIDTH,
-                  value:
-                  '${sizeConverter(this._car.dimensionOfLoadingArea.width)}',
+                  value: '${sizeConverter(car.dimensionOfLoadingArea.width)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
-                  value:
-                  '${sizeConverter(this._car.dimensionOfLoadingArea.height)}',
+                  value: '${sizeConverter(car.dimensionOfLoadingArea.height)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.PERMISSIBLE_WEIGHT,
-                  value:
-                  '${massConverter(this._car.weightOfLoadingArea.maximum)}',
+                  value: '${massConverter(car.weightOfLoadingArea.maximum)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.PERMISSIBLE_NEW,
                   value:
-                  '${massConverter(this._car.weightOfLoadingArea.maximumNetExplosive)}',
+                      '${massConverter(car.weightOfLoadingArea.maximumNetExplosive)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.EXPLOSION_CLASS,
-                  value: '${this._car.explosionClass.toString()}',
+                  value: '${car.explosionClass.toString()}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.NEW,
                   value:
-                  '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
+                      '${massConverter(car.weightOfLoadingArea.currentNetExplosive)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.LOAD_WEIGHT,
-                  value:
-                  '${massConverter(this._car.weightOfLoadingArea.current)}',
+                  value: '${massConverter(car.weightOfLoadingArea.current)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_STACKS,
-                  value: '${this._car.stacks.length}',
+                  value: '${car.stacks.length}',
                 ),
               ],
             ),
-            StacksListView(this._car.stacks)
+            StacksListView(car.stacks)
           ],
         ),
       ),

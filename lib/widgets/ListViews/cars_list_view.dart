@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/keys.dart';
 import 'package:tobaa/Constants/url.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/widgets/ListItems/car_list_item.dart';
@@ -19,8 +20,10 @@ class CarsListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return ListTile(
           onTap: () {
-            TOBAAApp.selectedCar = this._cars.elementAt(index);
-            Navigator.pushNamed(context, Url.CAR_DETAIL);
+            Navigator.pushNamed(context, Url.CAR_DETAIL, arguments: {
+              Keys.SELECTED_CAR : this._cars.elementAt(index),
+              Keys.CHOSEN_INDEX : index
+            });
           },
           title: CarListItem(this._cars.elementAt(index), index),
         );
