@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/Constants/keys.dart';
 import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
@@ -8,14 +9,15 @@ import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 import '../../../main.dart';
 
 class BoxDetailView extends StatelessWidget {
-  final Box _box;
-
-  BoxDetailView(this._box);
+  BoxDetailView();
 
   @override
   Widget build(BuildContext context) {
+    var map = ModalRoute.of(context)!.settings.arguments as Map;
+    Box box = map[Keys.SELECTED_BOX]!;
+    
     return Scaffold(
-      appBar: AppBar(title: Text('${this._box.name}')),
+      appBar: AppBar(title: Text('${box.name}')),
       body: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(20),
@@ -25,29 +27,29 @@ class BoxDetailView extends StatelessWidget {
         children: [
           PropertyGameTemplate(
             name: Strings.WIDTH,
-            value: '${sizeConverter(this._box.dimensions.width)}',
+            value: '${sizeConverter(box.dimensions.width)}',
           ),
           PropertyGameTemplate(
             name: Strings.LENGTH,
-            value: '${sizeConverter(this._box.dimensions.length)}',
+            value: '${sizeConverter(box.dimensions.length)}',
           ),
           PropertyGameTemplate(
             name: Strings.HEIGHT,
-            value: '${sizeConverter(this._box.dimensions.height)}',
+            value: '${sizeConverter(box.dimensions.height)}',
           ),
           PropertyWithHintTemplate(
             hint: Strings.HINT_NET_WEIGHT,
             propertyName: Strings.NET_WEIGHT,
-            propertyValue: '${massConverter(this._box.weights.net)}',
+            propertyValue: '${massConverter(box.weights.net)}',
           ),
           PropertyWithHintTemplate(
             hint: Strings.HINT_GROSS_WEIGHT,
             propertyName: Strings.GROSS_WEIGHT,
-            propertyValue: '${massConverter(this._box.weights.currentGross)}',
+            propertyValue: '${massConverter(box.weights.currentGross)}',
           ),
           PropertyGameTemplate(
             name: Strings.NEW,
-            value: '${massConverter(this._box.weights.currentNetExplosive)}',
+            value: '${massConverter(box.weights.currentNetExplosive)}',
           )
         ],
       ),
