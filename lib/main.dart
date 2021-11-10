@@ -14,46 +14,43 @@ import 'package:tobaa/widgets/Pages/counted_view.dart';
 import 'package:tobaa/widgets/Pages/select_view.dart';
 import 'package:tobaa/widgets/Pages/settings_view.dart';
 
-import 'box/box.dart';
 import 'enumerators/baa_type.dart';
-
 
 void main() {
   runApp(TOBAAApp());
 }
 
-String massConverter(var value){
-  if (value < 1000)
-    return '$value g';
+String massConverter(var value) {
+  if (value < 1000) return '$value g';
 
   if (value < 1000000) {
-    return '${value/1000} kg';
+    return '${value / 1000} kg';
   }
 
-  return '${value/1000000} t';
+  return '${value / 1000000} t';
 }
 
-String sizeConverter(var value){
-  if (value < 100)
-    return '$value mm';
+String sizeConverter(var value) {
+  if (value < 100) return '$value mm';
 
-  if(value < 1000)
-    return '${value/10} cm';
+  if (value < 1000) return '${value / 10} cm';
 
-  return '${value/1000} m';
+  return '${value / 1000} m';
 }
 
 class TOBAAApp extends StatelessWidget {
-
-
   static BattleAirAssetType index = BattleAirAssetType.None;
-  static bool isWar = false;
-  static int value = 0;
-  static BattleAirAssetType baa = BattleAirAssetType.None;
 
+  //Flaga wskazująca czy obliczenia mają zostać zrobione dla czasu wojny, czy pokoju
+  static bool isWar = false;
+
+  //Mapa z wartościami jakie użytkownik wybrał dla danego środka bojowego
   static Map<BattleAirAssetType, int> values = {};
+
+  //Mapa z wybranymi pojazdami do obliczeń
   static Map<CarType, bool> selectedCars = {};
 
+  //Mapa z przeliczonymi tranportami
   static Map<CarType, Transport> transports = {};
 
   @override
@@ -78,15 +75,9 @@ class TOBAAApp extends StatelessWidget {
     );
   }
 
-  void _fillSelectedCarList(){
+  void _fillSelectedCarList() {
     DatabaseCars.container.forEach((key, value) {
       selectedCars[key] = true;
     });
   }
 }
-
-
-
-
-
-

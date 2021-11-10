@@ -5,8 +5,6 @@ import 'package:tobaa/Constants/url.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/widgets/ListItems/box_list_item.dart';
 
-import '../../main.dart';
-
 class BoxesListView extends StatelessWidget {
   final List<Box> _boxes;
 
