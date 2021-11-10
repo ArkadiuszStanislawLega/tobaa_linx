@@ -50,7 +50,6 @@ class TOBAAApp extends StatelessWidget {
 
 
   static BattleAirAssetType index = BattleAirAssetType.None;
-  static ContainerStack.Stack selectedStack = ContainerStack.Stack.empty();
   static StackLevel selectedStackLevel = StackLevel.empty();
   static Box selectedBox = Box.empty();
   static bool isWar = false;
@@ -76,7 +75,7 @@ class TOBAAApp extends StatelessWidget {
         Url.SETTINGS: (context) => SettingsView(),
         Url.COUNTED: (context) => CountedView(),
         Url.CAR_DETAIL: (context) => CarDetailView(),
-        Url.STACK_DETAIL: (context) => StackDetailView(selectedStack),
+        Url.STACK_DETAIL: (context) => StackDetailView(),
         Url.STACK_LEVEL_DETAIL: (context) => StackLevelDetailView(selectedStackLevel),
         Url.BOX_DETAIL: (context) => BoxDetailView(selectedBox),
         Url.TRANSPORT_DETAIL: (context) => TransportDetailView(),
