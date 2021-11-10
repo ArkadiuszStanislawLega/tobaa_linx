@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/keys.dart';
 import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/main.dart';
@@ -8,13 +9,13 @@ import 'package:tobaa/widgets/ListViews/cars_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
 
 class TransportDetailView extends StatelessWidget {
-  final Transport _transport;
-
-  TransportDetailView(this._transport);
+  TransportDetailView();
 
   @override
   Widget build(BuildContext context) {
-    var car = DatabaseCars.container[this._transport.selectedCar]!;
+    var map = ModalRoute.of(context)!.settings.arguments as Map<String, Transport>;
+    Transport transport = map[Keys.SELECTED_TRANSPORT]!;
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -25,7 +26,7 @@ class TransportDetailView extends StatelessWidget {
               Tab(icon: Icon(Icons.list)),
             ],
           ),
-          title: Text(car.name),
+          title: Text(DatabaseCars.container[transport.selectedCar]!.name),
         ),
         body: TabBarView(
           children: [
@@ -38,29 +39,29 @@ class TransportDetailView extends StatelessWidget {
               children: [
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_BAA,
-                  value: '${this._transport.capacity()}',
+                  value: '${transport.capacity()}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.NEW,
                   value:
-                      '${massConverter(this._transport.transportNetExplosiveWeight)}',
+                      '${massConverter(transport.transportNetExplosiveWeight)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.WEIGHT_OF_ALL_BAA,
-                  value: '${massConverter(this._transport.transportNetWeight)}',
+                  value: '${massConverter(transport.transportNetWeight)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.GROSS_WEIGHT,
                   value:
-                      '${massConverter(this._transport.transportGrossWeight)}',
+                      '${massConverter(transport.transportGrossWeight)}',
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_CARS,
-                  value: '${this._transport.numberOfCars}',
+                  value: '${transport.numberOfCars}',
                 ),
               ],
             ),
-            CarsListView(this._transport.cars)
+            CarsListView(transport.cars)
           ],
         ),
       ),

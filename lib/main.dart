@@ -81,7 +81,7 @@ class TOBAAApp extends StatelessWidget {
         Url.STACK_DETAIL: (context) => StackDetailView(selectedStack),
         Url.STACK_LEVEL_DETAIL: (context) => StackLevelDetailView(selectedStackLevel),
         Url.BOX_DETAIL: (context) => BoxDetailView(selectedBox),
-        Url.TRANSPORT_DETAIL: (context) => TransportDetailView(selectedTransport),
+        Url.TRANSPORT_DETAIL: (context) => TransportDetailView(),
       },
     );
   }
