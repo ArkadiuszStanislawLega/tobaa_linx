@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/Constants/keys.dart';
 import 'package:tobaa/Constants/url.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/widgets/ListItems/stack_level_list_item.dart';
-
-import '../../main.dart';
 
 class StackLevelsListView extends StatelessWidget {
   final List<StackLevel> _levels;
@@ -21,8 +20,11 @@ class StackLevelsListView extends StatelessWidget {
         return Card(
           child: ListTile(
               onTap: () {
-                TOBAAApp.selectedStackLevel = this._levels.elementAt(index);
-                Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL);
+                Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL,
+                    arguments: {
+                      Keys.SELECTED_STACK_LEVEL: this._levels.elementAt(index),
+                      Keys.CHOSEN_INDEX: index
+                    });
               },
               title: StackLevelListItem(this._levels.elementAt(index), index)),
         );
