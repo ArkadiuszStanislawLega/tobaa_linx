@@ -34,6 +34,7 @@ class StackLevelDetailView extends StatelessWidget {
             GridView.count(
               primary: false,
               padding: const EdgeInsets.all(20),
+              childAspectRatio: 2.5,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 3,
@@ -42,21 +43,25 @@ class StackLevelDetailView extends StatelessWidget {
                   name: Strings.WIDTH,
                   value:
                       '${sizeConverter(stackLevel.dimensions.width)}',
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.LENGTH,
                   value:
                       '${sizeConverter(stackLevel.dimensions.length)}',
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
                   value:
                       '${sizeConverter(stackLevel.dimensions.height)}',
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NEW,
                   value:
                       '${massConverter(stackLevel.weights.netExplosive)}',
+                  background: Colors.grey[200]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
@@ -73,10 +78,12 @@ class StackLevelDetailView extends StatelessWidget {
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_CONTAINERS,
                   value: '${stackLevel.boxes.length}',
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_BAA,
                   value: '${stackLevel.capacities.current}',
+                  background: Colors.grey[300]!,
                 ),
               ],
             ),

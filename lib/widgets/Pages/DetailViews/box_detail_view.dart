@@ -29,14 +29,17 @@ class BoxDetailView extends StatelessWidget {
           PropertyGameTemplate(
             name: Strings.WIDTH,
             value: '${sizeConverter(box.dimensions.width)}',
+            background: Colors.grey[100]!,
           ),
           PropertyGameTemplate(
             name: Strings.LENGTH,
             value: '${sizeConverter(box.dimensions.length)}',
+            background: Colors.grey[100]!,
           ),
           PropertyGameTemplate(
             name: Strings.HEIGHT,
             value: '${sizeConverter(box.dimensions.height)}',
+            background: Colors.grey[100]!,
           ),
           PropertyWithHintTemplate(
             hint: Strings.HINT_NET_WEIGHT,
@@ -51,6 +54,7 @@ class BoxDetailView extends StatelessWidget {
           PropertyGameTemplate(
             name: Strings.NEW,
             value: '${massConverter(box.weights.currentNetExplosive)}',
+            background: Colors.grey[200]!,
           )
         ],
       ),
