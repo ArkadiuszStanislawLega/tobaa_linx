@@ -1,3 +1,6 @@
+export 'loading_area_dimensions.dart';
+export 'stack_dimensions.dart';
+
 class Dimensions {
   static const int MINIMUM_SIZE = 0;
   late int _height;

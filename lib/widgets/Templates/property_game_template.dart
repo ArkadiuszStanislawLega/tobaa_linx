@@ -19,13 +19,8 @@ class PropertyGameTemplate extends StatelessWidget {
     return Container(
       color: this.background,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Expanded(
-            child: Text(
-              this.name,
-              style: TextStyle(color: this.fontColor, fontSize: 12),
-            ),
-          ),
           Expanded(
             child: Text(
               this.value,
@@ -34,6 +29,13 @@ class PropertyGameTemplate extends StatelessWidget {
                 fontSize: 19,
                 fontWeight: FontWeight.w600,
               ),
+            ),
+          ),
+          Expanded(
+            child: Text(
+              this.name,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: this.fontColor, fontSize: 12),
             ),
           ),
         ],

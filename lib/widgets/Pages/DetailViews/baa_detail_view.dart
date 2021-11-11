@@ -50,10 +50,12 @@ class _DetailBaa extends State<DetailBaa> {
           children: [
             GridView.count(
               primary: false,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              padding: const EdgeInsets.all(5),
+              childAspectRatio: 2.3,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
               crossAxisCount: 3,
+              shrinkWrap: true,
               children: [
                 PropertyGameTemplate(
                   name: Strings.LENGTH,
