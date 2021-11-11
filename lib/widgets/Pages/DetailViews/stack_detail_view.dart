@@ -35,26 +35,31 @@ class StackDetailView extends StatelessWidget {
           children: [
             GridView.count(
               primary: false,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              padding: const EdgeInsets.all(5),
+              childAspectRatio: 2.5,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
                 PropertyGameTemplate(
                   name: Strings.WIDTH,
                   value: '${sizeConverter(stack.dimensions.width)}',
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.LENGTH,
                   value: '${sizeConverter(stack.dimensions.length)}',
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
                   value: '${sizeConverter(stack.dimensions.height)}',
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NEW,
                   value: '${massConverter(stack.weights.netExplosive)}',
+                  background: Colors.grey[200]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
@@ -69,10 +74,12 @@ class StackDetailView extends StatelessWidget {
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_BAA,
                   value: '${stack.battleAirAssetCapacities.current}',
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.MAX_STACK_LEVEL,
                   value: '${stack.maximumStackLevel}',
+                  background: Colors.grey[300]!,
                 ),
               ],
             ),
