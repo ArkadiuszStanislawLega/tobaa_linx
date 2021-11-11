@@ -5,8 +5,6 @@ import 'package:tobaa/Constants/url.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/ListItems/transport_list_item.dart';
 
-import '../../main.dart';
-
 class TransportsListView extends StatelessWidget {
   final List<Transport> _transports;
 
@@ -21,12 +19,15 @@ class TransportsListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
-              onTap: () {
-                Navigator.pushNamed(context, Url.TRANSPORT_DETAIL, arguments: {
-                  Keys.SELECTED_TRANSPORT: this._transports.elementAt(index)
-                });
-              },
-              title: TransportListItem(this._transports.elementAt(index))),
+            onTap: () {
+              Navigator.pushNamed(context, Url.TRANSPORT_DETAIL, arguments: {
+                Keys.SELECTED_TRANSPORT: this._transports.elementAt(index)
+              });
+            },
+            title: TransportListItem(
+              this._transports.elementAt(index),
+            ),
+          ),
         );
       },
     );
