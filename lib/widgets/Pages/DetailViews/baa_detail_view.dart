@@ -51,7 +51,7 @@ class _DetailBaa extends State<DetailBaa> {
             GridView.count(
               primary: false,
               padding: const EdgeInsets.all(5),
-              childAspectRatio: 2.3,
+              childAspectRatio: 2.5,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
               crossAxisCount: 3,
@@ -67,37 +67,38 @@ class _DetailBaa extends State<DetailBaa> {
                   name: Strings.WIDTH,
                   value:
                       '${sizeConverter(this.battleAirAsset.dimensions.width)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
                   value:
                       '${sizeConverter(this.battleAirAsset.dimensions.height)}',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.GROSS_WEIGHT,
                   value: '${massConverter(this.battleAirAsset.weights.gross)}',
-                  background: Colors.grey[400]!,
+                  background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NET_WEIGHT,
                   value: '${massConverter(this.battleAirAsset.weights.net)}',
-                  background: Colors.grey[500]!,
+                  background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NEW,
                   value:
                       '${massConverter(this.battleAirAsset.weights.netExplosive)}',
-                  background: Colors.grey[600]!,
+                  background: Colors.grey[200]!,
                 ),
               ],
             ),
             GridView.count(
               primary: false,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              padding: const EdgeInsets.all(5),
+              childAspectRatio: 2,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
                 PropertyGameTemplate(
@@ -108,47 +109,44 @@ class _DetailBaa extends State<DetailBaa> {
                 PropertyGameTemplate(
                   name: Strings.WIDTH,
                   value: '${sizeConverter(box.dimensions.width)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
                   value: '${sizeConverter(box.dimensions.height)}',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CONTAINER_NET_WEIGHT,
                   value: '${massConverter(box.weights.net)}',
-                  background: Colors.grey[400]!,
+                  background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CONTAINER_FULLY_LOADED_GROSS_WEIGHT,
                   value: '${massConverter(box.weights.gross)}',
-                  background: Colors.grey[500]!,
+                  background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CONTAINER_FULLY_LOADED_NEW,
                   value: '${massConverter(box.weights.netExplosive)}',
-                  background: Colors.grey[600]!,
+                  background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CAPACITY,
                   value: '${box.capacities.maximum}',
-                  background: Colors.grey[700]!,
-                  fontColor: Colors.white70,
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
                   value: '${box.maxStackLevel} szt.',
-                  background: Colors.grey[800]!,
-                  fontColor: Colors.white70,
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_CHOSEN_BAA,
                   value: TOBAAApp.values.containsKey(this.battleAirAsset.type)
                       ? '${TOBAAApp.values[this.battleAirAsset.type]} szt.'
                       : '0 szt.',
-                  background: Colors.grey[900]!,
-                  fontColor: Colors.white70,
+                  background: Colors.grey[300]!,
                 )
               ],
             ),
