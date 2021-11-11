@@ -65,11 +65,13 @@ class StackDetailView extends StatelessWidget {
                   hint: Strings.HINT_NET_WEIGHT,
                   propertyName: Strings.NET_WEIGHT,
                   propertyValue: '${massConverter(stack.weights.net)}',
+                  background: Colors.grey[200]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_GROSS_WEIGHT,
                   propertyName: Strings.GROSS_WEIGHT,
                   propertyValue: '${massConverter(stack.weights.gross)}',
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_BAA,

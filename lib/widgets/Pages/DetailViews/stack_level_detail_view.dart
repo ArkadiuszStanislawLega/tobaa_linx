@@ -68,12 +68,14 @@ class StackLevelDetailView extends StatelessWidget {
                   propertyName: Strings.NET_WEIGHT,
                   propertyValue:
                       '${massConverter(stackLevel.weights.net)}',
+                  background: Colors.grey[200]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_GROSS_WEIGHT,
                   propertyName: Strings.GROSS_WEIGHT,
                   propertyValue:
                       '${massConverter(stackLevel.weights.gross)}',
+                  background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_CONTAINERS,

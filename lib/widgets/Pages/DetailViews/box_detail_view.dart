@@ -45,11 +45,13 @@ class BoxDetailView extends StatelessWidget {
             hint: Strings.HINT_NET_WEIGHT,
             propertyName: Strings.NET_WEIGHT,
             propertyValue: '${massConverter(box.weights.net)}',
+            background: Colors.grey[200]!,
           ),
           PropertyWithHintTemplate(
             hint: Strings.HINT_GROSS_WEIGHT,
             propertyName: Strings.GROSS_WEIGHT,
             propertyValue: '${massConverter(box.weights.currentGross)}',
+            background: Colors.grey[200]!,
           ),
           PropertyGameTemplate(
             name: Strings.NEW,
