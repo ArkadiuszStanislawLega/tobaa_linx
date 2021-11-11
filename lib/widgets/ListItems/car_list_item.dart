@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/widgets/Templates/property_template.dart';
 
 class CarListItem extends StatelessWidget {
   final Car _car;
@@ -39,18 +39,36 @@ class CarListItem extends StatelessWidget {
       },
     );
 
-    return Column(
-      children: [
-        PropertyTemplate(
-          name: 'Pojazd numer:',
-          value: '${this._index + 1}',
-        ),
-        PropertyTemplate(
-          name: 'Ilość środków:',
-          value: '${this._car.capacity()}',
-        ),
-        Text('$baa')
-      ],
+    return Container(
+      color: Colors.grey,
+      child: Row(
+        children: [
+          Container(
+            alignment: Alignment.topLeft,
+            padding: EdgeInsets.all(7),
+            color: Colors.grey,
+            child: Column(
+              children: [
+                Text(
+                  'Pojazd numer:',
+                  style: TextStyle(fontSize: 11, color: Colors.black45),
+                ),
+                Text(
+                  '${this._index + 1}',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 15.0),
+              color: Colors.white30,
+              child: Text('$baa', textAlign: TextAlign.center,),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
