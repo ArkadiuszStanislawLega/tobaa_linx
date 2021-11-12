@@ -51,7 +51,7 @@ class CarListItem extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  Strings.CAR_NUMBER,
+                  ' ${Strings.CAR_NUMBER}',
                   style: TextStyle(fontSize: 11, color: Colors.black45),
                 ),
                 Text(
@@ -63,9 +63,40 @@ class CarListItem extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 15.0),
+              padding: EdgeInsets.symmetric(vertical: 8.0),
               color: Colors.white30,
-              child: Text('$baa', textAlign: TextAlign.center,),
+              child: Column(
+
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.deepOrangeAccent,
+                          border: Border.all(color: Colors.deepOrangeAccent, width: 4.0),
+                          borderRadius: BorderRadius.all(Radius.circular(39.0)),
+                        ),
+
+                        // padding: EdgeInsets.all(4),
+                        // color: Colors.blue,
+                        child: Text(
+                          this._car.explosionClass.toString(),
+                          style: TextStyle(
+                              fontSize: 11,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    ' $baa',
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
