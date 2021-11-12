@@ -66,6 +66,38 @@ class Transport {
     return this._cars.length;
   }
 
+  int get numberOfBoxes{
+    int value = 0;
+    this.cars.forEach((car) {
+      value += car.numberOfBoxes;
+    });
+    return value;
+  }
+
+  int get numberOfBaa{
+    int value = 0;
+    this.cars.forEach((car) {
+      value += car.numberOfBaa;
+    });
+    return value;
+  }
+
+  int get numberOfIncompleteBoxes{
+    int value = 0;
+    this.cars.forEach((car) {
+      value += car.numberOfIncompleteBoxes;
+    });
+    return value;
+  }
+
+  int get numberOfStacks{
+    int value = 0;
+    this.cars.forEach((car) {
+      value += car.stacks.length;
+    });
+    return value;
+  }
+
   double get transportNetWeight {
     return this._getDoubleFromCars(Property.netWeight);
   }

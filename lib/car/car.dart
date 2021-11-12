@@ -71,7 +71,7 @@ class Car {
     return value;
   }
 
-  int get notFilledBoxes{
+  int get numberOfIncompleteBoxes{
     int value = 0;
     this.stacks.forEach((stack) {
       value += stack.battleAirAssetCapacities.current == stack.battleAirAssetCapacities.maximum ? 0 : 1;

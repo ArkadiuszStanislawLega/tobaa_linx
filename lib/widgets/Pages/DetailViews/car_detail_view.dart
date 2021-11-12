@@ -98,7 +98,7 @@ class CarDetailView extends StatelessWidget {
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_INCOMPLETE_BOXES,
-                  value: '${car.notFilledBoxes}',
+                  value: '${car.numberOfIncompleteBoxes}',
                   background: Colors.grey[400]!,
                 ),
               ],

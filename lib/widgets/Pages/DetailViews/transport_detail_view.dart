@@ -65,6 +65,31 @@ class TransportDetailView extends StatelessWidget {
                   value: '${transport.numberOfCars}',
                   background: Colors.grey[200]!,
                 ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_THE_CONTAINERS,
+                  value: '${transport.numberOfBoxes}',
+                  background: Colors.grey[200]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_THE_BAA,
+                  value: '${transport.numberOfBaa}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_INCOMPLETE_BOXES,
+                  value: '${transport.numberOfIncompleteBoxes}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_THE_STACKS,
+                  value: '${transport.numberOfStacks}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.WAR_TIME,
+                  value: '${transport.isWarTime? 'TAK' : 'NIE'}',
+                  background: Colors.grey[400]!,
+                ),
               ],
             ),
             CarsListView(transport.cars)
