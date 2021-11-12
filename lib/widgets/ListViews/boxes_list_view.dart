@@ -25,7 +25,7 @@ class BoxesListView extends StatelessWidget {
                   Keys.SELECTED_BOX : this._boxes.elementAt(index)
                 });
               },
-              title: BoxListItem(this._boxes.elementAt(index))),
+              title: BoxListItem(this._boxes.elementAt(index), index)),
         );
       },
     );

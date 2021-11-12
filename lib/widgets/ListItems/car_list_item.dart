@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/Constants/strings.dart';
 import 'package:tobaa/car/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
@@ -50,7 +51,7 @@ class CarListItem extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Pojazd numer:',
+                  Strings.CAR_NUMBER,
                   style: TextStyle(fontSize: 11, color: Colors.black45),
                 ),
                 Text(

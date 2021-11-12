@@ -42,7 +42,7 @@ class StackListItem extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Stos:',
+                  Strings.STACK,
                   style: TextStyle(fontSize: 11, color: Colors.black45),
                 ),
                 Text(

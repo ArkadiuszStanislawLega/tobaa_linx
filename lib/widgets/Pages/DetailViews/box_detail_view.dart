@@ -57,7 +57,23 @@ class BoxDetailView extends StatelessWidget {
             name: Strings.NEW,
             value: '${massConverter(box.weights.currentNetExplosive)}',
             background: Colors.grey[200]!,
-          )
+          ),
+          PropertyGameTemplate(
+            name: Strings.CAPACITY,
+            value: '${box.capacities.maximum} szt.',
+            background: Colors.grey[300]!,
+          ),
+          PropertyGameTemplate(
+            name: Strings.NUMBER_OF_THE_BAA,
+            value: '${box.capacities.current} szt.',
+            background: Colors.grey[300]!,
+          ),
+          PropertyGameTemplate(
+            name: Strings.MAX_STACK_LEVEL,
+            value: '${box.maxStackLevel}',
+            background: Colors.grey[300]!,
+          ),
+
         ],
       ),
     );

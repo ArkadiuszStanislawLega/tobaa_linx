@@ -41,7 +41,7 @@ class StackLevelListItem extends StatelessWidget{
             child: Column(
               children: [
                 Text(
-                  'Poziom stosu:',
+                  Strings.STACK_LEVEL,
                   style: TextStyle(fontSize: 11, color: Colors.black45),
                 ),
                 Text(
