@@ -71,7 +71,7 @@ class StackDetailView extends StatelessWidget {
                   hint: Strings.HINT_GROSS_WEIGHT,
                   propertyName: Strings.GROSS_WEIGHT,
                   propertyValue: '${massConverter(stack.weights.gross)}',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_THE_BAA,
@@ -81,6 +81,11 @@ class StackDetailView extends StatelessWidget {
                 PropertyGameTemplate(
                   name: Strings.MAX_STACK_LEVEL,
                   value: '${stack.maximumStackLevel}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_STACK_LEVELS,
+                  value: '${stack.levels.length}',
                   background: Colors.grey[300]!,
                 ),
               ],
