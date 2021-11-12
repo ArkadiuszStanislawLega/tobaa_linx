@@ -20,7 +20,7 @@ class _SelectView extends State<SelectView> {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.cleaning_services),
+            icon: Icon(Icons.backspace_outlined),
             onPressed: () => {
               setState(
                 () {
