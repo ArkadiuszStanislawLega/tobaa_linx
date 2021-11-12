@@ -55,6 +55,30 @@ class Car {
 
   ExplosionClass get explosionClass => _explosionClass;
 
+  int get numberOfBoxes{
+    int value = 0;
+    this.stacks.forEach((stack) {
+      value += stack.currentNumberOfBoxes;
+    });
+    return value;
+  }
+
+  int get numberOfBaa{
+    int value = 0;
+    this.stacks.forEach((stack) {
+      value += stack.battleAirAssetCapacities.current;
+    });
+    return value;
+  }
+
+  int get notFilledBoxes{
+    int value = 0;
+    this.stacks.forEach((stack) {
+      value += stack.battleAirAssetCapacities.current == stack.battleAirAssetCapacities.maximum ? 0 : 1;
+    });
+    return value;
+  }
+
   int capacity(){
     int value = 0;
     this.stacks.forEach((element) {

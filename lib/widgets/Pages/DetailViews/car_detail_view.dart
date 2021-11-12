@@ -86,6 +86,21 @@ class CarDetailView extends StatelessWidget {
                   value: '${car.stacks.length}',
                   background: Colors.grey[300]!,
                 ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_THE_CONTAINERS,
+                  value: '${car.numberOfBoxes}',
+                  background: Colors.grey[400]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_THE_BAA,
+                  value: '${car.numberOfBaa}',
+                  background: Colors.grey[400]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.NUMBER_OF_INCOMPLETE_BOXES,
+                  value: '${car.notFilledBoxes}',
+                  background: Colors.grey[400]!,
+                ),
               ],
             ),
             StacksListView(car.stacks)
