@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/Constants/strings.dart';
-import 'package:tobaa/Constants/url.dart';
+import 'package:tobaa/constans/app_strings.dart';
+import 'package:tobaa/constans/app_urls.dart';
 
 import '../../main.dart';
 

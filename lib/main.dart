@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tobaa/Constants/url.dart';
+import 'package:tobaa/constans/app_urls.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/enumerators/car_type.dart';

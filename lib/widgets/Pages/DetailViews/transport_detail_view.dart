@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/Constants/keys.dart';
-import 'package:tobaa/Constants/strings.dart';
+import 'package:tobaa/constans/app_keys.dart';
+import 'package:tobaa/constans/app_strings.dart';
 import 'package:tobaa/database/db_cars.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/transport/transport.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/Constants/keys.dart';
-import 'package:tobaa/Constants/strings.dart';
+import 'package:tobaa/constans/app_keys.dart';
+import 'package:tobaa/constans/app_strings.dart';
 import 'package:tobaa/widgets/ListViews/boxes_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
 import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';

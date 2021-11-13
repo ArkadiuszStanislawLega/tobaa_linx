@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/Constants/strings.dart';
+import 'package:tobaa/constans/app_strings.dart';
 import 'package:tobaa/box/box.dart';
 
 class BoxListItem extends StatelessWidget {

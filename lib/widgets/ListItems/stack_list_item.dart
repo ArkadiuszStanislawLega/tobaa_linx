@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/Constants/strings.dart';
+import 'package:tobaa/constans/app_strings.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
