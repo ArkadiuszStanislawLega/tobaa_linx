@@ -30,12 +30,12 @@ class DatabaseBoxes {
         name: "CNU-614",
         capacities: Capacities(maximum: 1),
         weights: BoxWeights(
-            gross: 497000+1,
+            gross: 497000 + 1,
             net: 1,
             netExplosive: 108860
         ),
         dimensions: Dimensions(
-            height:940,
+            height: 940,
             width: 990,
             length: 4572
         ),
@@ -48,14 +48,14 @@ class DatabaseBoxes {
         name: "CNU-445",
         capacities: Capacities(maximum: 1),
         weights: BoxWeights(
-            gross: 197313,
+            gross: 503413,
             net: 197313,
             netExplosive: 65500
         ),
         dimensions: Dimensions(
-            height: 762,
             width: 1016,
-            length: 2743
+            length: 2743,
+            height: 762
         ),
         maxStackLevel: 1,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM65G]!,

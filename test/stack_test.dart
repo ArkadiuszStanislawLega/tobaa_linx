@@ -56,6 +56,22 @@ void main() {
     expect(stack.dimensions.capacity, 5);
   });
 
+  test('Fill maverics',(){
+    var stack = Stack.cnu445();
+    stack.addBox(Box.cnu445f());
+
+    expect(stack.battleAirAssetCapacities.current, 1);
+    expect(stack.weights.gross, 503413.0);
+    expect(stack.weights.net, 306100.0);
+    expect(stack.weights.netExplosive, 65500.0);
+    expect(stack.dimensions.length, 2743);
+    expect(stack.dimensions.width, 1016);
+    expect(stack.dimensions.height, 762);
+    expect(stack.currentNumberOfBoxes, 1);
+
+
+  });
+
   test("Fill stack.", () {
     StackLevel stackLevel = StackLevel(
         dimensions: StackDimensions(

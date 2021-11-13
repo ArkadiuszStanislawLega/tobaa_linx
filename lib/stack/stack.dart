@@ -1,7 +1,10 @@
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/capacities/capacities.dart';
+import 'package:tobaa/database/db_stack_levels.dart';
+import 'package:tobaa/database/db_stacks.dart';
 import 'package:tobaa/dimensions/dimensions.dart';
 import 'package:tobaa/dimensions/stack_dimensions.dart';
+import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/stack/stack_level.dart';
 import 'package:tobaa/weights/stack_weights.dart';
 
@@ -16,7 +19,11 @@ class Stack {
   late Box _currentBox;
   late List<Box> _boxesToAdd;
 
-  Stack.empty(){
+  Stack.empty() {
+    this._initialEmptyValues();
+  }
+  
+  void _initialEmptyValues(){
     this.maximumStackLevel = 0;
     this.dimensions = Dimensions();
     this.weights = StackWeights();
@@ -25,13 +32,28 @@ class Stack {
     this.levels = [];
   }
 
-  Stack({
-    required this.maximumStackLevel,
-    required this.dimensions,
-    required this.weights,
-    required this.battleAirAssetCapacities,
-    required this.defaultStackLevel
-  }) {
+  Stack.cnu445() {
+    this._initialEmptyValues();
+
+    Stack copied = DatabaseStacks.container[BoxType.CNU445]!;
+    this.maximumStackLevel = copied.maximumStackLevel;
+    this.battleAirAssetCapacities.maximum =
+        copied.battleAirAssetCapacities.maximum;
+    this.defaultStackLevel = DatabaseStackLevels.container[BoxType.CNU445]!;
+    this.weights.maxGross = copied.weights.maxGross;
+    this.weights.maxNet = copied.weights.maxNet;
+    this.weights.maxNetExplosion = copied.weights.maxNetExplosion;
+    this.dimensions.length = copied.dimensions.length;
+    this.dimensions.width = copied.dimensions.width;
+    this.dimensions.height = copied.dimensions.height;
+  }
+
+  Stack(
+      {required this.maximumStackLevel,
+      required this.dimensions,
+      required this.weights,
+      required this.battleAirAssetCapacities,
+      required this.defaultStackLevel}) {
     this.levels = [];
   }
 
@@ -64,7 +86,6 @@ class Stack {
     return false;
   }
 
-
   bool isBoxesCanBeAddedToStack(List<Box> boxes) {
     this._boxesToAdd = boxes;
     if (this._isBoxesAreValidated()) {
@@ -90,13 +111,11 @@ class Stack {
     this._currentBox = box;
     var isAddingToCurrentLevelWasSuccessful = this._tryAddBox();
 
-    if (!isAddingToCurrentLevelWasSuccessful)
-      this._tryAddBoxToNewStackLevel();
+    if (!isAddingToCurrentLevelWasSuccessful) this._tryAddBoxToNewStackLevel();
   }
 
   bool _isBoxTypeFitToStack() {
-    if (this.battleAirAssetCapacities.current == 0)
-      return true;
+    if (this.battleAirAssetCapacities.current == 0) return true;
     var firstStack = this.levels.first;
     var firstBoxInStack = firstStack.boxes.first;
     return firstBoxInStack.type == this._currentBox.type;
@@ -185,8 +204,9 @@ class Stack {
   }
 
   void _increaseCapacities() {
-    this.battleAirAssetCapacities.tryIncreaseCurrent(
-        this._currentBox.capacities.current);
+    this
+        .battleAirAssetCapacities
+        .tryIncreaseCurrent(this._currentBox.capacities.current);
   }
 
   void _increaseDimensions(int index) {
@@ -220,16 +240,12 @@ class Stack {
         dimensions: StackDimensions(
             width: this.defaultStackLevel.dimensions.width,
             height: this.defaultStackLevel.dimensions.height,
-            length: this.defaultStackLevel.dimensions.length
-        ),
+            length: this.defaultStackLevel.dimensions.length),
         weights: StackWeights(
             maxGross: this.defaultStackLevel.weights.maxGross,
             maxNet: this.defaultStackLevel.weights.maxNet,
-            maxNetExplosion: this.defaultStackLevel.weights.maxNetExplosion
-        ),
-        capacities: Capacities(
-            maximum: this.defaultStackLevel.capacities.maximum
-        )
-    );
+            maxNetExplosion: this.defaultStackLevel.weights.maxNetExplosion),
+        capacities:
+            Capacities(maximum: this.defaultStackLevel.capacities.maximum));
   }
 }

@@ -9,8 +9,6 @@ import 'package:tobaa/widgets/ListViews/stack_levels_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
 import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
-import '../../../main.dart';
-
 class StackDetailView extends StatelessWidget {
   StackDetailView();
 
