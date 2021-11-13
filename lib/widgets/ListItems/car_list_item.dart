@@ -63,15 +63,15 @@ class CarListItem extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
+              padding: EdgeInsets.fromLTRB(4.0, 7.0, 4.0, 7.0),
               color: Colors.white30,
               child: Column(
-
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
+                        padding: EdgeInsets.symmetric(horizontal: 5.0),
                         decoration: BoxDecoration(
                           color: Colors.deepOrangeAccent,
                           border: Border.all(color: Colors.deepOrangeAccent, width: 4.0),
@@ -91,6 +91,7 @@ class CarListItem extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   Text(
                     ' $baa',
                     textAlign: TextAlign.center,
