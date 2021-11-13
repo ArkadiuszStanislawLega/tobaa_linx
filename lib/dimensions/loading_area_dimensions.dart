@@ -11,17 +11,8 @@ class LoadingAreaDimensions extends Dimensions {
   Dimensions get occupied => _occupied;
 
   bool isWillBeFit(Dimensions dimensions) {
-    var increasedCapacity = this._occupied.capacity + dimensions.capacity;
-    if (increasedCapacity <= this.capacity) {
-      var isIncreasedWidthWillFit =
-          this.occupied.width + dimensions.width <= this.width;
-      var isIncreasedLengthWillFit =
-          this.occupied.length + dimensions.length <= this.length;
-
-      return isIncreasedWidthWillFit || isIncreasedLengthWillFit;
-    }
-
-    return false;
+    var increasedCapacity = this._occupied.surfaceArea + dimensions.surfaceArea;
+    return increasedCapacity <= this.surfaceArea ?  true :  false;
   }
 
   void append(Dimensions dimensions) {

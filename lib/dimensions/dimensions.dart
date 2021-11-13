@@ -47,4 +47,8 @@ class Dimensions {
   int get capacity {
     return this._height * this._width * this._length;
   }
+
+  int get surfaceArea{
+    return this._width * this._length;
+  }
 }
