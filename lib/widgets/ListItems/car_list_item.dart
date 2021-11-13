@@ -74,8 +74,18 @@ class CarListItem extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 5.0),
                         decoration: BoxDecoration(
                           color: Colors.deepOrangeAccent,
-                          border: Border.all(color: Colors.deepOrangeAccent, width: 4.0),
+                          border: Border.all(
+                              color: Colors.deepOrangeAccent, width: 4.0),
                           borderRadius: BorderRadius.all(Radius.circular(39.0)),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.7),
+                              spreadRadius: 3,
+                              blurRadius: 1,
+                              offset:
+                                  Offset(0, 3),
+                            ),
+                          ],
                         ),
 
                         // padding: EdgeInsets.all(4),
@@ -91,7 +101,6 @@ class CarListItem extends StatelessWidget {
                       ),
                     ],
                   ),
-
                   Text(
                     ' $baa',
                     textAlign: TextAlign.center,
