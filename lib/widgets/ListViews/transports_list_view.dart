@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/constans/app_keys.dart';
-import 'package:tobaa/constans/app_urls.dart';
+import 'package:tobaa/constants/app_keys.dart';
+import 'package:tobaa/constants/app_urls.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/ListItems/transport_list_item.dart';
 

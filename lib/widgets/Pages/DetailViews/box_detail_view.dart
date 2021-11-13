@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/constans/app_keys.dart';
-import 'package:tobaa/constans/app_strings.dart';
+import 'package:tobaa/constants/app_keys.dart';
+import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/converters/mass_converter.dart';
 import 'package:tobaa/converters/size_converter.dart';
