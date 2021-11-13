@@ -11,7 +11,7 @@ class CountedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TOBAAApp.transports.clear();
+    if (TOBAAApp.transports.isNotEmpty) TOBAAApp.transports.clear();
 
     TOBAAApp.selectedCars.forEach((key, value) {
       if (value) {

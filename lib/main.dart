@@ -20,24 +20,6 @@ void main() {
   runApp(TOBAAApp());
 }
 
-String massConverter(var value) {
-  if (value < 1000) return '$value g';
-
-  if (value < 1000000) {
-    return '${value / 1000} kg';
-  }
-
-  return '${value / 1000000} t';
-}
-
-String sizeConverter(var value) {
-  if (value < 100) return '$value mm';
-
-  if (value < 1000) return '${value / 10} cm';
-
-  return '${value / 1000} m';
-}
-
 class TOBAAApp extends StatelessWidget {
   static BattleAirAssetType index = BattleAirAssetType.None;
 

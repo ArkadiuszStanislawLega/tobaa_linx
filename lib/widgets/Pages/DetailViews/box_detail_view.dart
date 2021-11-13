@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:tobaa/constans/app_keys.dart';
 import 'package:tobaa/constans/app_strings.dart';
 import 'package:tobaa/box/box.dart';
+import 'package:tobaa/converters/mass_converter.dart';
+import 'package:tobaa/converters/size_converter.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
 import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 
