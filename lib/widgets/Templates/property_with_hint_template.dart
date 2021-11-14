@@ -15,11 +15,25 @@ class PropertyWithHintTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
+    return Container(
         alignment: Alignment.center,
-        color: this.background,
-        // padding: EdgeInsets.symmetric(vertical: 2.0),
+        decoration: BoxDecoration(
+          color: this.background,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 2,
+              blurRadius: 1,
+              offset: Offset(0, 4),
+            ),
+          ],
+          border: Border.all(color: this.background, width: 4.0),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10.0),
+              bottomRight: Radius.circular(10.0)
+          ),
+        ),
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,7 +87,6 @@ class PropertyWithHintTemplate extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

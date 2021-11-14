@@ -48,7 +48,7 @@ void main() {
 
     expect(lad.occupied.capacity, 2*capacityOneCNU431);
 
-    expect(lad.isWillBeFit(cnu431Dimension), false);
+    expect(lad.isWillBeFit(cnu431Dimension), true);
     lad.append(cnu431Dimension);
 
     expect(lad.occupied.capacity, 2*capacityOneCNU431);

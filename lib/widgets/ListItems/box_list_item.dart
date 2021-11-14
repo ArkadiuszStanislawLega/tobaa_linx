@@ -43,15 +43,4 @@ class BoxListItem extends StatelessWidget {
       ),
     );
   }
-  //   return
-  //     Column(
-  //       children: [
-  //         Text('${this._box.name}', style: TextStyle(fontWeight: FontWeight.w600,)),
-  //         Text('${Strings.NEW} ${massConverter(this._box.weights.netExplosive)}'),
-  //         Text('${Strings.NET_WEIGHT} ${massConverter(this._box.weights.net)}'),
-  //         Text('${Strings.GROSS_WEIGHT} ${massConverter(this._box.weights.gross)}'),
-  //         Text('${Strings.NUMBER_OF_THE_BAA} ${this._box.capacities.current}'),
-  //       ],
-  //     );
-  // }
 }
