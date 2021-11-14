@@ -12,24 +12,21 @@ class CarsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blueGrey,
-      child: ListView.builder(
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
-        itemCount: this._cars.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            onTap: () {
-              Navigator.pushNamed(context, Url.CAR_DETAIL, arguments: {
-                Keys.SELECTED_CAR : this._cars.elementAt(index),
-                Keys.CHOSEN_INDEX : index
-              });
-            },
-            title: CarListItem(this._cars.elementAt(index), index),
-          );
-        },
-      ),
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: BouncingScrollPhysics(),
+      itemCount: this._cars.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, Url.CAR_DETAIL, arguments: {
+              Keys.SELECTED_CAR: this._cars.elementAt(index),
+              Keys.CHOSEN_INDEX: index
+            });
+          },
+          title: CarListItem(this._cars.elementAt(index), index),
+        );
+      },
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/constants/app_colors.dart';
 import 'package:tobaa/constants/app_urls.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/widgets/Templates/main_menu.dart';
@@ -18,6 +19,7 @@ class _SelectView extends State<SelectView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.BACKGROUND,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.backspace_outlined),

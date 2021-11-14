@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/constants/app_colors.dart';
 import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/converters/mass_converter.dart';
@@ -31,6 +32,7 @@ class _DetailBaa extends State<DetailBaa> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: AppColors.BACKGROUND,
         appBar: AppBar(
           bottom: TabBar(
             tabs: [

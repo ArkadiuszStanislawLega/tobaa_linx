@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tobaa/constants/app_colors.dart';
 import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/transport/transport.dart';
 import 'package:tobaa/widgets/ListViews/transports_list_view.dart';
@@ -27,6 +28,7 @@ class CountedView extends StatelessWidget {
       appBar: AppBar(
         title: Text(Strings.TRANSPORT),
       ),
+      backgroundColor: AppColors.BACKGROUND,
       body: TransportsListView(TOBAAApp.transports.values.toList())
     );
   }

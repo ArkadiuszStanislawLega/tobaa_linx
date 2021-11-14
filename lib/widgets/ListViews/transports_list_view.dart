@@ -12,21 +12,19 @@ class TransportsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new ListView.builder(
-      scrollDirection: Axis.vertical,
+    return ListView.builder(
       shrinkWrap: true,
+      physics: BouncingScrollPhysics(),
       itemCount: this._transports.length,
       itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
-            onTap: () {
-              Navigator.pushNamed(context, Url.TRANSPORT_DETAIL, arguments: {
-                Keys.SELECTED_TRANSPORT: this._transports.elementAt(index)
-              });
-            },
-            title: TransportListItem(
-              this._transports.elementAt(index),
-            ),
+        return ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, Url.TRANSPORT_DETAIL, arguments: {
+              Keys.SELECTED_TRANSPORT: this._transports.elementAt(index)
+            });
+          },
+          title: TransportListItem(
+            this._transports.elementAt(index),
           ),
         );
       },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/constants/app_colors.dart';
 import 'package:tobaa/constants/app_keys.dart';
 import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/converters/mass_converter.dart';
@@ -20,15 +21,16 @@ class StackLevelDetailView extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: AppColors.BACKGROUND,
         appBar: AppBar(
-          bottom: TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.developer_board)),
-              Tab(icon: Icon(Icons.list)),
-            ],
-          ),
-          title: Text('${index+1} Poziom stosu z ${stackLevel.boxes.first.name}')
-        ),
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.developer_board)),
+                Tab(icon: Icon(Icons.list)),
+              ],
+            ),
+            title: Text(
+                '${index + 1} Poziom stosu z ${stackLevel.boxes.first.name}')),
         body: TabBarView(
           children: [
             GridView.count(
@@ -41,40 +43,34 @@ class StackLevelDetailView extends StatelessWidget {
               children: [
                 PropertyGameTemplate(
                   name: Strings.WIDTH,
-                  value:
-                      '${sizeConverter(stackLevel.dimensions.width)}',
+                  value: '${sizeConverter(stackLevel.dimensions.width)}',
                   background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.LENGTH,
-                  value:
-                      '${sizeConverter(stackLevel.dimensions.length)}',
+                  value: '${sizeConverter(stackLevel.dimensions.length)}',
                   background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
-                  value:
-                      '${sizeConverter(stackLevel.dimensions.height)}',
+                  value: '${sizeConverter(stackLevel.dimensions.height)}',
                   background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NEW,
-                  value:
-                      '${massConverter(stackLevel.weights.netExplosive)}',
+                  value: '${massConverter(stackLevel.weights.netExplosive)}',
                   background: Colors.grey[200]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
                   propertyName: Strings.NET_WEIGHT,
-                  propertyValue:
-                      '${massConverter(stackLevel.weights.net)}',
+                  propertyValue: '${massConverter(stackLevel.weights.net)}',
                   background: Colors.grey[200]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_GROSS_WEIGHT,
                   propertyName: Strings.GROSS_WEIGHT,
-                  propertyValue:
-                      '${massConverter(stackLevel.weights.gross)}',
+                  propertyValue: '${massConverter(stackLevel.weights.gross)}',
                   background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(

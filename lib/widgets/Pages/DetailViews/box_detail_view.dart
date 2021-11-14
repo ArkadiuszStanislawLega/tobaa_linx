@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tobaa/constants/app_colors.dart';
 import 'package:tobaa/constants/app_keys.dart';
 import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/box/box.dart';
@@ -19,6 +20,7 @@ class BoxDetailView extends StatelessWidget {
     Box box = map[Keys.SELECTED_BOX]!;
     
     return Scaffold(
+      backgroundColor: AppColors.BACKGROUND,
       appBar: AppBar(title: Text('${box.name}')),
       body: GridView.count(
         primary: false,
