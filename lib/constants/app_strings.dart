@@ -41,6 +41,7 @@ class Strings{
   static const String NUMBER_OF_THE_CONTAINERS = 'Ilość kontenerów';
   static const String NUMBER_OF_THE_STACKS = 'Ilość stosów';
   static const String NUMBER_OF_STACK_LEVELS = 'Ilość poziomów stosu';
+  static const String PCS = 'szt.';
   static const String SETTINGS = 'Ustawienia';
   static const String STACK = 'Stos';
   static const String STACKS_LEVEL = 'Poziomy stosu';

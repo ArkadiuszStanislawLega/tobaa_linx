@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:tobaa/car/car.dart';
+import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/converters/mass_converter.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
@@ -110,8 +111,7 @@ class CarListItem extends StatelessWidget {
       color: Colors.grey,
       child: Column(
         children: [
-          Text(
-            'Pojazd',
+          Text(Strings.CAR,
             style: TextStyle(fontSize: 11, color: Colors.black45),
           ),
           Text(
@@ -129,7 +129,7 @@ class CarListItem extends StatelessWidget {
     values.forEach(
       (key, value) {
         var ba = DatabaseAssets.container[key]!;
-        baaList.add("${ba.name} - $value szt.");
+        baaList.add("${ba.name} - $value ${Strings.PCS}");
       },
     );
 
