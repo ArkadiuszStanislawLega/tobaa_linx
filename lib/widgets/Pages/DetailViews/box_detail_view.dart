@@ -25,7 +25,7 @@ class BoxDetailView extends StatelessWidget {
       body: GridView.count(
         primary: false,
         padding: const EdgeInsets.all(5),
-        childAspectRatio: 2.5,
+        childAspectRatio: 1.6,
         crossAxisSpacing: 5,
         mainAxisSpacing: 5,
         crossAxisCount: 3,
