@@ -12,20 +12,18 @@ class BoxesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new ListView.builder(
+    return ListView.builder(
       scrollDirection: Axis.vertical,
+      physics: BouncingScrollPhysics(),
       shrinkWrap: true,
       itemCount: this._boxes.length,
       itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
-              onTap: () {
-                Navigator.pushNamed(context, Url.BOX_DETAIL, arguments: 
-                {
-                  Keys.SELECTED_BOX : this._boxes.elementAt(index)
-                });
-              },
-              title: BoxListItem(this._boxes.elementAt(index), index)),
+        return ListTile(
+          onTap: () {
+            Navigator.pushNamed(context, Url.BOX_DETAIL,
+                arguments: {Keys.SELECTED_BOX: this._boxes.elementAt(index)});
+          },
+          title: BoxListItem(this._boxes.elementAt(index), index),
         );
       },
     );
