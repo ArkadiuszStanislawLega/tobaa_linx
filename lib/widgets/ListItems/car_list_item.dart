@@ -93,7 +93,7 @@ class CarListItem extends StatelessWidget {
     return ChipIconTemplate(
         label:
             '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
-        icon: Icons.fireplace,
+        icon: Icons.flare      ,
         backgroundColor: Colors.blueGrey,
         fontColor: Colors.white);
   }

@@ -34,7 +34,7 @@ class ChipIconTemplate extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(this.icon, size: 14.0),
+          Icon(this.icon, size: 14.0, color: Colors.red[200]!,),
           Text(
             this.label,
             style: TextStyle(
