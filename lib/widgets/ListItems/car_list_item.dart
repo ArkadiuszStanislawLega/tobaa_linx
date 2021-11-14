@@ -41,8 +41,76 @@ class CarListItem extends StatelessWidget {
     );
   }
 
+  Widget _left() {
+    return Container(
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.all(7),
+      color: Colors.grey,
+      child: Column(
+        children: [
+          Text(
+            Strings.CAR,
+            style: TextStyle(fontSize: 11, color: Colors.black45),
+          ),
+          Text(
+            '${this._index + 1}',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _right() {
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(4.0, 7.0, 4.0, 7.0),
+        decoration: BoxDecoration(
+          color: Colors.white30,
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(10.0),
+            topLeft: Radius.circular(20.0),
+          ),
+        ),
+        child: Column(
+          children: [this._topRight(), this._botRight()],
+        ),
+      ),
+    );
+  }
+
+  Widget _topRight() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        this._explosionWeightContainer(),
+        this._explosionClassContainer()
+      ],
+    );
+  }
+
+  Widget _explosionWeightContainer() {
+    return ChipIconTemplate(
+        label:
+            '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
+        icon: Icons.fireplace,
+        backgroundColor: Colors.blueGrey,
+        fontColor: Colors.white);
+  }
+
+  Widget _explosionClassContainer() {
+    return ChipTemplate(
+      label: this._car.explosionClass.toString(),
+      backgroundColor: Colors.deepOrange,
+      fontColor: Colors.white,
+    );
+  }
+
+  Widget _botRight() {
+    List<String> baaList = [];
+    List<Widget> widgets = [];
     Map<BattleAirAssetType, int> container = {};
+
     this._car.stacks.forEach(
       (stack) {
         stack.levels.forEach(
@@ -61,72 +129,7 @@ class CarListItem extends StatelessWidget {
       },
     );
 
-    return Expanded(
-      child: Container(
-        padding: EdgeInsets.fromLTRB(4.0, 7.0, 4.0, 7.0),
-        decoration: BoxDecoration(
-          color: Colors.white30,
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(10.0),
-            topLeft: Radius.circular(20.0),
-          ),
-        ),
-        child: Column(
-          children: [this._topRight(), this._botRight(container)],
-        ),
-      ),
-    );
-  }
-
-  Widget _topRight() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        this._explosionWeightContainer(),
-        this._explosionClassContainer()
-      ],
-    );
-  }
-
-  Widget _explosionWeightContainer() {
-    return ChipIconTemplate(
-        label: '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
-        icon: Icons.fireplace,
-        backgroundColor: Colors.blueGrey,
-        fontColor: Colors.white);
-  }
-
-  Widget _explosionClassContainer() {
-    return ChipTemplate(
-      label: this._car.explosionClass.toString(),
-      backgroundColor: Colors.deepOrange,
-      fontColor: Colors.white,
-    );
-  }
-
-  Widget _left() {
-    return Container(
-      alignment: Alignment.topLeft,
-      padding: EdgeInsets.all(7),
-      color: Colors.grey,
-      child: Column(
-        children: [
-          Text(Strings.CAR,
-            style: TextStyle(fontSize: 11, color: Colors.black45),
-          ),
-          Text(
-            '${this._index + 1}',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _botRight(Map<BattleAirAssetType, int> values) {
-    List<String> baaList = [];
-    List<Widget> widgets = [];
-    values.forEach(
+    container.forEach(
       (key, value) {
         var ba = DatabaseAssets.container[key]!;
         baaList.add("${ba.name} - $value ${Strings.PCS}");
