@@ -5,8 +5,6 @@ import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 
-import '../../main.dart';
-
 class StackListItem extends StatelessWidget {
   final ContainerStack.Stack _stack;
   final int _index;
@@ -15,8 +13,55 @@ class StackListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String baa = "";
+    return Card(
+      elevation: 5.0,
+      shadowColor: Colors.teal,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(10.0),
+          bottomRight: Radius.circular(10.0),
+        ),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0),
+            bottomRight: Radius.circular(10.0),
+          ),
+        ),
+        child: Row(
+          children: [this._left(), this._right()],
+        ),
+      ),
+    );
+  }
+
+  Widget _left() {
+    return Container(
+      alignment: Alignment.topLeft,
+      padding: EdgeInsets.all(7),
+      color: Colors.grey,
+      child: Column(
+        children: [
+          Text(
+            Strings.STACK,
+            style: TextStyle(fontSize: 11, color: Colors.black45),
+          ),
+          Text(
+            '${this._index + 1}',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _right() {
+    List<String> baaList = [];
+    List<Widget> widgets = [];
     Map<BattleAirAssetType, int> container = {};
+
     this._stack.levels.forEach((level) {
       level.boxes.forEach((box) {
         var value = 0;
@@ -28,61 +73,37 @@ class StackListItem extends StatelessWidget {
 
     container.forEach((key, value) {
       var ba = DatabaseAssets.container[key]!;
-      baa += "${ba.name}: $value szt., ";
+      baaList.add("${ba.name} - $value ${Strings.PCS}");
     });
 
-    return Container(
-      color: Colors.grey,
-      child: Row(
-        children: [
-          Container(
-            alignment: Alignment.topLeft,
-            padding: EdgeInsets.all(7),
-            color: Colors.grey,
-            child: Column(
-              children: [
-                Text(
-                  Strings.STACK,
-                  style: TextStyle(fontSize: 11, color: Colors.black45),
-                ),
-                Text(
-                  '${this._index + 1}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
+    baaList.forEach((baa) {
+      widgets.add(
+        Chip(
+          backgroundColor: Colors.lightBlue,
+          shadowColor: Colors.black,
+          elevation: 4.0,
+          label: Text(
+            baa,
+            style: TextStyle(
+                fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.right,
           ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 15.0),
-              color: Colors.white30,
-              child: Text('$baa', textAlign: TextAlign.center,),
-            ),
+        ),
+      );
+    });
+
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.fromLTRB(4.0, 7.0, 4.0, 7.0),
+        decoration: BoxDecoration(
+          color: Colors.white30,
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(10.0),
+            topLeft: Radius.circular(20.0),
           ),
-        ],
+        ),
+        child: Column(children: widgets),
       ),
     );
-
-    // return Column(
-    //   children: [
-    //     Text(
-    //       '${Strings.STACK} ${this._index + 1}: ',
-    //       style: TextStyle(
-    //         fontWeight: FontWeight.w600,
-    //       ),
-    //     ),
-    //     Text(
-    //         '${Strings.NEW} ${massConverter(this._stack.weights.netExplosive)}'),
-    //     Text(
-    //         '${Strings.NET_WEIGHT} ${massConverter(this._stack.weights.net)}'),
-    //     Text(
-    //         '${Strings.GROSS_WEIGHT} ${massConverter(this._stack.weights.gross)}'),
-    //     Text(
-    //         '${Strings.NUMBER_OF_THE_CONTAINERS} ${this._stack.currentNumberOfBoxes}'),
-    //     Text(
-    //         '${Strings.NUMBER_OF_THE_BAA} ${this._stack.battleAirAssetCapacities.current}'),
-    //     Text('$baa')
-    //   ],
-    // );
   }
 }

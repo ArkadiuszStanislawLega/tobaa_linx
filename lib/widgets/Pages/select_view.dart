@@ -39,7 +39,7 @@ class _SelectView extends State<SelectView> {
           ),
         ],
         title: Text(
-          'Tobaa ',
+          'Kalkulator',
           style: TextStyle(fontSize: 20.0, fontFamily: 'MiddleAgesDeco'),
         ),
       ),
