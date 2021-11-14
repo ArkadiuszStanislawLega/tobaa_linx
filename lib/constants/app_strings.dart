@@ -3,6 +3,7 @@ class Strings{
   static const String ADD_TO_TRANSPORT = 'Dodaj do transportu';
   static const String BOX = 'Pojemnik';
   static const String CAPACITY = 'Pojemność';
+  static const String CAR = 'Pojazd';
   static const String CAR_NAME = 'Nazwa pojazdu';
   static const String CAR_NUMBER = 'Numer pojazdu';
   static const String CLOSE = 'Zamknij';
