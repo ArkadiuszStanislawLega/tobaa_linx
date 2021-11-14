@@ -5,6 +5,7 @@ import 'package:tobaa/car/car.dart';
 import 'package:tobaa/converters/mass_converter.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
+import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
 import 'package:tobaa/widgets/Templates/chip_template.dart';
 
 class CarListItem extends StatelessWidget {
@@ -86,41 +87,15 @@ class CarListItem extends StatelessWidget {
     );
   }
 
-  Widget _explosionWeightContainer(){
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5.0),
-      decoration: BoxDecoration(
-        color: Colors.blueGrey,
-        border: Border.all(color: Colors.blueGrey, width: 4.0),
-        borderRadius: BorderRadius.all(
-          Radius.circular(39.0),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.7),
-            spreadRadius: 3,
-            blurRadius: 1,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Icon(Icons.fireplace, size: 14.0),
-          Text(
-            '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
-            style: TextStyle(
-                fontSize: 11,
-                color: Colors.white,
-                fontWeight: FontWeight.bold),
-            textAlign: TextAlign.right,
-          ),
-        ],
-      ),
-    );
+  Widget _explosionWeightContainer() {
+    return ChipIconTemplate(
+        label: '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
+        icon: Icons.fireplace,
+        backgroundColor: Colors.blueGrey,
+        fontColor: Colors.white);
   }
 
-  Widget _explosionClassContainer(){
+  Widget _explosionClassContainer() {
     return ChipTemplate(
       label: this._car.explosionClass.toString(),
       backgroundColor: Colors.deepOrange,
