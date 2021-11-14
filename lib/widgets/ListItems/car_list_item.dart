@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:tobaa/car/car.dart';
+import 'package:tobaa/converters/mass_converter.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
+import 'package:tobaa/widgets/Templates/chip_template.dart';
 
 class CarListItem extends StatelessWidget {
   final Car _car;
@@ -76,33 +78,53 @@ class CarListItem extends StatelessWidget {
 
   Widget _topRight() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 5.0),
-          decoration: BoxDecoration(
-            color: Colors.deepOrangeAccent,
-            border: Border.all(color: Colors.deepOrangeAccent, width: 4.0),
-            borderRadius: BorderRadius.all(
-              Radius.circular(39.0),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.7),
-                spreadRadius: 3,
-                blurRadius: 1,
-                offset: Offset(0, 3),
-              ),
-            ],
+        this._explosionWeightContainer(),
+        this._explosionClassContainer()
+      ],
+    );
+  }
+
+  Widget _explosionWeightContainer(){
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5.0),
+      decoration: BoxDecoration(
+        color: Colors.blueGrey,
+        border: Border.all(color: Colors.blueGrey, width: 4.0),
+        borderRadius: BorderRadius.all(
+          Radius.circular(39.0),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.7),
+            spreadRadius: 3,
+            blurRadius: 1,
+            offset: Offset(0, 3),
           ),
-          child: Text(
-            this._car.explosionClass.toString(),
+        ],
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.fireplace, size: 14.0),
+          Text(
+            '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
             style: TextStyle(
-                fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
+                fontSize: 11,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
             textAlign: TextAlign.right,
           ),
-        ),
-      ],
+        ],
+      ),
+    );
+  }
+
+  Widget _explosionClassContainer(){
+    return ChipTemplate(
+      label: this._car.explosionClass.toString(),
+      backgroundColor: Colors.deepOrange,
+      fontColor: Colors.white,
     );
   }
 

@@ -57,6 +57,7 @@ class TOBAAApp extends StatelessWidget {
     );
   }
 
+
   void _fillSelectedCarList() {
     DatabaseCars.container.forEach((key, value) {
       selectedCars[key] = true;
