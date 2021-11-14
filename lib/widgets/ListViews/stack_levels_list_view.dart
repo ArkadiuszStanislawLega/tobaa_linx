@@ -17,8 +17,7 @@ class StackLevelsListView extends StatelessWidget {
       shrinkWrap: true,
       itemCount: this._levels.length,
       itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
+        return ListTile(
               onTap: () {
                 Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL,
                     arguments: {
@@ -26,7 +25,7 @@ class StackLevelsListView extends StatelessWidget {
                       Keys.CHOSEN_INDEX: index
                     });
               },
-              title: StackLevelListItem(this._levels.elementAt(index), index)),
+              title: StackLevelListItem(this._levels.elementAt(index), index)
         );
       },
     );
