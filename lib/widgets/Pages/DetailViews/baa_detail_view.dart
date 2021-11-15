@@ -169,8 +169,7 @@ class _DetailBaa extends State<DetailBaa> {
             this.battleAirAsset.explosionClass.compatibilityGroup.group);
     showDialog(
         builder: (BuildContext context) {
-          return Expanded(
-            child: AlertDialog(
+          return  AlertDialog(
               title: Text(Strings.INFORMATION),
               content: Container(
                 child: SingleChildScrollView(
@@ -190,7 +189,6 @@ class _DetailBaa extends State<DetailBaa> {
                   child: Text(Strings.CLOSE),
                 ),
               ],
-            ),
           );
         },
         context: this.context);
