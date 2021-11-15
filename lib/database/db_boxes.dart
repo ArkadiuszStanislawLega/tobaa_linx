@@ -226,9 +226,9 @@ class DatabaseBoxes {
             netExplosive: 7800.0
         ),
         dimensions: Dimensions(
-            height: 3800,
-            width: 2107,
-            length: 4745
+            height: 380,
+            width: 211,
+            length: 475
         ),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.TPRRR]!,

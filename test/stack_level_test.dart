@@ -2,6 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/capacities/capacities.dart';
+import 'package:tobaa/database/db_boxes.dart';
+import 'package:tobaa/database/db_stack_levels.dart';
 import 'package:tobaa/dimensions/dimensions.dart';
 import 'package:tobaa/dimensions/stack_dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
@@ -175,4 +177,17 @@ void main() {
     expect(stackLevel.isBoxWillBeFit(box), false);
   });
 
+  test("Append TPRRR box to stack level.", ()
+  {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
+    Box box = DatabaseBoxes.container[BoxType.M548_TPRRR]!;
+
+    box.fillBox(100);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+
+    stackLevel.tryAppendBox(box);
+
+    expect(stackLevel.weights.netExplosive, 3900);
+
+  });
 }
