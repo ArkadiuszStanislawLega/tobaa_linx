@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/box/box.dart';
 import 'package:tobaa/capacities/capacities.dart';
+import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/dimensions/dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
@@ -138,6 +139,26 @@ void main() {
     box.capacities = new Capacities(maximum: 1);
     expect(box.capacities.maximum, 1);
   });
+  test("Fill to maximum TPRRR", () {
+    
+    Box box = DatabaseBoxes.container[BoxType.M548_TPRRR]!;
+    box.fillBox(100);
+
+    expect(box.weights.currentNetExplosive, 3900.0);
+    expect(box.weights.net, 10850.0);
+    expect(box.weights.currentGross, 37850.0);
+    expect(box.capacities.current, 100);
+    expect(box.capacities.isFull, false);
+
+    box.fillBox(100);
+
+    expect(box.weights.currentNetExplosive, 7800.0);
+    expect(box.weights.net, 10850.0);
+    expect(box.weights.currentGross, 64850.0);
+    expect(box.capacities.current, 200);
+    expect(box.capacities.isFull, true);
+  });
+
 
   test("Fill to maximum.", () {
     Box box = new Box(

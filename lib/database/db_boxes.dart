@@ -215,8 +215,27 @@ class DatabaseBoxes {
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK82]!,
         type: BoxType.MHU149
     ),
+    BoxType.M548_TPRRR: new Box(
+        name: "M548_TPRRR",
+        capacities: Capacities(
+            maximum: 200
+        ),
+        weights: BoxWeights(
+            gross: 64850.0,
+            net: 10850.0,
+            netExplosive: 7800.0
+        ),
+        dimensions: Dimensions(
+            height: 3800,
+            width: 2107,
+            length: 4745
+        ),
+        maxStackLevel: 2,
+        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.TPRRR]!,
+        type: BoxType.M548_TPRRR
+    ),
     BoxType.M548MPLD: new Box(
-        name: "M548MPLD",
+        name: "M548-MPLD",
         capacities: Capacities(
             maximum: 200
         ),
@@ -233,25 +252,6 @@ class DatabaseBoxes {
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MPLD]!,
         type: BoxType.M548MPLD
-    ),
-    BoxType.M548_TPRRR: new Box(
-        name: "M548_TPRRR",
-        capacities: Capacities(
-            maximum: 200
-        ),
-        weights: BoxWeights(
-            gross: 1,
-            net: 1,
-            netExplosive: 1
-        ),
-        dimensions: Dimensions(
-            height: 1,
-            width: 1,
-            length: 1
-        ),
-        maxStackLevel: 2,
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.TPRRR]!,
-        type: BoxType.M548_TPRRR
     ),
     BoxType.CHAFF_BOX: new Box(
         name: "CHAFF_BOX",
