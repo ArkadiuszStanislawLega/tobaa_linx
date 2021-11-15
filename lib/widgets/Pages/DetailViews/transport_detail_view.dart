@@ -89,7 +89,7 @@ class TransportDetailView extends StatelessWidget {
                 ),
                 PropertyGameTemplate(
                   name: Strings.WAR_TIME,
-                  value: '${transport.isWarTime ? 'TAK' : 'NIE'}',
+                  value: '${transport.isWarTime ? Strings.YES : Strings.NO}',
                   background: Colors.grey[400]!,
                 ),
               ],

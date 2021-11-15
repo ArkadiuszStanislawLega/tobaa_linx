@@ -35,6 +35,7 @@ class Strings{
   static const String NAME_OF_THE_CAR = 'Nazwa pojazdu';
   static const String NEW = 'Waga ładunków wybuchowych';
   static const String NET_WEIGHT = 'Waga netto';
+  static const String NO = 'NIE';
   static const String NUMBER_OF_CHOSEN_BAA = 'Ilość wybranych środków';
   static const String NUMBER_OF_THE_BAA = 'Ilość środków';
   static const String NUMBER_OF_CARS = 'Ilość pojazdów';
@@ -50,4 +51,5 @@ class Strings{
   static const String WIDTH = 'Szerokość';
   static const String WAR_TIME = 'Czas wojny';
   static const String WEIGHT_OF_ALL_BAA = 'Waga środków bojowych';
+  static const String YES = 'TAK';
 }

@@ -61,8 +61,7 @@ class _BaaListItemState extends State<BaaListItem> {
 
   void _addBaa() {
     showDialog(builder: (BuildContext context) {
-      return Expanded(
-        child: AlertDialog(
+      return AlertDialog(
             title: Text(Strings.ADD),
             content: Column(
               children:
@@ -94,7 +93,6 @@ class _BaaListItemState extends State<BaaListItem> {
                 child: Text(Strings.ADD),
               )
             ]
-        ),
       );
     }, context: context);
   }
