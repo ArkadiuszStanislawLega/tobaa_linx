@@ -35,10 +35,10 @@ class StackLevelDetailView extends StatelessWidget {
           children: [
             GridView.count(
               primary: false,
-              padding: const EdgeInsets.all(20),
-              childAspectRatio: 1.5,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              padding: const EdgeInsets.all(5),
+              childAspectRatio: 1.6,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
                 PropertyGameTemplate(
