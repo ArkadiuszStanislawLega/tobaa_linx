@@ -240,14 +240,14 @@ class DatabaseBoxes {
             maximum: 200
         ),
         weights: BoxWeights(
-            gross: 1,
-            net: 1,
-            netExplosive: 1
+            gross: 64850,
+            net: 10850.0,
+            netExplosive: 9600.0
         ),
         dimensions: Dimensions(
-            height: 1,
-            width: 1,
-            length: 1
+            height: 380,
+            width: 211,
+            length: 475
         ),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MPLD]!,
