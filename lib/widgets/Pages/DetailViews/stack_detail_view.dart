@@ -37,7 +37,7 @@ class StackDetailView extends StatelessWidget {
           children: [
             GridView.count(
               primary: false,
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(5),
               childAspectRatio: 1.6,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
