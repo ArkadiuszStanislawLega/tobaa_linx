@@ -58,7 +58,6 @@ class StackLevelListItem extends StatelessWidget {
   }
 
   Widget _right() {
-    List<String> baaList = [];
     List<Widget> widgets = [];
     Map<BattleAirAssetType, int> container = {};
 
@@ -69,26 +68,21 @@ class StackLevelListItem extends StatelessWidget {
       container[box.battleAirAsset.type] = value + box.capacities.current;
     });
 
-    container.forEach((key, value) {
-      var ba = DatabaseAssets.container[key]!;
-      baaList.add("${ba.name} - $value ${Strings.PCS}");
-    });
-
-    baaList.forEach((baa) {
-      widgets.add(
-        Chip(
-          backgroundColor: Colors.lightBlue,
-          shadowColor: Colors.black,
-          elevation: 4.0,
-          label: Text(
-            baa,
-            style: TextStyle(
-                fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.right,
-          ),
-        ),
-      );
-    });
+   container.forEach((key, value) {
+     widgets.add(
+       Chip(
+         backgroundColor: Colors.lightBlue,
+         shadowColor: Colors.black,
+         elevation: 4.0,
+         label: Text(
+           "${DatabaseAssets.container[key]!.name} - $value ${Strings.PCS}",
+           style: TextStyle(
+               fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
+           textAlign: TextAlign.right,
+         ),
+       ),
+     );
+   });
 
     return Expanded(
       child: Container(

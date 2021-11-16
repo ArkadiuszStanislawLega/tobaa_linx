@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/box/box.dart';
+import 'package:tobaa/converters/mass_converter.dart';
+import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
+import 'package:tobaa/widgets/Templates/chip_template.dart';
 
 class BoxListItem extends StatelessWidget {
   final Box _box;
@@ -66,16 +69,43 @@ class BoxListItem extends StatelessWidget {
             topLeft: Radius.circular(20.0),
           ),
         ),
-        child: Chip(
-          backgroundColor: Colors.lightBlue,
-          shadowColor: Colors.black,
-          elevation: 4.0,
-          label: Text(
-            '${this._box.name}',
-            style: TextStyle(
-                fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.right,
-          ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ChipIconTemplate(
+                    label:
+                        '${massConverter(this._box.weights.currentNetExplosive)}',
+                    icon: Icons.flare,
+                    backgroundColor: Colors.blueGrey,
+                    fontColor: Colors.white),
+                ChipIconTemplate(
+                    label:
+                    '${massConverter(this._box.weights.currentGross)}',
+                    icon: Icons.monitor_weight_outlined,
+                    backgroundColor: Colors.blueGrey,
+                    fontColor: Colors.white),
+                ChipTemplate(
+                  label: this._box.battleAirAsset.explosionClass.toString(),
+                  backgroundColor: Colors.deepOrange,
+                  fontColor: Colors.white,
+                ),
+              ],
+            ),
+            Chip(
+                backgroundColor: Colors.lightBlue,
+                shadowColor: Colors.black,
+                elevation: 4.0,
+                label: Text(
+                  '${this._box.name}',
+                  style: TextStyle(
+                      fontSize: 11,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.right,
+                )),
+          ],
         ),
       ),
     );
