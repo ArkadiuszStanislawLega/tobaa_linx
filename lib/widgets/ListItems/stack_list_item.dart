@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:tobaa/constants/app_strings.dart';
+import 'package:tobaa/converters/mass_converter.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
+import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
+import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
+import 'package:tobaa/widgets/Templates/chip_template.dart';
 
 class StackListItem extends StatelessWidget {
   final ContainerStack.Stack _stack;
@@ -58,39 +62,78 @@ class StackListItem extends StatelessWidget {
   }
 
   Widget _right() {
-    List<String> baaList = [];
     List<Widget> widgets = [];
     Map<BattleAirAssetType, int> container = {};
+    Map<BattleAirAssetType, double> explosionWeights = {};
+    Map<BattleAirAssetType, double> weights = {};
 
     this._stack.levels.forEach((level) {
       level.boxes.forEach((box) {
         var value = 0;
+        var explosionWeightValue = 0.0;
+        var weightValue = 0.0;
+
         if (container.containsKey(box.battleAirAsset.type))
           value = container[box.battleAirAsset.type]!;
         container[box.battleAirAsset.type] = value + box.capacities.current;
+
+        if (explosionWeights.containsKey(box.battleAirAsset.type))
+          explosionWeightValue = explosionWeights[box.battleAirAsset.type]!;
+        explosionWeights[box.battleAirAsset.type] =
+            explosionWeightValue + box.weights.currentNetExplosive;
+
+        if (weights.containsKey(box.battleAirAsset.type))
+          weightValue = weights[box.battleAirAsset.type]!;
+        weights[box.battleAirAsset.type] =
+            weightValue + box.weights.currentGross;
       });
     });
 
-    container.forEach((key, value) {
-      var ba = DatabaseAssets.container[key]!;
-      baaList.add("${ba.name} - $value ${Strings.PCS}");
-    });
-
-    baaList.forEach((baa) {
-      widgets.add(
-        Chip(
-          backgroundColor: Colors.lightBlue,
-          shadowColor: Colors.black,
-          elevation: 4.0,
-          label: Text(
-            baa,
-            style: TextStyle(
-                fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
-            textAlign: TextAlign.right,
+    container.forEach(
+      (key, value) {
+        var ba = DatabaseAssets.container[key]!;
+        widgets.add(
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ChipIconTemplate(
+                      label:
+                          '${massConverter(explosionWeights[key])}',
+                      icon: Icons.flare,
+                      backgroundColor: Colors.blueGrey,
+                      fontColor: Colors.white),
+                  ChipIconTemplate(
+                      label: '${massConverter(weights[key])}',
+                      icon: Icons.monitor_weight_outlined,
+                      backgroundColor: Colors.blueGrey,
+                      fontColor: Colors.white),
+                  ChipTemplate(
+                    label: ba.explosionClass.toString(),
+                    backgroundColor: Colors.deepOrange,
+                    fontColor: Colors.white,
+                  ),
+                ],
+              ),
+              Chip(
+                backgroundColor: Colors.lightBlue,
+                shadowColor: Colors.black,
+                elevation: 4.0,
+                label: Text(
+                  "${ba.name} - $value ${Strings.PCS}",
+                  style: TextStyle(
+                      fontSize: 11,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.right,
+                ),
+              ),
+            ],
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
 
     return Expanded(
       child: Container(

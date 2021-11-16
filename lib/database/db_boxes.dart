@@ -102,7 +102,7 @@ class DatabaseBoxes {
         type: BoxType.CNU609
     ),
     BoxType.BBU35BOX: new Box(
-        name: "BBU35BOX",
+        name: "Karton z BBU35",
         capacities: Capacities(
             maximum: 4
         ),
@@ -121,7 +121,7 @@ class DatabaseBoxes {
         type: BoxType.BBU35BOX
     ),
     BoxType.BBU36BOX: new Box(
-        name: "BBU36BOX",
+        name: "Karton z BB36",
         capacities: Capacities(
             maximum: 4
         ),
@@ -159,7 +159,7 @@ class DatabaseBoxes {
         type: BoxType.M2A1
     ),
     BoxType.MJU7ABOX: new Box(
-        name: "MJU7ABOX",
+        name: "Skrzynia z MJU7AB",
         capacities: Capacities(
             maximum: 50
         ),
@@ -178,7 +178,7 @@ class DatabaseBoxes {
         type: BoxType.MJU7ABOX
     ),
     BoxType.MK84BOX: new Box(
-        name: "MK84BOX",
+        name: "Stelaż MK84",
         capacities: Capacities(
             maximum: 1
         ),
@@ -216,7 +216,7 @@ class DatabaseBoxes {
         type: BoxType.MHU149
     ),
     BoxType.M548_TPRRR: new Box(
-        name: "M548_TPRRR",
+        name: "M548 TPRRR",
         capacities: Capacities(
             maximum: 200
         ),
@@ -235,7 +235,7 @@ class DatabaseBoxes {
         type: BoxType.M548_TPRRR
     ),
     BoxType.M548MPLD: new Box(
-        name: "M548-MPLD",
+        name: "M548 MPLD",
         capacities: Capacities(
             maximum: 200
         ),
@@ -254,7 +254,7 @@ class DatabaseBoxes {
         type: BoxType.M548MPLD
     ),
     BoxType.CHAFF_BOX: new Box(
-        name: "CHAFF_BOX",
+        name: "Skrzynia z RR170AL",
         capacities: Capacities(
             maximum: 50
         ),
