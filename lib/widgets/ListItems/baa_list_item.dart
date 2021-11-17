@@ -72,9 +72,17 @@ class _BaaListItemState extends State<BaaListItem> {
           padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            TOBAAApp.values.containsKey(baa.type)
-                ? Text('${TOBAAApp.values[baa.type]!}')
-                : Text('${0}'),
+            Text(
+              TOBAAApp.values.containsKey(baa.type)
+                  ? '${TOBAAApp.values[baa.type]!}'
+                  : '${0}',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             Container(
               padding: EdgeInsets.fromLTRB(10, 0, 5, 5),
               decoration: BoxDecoration(
