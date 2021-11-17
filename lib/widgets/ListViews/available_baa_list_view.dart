@@ -24,16 +24,13 @@ class _AvailableBaaListViewState extends State<AvailableBaaListView> {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemCount: assets.length,
-      itemBuilder: (context, index){
-        return Card(
-          child: ListTile(
-            onTap: (){
+      itemBuilder: (context, index) {
+        return ListTile(
+            onTap: () {
               TOBAAApp.index = assets.elementAt(index).type;
               Navigator.pushNamed(context, Url.DETAIL);
             },
-            title: BaaListItem(assets.elementAt(index))
-          ),
-        );
+            title: BaaListItem(assets.elementAt(index)));
       },
     );
   }

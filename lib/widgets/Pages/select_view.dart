@@ -18,6 +18,7 @@ class _SelectView extends State<SelectView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.BACKGROUND,
       appBar: AppBar(
         backgroundColor: AppColors.BACKGROUND,
         actions: <Widget>[
