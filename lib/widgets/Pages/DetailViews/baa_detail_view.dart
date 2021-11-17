@@ -55,7 +55,7 @@ class _DetailBaa extends State<DetailBaa> {
             GridView.count(
               primary: false,
               padding: const EdgeInsets.all(5),
-              childAspectRatio: 2.5,
+              childAspectRatio: 2.3,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
               crossAxisCount: 3,
@@ -100,7 +100,7 @@ class _DetailBaa extends State<DetailBaa> {
             GridView.count(
               primary: false,
               padding: const EdgeInsets.all(5),
-              childAspectRatio: 2,
+              childAspectRatio: 1.8,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
               crossAxisCount: 3,
