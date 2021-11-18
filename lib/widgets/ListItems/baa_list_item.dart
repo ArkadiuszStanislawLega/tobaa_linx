@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/constants/app_strings.dart';
+import 'package:tobaa/converters/converter_combat_assets_type_to_strig.dart';
 import 'package:tobaa/widgets/Templates/asset_name_template.dart';
 import 'package:tobaa/widgets/Templates/box_name_template.dart';
 import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
@@ -67,8 +68,7 @@ class _BaaListItemState extends State<BaaListItem> {
       padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
       child: Stack(
         children: [
-          Text(
-            'Bomby',
+          Text(converterCombatAssetsTypeToString(baa.combatAssetType),
             style: TextStyle(
               color: Colors.black12,
               fontFamily: 'MiddleAgesDeco',

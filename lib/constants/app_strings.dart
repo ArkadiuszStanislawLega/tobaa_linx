@@ -31,8 +31,9 @@ class Strings{
   static const String PARAMETERS_OF_THE_LOADING_AREA = 'Parametry powierzchni załadunkowej';
   static const String PERMISSIBLE_NEW = 'Dopuszczalna waga ładunku wybuchowego';
   static const String PERMISSIBLE_WEIGHT = 'Dopuszczalna waga';
-  static const String PYROTECHNIC = 'Pirotechnica';
-  static const String ROCKET = 'Rakieta';
+  static const String PCS = 'szt.';
+  static const String PYROTECHNIC = 'Pirotechnika';
+  static const String ROCKET = 'Pocisk rakietowy';
   static const String MAX_STACK_HEIGHT_DURING_TRANSPORT = 'Maksymalna wysokość stosu w trakcie transportu';
   static const String MAX_STACK_LEVEL = 'Maksymalny poziom stosu';
   static const String NAME = 'Nazwa';
@@ -46,7 +47,6 @@ class Strings{
   static const String NUMBER_OF_THE_CONTAINERS = 'Ilość kontenerów';
   static const String NUMBER_OF_THE_STACKS = 'Ilość stosów';
   static const String NUMBER_OF_STACK_LEVELS = 'Ilość poziomów stosu';
-  static const String PCS = 'szt.';
   static const String SETTINGS = 'Ustawienia';
   static const String STACK = 'Stos';
   static const String STACKS_LEVEL = 'Poziomy stosu';
