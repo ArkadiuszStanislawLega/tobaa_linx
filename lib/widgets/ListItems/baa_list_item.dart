@@ -52,7 +52,7 @@ class _BaaListItemState extends State<BaaListItem> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          AssetNameTemplate(this.baa),
+          AssetNameTemplate(this.baa.name),
           SizedBox(width: 5),
           BoxNameTemplate(this.baa.boxType),
           SizedBox(width: 5),

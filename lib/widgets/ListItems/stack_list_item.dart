@@ -6,10 +6,12 @@ import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
+import 'package:tobaa/widgets/Templates/asset_name_template.dart';
 import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
 import 'package:tobaa/widgets/Templates/chip_template.dart';
 import 'package:tobaa/widgets/Templates/explosives_weight_template.dart';
 import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
+import 'package:tobaa/widgets/Templates/stack_name_template.dart';
 import 'package:tobaa/widgets/Templates/weight_template.dart';
 
 class StackListItem extends StatelessWidget {
@@ -106,19 +108,7 @@ class StackListItem extends StatelessWidget {
                   HazardClassTemplate(ba),
                 ],
               ),
-              Chip(
-                backgroundColor: Colors.lightBlue,
-                shadowColor: Colors.black,
-                elevation: 4.0,
-                label: Text(
-                  "${ba.name} - $value ${Strings.PCS}",
-                  style: TextStyle(
-                      fontSize: 11,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.right,
-                ),
-              ),
+              StackNameTemplate("${ba.name} - $value ${Strings.PCS}"),
             ],
           ),
         );
