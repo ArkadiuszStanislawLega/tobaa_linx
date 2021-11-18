@@ -7,6 +7,7 @@ import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/widgets/Templates/asset_name_template.dart';
 import 'package:tobaa/widgets/Templates/box_name_template.dart';
 import 'package:tobaa/widgets/Templates/chip_template.dart';
+import 'package:tobaa/widgets/Templates/explosive_class_template.dart';
 
 import '../../main.dart';
 
@@ -57,11 +58,7 @@ class _BaaListItemState extends State<BaaListItem> {
           SizedBox(width: 5),
           BoxNameTemplate(this.baa.boxType),
           SizedBox(width: 5),
-          ChipTemplate(
-            label: this.baa.explosionClass.toString(),
-            backgroundColor: Colors.deepOrange,
-            fontColor: Colors.white,
-          ),
+          ExplosiveClassTemplate(this.baa)
         ],
       ),
     );
