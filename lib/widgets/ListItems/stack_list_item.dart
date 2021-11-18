@@ -105,7 +105,7 @@ class StackListItem extends StatelessWidget {
                 children: [
                   ExplosivesWeightTemplate(explosionWeights[key]!),
                   WeightTemplate(weights[key]!),
-                  HazardClassTemplate(ba),
+                  HazardClassTemplate(ba.explosionClass),
                 ],
               ),
               StackNameTemplate("${ba.name} - $value ${Strings.PCS}"),

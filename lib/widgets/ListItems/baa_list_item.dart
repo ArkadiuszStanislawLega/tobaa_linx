@@ -56,7 +56,7 @@ class _BaaListItemState extends State<BaaListItem> {
           SizedBox(width: 5),
           BoxNameTemplate(this.baa.boxType),
           SizedBox(width: 5),
-          HazardClassTemplate(this.baa)
+          HazardClassTemplate(this.baa.explosionClass)
         ],
       ),
     );

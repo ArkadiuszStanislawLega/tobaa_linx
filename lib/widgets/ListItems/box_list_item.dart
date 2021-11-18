@@ -5,6 +5,9 @@ import 'package:tobaa/box/box.dart';
 import 'package:tobaa/converters/mass_converter.dart';
 import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
 import 'package:tobaa/widgets/Templates/chip_template.dart';
+import 'package:tobaa/widgets/Templates/explosives_weight_template.dart';
+import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
+import 'package:tobaa/widgets/Templates/weight_template.dart';
 
 class BoxListItem extends StatelessWidget {
   final Box _box;
@@ -74,23 +77,9 @@ class BoxListItem extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ChipIconTemplate(
-                    label:
-                        '${massConverter(this._box.weights.currentNetExplosive)}',
-                    icon: Icons.flare,
-                    backgroundColor: Colors.blueGrey,
-                    fontColor: Colors.white),
-                ChipIconTemplate(
-                    label:
-                    '${massConverter(this._box.weights.currentGross)}',
-                    icon: Icons.monitor_weight_outlined,
-                    backgroundColor: Colors.blueGrey,
-                    fontColor: Colors.white),
-                ChipTemplate(
-                  label: this._box.battleAirAsset.explosionClass.toString(),
-                  backgroundColor: Colors.deepOrange,
-                  fontColor: Colors.white,
-                ),
+                ExplosivesWeightTemplate(this._box.weights.currentNetExplosive),
+                WeightTemplate(this._box.weights.currentGross),
+                HazardClassTemplate(this._box.battleAirAsset.explosionClass),
               ],
             ),
             Chip(

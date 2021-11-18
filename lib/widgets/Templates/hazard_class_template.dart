@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
+import 'package:tobaa/explosion_class/explosion_class.dart';
 
 import 'chip_template.dart';
 
 class HazardClassTemplate extends StatelessWidget {
-  final BattleAirAsset _battleAirAsset;
+  final ExplosionClass _explosionClass;
 
-  HazardClassTemplate(this._battleAirAsset);
+  HazardClassTemplate(this._explosionClass);
 
   @override
   Widget build(BuildContext context) {
     return ChipTemplate(
-      label: this._battleAirAsset.explosionClass.toString(),
+      label: this._explosionClass.toString(),
       backgroundColor: Colors.deepOrange,
       fontColor: Colors.white,
     );
