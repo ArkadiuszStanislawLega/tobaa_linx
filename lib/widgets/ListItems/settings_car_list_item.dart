@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:tobaa/models/library.dart';
-
-import '../../main.dart';
+part of widgets;
 
 class SettingsCarListItem extends StatefulWidget {
   final Car _car;

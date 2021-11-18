@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/models/library.dart';
-import 'package:tobaa/widgets/Templates/explosives_weight_template.dart';
-import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
-import 'package:tobaa/widgets/Templates/stack_name_template.dart';
-import 'package:tobaa/widgets/Templates/weight_template.dart';
+part of widgets;
 
 class BoxListItem extends StatelessWidget {
   final Box _box;

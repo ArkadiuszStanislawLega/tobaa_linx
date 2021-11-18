@@ -1,14 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/converters/library.dart';
-import 'package:tobaa/models/library.dart';
-import 'package:tobaa/widgets/Templates/asset_name_template.dart';
-import 'package:tobaa/widgets/Templates/box_name_template.dart';
-import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
-
-import '../../main.dart';
+part of widgets;
 
 class BaaListItem extends StatefulWidget {
   final BattleAirAsset baa;

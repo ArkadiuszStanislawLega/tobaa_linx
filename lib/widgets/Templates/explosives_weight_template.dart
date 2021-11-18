@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:tobaa/converters/library.dart';
-
-import 'chip_icon_template.dart';
+part of widgets;
 
 class ExplosivesWeightTemplate extends StatelessWidget {
   final double _weight;

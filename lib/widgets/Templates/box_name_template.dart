@@ -1,9 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:tobaa/database/library.dart';
-import 'package:tobaa/enumerators/library.dart';
-
-import 'chip_template.dart';
+part of widgets;
 
 class BoxNameTemplate extends StatelessWidget {
   final BoxType _boxType;

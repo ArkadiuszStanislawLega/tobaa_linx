@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/database/library.dart';
-import 'package:tobaa/enumerators/library.dart';
-import 'package:tobaa/models/library.dart';
-import 'package:tobaa/widgets/Templates/stack_name_template.dart';
+part of widgets;
 
 class StackLevelListItem extends StatelessWidget {
   final StackLevel _level;

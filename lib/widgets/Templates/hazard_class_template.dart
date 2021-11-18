@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:tobaa/models/library.dart';
-
-import 'chip_template.dart';
+part of widgets;
 
 class HazardClassTemplate extends StatelessWidget {
   final ExplosionClass _explosionClass;

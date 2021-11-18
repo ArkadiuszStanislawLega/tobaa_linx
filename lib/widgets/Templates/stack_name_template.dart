@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+part of widgets;
 
 class StackNameTemplate extends StatelessWidget {
   final String _name;

@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tobaa/widgets/Pages/DetailViews/baa_detail_view.dart';
-import 'package:tobaa/widgets/Pages/DetailViews/box_detail_view.dart';
-import 'package:tobaa/widgets/Pages/DetailViews/car_detail_view.dart';
-import 'package:tobaa/widgets/Pages/DetailViews/stack_detail_view.dart';
-import 'package:tobaa/widgets/Pages/DetailViews/stack_level_detail_view.dart';
-import 'package:tobaa/widgets/Pages/DetailViews/transport_detail_view.dart';
-import 'package:tobaa/widgets/Pages/counted_view.dart';
-import 'package:tobaa/widgets/Pages/select_view.dart';
-import 'package:tobaa/widgets/Pages/settings_view.dart';
 
 import 'constants/library.dart';
 import 'database/library.dart';
 import 'enumerators/library.dart';
 import 'models/library.dart';
+import 'widgets/library.dart';
 
 
 void main() {

@@ -1,11 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/converters/library.dart';
-import 'package:tobaa/database/library.dart';
-import 'package:tobaa/models/library.dart';
-import 'package:tobaa/widgets/ListViews/cars_list_view.dart';
-import 'package:tobaa/widgets/Templates/property_game_template.dart';
+part of widgets;
 
 class TransportDetailView extends StatelessWidget {
   TransportDetailView();

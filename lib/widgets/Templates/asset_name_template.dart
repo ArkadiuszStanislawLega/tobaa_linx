@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-import 'chip_template.dart';
+part of widgets;
 
 class AssetNameTemplate extends StatelessWidget{
   final String _name;

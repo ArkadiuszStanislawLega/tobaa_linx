@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/database/library.dart';
-import 'package:tobaa/models/library.dart';
+part of widgets;
 
 class TransportListItem extends StatelessWidget {
   final Transport _transport;

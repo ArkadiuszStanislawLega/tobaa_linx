@@ -1,13 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/converters/library.dart';
-import 'package:tobaa/database/library.dart';
-import 'package:tobaa/enumerators/library.dart';
-import 'package:tobaa/models/library.dart';
-import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
-import 'package:tobaa/widgets/Templates/chip_template.dart';
+part of widgets;
 
 class CarListItem extends StatelessWidget {
   final Car _car;

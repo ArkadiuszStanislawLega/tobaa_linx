@@ -1,10 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/main.dart';
-import 'package:tobaa/widgets/Templates/main_menu.dart';
-
-import '../ListViews/available_baa_list_view.dart';
+part of widgets;
 
 class SelectView extends StatefulWidget {
   @override

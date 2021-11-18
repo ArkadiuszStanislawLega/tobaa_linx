@@ -1,11 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/models/library.dart';
-import 'package:tobaa/widgets/ListViews/transports_list_view.dart';
-
-import '../../main.dart';
-
+part of widgets;
 
 class CountedView extends StatelessWidget {
 

@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/converters/library.dart';
-
-import 'package:tobaa/widgets/ListViews/stack_levels_list_view.dart';
-import 'package:tobaa/widgets/Templates/property_game_template.dart';
-import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
+part of widgets;
 
 class StackDetailView extends StatelessWidget {
   StackDetailView();

@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/library.dart';
-import 'package:tobaa/models/library.dart';
-import 'package:tobaa/widgets/ListItems/stack_list_item.dart';
+part of widgets;
 
 class StacksListView extends StatelessWidget {
   final List<WarehouseStack> _stacks;
