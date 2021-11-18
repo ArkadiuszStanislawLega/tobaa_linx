@@ -4,10 +4,10 @@ import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 
 import 'chip_template.dart';
 
-class ExplosiveClassTemplate extends StatelessWidget {
+class HazardClassTemplate extends StatelessWidget {
   final BattleAirAsset _battleAirAsset;
 
-  ExplosiveClassTemplate(this._battleAirAsset);
+  HazardClassTemplate(this._battleAirAsset);
 
   @override
   Widget build(BuildContext context) {

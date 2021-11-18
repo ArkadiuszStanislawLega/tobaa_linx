@@ -8,6 +8,8 @@ import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/stack/stack.dart' as ContainerStack;
 import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
 import 'package:tobaa/widgets/Templates/chip_template.dart';
+import 'package:tobaa/widgets/Templates/explosives_weight_template.dart';
+import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
 
 class StackListItem extends StatelessWidget {
   final ContainerStack.Stack _stack;
@@ -98,22 +100,13 @@ class StackListItem extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ChipIconTemplate(
-                      label:
-                          '${massConverter(explosionWeights[key])}',
-                      icon: Icons.flare,
-                      backgroundColor: Colors.blueGrey,
-                      fontColor: Colors.white),
+                  ExplosivesWeightTemplate(explosionWeights[key]!),
                   ChipIconTemplate(
                       label: '${massConverter(weights[key])}',
                       icon: Icons.monitor_weight_outlined,
                       backgroundColor: Colors.blueGrey,
                       fontColor: Colors.white),
-                  ChipTemplate(
-                    label: ba.explosionClass.toString(),
-                    backgroundColor: Colors.deepOrange,
-                    fontColor: Colors.white,
-                  ),
+                  HazardClassTemplate(ba),
                 ],
               ),
               Chip(

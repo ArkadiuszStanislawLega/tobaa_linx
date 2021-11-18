@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/widgets/Templates/asset_name_template.dart';
 import 'package:tobaa/widgets/Templates/box_name_template.dart';
-import 'package:tobaa/widgets/Templates/chip_template.dart';
-import 'package:tobaa/widgets/Templates/explosive_class_template.dart';
+import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
 
 import '../../main.dart';
 
@@ -58,7 +56,7 @@ class _BaaListItemState extends State<BaaListItem> {
           SizedBox(width: 5),
           BoxNameTemplate(this.baa.boxType),
           SizedBox(width: 5),
-          ExplosiveClassTemplate(this.baa)
+          HazardClassTemplate(this.baa)
         ],
       ),
     );
