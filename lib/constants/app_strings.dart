@@ -1,6 +1,8 @@
 class Strings{
   static const String ADD = 'Dodaj';
   static const String ADD_TO_TRANSPORT = 'Dodaj do transportu';
+  static const String AMMO = 'Amunicja';
+  static const String BOMB = 'Bomba';
   static const String BOX = 'Pojemnik';
   static const String CAPACITY = 'Pojemność';
   static const String CAR = 'Pojazd';
@@ -14,6 +16,7 @@ class Strings{
   static const String CONTAINER_NET_WEIGHT = 'Waga netto kontenera';
   static const String COUNT = 'Przelicz';
   static const String ENTER_NUMBER_OF_BAA = 'Podaj ilość środków';
+  static const String EXPLOSION_CLASS = 'Klasa wybuchowości';
   static const String EXPLOSION_SUBCLASS = 'Podklasa wybuchowości';
   static const String GROSS_WEIGHT = 'Waga brutto';
   static const String HINT = 'Podpowiedź';
@@ -28,7 +31,8 @@ class Strings{
   static const String PARAMETERS_OF_THE_LOADING_AREA = 'Parametry powierzchni załadunkowej';
   static const String PERMISSIBLE_NEW = 'Dopuszczalna waga ładunku wybuchowego';
   static const String PERMISSIBLE_WEIGHT = 'Dopuszczalna waga';
-  static const String EXPLOSION_CLASS = 'Klasa wybuchowości';
+  static const String PYROTECHNIC = 'Pirotechnica';
+  static const String ROCKET = 'Rakieta';
   static const String MAX_STACK_HEIGHT_DURING_TRANSPORT = 'Maksymalna wysokość stosu w trakcie transportu';
   static const String MAX_STACK_LEVEL = 'Maksymalny poziom stosu';
   static const String NAME = 'Nazwa';
