@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/explosion_class/compatibility_group.dart';
+import 'package:tobaa/models/compatibility_group.dart';
 import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/explosion_class/explosion_subclass.dart';
 

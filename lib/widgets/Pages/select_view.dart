@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/constants/app_colors.dart';
-import 'package:tobaa/constants/app_urls.dart';
+import 'package:tobaa/constants/library.dart';
 import 'package:tobaa/main.dart';
 import 'package:tobaa/widgets/Templates/main_menu.dart';
 

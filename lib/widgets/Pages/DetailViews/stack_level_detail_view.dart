@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/app_colors.dart';
-import 'package:tobaa/constants/app_keys.dart';
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/converters/mass_converter.dart';
-import 'package:tobaa/converters/size_converter.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/converters/library.dart';
 import 'package:tobaa/widgets/ListViews/boxes_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
 import 'package:tobaa/widgets/Templates/property_with_hint_template.dart';

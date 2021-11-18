@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/converters/mass_converter.dart';
-import 'package:tobaa/database/db_assets.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/stack/stack.dart' as ContainerStack;
-import 'package:tobaa/widgets/Templates/asset_name_template.dart';
-import 'package:tobaa/widgets/Templates/chip_icon_template.dart';
-import 'package:tobaa/widgets/Templates/chip_template.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/enumerators/library.dart';
+import 'package:tobaa/models/library.dart';
 import 'package:tobaa/widgets/Templates/explosives_weight_template.dart';
 import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
 import 'package:tobaa/widgets/Templates/stack_name_template.dart';
 import 'package:tobaa/widgets/Templates/weight_template.dart';
 
 class StackListItem extends StatelessWidget {
-  final ContainerStack.Stack _stack;
+  final WarehouseStack _stack;
   final int _index;
 
   StackListItem(this._stack, this._index);

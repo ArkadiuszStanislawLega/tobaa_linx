@@ -1,4 +1,4 @@
-import 'package:tobaa/dimensions/dimensions.dart';
+part of models;
 
 class StackDimensions extends Dimensions{
   late Dimensions _occupied;

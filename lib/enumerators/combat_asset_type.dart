@@ -1,3 +1,5 @@
+part of enumerators;
+
 enum CombatAssetType{
   none,
   bomb,

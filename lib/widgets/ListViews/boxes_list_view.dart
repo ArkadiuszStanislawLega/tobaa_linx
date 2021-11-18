@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/app_keys.dart';
-import 'package:tobaa/constants/app_urls.dart';
-import 'package:tobaa/box/box.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/models/library.dart';
 import 'package:tobaa/widgets/ListItems/box_list_item.dart';
 
 class BoxesListView extends StatelessWidget {

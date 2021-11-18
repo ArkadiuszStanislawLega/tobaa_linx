@@ -1,14 +1,6 @@
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/database/db_stack_levels.dart';
-import 'package:tobaa/database/db_stacks.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/dimensions/stack_dimensions.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/weights/stack_weights.dart';
+part of models;
 
-class Stack {
+class WarehouseStack {
   late int maximumStackLevel;
   late Dimensions dimensions;
   late StackWeights weights;
@@ -19,7 +11,7 @@ class Stack {
   late Box _currentBox;
   late List<Box> _boxesToAdd;
 
-  Stack.empty() {
+  WarehouseStack.empty() {
     this._initialEmptyValues();
   }
   
@@ -32,10 +24,10 @@ class Stack {
     this.levels = [];
   }
 
-  Stack.cnu445() {
+  WarehouseStack.cnu445() {
     this._initialEmptyValues();
 
-    Stack copied = DatabaseStacks.container[BoxType.CNU445]!;
+    WarehouseStack copied = DatabaseStacks.container[BoxType.CNU445]!;
     this.maximumStackLevel = copied.maximumStackLevel;
     this.battleAirAssetCapacities.maximum =
         copied.battleAirAssetCapacities.maximum;
@@ -48,7 +40,7 @@ class Stack {
     this.dimensions.height = copied.dimensions.height;
   }
 
-  Stack(
+  WarehouseStack(
       {required this.maximumStackLevel,
       required this.dimensions,
       required this.weights,

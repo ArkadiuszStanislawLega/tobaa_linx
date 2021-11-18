@@ -1,11 +1,5 @@
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/database/db_stack_levels.dart';
-import 'package:tobaa/dimensions/stack_dimensions.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/stack/stack.dart';
-import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/weights/stack_weights.dart';
+part of database;
+
 
 class DatabaseStacks {
   static final StackLevel _cnu431 =
@@ -22,8 +16,8 @@ class DatabaseStacks {
       DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
   static final StackLevel _m54MPLD =
   DatabaseStackLevels.container[BoxType.M548MPLD]!;
-  static final Map<BoxType, Stack> container = {
-    BoxType.CNU431: Stack(
+  static final Map<BoxType, WarehouseStack> container = {
+    BoxType.CNU431: WarehouseStack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(maximum: 4),
       defaultStackLevel: _cnu431,
@@ -37,7 +31,7 @@ class DatabaseStacks {
           height: 960 // maximum stack level * stack level height
           ),
     ),
-    BoxType.CNU609: Stack(
+    BoxType.CNU609: WarehouseStack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(maximum: 4),
       defaultStackLevel: _cnu609,
@@ -51,7 +45,7 @@ class DatabaseStacks {
           height: 1168 // maximum stack level * stack level height
           ),
     ),
-    BoxType.CNU445: Stack(
+    BoxType.CNU445: WarehouseStack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(maximum: 1),
       defaultStackLevel: _cnu445,
@@ -65,7 +59,7 @@ class DatabaseStacks {
           height: 1524 // maximum stack level * stack level height
           ),
     ),
-    BoxType.CNU614: Stack(
+    BoxType.CNU614: WarehouseStack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(maximum: 1),
       defaultStackLevel: _cnu614,
@@ -80,7 +74,7 @@ class DatabaseStacks {
               .dimensions.height // maximum stack level * stack level height
           ),
     ),
-    BoxType.CNU672: Stack(
+    BoxType.CNU672: WarehouseStack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(maximum: 1),
       defaultStackLevel: _cnu672,
@@ -95,7 +89,7 @@ class DatabaseStacks {
               .dimensions.height // maximum stack level * stack level height
           ),
     ),
-    BoxType.M548_TPRRR: Stack(
+    BoxType.M548_TPRRR: WarehouseStack(
       maximumStackLevel: 1,
       battleAirAssetCapacities: Capacities(maximum: 1800),
       defaultStackLevel: _m54TPRRR,
@@ -110,7 +104,7 @@ class DatabaseStacks {
               .dimensions.height // maximum stack level * stack level height
           ),
     ),
-    BoxType.M548MPLD: Stack(
+    BoxType.M548MPLD: WarehouseStack(
       maximumStackLevel: 1,
       battleAirAssetCapacities: Capacities(maximum: 1800),
       defaultStackLevel: _m54MPLD,

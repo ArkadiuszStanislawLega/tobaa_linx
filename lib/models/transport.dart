@@ -1,19 +1,4 @@
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/car/car.dart';
-import 'package:tobaa/database/db_assets.dart';
-import 'package:tobaa/database/db_boxes.dart';
-import 'package:tobaa/database/db_cars.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/dimensions/loading_area_dimensions.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/weights/box_weights.dart';
-import 'package:tobaa/weights/loading_area_weights.dart';
-import 'package:tobaa/weights/weights.dart';
+part of models;
 
 enum Property {
   netWeight,

@@ -1,5 +1,4 @@
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/weights/weights.dart';
+part of models;
 
 class BoxWeights extends Weights {
   late double _currentGross;

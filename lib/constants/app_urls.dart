@@ -1,3 +1,5 @@
+part of constants;
+
 class Url {
   static const String EMPTY = '/';
   static const String HOME = '/home';

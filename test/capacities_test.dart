@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/capacities/capacities.dart';
+import 'package:tobaa/models/capacities.dart';
 
 
 void main() {

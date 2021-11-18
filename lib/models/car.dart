@@ -1,18 +1,4 @@
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/database/db_stack_levels.dart';
-import 'package:tobaa/database/db_stacks.dart';
-import 'package:tobaa/dimensions/loading_area_dimensions.dart';
-import 'package:tobaa/dimensions/stack_dimensions.dart';
-import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/explosion_class/compatibility_group.dart';
-import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/explosion_class/explosion_subclass.dart';
-import 'package:tobaa/stack/stack.dart';
-import 'package:tobaa/weights/loading_area_weights.dart';
-import 'package:tobaa/weights/stack_weights.dart';
-import 'package:tobaa/weights/weights.dart';
+part of models;
 
 class Car {
   late ExplosionClass _explosionClass;
@@ -23,7 +9,7 @@ class Car {
   late Weights carWeights;
   late LoadingAreaWeights weightOfLoadingArea;
   late LoadingAreaDimensions dimensionOfLoadingArea;
-  late List<Stack> stacks;
+  late List<WarehouseStack> stacks;
   late CarType type;
 
 
@@ -131,12 +117,12 @@ class Car {
   }
 
   bool _isNewStackCanBeAdd() {
-    Stack nextStack = this._copyStackFromDB();
+    WarehouseStack nextStack = this._copyStackFromDB();
     return this.dimensionOfLoadingArea.isWillBeFit(nextStack.dimensions) &&
         this._nextStackDoNotOverweightCar(nextStack);
   }
 
-  bool _nextStackDoNotOverweightCar(Stack stack) {
+  bool _nextStackDoNotOverweightCar(WarehouseStack stack) {
     return this._isNetExplosiveWeightNotExceeded(stack.weights.netExplosive) &&
         this._isGrossWeightNotExceeded(stack.weights.gross);
   }
@@ -341,9 +327,9 @@ class Car {
       this._increaseProperties();
   }
 
-  Stack _copyStackFromDB(){
-    Stack copied = DatabaseStacks.container[this._boxToAdd.type]!;
-    return Stack(
+  WarehouseStack _copyStackFromDB(){
+    WarehouseStack copied = DatabaseStacks.container[this._boxToAdd.type]!;
+    return WarehouseStack(
       maximumStackLevel: copied.maximumStackLevel,
       battleAirAssetCapacities: Capacities(
           maximum: copied.battleAirAssetCapacities.maximum

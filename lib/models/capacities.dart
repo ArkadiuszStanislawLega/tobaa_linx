@@ -1,3 +1,5 @@
+part of models;
+
 class Capacities{
   late int maximum;
   late int _current;

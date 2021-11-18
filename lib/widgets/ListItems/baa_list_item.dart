@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/converters/converter_combat_assets_type_to_strig.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/converters/library.dart';
+import 'package:tobaa/models/library.dart';
 import 'package:tobaa/widgets/Templates/asset_name_template.dart';
 import 'package:tobaa/widgets/Templates/box_name_template.dart';
 import 'package:tobaa/widgets/Templates/hazard_class_template.dart';
@@ -68,7 +68,8 @@ class _BaaListItemState extends State<BaaListItem> {
       padding: EdgeInsets.fromLTRB(5, 0, 0, 5),
       child: Stack(
         children: [
-          Text(converterCombatAssetsTypeToString(baa.combatAssetType),
+          Text(
+            converterCombatAssetsTypeToString(baa.combatAssetType),
             style: TextStyle(
               color: Colors.black12,
               fontFamily: 'MiddleAgesDeco',
@@ -93,8 +94,9 @@ class _BaaListItemState extends State<BaaListItem> {
                 padding: EdgeInsets.fromLTRB(10, 0, 5, 5),
                 decoration: BoxDecoration(
                   color: Colors.white30,
-                  borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(10),),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(10),
+                  ),
                 ),
                 child: ElevatedButton(
                   child: Text(Strings.ADD),

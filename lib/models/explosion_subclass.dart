@@ -1,4 +1,4 @@
-import 'package:tobaa/explosion_class/explosion_class.dart';
+part of models;
 
 class ExplosionSubclass implements Comparable {
   static const double FIRST_SUBCLASS = 1.1;

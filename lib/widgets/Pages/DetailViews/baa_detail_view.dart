@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/constants/app_colors.dart';
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/converters/mass_converter.dart';
-import 'package:tobaa/converters/size_converter.dart';
-import 'package:tobaa/database/db_boxes.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/converters/library.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/models/library.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
 
 import '../../../main.dart';

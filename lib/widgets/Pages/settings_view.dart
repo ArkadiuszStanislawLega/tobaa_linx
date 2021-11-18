@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/car/car.dart';
-import 'package:tobaa/database/db_cars.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/models/library.dart';
 import 'package:tobaa/widgets/ListItems/settings_car_list_item.dart';
 
 class SettingsView extends StatefulWidget {

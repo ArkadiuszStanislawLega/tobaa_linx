@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/constants/app_urls.dart';
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/database/db_assets.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/models/library.dart';
 
 import '../../main.dart';
 import '../ListItems/baa_list_item.dart';

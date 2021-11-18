@@ -1,3 +1,5 @@
+part of converters;
+
 String sizeConverter(var value) {
   if (value < 100) return '$value mm';
 

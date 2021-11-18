@@ -1,14 +1,4 @@
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/enumerators/combat_asset_type.dart';
-import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/weights/weights.dart';
-
-import 'db_compatibility_group.dart';
-import 'db_explosion_subclasses.dart';
+part of database;
 
 class DatabaseAssets {
   static Map<BattleAirAssetType, BattleAirAsset> container = {

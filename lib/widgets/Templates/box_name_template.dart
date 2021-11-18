@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/database/db_boxes.dart';
-import 'package:tobaa/enumerators/box_type.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/enumerators/library.dart';
 
 import 'chip_template.dart';
 

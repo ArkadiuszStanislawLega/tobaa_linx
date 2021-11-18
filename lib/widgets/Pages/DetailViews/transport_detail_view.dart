@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tobaa/constants/app_colors.dart';
-import 'package:tobaa/constants/app_keys.dart';
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/converters/mass_converter.dart';
-import 'package:tobaa/database/db_cars.dart';
-import 'package:tobaa/transport/transport.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/converters/library.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/models/library.dart';
 import 'package:tobaa/widgets/ListViews/cars_list_view.dart';
 import 'package:tobaa/widgets/Templates/property_game_template.dart';
 

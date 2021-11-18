@@ -1,4 +1,4 @@
-import 'package:tobaa/enumerators/compatibility_group_type.dart';
+part of models;
 
 class CompatibilityGroup implements Comparable{
   static const int COMPARABLE_VALUE_IS_EQUAL = 1;

@@ -1,21 +1,21 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
+import 'package:tobaa/models/battle_air_asset.dart';
+import 'package:tobaa/models/box.dart';
+import 'package:tobaa/models/capacities.dart';
 import 'package:tobaa/database/db_boxes.dart';
 import 'package:tobaa/database/db_stack_levels.dart';
 import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/dimensions/stack_dimensions.dart';
+import 'package:tobaa/models/stack_dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/explosion_class/compatibility_group.dart';
+import 'package:tobaa/models/compatibility_group.dart';
 import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/explosion_class/explosion_subclass.dart';
-import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/weights/box_weights.dart';
-import 'package:tobaa/weights/stack_weights.dart';
-import 'package:tobaa/weights/weights.dart';
+import 'package:tobaa/models/stack_level.dart';
+import 'package:tobaa/models/box_weights.dart';
+import 'package:tobaa/models/stack_weights.dart';
+import 'package:tobaa/models/weights.dart';
 
 void main() {
   test("Append box to stack.", () {

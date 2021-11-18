@@ -1,9 +1,4 @@
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/database/db_boxes.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/weights/box_weights.dart';
+part of models;
 
 class Box {
   static const int MINIMUM_STACK_LEVEL = 1;
@@ -33,7 +28,7 @@ class Box {
   }
 
   void _copyValuesFromDB(BoxType boxType){
-    Box box = DatabaseBoxes.container[boxType]!;
+    Box box = DatabaseBoxes.container[boxType] as Box;
     this.weights = BoxWeights(
         net: box.weights.net,
         gross: box.weights.gross,

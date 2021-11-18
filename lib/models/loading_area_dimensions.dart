@@ -1,4 +1,4 @@
-import 'dimensions.dart';
+part of models;
 
 class LoadingAreaDimensions extends Dimensions {
   late Dimensions _occupied;

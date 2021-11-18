@@ -1,5 +1,4 @@
-import 'package:tobaa/database/db_boxes.dart';
-import 'package:tobaa/enumerators/box_type.dart';
+part of converters;
 
 String boxEnumsToNamesConverter(BoxType value) {
       return DatabaseBoxes.container[value]!.name;

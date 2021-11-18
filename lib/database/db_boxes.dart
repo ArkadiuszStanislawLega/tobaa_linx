@@ -1,10 +1,4 @@
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/database/db_assets.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/weights/box_weights.dart';
+part of database;
 
 class DatabaseBoxes {
   static final Map<BoxType, Box> container = {

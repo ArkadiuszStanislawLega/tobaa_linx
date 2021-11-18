@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/car/car.dart';
+import 'package:tobaa/models/box.dart';
+import 'package:tobaa/models/capacities.dart';
+import 'package:tobaa/models/car.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/database/db_tests.dart';
 import 'package:tobaa/dimensions/dimensions.dart';
@@ -9,9 +9,9 @@ import 'package:tobaa/dimensions/loading_area_dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/weights/box_weights.dart';
-import 'package:tobaa/weights/loading_area_weights.dart';
-import 'package:tobaa/weights/weights.dart';
+import 'package:tobaa/models/box_weights.dart';
+import 'package:tobaa/models/loading_area_weights.dart';
+import 'package:tobaa/models/weights.dart';
 
 void main() {
   // test("Add boxes with baa to car war time", () {

@@ -1,3 +1,5 @@
+part of converters;
+
 String massConverter(var value) {
   if (value < 1000) return '$value g';
 

@@ -1,25 +1,5 @@
-import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/car/car.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/dimensions/loading_area_dimensions.dart';
-import 'package:tobaa/dimensions/stack_dimensions.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/enumerators/combat_asset_type.dart';
-import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/stack/stack.dart';
-import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/weights/box_weights.dart';
-import 'package:tobaa/weights/loading_area_weights.dart';
-import 'package:tobaa/weights/stack_weights.dart';
-import 'package:tobaa/weights/weights.dart';
+part of database;
 
-import 'db_compatibility_group.dart';
-import 'db_explosion_subclasses.dart';
 
 class DatabaseTests {
   static const int MAX_TEST_STACK_LEVEL = 3;
@@ -141,8 +121,8 @@ class DatabaseTests {
       capacities: Capacities(maximum: 30),
     ),
   };
-  static final Map<BoxType, Stack> stackContainer = {
-    BoxType.test: Stack(
+  static final Map<BoxType, WarehouseStack> stackContainer = {
+    BoxType.test: WarehouseStack(
       maximumStackLevel: MAX_TEST_STACK_LEVEL,
       battleAirAssetCapacities: Capacities(
           maximum: MAX_TEST_STACK_LEVEL *
@@ -162,7 +142,7 @@ class DatabaseTests {
           height: MAX_TEST_STACK_LEVEL *
               stackLevelContainer[BoxType.test]!.dimensions.height),
     ),
-    BoxType.oversizeTest: Stack(
+    BoxType.oversizeTest: WarehouseStack(
       maximumStackLevel: MAX_OVERSIZE_TEST_STACK_LEVEL,
       battleAirAssetCapacities: Capacities(
           maximum: MAX_OVERSIZE_TEST_STACK_LEVEL *
@@ -184,7 +164,7 @@ class DatabaseTests {
           height: MAX_OVERSIZE_TEST_STACK_LEVEL *
               stackLevelContainer[BoxType.oversizeTest]!.dimensions.height),
     ),
-    BoxType.correctSizeTest: Stack(
+    BoxType.correctSizeTest: WarehouseStack(
       maximumStackLevel: MAX_CORRECT_SIZE_TEST_STACK_LEVEL,
       battleAirAssetCapacities: Capacities(
           maximum: MAX_CORRECT_SIZE_TEST_STACK_LEVEL *
@@ -207,7 +187,7 @@ class DatabaseTests {
           height: MAX_CORRECT_SIZE_TEST_STACK_LEVEL *
               stackLevelContainer[BoxType.correctSizeTest]!.dimensions.height),
     ),
-    BoxType.heavyTest: Stack(
+    BoxType.heavyTest: WarehouseStack(
       maximumStackLevel: MAX_HEAVY_TEST_STACK_LEVEL,
       battleAirAssetCapacities: Capacities(
           maximum: MAX_HEAVY_TEST_STACK_LEVEL *

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of constants;
 
 class AppColors{
   static const BACKGROUND = Colors.blueGrey;

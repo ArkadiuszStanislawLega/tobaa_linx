@@ -1,4 +1,4 @@
-import 'package:tobaa/explosion_class/explosion_subclass.dart';
+part of database;
 
 class DatabaseExplosionSubclasses {
   static final Map<double, ExplosionSubclass> container = {

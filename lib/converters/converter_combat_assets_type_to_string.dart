@@ -1,5 +1,4 @@
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/enumerators/combat_asset_type.dart';
+part of converters;
 
 String converterCombatAssetsTypeToString(CombatAssetType combatAssetType){
   switch (combatAssetType){

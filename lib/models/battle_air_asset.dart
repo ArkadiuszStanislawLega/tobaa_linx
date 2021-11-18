@@ -1,10 +1,4 @@
-import 'package:tobaa/enumerators/combat_asset_type.dart';
-
-import '/dimensions/dimensions.dart';
-import '/enumerators/box_type.dart';
-import '/enumerators/baa_type.dart';
-import '/explosion_class/explosion_class.dart';
-import '/weights/weights.dart';
+part of models;
 
 class BattleAirAsset {
   late String name;

@@ -1,7 +1,4 @@
-export 'baa_weights.dart';
-export 'box_weights.dart';
-export 'loading_area_weights.dart';
-export 'stack_weights.dart';
+part of models;
 
 class Weights{
   late double net;

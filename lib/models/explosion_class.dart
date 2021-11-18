@@ -1,10 +1,4 @@
-import 'package:tobaa/enumerators/compatibility_group_type.dart';
-
-import 'compatibility_group.dart';
-import 'explosion_subclass.dart';
-
-export 'compatibility_group.dart';
-export 'explosion_subclass.dart';
+part of models;
 
 class ExplosionClass implements Comparable {
   static const int COMPARABLE_VALUE_IS_EQUAL = 1;

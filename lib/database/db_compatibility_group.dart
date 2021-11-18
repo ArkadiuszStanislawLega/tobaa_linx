@@ -1,5 +1,4 @@
-import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/explosion_class/compatibility_group.dart';
+part of database;
 
 class DatabaseCompatibilityGroup {
   static final Map<CompatibilityGroupType, CompatibilityGroup> container = {

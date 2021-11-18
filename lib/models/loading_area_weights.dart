@@ -1,3 +1,5 @@
+part of models;
+
 class LoadingAreaWeights {
   late double _current;
   late double _maximum;

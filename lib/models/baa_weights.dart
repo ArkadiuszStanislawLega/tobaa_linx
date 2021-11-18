@@ -1,4 +1,5 @@
-import 'package:tobaa/weights/weights.dart';
+part of models;
+
 
 class BaaWeights extends Weights{
 

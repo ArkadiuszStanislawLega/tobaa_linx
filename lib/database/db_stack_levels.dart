@@ -1,8 +1,5 @@
-import 'package:tobaa/capacities/capacities.dart';
-import 'package:tobaa/dimensions/stack_dimensions.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/stack/stack_level.dart';
-import 'package:tobaa/weights/stack_weights.dart';
+part of database;
+
 
 class DatabaseStackLevels {
   static Map<BoxType, StackLevel> container = {

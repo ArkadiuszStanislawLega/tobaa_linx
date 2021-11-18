@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tobaa/constants/app_strings.dart';
-import 'package:tobaa/database/db_cars.dart';
-import 'package:tobaa/transport/transport.dart';
+import 'package:tobaa/constants/library.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/models/library.dart';
 
 class TransportListItem extends StatelessWidget {
   final Transport _transport;

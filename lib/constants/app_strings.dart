@@ -1,3 +1,5 @@
+part of constants;
+
 class Strings{
   static const String ADD = 'Dodaj';
   static const String ADD_TO_TRANSPORT = 'Dodaj do transportu';

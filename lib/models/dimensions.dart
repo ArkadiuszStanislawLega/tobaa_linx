@@ -1,5 +1,4 @@
-export 'loading_area_dimensions.dart';
-export 'stack_dimensions.dart';
+part of models;
 
 class Dimensions {
   static const int MINIMUM_SIZE = 0;

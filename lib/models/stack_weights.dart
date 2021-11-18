@@ -1,5 +1,5 @@
-import 'package:tobaa/box/box.dart';
-import 'package:tobaa/weights/weights.dart';
+part of models;
+
 class StackWeights extends Weights {
   late double maxGross;
   late double maxNet;

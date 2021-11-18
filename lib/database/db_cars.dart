@@ -1,8 +1,5 @@
-import 'package:tobaa/car/car.dart';
-import 'package:tobaa/dimensions/loading_area_dimensions.dart';
-import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/weights/loading_area_weights.dart';
-import 'package:tobaa/weights/weights.dart';
+part of database;
+
 
 class DatabaseCars {
   static final Map<CarType, Car> container = {
