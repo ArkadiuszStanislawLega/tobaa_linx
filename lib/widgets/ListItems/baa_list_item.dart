@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/database/db_boxes.dart';
+import 'package:tobaa/widgets/Templates/asset_name_template.dart';
 import 'package:tobaa/widgets/Templates/chip_template.dart';
 
 import '../../main.dart';
@@ -51,11 +52,7 @@ class _BaaListItemState extends State<BaaListItem> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ChipTemplate(
-            label: this.baa.name,
-            backgroundColor: Colors.lightBlue,
-            fontColor: Colors.white,
-          ),
+          AssetNameTemplate(this.baa),
           SizedBox(width: 5),
           ChipTemplate(
             label: '${DatabaseBoxes.container[this.baa.boxType]!.name}',
