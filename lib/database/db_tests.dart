@@ -8,6 +8,7 @@ import 'package:tobaa/dimensions/stack_dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
 import 'package:tobaa/enumerators/car_type.dart';
+import 'package:tobaa/enumerators/combat_asset_type.dart';
 import 'package:tobaa/enumerators/compatibility_group_type.dart';
 import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/stack/stack.dart';
@@ -59,7 +60,8 @@ class DatabaseTests {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.A]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.none),
     BattleAirAssetType.heavyTest: BattleAirAsset(
         type: BattleAirAssetType.heavyTest,
         boxType: BoxType.heavyTest,
@@ -69,7 +71,8 @@ class DatabaseTests {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.B]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.none),
     BattleAirAssetType.oversizeTest: BattleAirAsset(
         type: BattleAirAssetType.oversizeTest,
         boxType: BoxType.oversizeTest,
@@ -79,7 +82,8 @@ class DatabaseTests {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.C]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.none),
   };
   static final Map<BoxType, Box> boxContainer = {
     BoxType.test: Box(
