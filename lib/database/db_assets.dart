@@ -2,6 +2,7 @@ import 'package:tobaa/battle_air_asset/battle_air_asset.dart';
 import 'package:tobaa/dimensions/dimensions.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/enumerators/box_type.dart';
+import 'package:tobaa/enumerators/combat_asset_type.dart';
 import 'package:tobaa/enumerators/compatibility_group_type.dart';
 import 'package:tobaa/explosion_class/explosion_class.dart';
 import 'package:tobaa/weights/weights.dart';
@@ -20,7 +21,8 @@ class DatabaseAssets {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.rocket),
     BattleAirAssetType.AGM158: new BattleAirAsset(
         type: BattleAirAssetType.AGM158,
         boxType: BoxType.CNU614,
@@ -30,7 +32,8 @@ class DatabaseAssets {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.rocket),
     BattleAirAssetType.AGM65G: BattleAirAsset(
         type: BattleAirAssetType.AGM65G,
         boxType: BoxType.CNU445,
@@ -40,7 +43,8 @@ class DatabaseAssets {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.rocket),
     BattleAirAssetType.AIM9x: new BattleAirAsset(
         type: BattleAirAssetType.AIM9x,
         boxType: BoxType.CNU609,
@@ -50,7 +54,8 @@ class DatabaseAssets {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.E]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.rocket),
     BattleAirAssetType.AIM120: new BattleAirAsset(
         type: BattleAirAssetType.AIM120,
         boxType: BoxType.CNU431,
@@ -60,7 +65,8 @@ class DatabaseAssets {
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.E]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.2]!)),
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.2]!),
+        combatAssetType: CombatAssetType.rocket),
     BattleAirAssetType.BBU35: new BattleAirAsset(
         type: BattleAirAssetType.BBU35,
         boxType: BoxType.BBU35BOX,
@@ -69,8 +75,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!)),
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
+        combatAssetType: CombatAssetType.pyrotechnic),
     BattleAirAssetType.BBU36: new BattleAirAsset(
         type: BattleAirAssetType.BBU36,
         boxType: BoxType.BBU36BOX,
@@ -79,9 +86,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
+        combatAssetType: CombatAssetType.pyrotechnic),
     //TODO: Sprawdzić wagę cxu
     BattleAirAssetType.CXU3: new BattleAirAsset(
         type: BattleAirAssetType.CXU3,
@@ -91,9 +98,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
+        combatAssetType: CombatAssetType.pyrotechnic),
     BattleAirAssetType.MJU7AB: new BattleAirAsset(
         type: BattleAirAssetType.MJU7AB,
         boxType: BoxType.MJU7ABOX,
@@ -102,9 +109,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 205, length: 52, width: 25),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.3]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.3]!),
+        combatAssetType: CombatAssetType.pyrotechnic),
     BattleAirAssetType.MK82: new BattleAirAsset(
         type: BattleAirAssetType.MK82,
         boxType: BoxType.MHU149,
@@ -113,9 +120,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.bomb),
     BattleAirAssetType.MK84: new BattleAirAsset(
         type: BattleAirAssetType.MK84,
         boxType: BoxType.MK84BOX,
@@ -124,9 +131,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
+        combatAssetType: CombatAssetType.bomb),
     BattleAirAssetType.MPLD: new BattleAirAsset(
         type: BattleAirAssetType.MPLD,
         boxType: BoxType.M548MPLD,
@@ -135,9 +142,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.2]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.2]!),
+        combatAssetType: CombatAssetType.ammo),
     BattleAirAssetType.TPRRR: new BattleAirAsset(
         type: BattleAirAssetType.TPRRR,
         boxType: BoxType.M548_TPRRR,
@@ -146,9 +153,9 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.C]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.C]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
+        combatAssetType: CombatAssetType.ammo),
     BattleAirAssetType.RR170AL: new BattleAirAsset(
         type: BattleAirAssetType.RR170AL,
         boxType: BoxType.CHAFF_BOX,
@@ -157,8 +164,8 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-            DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!))
-    ,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
+        combatAssetType: CombatAssetType.pyrotechnic),
   };
 }
