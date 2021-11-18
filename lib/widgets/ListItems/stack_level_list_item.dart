@@ -4,6 +4,7 @@ import 'package:tobaa/constants/app_strings.dart';
 import 'package:tobaa/database/db_assets.dart';
 import 'package:tobaa/enumerators/baa_type.dart';
 import 'package:tobaa/stack/stack_level.dart';
+import 'package:tobaa/widgets/Templates/stack_name_template.dart';
 
 class StackLevelListItem extends StatelessWidget {
   final StackLevel _level;
@@ -68,21 +69,12 @@ class StackLevelListItem extends StatelessWidget {
       container[box.battleAirAsset.type] = value + box.capacities.current;
     });
 
-   container.forEach((key, value) {
-     widgets.add(
-       Chip(
-         backgroundColor: Colors.lightBlue,
-         shadowColor: Colors.black,
-         elevation: 4.0,
-         label: Text(
-           "${DatabaseAssets.container[key]!.name} - $value ${Strings.PCS}",
-           style: TextStyle(
-               fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
-           textAlign: TextAlign.right,
-         ),
-       ),
-     );
-   });
+    container.forEach((key, value) {
+      widgets.add(
+        StackNameTemplate(
+            "${DatabaseAssets.container[key]!.name} - $value ${Strings.PCS}"),
+      );
+    });
 
     return Expanded(
       child: Container(
