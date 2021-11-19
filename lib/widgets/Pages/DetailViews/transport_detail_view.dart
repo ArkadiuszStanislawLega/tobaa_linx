@@ -32,11 +32,6 @@ class TransportDetailView extends StatelessWidget {
               crossAxisCount: 3,
               children: [
                 PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_BAA,
-                  value: '${transport.capacity()}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
                   name: Strings.NEW,
                   value:
                       '${massConverter(transport.transportNetExplosiveWeight)}',

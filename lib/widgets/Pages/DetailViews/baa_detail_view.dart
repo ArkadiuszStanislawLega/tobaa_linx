@@ -93,7 +93,7 @@ class _DetailBaa extends State<DetailBaa> {
                 PropertyGameTemplate(
                   name: 'Cod UN',
                   value:
-                      '${this.battleAirAsset.materialIdentificationNumber.unCode}',
+                      '${intToUnCodeConverter(this.battleAirAsset.materialIdentificationNumber.unCode)}',
                   background: Colors.grey[300]!,
                 ),
                 PropertyTextValue(
@@ -104,8 +104,7 @@ class _DetailBaa extends State<DetailBaa> {
                       .shippingName} ${this
                       .battleAirAsset
                       .materialIdentificationNumber
-                      .
-                  shippingDescription
+                      .shippingDescription
                   }',
                   background: Colors.grey[300]!,
                 ),
