@@ -38,3 +38,5 @@ part 'stack_weights.dart';
 part 'transport.dart';
 
 part 'weights.dart';
+
+part 'material_identification_number.dart';

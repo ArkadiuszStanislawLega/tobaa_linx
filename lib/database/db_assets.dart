@@ -6,6 +6,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.AGM154,
         boxType: BoxType.CNU672,
         name: "AGM-154C JSOW",
+        materialIdentificationNumber: DatabaseUnCodes.container[34]!,
+        hexogeneEquivalent: 69.23,
         weights: Weights(gross: 497000, netExplosive: 88900, net: 497000),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -17,6 +19,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.AGM158,
         boxType: BoxType.CNU614,
         name: "AGM-158-6 JASSM",
+        materialIdentificationNumber: DatabaseUnCodes.container[34]!,
+        hexogeneEquivalent: 0.0,
         weights: Weights(gross: 497000, netExplosive: 108860, net: 497000),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -28,6 +32,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.AGM65G,
         boxType: BoxType.CNU445,
         name: "AGM-65G2 MAVERIC",
+        materialIdentificationNumber: DatabaseUnCodes.container[181]!,
+        hexogeneEquivalent: 50.59,
         weights: Weights(gross: 306100, netExplosive: 65500, net: 306100),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -39,6 +45,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.AIM9x,
         boxType: BoxType.CNU609,
         name: "AIM-9X SIDEWINDER",
+        materialIdentificationNumber: DatabaseUnCodes.container[181]!,
+        hexogeneEquivalent: 23.69,
         weights: Weights(gross: 85000, netExplosive: 30800, net: 85000),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -50,6 +58,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.AIM120,
         boxType: BoxType.CNU431,
         name: "AIM-120 C5 AMRAAM",
+        materialIdentificationNumber: DatabaseUnCodes.container[181]!,
+        hexogeneEquivalent: 46.07,
         weights: Weights(gross: 161500, netExplosive: 58200, net: 161500),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -61,6 +71,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.BBU35,
         boxType: BoxType.BBU35BOX,
         name: "BBU-35/B",
+        materialIdentificationNumber: DatabaseUnCodes.container[454]!,
+        hexogeneEquivalent: 0.0003,
         weights: Weights(gross: 10, netExplosive: 0.3628739, net: 10),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -72,6 +84,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.BBU36,
         boxType: BoxType.BBU36BOX,
         name: "BBU-36/B",
+        materialIdentificationNumber: DatabaseUnCodes.container[454]!,
+        hexogeneEquivalent: 69.23,
         weights: Weights(gross: 17, netExplosive: 0.997903, net: 17),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -84,7 +98,9 @@ class DatabaseAssets {
         type: BattleAirAssetType.CXU3,
         boxType: BoxType.M2A1,
         name: "CXU-3A/B",
-        weights: Weights(gross: 4, netExplosive: 3, net: 4),
+        materialIdentificationNumber: DatabaseUnCodes.container[197]!,
+        hexogeneEquivalent: 0.0017,
+        weights: Weights(gross: 4, netExplosive: 0.0032, net: 4),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
@@ -95,6 +111,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.MJU7AB,
         boxType: BoxType.MJU7ABOX,
         name: "MJU-7A/B",
+        materialIdentificationNumber: DatabaseUnCodes.container[93]!,
+        hexogeneEquivalent: 0.2191,
         weights: Weights(gross: 370, netExplosive: 261, net: 370),
         dimensions: Dimensions(height: 205, length: 52, width: 25),
         explosionClass: ExplosionClass(
@@ -106,6 +124,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.MK82,
         boxType: BoxType.MHU149,
         name: "MK-82",
+        materialIdentificationNumber: DatabaseUnCodes.container[34]!,
+        hexogeneEquivalent: 86.99,
         weights: Weights(gross: 227000, netExplosive: 87000, net: 227000),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -117,6 +137,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.MK84,
         boxType: BoxType.MK84BOX,
         name: "MK-84",
+        materialIdentificationNumber: DatabaseUnCodes.container[34]!,
+        hexogeneEquivalent: 329.4,
         weights: Weights(gross: 925000, netExplosive: 428000, net: 925000),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -128,6 +150,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.MPLD,
         boxType: BoxType.M548MPLD,
         name: "20 mm MP LD M70 A1",
+        materialIdentificationNumber: DatabaseUnCodes.container[9]!,
+        hexogeneEquivalent: 0.0369,
         weights: Weights(gross: 270, netExplosive: 48, net: 270),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -139,6 +163,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.TPRRR,
         boxType: BoxType.M548_TPRRR,
         name: "20 mm TP RRR LD M2",
+        materialIdentificationNumber: DatabaseUnCodes.container[339]!,
+        hexogeneEquivalent: 0.0315,
         weights: Weights(gross: 270, netExplosive: 39, net: 270),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -150,6 +176,8 @@ class DatabaseAssets {
         type: BattleAirAssetType.RR170AL,
         boxType: BoxType.CHAFF_BOX,
         name: "RR-170A/AL",
+        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+        hexogeneEquivalent: 0,
         weights: Weights(gross: 140, netExplosive: 0, net: 140),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
