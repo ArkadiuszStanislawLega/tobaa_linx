@@ -32,7 +32,6 @@ class PropertyWithHintTemplate extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             propertyValue,
@@ -41,43 +40,35 @@ class PropertyWithHintTemplate extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Text(
-                  this.propertyName,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black45, fontSize: 11),
-                ),
-              ),
-              IconButton(
-                alignment: Alignment.topRight,
-                iconSize: 15,
-                icon: Icon(
-                  Icons.help,
-                ),
-                onPressed: () => {
-                  showDialog(
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text(Strings.HINT),
-                          content: Text(this.hint),
-                          actions: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.pop(context, true);
-                              },
-                              child: Text(Strings.CLOSE),
-                            )
-                          ],
-                        );
-                      },
-                      context: context)
-                },
-              ),
-            ],
+          Text(
+            this.propertyName,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.black45, fontSize: 11),
+          ),
+          IconButton(
+            alignment: Alignment.center,
+            iconSize: 15,
+            icon: Icon(
+              Icons.help,
+            ),
+            onPressed: () => {
+              showDialog(
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text(Strings.HINT),
+                      content: Text(this.hint),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context, true);
+                          },
+                          child: Text(Strings.CLOSE),
+                        )
+                      ],
+                    );
+                  },
+                  context: context)
+            },
           ),
         ],
       ),

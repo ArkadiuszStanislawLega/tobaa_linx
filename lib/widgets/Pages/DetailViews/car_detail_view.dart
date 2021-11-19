@@ -27,7 +27,6 @@ class CarDetailView extends StatelessWidget {
             GridView.count(
               primary: false,
               padding: const EdgeInsets.all(5),
-              childAspectRatio: 2.5,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
               crossAxisCount: 3,
