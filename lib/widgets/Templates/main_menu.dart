@@ -17,10 +17,10 @@ class _MainMenu extends State<MainMenu> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15.0, 0.0 ,0.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(15.0, 0.0, 0.0, 0.0),
               child: Row(
                 children: [
-                  Text('${Strings.WAR_TIME}'),
+                  Text(Strings.WAR_TIME),
                   Switch(
                     value: TOBAAApp.isWar,
                     onChanged: (bool value) => {
@@ -41,15 +41,16 @@ class _MainMenu extends State<MainMenu> {
               },
             ),
             TextButton(
-              child: Text('O programie'),
+              child: Text(Strings.ABOUT),
               onPressed: () => {
                 Navigator.pushNamed(context, Url.SETTINGS),
               },
             ),
             Expanded(
               child: Align(
-                  alignment: FractionalOffset.bottomCenter,
-                  child: Text('v.0.1')),
+                alignment: FractionalOffset.bottomCenter,
+                child: Text(Strings.VERSION),
+              ),
             ),
           ],
         ),

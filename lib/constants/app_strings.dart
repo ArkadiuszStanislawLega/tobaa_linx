@@ -2,6 +2,7 @@ part of constants;
 
 class Strings{
   static const String ADD = 'Dodaj';
+  static const String ABOUT = 'O programie';
   static const String ADD_TO_TRANSPORT = 'Dodaj do transportu';
   static const String AMMO = 'Amunicja';
   static const String BOMB = 'Bomba';
@@ -57,5 +58,6 @@ class Strings{
   static const String WIDTH = 'Szerokość';
   static const String WAR_TIME = 'Czas wojny';
   static const String WEIGHT_OF_ALL_BAA = 'Waga środków bojowych';
+  static const String VERSION = 'v.0.1';
   static const String YES = 'TAK';
 }
