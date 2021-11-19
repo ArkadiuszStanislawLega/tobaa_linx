@@ -1,6 +1,5 @@
 part of database;
 
-
 class DatabaseTests {
   static const int MAX_TEST_STACK_LEVEL = 3;
   static const int MAX_OVERSIZE_TEST_STACK_LEVEL = 3;
@@ -35,6 +34,8 @@ class DatabaseTests {
         type: BattleAirAssetType.test,
         boxType: BoxType.test,
         name: "test baa",
+        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+        hexogeneEquivalent: 0.5,
         weights: Weights(gross: 1, netExplosive: 0.5, net: 1),
         dimensions: Dimensions(height: 1, length: 5, width: 1),
         explosionClass: ExplosionClass(
@@ -46,6 +47,8 @@ class DatabaseTests {
         type: BattleAirAssetType.heavyTest,
         boxType: BoxType.heavyTest,
         name: "test baa",
+        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+        hexogeneEquivalent: 0.5,
         weights: Weights(gross: 150000, netExplosive: 0.5, net: 150001),
         dimensions: Dimensions(height: 1, length: 5, width: 1),
         explosionClass: ExplosionClass(
@@ -57,6 +60,8 @@ class DatabaseTests {
         type: BattleAirAssetType.oversizeTest,
         boxType: BoxType.oversizeTest,
         name: "test baa",
+        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+        hexogeneEquivalent: 0.5,
         weights: Weights(gross: 150000, netExplosive: 0.5, net: 150001),
         dimensions: Dimensions(height: 1, length: 5, width: 1),
         explosionClass: ExplosionClass(
