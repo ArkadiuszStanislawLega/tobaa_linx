@@ -25,7 +25,7 @@ class DatabaseAssets {
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
+                DatabaseCompatibilityGroup.container[CompatibilityGroupType.J]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.rocket),
     BattleAirAssetType.AGM65G: BattleAirAsset(
@@ -72,7 +72,7 @@ class DatabaseAssets {
         boxType: BoxType.BBU35BOX,
         name: "BBU-35/B",
         materialIdentificationNumber: DatabaseUnCodes.container[454]!,
-        hexogeneEquivalent: 0.0003,
+        hexogeneEquivalent: 0.3,
         weights: Weights(gross: 10, netExplosive: 0.3628739, net: 10),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
@@ -85,7 +85,7 @@ class DatabaseAssets {
         boxType: BoxType.BBU36BOX,
         name: "BBU-36/B",
         materialIdentificationNumber: DatabaseUnCodes.container[454]!,
-        hexogeneEquivalent: 69.23,
+        hexogeneEquivalent: 0.7,
         weights: Weights(gross: 17, netExplosive: 0.997903, net: 17),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(

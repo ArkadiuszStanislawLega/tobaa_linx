@@ -45,7 +45,6 @@ class _DetailBaa extends State<DetailBaa> {
             GridView.count(
               primary: false,
               padding: const EdgeInsets.all(5),
-              childAspectRatio: 2.3,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
               crossAxisCount: 3,
@@ -85,12 +84,37 @@ class _DetailBaa extends State<DetailBaa> {
                       '${massConverter(this.battleAirAsset.weights.netExplosive)}',
                   background: Colors.grey[200]!,
                 ),
+                PropertyGameTemplate(
+                  name: 'Równoznacznik heksogenowy',
+                  value:
+                  '${massConverter(this.battleAirAsset.hexogeneEquivalent)}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyGameTemplate(
+                  name: 'Cod UN',
+                  value:
+                      '${this.battleAirAsset.materialIdentificationNumber.unCode}',
+                  background: Colors.grey[300]!,
+                ),
+                PropertyTextValue(
+                  name: 'Nazwa transportowa',
+                  value: '${ this
+                      .battleAirAsset
+                      .materialIdentificationNumber
+                      .shippingName} ${this
+                      .battleAirAsset
+                      .materialIdentificationNumber
+                      .
+                  shippingDescription
+                  }',
+                  background: Colors.grey[300]!,
+                ),
+
               ],
             ),
             GridView.count(
               primary: false,
               padding: const EdgeInsets.all(5),
-              childAspectRatio: 1.8,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
               crossAxisCount: 3,
@@ -141,7 +165,7 @@ class _DetailBaa extends State<DetailBaa> {
                       ? '${TOBAAApp.values[this.battleAirAsset.type]} szt.'
                       : '0 szt.',
                   background: Colors.grey[300]!,
-                )
+                ),
               ],
             ),
           ],
@@ -159,26 +183,26 @@ class _DetailBaa extends State<DetailBaa> {
             this.battleAirAsset.explosionClass.compatibilityGroup.group);
     showDialog(
         builder: (BuildContext context) {
-          return  AlertDialog(
-              title: Text(Strings.INFORMATION),
-              content: Container(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      this._explosionClass(),
-                      this._compatibilityGroup(compatibilityGroup)
-                    ],
-                  ),
+          return AlertDialog(
+            title: Text(Strings.INFORMATION),
+            content: Container(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    this._explosionClass(),
+                    this._compatibilityGroup(compatibilityGroup)
+                  ],
                 ),
               ),
-              actions: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context, true);
-                  },
-                  child: Text(Strings.CLOSE),
-                ),
-              ],
+            ),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, true);
+                },
+                child: Text(Strings.CLOSE),
+              ),
+            ],
           );
         },
         context: this.context);

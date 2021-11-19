@@ -44,6 +44,7 @@ part 'package:tobaa/widgets/Templates/hazard_class_template.dart';
 part 'package:tobaa/widgets/Templates/main_menu.dart';
 part 'package:tobaa/widgets/Templates/property_game_template.dart';
 part 'package:tobaa/widgets/Templates/property_template.dart';
+part 'package:tobaa/widgets/Templates/property_text_value.dart';
 part 'package:tobaa/widgets/Templates/property_with_hint_template.dart';
 part 'package:tobaa/widgets/Templates/stack_name_template.dart';
 part 'package:tobaa/widgets/Templates/weight_template.dart';

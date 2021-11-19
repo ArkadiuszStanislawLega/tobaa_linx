@@ -1,16 +1,18 @@
 part of widgets;
 
-class PropertyGameTemplate extends StatelessWidget {
+class PropertyTextValue extends StatelessWidget {
   final String name;
   final String value;
   final Color background;
   final Color fontColor;
 
-  PropertyGameTemplate(
-      {this.name = '',
+  const PropertyTextValue(
+      {Key? key,
+      this.name = '',
       this.value = '',
       this.background = Colors.white,
-      this.fontColor = Colors.black});
+      this.fontColor = Colors.black})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class PropertyGameTemplate extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: this.fontColor,
-              fontSize: 18,
+              fontSize: 12,
               fontWeight: FontWeight.w600,
             ),
           ),
