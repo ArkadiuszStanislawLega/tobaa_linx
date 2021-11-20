@@ -66,8 +66,8 @@ class DatabaseStackLevels {
     BoxType.M548_TPRRR: StackLevel(
       dimensions: StackDimensions(height: 524, width: 800, length: 1200),
       weights: StackWeights(
-        net: 25000,
-        gross: 25000,
+        net: 25000.0,
+        gross: 25000.0,
         netExplosive: 0,
         maxNet: 486000.0,
         maxGross: 608650.0,
@@ -78,8 +78,8 @@ class DatabaseStackLevels {
     BoxType.M548MPLD: StackLevel(
       dimensions: StackDimensions(height: 524, width: 800, length: 1200),
       weights: StackWeights(
-        net: 25000,
-        gross: 25000,
+        net: 25000.0,
+        gross: 25000.0,
         netExplosive: 0,
         maxNet: 486000.0,
         maxGross: 608650.0,
@@ -90,8 +90,8 @@ class DatabaseStackLevels {
     BoxType.MK84BOX: StackLevel(
       dimensions: StackDimensions(height: 616, width: 965, length: 2515),
       weights: StackWeights(
-        net: 44000,
-        gross: 44000,
+        net: 44000.0,
+        gross: 44000.0,
         netExplosive: 0,
         maxNet: 1850000.0,
         maxGross: 1854400.0,

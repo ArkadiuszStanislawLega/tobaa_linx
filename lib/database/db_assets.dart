@@ -138,9 +138,9 @@ class DatabaseAssets {
         boxType: BoxType.MK84BOX,
         name: "MK-84",
         materialIdentificationNumber: DatabaseUnCodes.container[34]!,
-        hexogeneEquivalent: 329.4,
-        weights: Weights(gross: 925000, netExplosive: 428000, net: 925000),
-        dimensions: Dimensions(height: 1, length: 1, width: 1),
+        hexogeneEquivalent: 329400.0,
+        weights: Weights(gross: 925000.0, netExplosive: 428000.0, net: 925000.0),
+        dimensions: Dimensions(height: 1, length: 2515, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,

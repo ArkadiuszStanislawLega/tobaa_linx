@@ -1,17 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/models/box.dart';
-import 'package:tobaa/models/capacities.dart';
-import 'package:tobaa/models/car.dart';
-import 'package:tobaa/database/db_assets.dart';
-import 'package:tobaa/database/db_tests.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/dimensions/loading_area_dimensions.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/models/box_weights.dart';
-import 'package:tobaa/models/loading_area_weights.dart';
-import 'package:tobaa/models/weights.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/enumerators/library.dart';
+import 'package:tobaa/models/library.dart';
 
 void main() {
   // test("Add boxes with baa to car war time", () {
@@ -76,9 +66,10 @@ void main() {
 
   test("Is boxes can be add", () {
     Car car = DatabaseTests.carContainer[CarType.test]!;
-    Box boxWithCorrectSize = DatabaseTests.boxContainer[BoxType.correctSizeTest]!;
+    Box boxWithCorrectSize =
+        DatabaseTests.boxContainer[BoxType.correctSizeTest]!;
     Box boxWithIncorrectExplosionClass =
-    DatabaseTests.boxContainer[BoxType.heavyTest]!;
+        DatabaseTests.boxContainer[BoxType.heavyTest]!;
 
     boxWithCorrectSize.fillToMaximum();
     boxWithIncorrectExplosionClass.fillToMaximum();

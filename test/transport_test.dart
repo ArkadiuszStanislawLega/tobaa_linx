@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/enumerators/car_type.dart';
-import 'package:tobaa/models/transport.dart';
+import 'package:tobaa/enumerators/library.dart';
+import 'package:tobaa/models/library.dart';
 
 void main() {
   test("Constructor with no args.", () {

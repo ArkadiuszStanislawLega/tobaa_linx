@@ -1,82 +1,37 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/models/battle_air_asset.dart';
-import 'package:tobaa/models/box.dart';
-import 'package:tobaa/models/capacities.dart';
-import 'package:tobaa/database/db_boxes.dart';
-import 'package:tobaa/database/db_stack_levels.dart';
-import 'package:tobaa/dimensions/dimensions.dart';
-import 'package:tobaa/models/stack_dimensions.dart';
-import 'package:tobaa/enumerators/baa_type.dart';
-import 'package:tobaa/enumerators/box_type.dart';
-import 'package:tobaa/enumerators/compatibility_group_type.dart';
-import 'package:tobaa/models/compatibility_group.dart';
-import 'package:tobaa/explosion_class/explosion_class.dart';
-import 'package:tobaa/explosion_class/explosion_subclass.dart';
-import 'package:tobaa/models/stack_level.dart';
-import 'package:tobaa/models/box_weights.dart';
-import 'package:tobaa/models/stack_weights.dart';
-import 'package:tobaa/models/weights.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/enumerators/library.dart';
+import 'package:tobaa/models/library.dart';
 
 void main() {
   test("Append box to stack.", () {
     StackLevel stackLevel = StackLevel(
-      dimensions: StackDimensions(
-        height: 1,
-        length: 5,
-        width: 3
-      ),
-      weights: StackWeights(
-        maxNetExplosion: 15,
-        maxGross: 33,
-        maxNet: 30
-      ),
-      capacities: Capacities(
-        maximum: 30
-      )
-    );
+        dimensions: StackDimensions(height: 1, length: 5, width: 3),
+        weights: StackWeights(maxNetExplosion: 15, maxGross: 33, maxNet: 30),
+        capacities: Capacities(maximum: 30));
 
     BattleAirAsset baa = new BattleAirAsset(
         name: "New Baa",
         boxType: BoxType.test,
-        dimensions: Dimensions(
-            width: 1,
-            length: 1,
-            height: 1
-        ),
+        dimensions: Dimensions(width: 1, length: 1, height: 1),
         explosionClass: ExplosionClass(
-            explosionSubclass: ExplosionSubclass(
-                id:1,
-                description: ""
-            ),
-            compatibilityGroup: CompatibilityGroup(
-                group: CompatibilityGroupType.None
-            )
-        ),
+            explosionSubclass: ExplosionSubclass(id: 1, description: ""),
+            compatibilityGroup:
+                CompatibilityGroup(group: CompatibilityGroupType.None)),
         type: BattleAirAssetType.test,
-        weights: Weights(
-            gross: 1.0,
-            net: 1.0,
-            netExplosive:  0.5
-        )
-    );
+        weights: Weights(gross: 1.0, net: 1.0, netExplosive: 0.5),
+        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+        hexogeneEquivalent: 0.0,
+        combatAssetType: CombatAssetType.none);
 
     Box box = new Box(
         name: "Box with new Baa",
         capacities: Capacities(maximum: 10),
-        weights: BoxWeights(
-            gross: 11.0,
-            net: 1.0,
-            netExplosive: 5.0
-        ),
-        dimensions: Dimensions(
-            height: 1,
-            width: 1,
-            length: 5
-        ),
+        weights: BoxWeights(gross: 11.0, net: 1.0, netExplosive: 5.0),
+        dimensions: Dimensions(height: 1, width: 1, length: 5),
         maxStackLevel: 2,
         battleAirAsset: baa,
-        type: BoxType.test
-    );
+        type: BoxType.test);
     box.fillToMaximum();
 
     expect(stackLevel.isBoxWillBeFit(box), true);
@@ -107,63 +62,33 @@ void main() {
 
   test("Append boxes to stack.", () {
     StackLevel stackLevel = StackLevel(
-        dimensions: StackDimensions(
-            height: 1,
-            length: 5,
-            width: 3
-        ),
-        weights: StackWeights(
-            maxNetExplosion: 15,
-            maxGross: 33,
-            maxNet: 30
-        ),
-        capacities: Capacities(
-            maximum: 30
-        )
-    );
+        dimensions: StackDimensions(height: 1, length: 5, width: 3),
+        weights: StackWeights(maxNetExplosion: 15, maxGross: 33, maxNet: 30),
+        capacities: Capacities(maximum: 30));
 
     BattleAirAsset baa = new BattleAirAsset(
-        name: "New Baa",
-        boxType: BoxType.test,
-        dimensions: Dimensions(
-            width: 1,
-            length: 1,
-            height: 1
-        ),
-        explosionClass: ExplosionClass(
-            explosionSubclass: ExplosionSubclass(
-                id:1,
-                description: ""
-            ),
-            compatibilityGroup: CompatibilityGroup(
-                group: CompatibilityGroupType.None
-            )
-        ),
-        type: BattleAirAssetType.test,
-        weights: Weights(
-            gross: 1.0,
-            net: 1.0,
-            netExplosive:  0.5
-        )
+      name: "New Baa",
+      boxType: BoxType.test,
+      dimensions: Dimensions(width: 1, length: 1, height: 1),
+      explosionClass: ExplosionClass(
+          explosionSubclass: ExplosionSubclass(id: 1, description: ""),
+          compatibilityGroup:
+              CompatibilityGroup(group: CompatibilityGroupType.None)),
+      type: BattleAirAssetType.test,
+      weights: Weights(gross: 1.0, net: 1.0, netExplosive: 0.5),
+      materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+      hexogeneEquivalent: 0.0,
+      combatAssetType: CombatAssetType.none,
     );
 
     Box box = new Box(
         name: "Box with new Baa",
         capacities: Capacities(maximum: 10),
-        weights: BoxWeights(
-            gross: 11.0,
-            net: 1.0,
-            netExplosive: 5.0
-        ),
-        dimensions: Dimensions(
-            height: 1,
-            width: 1,
-            length: 5
-        ),
+        weights: BoxWeights(gross: 11.0, net: 1.0, netExplosive: 5.0),
+        dimensions: Dimensions(height: 1, width: 1, length: 5),
         maxStackLevel: 2,
         battleAirAsset: baa,
-        type: BoxType.test
-    );
+        type: BoxType.test);
     box.fillToMaximum();
 
     List<Box> boxes = [box, box, box];
@@ -177,8 +102,7 @@ void main() {
     expect(stackLevel.isBoxWillBeFit(box), false);
   });
 
-  test("Append TPRRR box to stack level.", ()
-  {
+  test("Append TPRRR box to stack level.", () {
     StackLevel stackLevel = DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
     Box box = DatabaseBoxes.container[BoxType.M548_TPRRR]!;
 
@@ -188,6 +112,5 @@ void main() {
     stackLevel.tryAppendBox(box);
 
     expect(stackLevel.weights.netExplosive, 3900);
-
   });
 }

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/weights/baa_weights.dart';
+import 'package:tobaa/models/library.dart';
 
 void main() {
   const double CORRECT_VALUE = 0.2;

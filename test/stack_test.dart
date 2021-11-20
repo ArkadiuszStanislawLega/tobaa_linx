@@ -63,7 +63,9 @@ void main() {
                 CompatibilityGroup(group: CompatibilityGroupType.None)),
         type: BattleAirAssetType.None,
         weights: Weights(gross: 1.0, net: 1.0, netExplosive: 0.5),
-        combatAssetType: CombatAssetType.none);
+        combatAssetType: CombatAssetType.none,
+        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+        hexogeneEquivalent: 0.0);
 
     Box box = new Box(
         name: "Box with new Baa",

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tobaa/database/db_explosion_subclasses.dart';
-import 'package:tobaa/explosion_class/explosion_subclass.dart';
+import 'package:tobaa/database/library.dart';
+import 'package:tobaa/models/library.dart';
 
 void main() {
   test("compare to", () {
