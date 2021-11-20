@@ -95,7 +95,7 @@ class DatabaseStackLevels {
         netExplosive: 0,
         maxNet: 1850000.0,
         maxGross: 1854400.0,
-        maxNetExplosion: 85600.0,
+        maxNetExplosion: 856000.0,
       ),
       capacities: Capacities(maximum: 2),
     ),

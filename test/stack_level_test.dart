@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:tobaa/database/library.dart';
 import 'package:tobaa/enumerators/library.dart';
 import 'package:tobaa/models/library.dart';
@@ -112,5 +113,17 @@ void main() {
     stackLevel.tryAppendBox(box);
 
     expect(stackLevel.weights.netExplosive, 3900);
+  });
+
+  test("Append MK84 box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MK84BOX]!;
+    Box box = DatabaseBoxes.container[BoxType.MK84BOX]!;
+
+    box.fillBox(1);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+
+    stackLevel.tryAppendBox(box);
+
+    expect(stackLevel.weights.netExplosive, 2);
   });
 }
