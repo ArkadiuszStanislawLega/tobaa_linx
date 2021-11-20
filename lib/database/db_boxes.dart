@@ -68,10 +68,10 @@ class DatabaseBoxes {
         type: BoxType.M2A1),
     BoxType.MJU7ABOX: new Box(
         name: "Skrzynia z MJU7AB",
-        capacities: Capacities(maximum: 50),
-        weights: BoxWeights(gross: 1, net: 1, netExplosive: 1),
-        dimensions: Dimensions(height: 1, width: 1, length: 1),
-        maxStackLevel: 2,
+        capacities: Capacities(maximum: 60),
+        weights: BoxWeights(gross: 37000, net: 14800, netExplosive: 15660),
+        dimensions: Dimensions(height: 298, width: 429, length: 479),
+        maxStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MJU7AB]!,
         type: BoxType.MJU7ABOX),
     BoxType.MK79: new Box(
@@ -83,9 +83,6 @@ class DatabaseBoxes {
         maxStackLevel: 99,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK84]!,
         type: BoxType.MK79),
-
-
-
     BoxType.MHU149: new Box(
         name: "MHU-149/E",
         capacities: Capacities(maximum: 6),
@@ -94,10 +91,6 @@ class DatabaseBoxes {
         maxStackLevel: 99,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK82]!,
         type: BoxType.MHU149),
-
-
-
-
     BoxType.M548_TPRRR: new Box(
         name: "M548 TPRRR",
         capacities: Capacities(maximum: 200),

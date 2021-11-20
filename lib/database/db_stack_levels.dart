@@ -110,5 +110,17 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 6),
     ),
+    BoxType.MJU7ABOX: StackLevel(
+      dimensions: StackDimensions(height: 144, width: 800, length: 1200),
+      weights: StackWeights(
+        net: 25000.0,
+        gross: 25000.0,
+        netExplosive: 0,
+        maxNet: 199800.0,
+        maxGross: 333000.0,
+        maxNetExplosion: 140940.0,
+      ),
+      capacities: Capacities(maximum: 540),
+    ),
   };
 }

@@ -112,7 +112,7 @@ class DatabaseAssets {
         boxType: BoxType.MJU7ABOX,
         name: "MJU-7A/B",
         materialIdentificationNumber: DatabaseUnCodes.container[93]!,
-        hexogeneEquivalent: 0.2191,
+        hexogeneEquivalent: 219.1,
         weights: Weights(gross: 370, netExplosive: 261, net: 370),
         dimensions: Dimensions(height: 205, length: 52, width: 25),
         explosionClass: ExplosionClass(
@@ -120,9 +120,6 @@ class DatabaseAssets {
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.3]!),
         combatAssetType: CombatAssetType.pyrotechnic),
-
-
-
     BattleAirAssetType.MK82: new BattleAirAsset(
         type: BattleAirAssetType.MK82,
         boxType: BoxType.MHU149,
@@ -136,11 +133,6 @@ class DatabaseAssets {
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.bomb),
-
-
-
-
-
     BattleAirAssetType.MK84: new BattleAirAsset(
         type: BattleAirAssetType.MK84,
         boxType: BoxType.MK79,
