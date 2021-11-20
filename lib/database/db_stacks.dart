@@ -16,7 +16,9 @@ class DatabaseStacks {
       DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
   static final StackLevel _m54MPLD =
   DatabaseStackLevels.container[BoxType.M548MPLD]!;
-  static final StackLevel _mk84box = DatabaseStackLevels.container[BoxType.MK84BOX]!;
+  static final StackLevel _mk79 = DatabaseStackLevels.container[BoxType.MK79]!;
+  static final StackLevel _mhu149 = DatabaseStackLevels.container[BoxType.MHU149]!;
+
   static final Map<BoxType, WarehouseStack> container = {
     BoxType.CNU431: WarehouseStack(
       maximumStackLevel: 2,
@@ -120,18 +122,33 @@ class DatabaseStacks {
               .dimensions.height // maximum stack level * stack level height
       ),
     ),
-    BoxType.MK84BOX: WarehouseStack(
+    BoxType.MK79: WarehouseStack(
       maximumStackLevel: 99,
       battleAirAssetCapacities: Capacities(maximum: 198),
-      defaultStackLevel: _mk84box,
+      defaultStackLevel: _mk79,
       weights: StackWeights(
-          maxGross: _mk84box.weights.maxGross,
-          maxNet: _mk84box.weights.maxNet,
-          maxNetExplosion: _mk84box.weights.maxNetExplosion),
+          maxGross: _mk79.weights.maxGross,
+          maxNet: _mk79.weights.maxNet,
+          maxNetExplosion: _mk79.weights.maxNetExplosion),
       dimensions: StackDimensions(
-          length: _mk84box.dimensions.length,
-          width: _mk84box.dimensions.width,
-          height: _mk84box
+          length: _mk79.dimensions.length,
+          width: _mk79.dimensions.width,
+          height: _mk79
+              .dimensions.height // maximum stack level * stack level height
+      ),
+    ),
+    BoxType.MHU149: WarehouseStack(
+      maximumStackLevel: 99,
+      battleAirAssetCapacities: Capacities(maximum: 594),
+      defaultStackLevel: _mhu149,
+      weights: StackWeights(
+          maxGross: _mhu149.weights.maxGross,
+          maxNet: _mhu149.weights.maxNet,
+          maxNetExplosion: _mhu149.weights.maxNetExplosion),
+      dimensions: StackDimensions(
+          length: _mhu149.dimensions.length,
+          width: _mhu149.dimensions.width,
+          height: _mhu149
               .dimensions.height // maximum stack level * stack level height
       ),
     ),

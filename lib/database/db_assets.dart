@@ -120,22 +120,30 @@ class DatabaseAssets {
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.3]!),
         combatAssetType: CombatAssetType.pyrotechnic),
+
+
+
     BattleAirAssetType.MK82: new BattleAirAsset(
         type: BattleAirAssetType.MK82,
         boxType: BoxType.MHU149,
         name: "MK-82",
         materialIdentificationNumber: DatabaseUnCodes.container[34]!,
-        hexogeneEquivalent: 86.99,
+        hexogeneEquivalent: 86990,
         weights: Weights(gross: 227000, netExplosive: 87000, net: 227000),
-        dimensions: Dimensions(height: 1, length: 1, width: 1),
+        dimensions: Dimensions(height: 1, length: 1575, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.bomb),
+
+
+
+
+
     BattleAirAssetType.MK84: new BattleAirAsset(
         type: BattleAirAssetType.MK84,
-        boxType: BoxType.MK84BOX,
+        boxType: BoxType.MK79,
         name: "MK-84",
         materialIdentificationNumber: DatabaseUnCodes.container[34]!,
         hexogeneEquivalent: 329400.0,

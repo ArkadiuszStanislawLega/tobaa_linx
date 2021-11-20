@@ -116,14 +116,26 @@ void main() {
   });
 
   test("Append MK84 box to stack level.", () {
-    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MK84BOX]!;
-    Box box = DatabaseBoxes.container[BoxType.MK84BOX]!;
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MK79]!;
+    Box box = DatabaseBoxes.container[BoxType.MK79]!;
 
     box.fillBox(1);
     expect(stackLevel.isBoxWillBeFit(box), true);
 
     stackLevel.tryAppendBox(box);
 
-    expect(stackLevel.weights.netExplosive, 2);
+    expect(stackLevel.weights.netExplosive, 856000);
+  });
+
+  test("Append MK82 box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MHU149]!;
+    Box box = DatabaseBoxes.container[BoxType.MHU149]!;
+
+    box.fillBox(3);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+
+    stackLevel.tryAppendBox(box);
+
+    expect(stackLevel.weights.netExplosive, 522000);
   });
 }

@@ -1,6 +1,5 @@
 part of database;
 
-
 class DatabaseStackLevels {
   static Map<BoxType, StackLevel> container = {
     BoxType.CNU431: StackLevel(
@@ -87,7 +86,7 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 1800),
     ),
-    BoxType.MK84BOX: StackLevel(
+    BoxType.MK79: StackLevel(
       dimensions: StackDimensions(height: 616, width: 965, length: 2515),
       weights: StackWeights(
         net: 44000.0,
@@ -98,6 +97,18 @@ class DatabaseStackLevels {
         maxNetExplosion: 856000.0,
       ),
       capacities: Capacities(maximum: 2),
+    ),
+    BoxType.MHU149: StackLevel(
+      dimensions: StackDimensions(height: 851, width: 902, length: 1575),
+      weights: StackWeights(
+        net: 64000.0,
+        gross: 64000.0,
+        netExplosive: 0,
+        maxNet: 1362000.0,
+        maxGross: 1426000.0,
+        maxNetExplosion: 522000.0,
+      ),
+      capacities: Capacities(maximum: 6),
     ),
   };
 }

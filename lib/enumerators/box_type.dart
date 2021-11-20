@@ -17,7 +17,6 @@ enum BoxType{
   BBU36BOX,
   M2A1,
   MJU7ABOX,
-  MK84BOX,
   M548MPLD,
   M548_TPRRR,
   CHAFF_BOX
