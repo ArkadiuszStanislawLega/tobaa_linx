@@ -87,5 +87,17 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 1800),
     ),
+    BoxType.MK84BOX: StackLevel(
+      dimensions: StackDimensions(height: 616, width: 965, length: 2515),
+      weights: StackWeights(
+        net: 44000,
+        gross: 44000,
+        netExplosive: 0,
+        maxNet: 1850000.0,
+        maxGross: 1854400.0,
+        maxNetExplosion: 85600.0,
+      ),
+      capacities: Capacities(maximum: 2),
+    ),
   };
 }

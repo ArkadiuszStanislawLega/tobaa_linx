@@ -16,6 +16,7 @@ class DatabaseStacks {
       DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
   static final StackLevel _m54MPLD =
   DatabaseStackLevels.container[BoxType.M548MPLD]!;
+  static final StackLevel _mk84box = DatabaseStackLevels.container[BoxType.MK84BOX]!;
   static final Map<BoxType, WarehouseStack> container = {
     BoxType.CNU431: WarehouseStack(
       maximumStackLevel: 2,
@@ -116,6 +117,21 @@ class DatabaseStacks {
           length: _m54MPLD.dimensions.length,
           width: _m54MPLD.dimensions.width,
           height: _m54MPLD
+              .dimensions.height // maximum stack level * stack level height
+      ),
+    ),
+    BoxType.MK84BOX: WarehouseStack(
+      maximumStackLevel: 99,
+      battleAirAssetCapacities: Capacities(maximum: 198),
+      defaultStackLevel: _mk84box,
+      weights: StackWeights(
+          maxGross: _mk84box.weights.maxGross,
+          maxNet: _mk84box.weights.maxNet,
+          maxNetExplosion: _mk84box.weights.maxNetExplosion),
+      dimensions: StackDimensions(
+          length: _mk84box.dimensions.length,
+          width: _mk84box.dimensions.width,
+          height: _mk84box
               .dimensions.height // maximum stack level * stack level height
       ),
     ),

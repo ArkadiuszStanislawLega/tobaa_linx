@@ -174,19 +174,19 @@ class DatabaseBoxes {
     BoxType.MK84BOX: new Box(
         name: "Stelaż MK84",
         capacities: Capacities(
-            maximum: 1
+            maximum: 2
         ),
         weights: BoxWeights(
-            gross: 1,
-            net: 1,
-            netExplosive: 1
+            gross: 1854400,
+            net: 44000,
+            netExplosive: 85600
         ),
         dimensions: Dimensions(
-            height: 1,
-            width: 1,
-            length: 1
+            height: 616,
+            width: 965,
+            length: 2515
         ),
-        maxStackLevel: 2,
+        maxStackLevel: 99,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK84]!,
         type: BoxType.MK84BOX
     ),
