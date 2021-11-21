@@ -9,8 +9,8 @@ class BoxNameTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChipTemplate(
       label: '${DatabaseBoxes.container[this._boxType]!.name}',
-      backgroundColor: Colors.amberAccent,
-      fontColor: Colors.black,
+      backgroundColor: Colors.blue[700]!,
+      fontColor: Colors.white,
     );
   }
 }

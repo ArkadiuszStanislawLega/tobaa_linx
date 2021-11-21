@@ -9,7 +9,7 @@ class AssetNameTemplate extends StatelessWidget{
   Widget build(BuildContext context) {
     return     ChipTemplate(
       label: this._name,
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.blue[600]!,
       fontColor: Colors.white,
     );
   }

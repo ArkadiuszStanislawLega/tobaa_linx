@@ -61,8 +61,8 @@ class DatabaseBoxes {
     BoxType.M2A1: new Box(
         name: "M2A1",
         capacities: Capacities(maximum: 50),
-        weights: BoxWeights(gross: 1, net: 1, netExplosive: 1),
-        dimensions: Dimensions(height: 1, width: 1, length: 1),
+        weights: BoxWeights(gross: 600, net: 400, netExplosive: 158.5),
+        dimensions: Dimensions(height: 191, width: 152, length: 298),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.CXU3]!,
         type: BoxType.M2A1),
@@ -109,10 +109,10 @@ class DatabaseBoxes {
         type: BoxType.M548MPLD),
     BoxType.CHAFF_BOX: new Box(
         name: "Skrzynia z RR170AL",
-        capacities: Capacities(maximum: 50),
-        weights: BoxWeights(gross: 1, net: 1, netExplosive: 1),
-        dimensions: Dimensions(height: 1, width: 1, length: 1),
-        maxStackLevel: 2,
+        capacities: Capacities(maximum: 120),
+        weights: BoxWeights(gross: 16800, net: 1000, netExplosive:43.544856),
+        dimensions: Dimensions(height: 265, width: 410, length: 350),
+        maxStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.RR170AL]!,
         type: BoxType.CHAFF_BOX),
   };

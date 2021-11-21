@@ -93,14 +93,14 @@ class DatabaseAssets {
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
-    //TODO: Sprawdzić wagę cxu
+    //TODO: Sprawdzić wagę cxu 0.0032
     BattleAirAssetType.CXU3: new BattleAirAsset(
         type: BattleAirAssetType.CXU3,
         boxType: BoxType.M2A1,
         name: "CXU-3A/B",
         materialIdentificationNumber: DatabaseUnCodes.container[197]!,
         hexogeneEquivalent: 0.0017,
-        weights: Weights(gross: 4, netExplosive: 0.0032, net: 4),
+        weights: Weights(gross: 4, netExplosive: 3.17, net: 4),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
             compatibilityGroup:
@@ -178,11 +178,24 @@ class DatabaseAssets {
         name: "RR-170A/AL",
         materialIdentificationNumber: MaterialIdentificationNumber.empty(),
         hexogeneEquivalent: 0,
-        weights: Weights(gross: 140, netExplosive: 0, net: 140),
-        dimensions: Dimensions(height: 1, length: 1, width: 1),
+        weights: Weights(gross: 140, netExplosive: 0.362873896, net: 140),
+        dimensions: Dimensions(height: 205, length: 0, width: 25),
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
+        combatAssetType: CombatAssetType.pyrotechnic),
+    BattleAirAssetType.MK4MOD3: new BattleAirAsset(
+        type: BattleAirAssetType.MK4MOD3,
+        boxType: BoxType.M2A1,
+        name: "MK4MOD3",
+        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+        hexogeneEquivalent: 0,
+        weights: Weights(gross: 140, netExplosive: 281, net: 140),
+        dimensions: Dimensions(height: 205, length: 0, width: 25),
+        explosionClass: ExplosionClass(
+            compatibilityGroup:
+            DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
   };
