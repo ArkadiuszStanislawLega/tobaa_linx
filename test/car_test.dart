@@ -158,15 +158,65 @@ void main() {
   });
 
   test('Change weight limit', () {
+    const double NOT_LIMITED = -1;
+    const double DIFFERENT14S_WEIGHT_LIMIT = 15000000.0;
+    const double ONE_POINT_TREE_WEIGHT_LIMIT = 5000000.0;
+    const double ONE_POINT_TWO_WEIGHT_LIMIT = 3000000.0;
+    const double DIFFERENT_11S_WEIGHT_LIMIT = 1000000.0;
+
     Car car = DatabaseCars.container[CarType.euro_cargo]!;
     car.explosionClass = ExplosionClass(
         explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!,
         compatibilityGroup:
             DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!);
-    expect(car.explosionClass.weightLimit, -1);
+    expect(car.explosionClass.weightLimit, NOT_LIMITED);
 
     car.explosionClass.compatibilityGroup =
         DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!;
-    expect(car.explosionClass.weightLimit, 15000000.0);
+    expect(car.explosionClass.weightLimit, DIFFERENT14S_WEIGHT_LIMIT);
+
+    car.explosionClass.explosionSubclass = DatabaseExplosionSubclasses.container[1.3]!;
+    expect(car.explosionClass.weightLimit, ONE_POINT_TREE_WEIGHT_LIMIT);
+
+    car.explosionClass.explosionSubclass = DatabaseExplosionSubclasses.container[1.2]!;
+    expect(car.explosionClass.weightLimit, ONE_POINT_TWO_WEIGHT_LIMIT);
+
+    car.explosionClass.explosionSubclass = DatabaseExplosionSubclasses.container[1.1]!;
+    expect(car.explosionClass.weightLimit, DIFFERENT_11S_WEIGHT_LIMIT);
+  });
+
+  test('Change weight limit after add package', () {
+    const double DIFFERENT14S_WEIGHT_LIMIT = 15000000.0;
+    const double ONE_POINT_TREE_WEIGHT_LIMIT = 5000000.0;
+    const double ONE_POINT_TWO_WEIGHT_LIMIT = 3000000.0;
+    const double DIFFERENT_11S_WEIGHT_LIMIT = 1000000.0;
+
+    Car car = DatabaseCars.container[CarType.euro_cargo]!;
+    var tprrr = DatabaseBoxes.container[BoxType.M548_TPRRR]!;
+    tprrr.fillBox(200);
+
+    car.addBox(tprrr);
+    // Najwiekszy limit z innego niz 1.4S czyli 15000000
+    expect(car.explosionClass.weightLimit, DIFFERENT14S_WEIGHT_LIMIT);
+
+    var mju7a = DatabaseBoxes.container[BoxType.MJU7ABOX]!;
+    mju7a.fillBox(60);
+    //Dodaje inną klase która ma mniejszy limit 5000000
+    car.addBox(mju7a);
+    expect(car.explosionClass.weightLimit, ONE_POINT_TREE_WEIGHT_LIMIT);
+    //Dodaje z większym limitem i ma pozostać stary limit: 5000000
+    car.addBox(tprrr);
+    expect(car.explosionClass.weightLimit, ONE_POINT_TREE_WEIGHT_LIMIT);
+
+    var aim120 = DatabaseBoxes.container[BoxType.CNU431]!;
+    aim120.fillBox(4);
+    //Dodaje inną klase która ma mniejszy limit 3000000
+    car.addBox(aim120);
+    expect(car.explosionClass.weightLimit, ONE_POINT_TWO_WEIGHT_LIMIT);
+
+    var mk82 = DatabaseBoxes.container[BoxType.MHU149]!;
+    mk82.fillBox(6);
+    car.addBox(mk82);
+    expect(car.explosionClass.weightLimit, DIFFERENT_11S_WEIGHT_LIMIT);
   });
 }
