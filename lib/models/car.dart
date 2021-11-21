@@ -30,7 +30,7 @@ class Car {
     required this.weightOfLoadingArea,
     required this.dimensionOfLoadingArea,
     required this.stacks,
-    required this.type
+    required this.type,
   }){
     this._explosionClass = new ExplosionClass(
       compatibilityGroup: CompatibilityGroup(),

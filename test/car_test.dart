@@ -156,4 +156,17 @@ void main() {
 
     expect(car.capacity(), 8);
   });
+
+  test('Change weight limit', () {
+    Car car = DatabaseCars.container[CarType.euro_cargo]!;
+    car.explosionClass = ExplosionClass(
+        explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!,
+        compatibilityGroup:
+            DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!);
+    expect(car.explosionClass.weightLimit, -1);
+
+    car.explosionClass.compatibilityGroup =
+        DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!;
+    expect(car.explosionClass.weightLimit, 15000000.0);
+  });
 }
