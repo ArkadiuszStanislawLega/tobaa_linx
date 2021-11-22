@@ -54,7 +54,7 @@ class CarDetailView extends StatelessWidget {
                 PropertyGameTemplate(
                   name: Strings.PERMISSIBLE_NEW,
                   value:
-                      '${massConverter(car.weightOfLoadingArea.maximumNetExplosive)}',
+                      '${massConverter(car.explosionClass.weightLimit)}',
                   background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(

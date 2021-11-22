@@ -52,9 +52,9 @@ class DatabaseBoxes {
         type: BoxType.BBU35BOX),
     BoxType.BBU36BOX: new Box(
         name: "Karton z BB36",
-        capacities: Capacities(maximum: 4),
-        weights: BoxWeights(gross: 1, net: 1, netExplosive: 1),
-        dimensions: Dimensions(height: 1, width: 1, length: 1),
+        capacities: Capacities(maximum: 2160),
+        weights: BoxWeights(gross: 41277, net: 19861, netExplosive: 1955),
+        dimensions: Dimensions(height: 300, width: 400, length: 600),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.BBU36]!,
         type: BoxType.BBU36BOX),
@@ -69,7 +69,7 @@ class DatabaseBoxes {
     BoxType.MJU7ABOX: new Box(
         name: "Skrzynia z MJU7AB",
         capacities: Capacities(maximum: 60),
-        weights: BoxWeights(gross: 37000, net: 14800, netExplosive: 15660),
+        weights: BoxWeights(gross: 37000, net: 14800, netExplosive: 17700),
         dimensions: Dimensions(height: 298, width: 429, length: 479),
         maxStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MJU7AB]!,

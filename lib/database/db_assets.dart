@@ -113,7 +113,7 @@ class DatabaseAssets {
         name: "MJU-7A/B",
         materialIdentificationNumber: DatabaseUnCodes.container[93]!,
         hexogeneEquivalent: 219.1,
-        weights: Weights(gross: 370, netExplosive: 261, net: 370),
+        weights: Weights(gross: 370, netExplosive: 295, net: 370),
         dimensions: Dimensions(height: 205, length: 52, width: 25),
         explosionClass: ExplosionClass(
             compatibilityGroup:
