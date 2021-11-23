@@ -10,8 +10,7 @@ class DatabaseBoxes {
         maxStackLevel: 1,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
         type: BoxType.CNU672,
-        coordinates: Coordinates()
-    ),
+        coordinates: Coordinates()),
     BoxType.CNU614: new Box(
         name: "CNU-614",
         capacities: Capacities(maximum: 1),
@@ -88,7 +87,7 @@ class DatabaseBoxes {
         name: "MK-79",
         capacities: Capacities(maximum: 2),
         weights:
-            BoxWeights(gross: 1854400.0, net: 44000.0, netExplosive: 856000.0),
+            BoxWeights(gross: 1894000.0, net: 44000.0, netExplosive: 856000.0),
         dimensions: Dimensions(height: 616, width: 965, length: 2515),
         maxStackLevel: 99,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK84]!,
@@ -97,7 +96,8 @@ class DatabaseBoxes {
     BoxType.MHU149: new Box(
         name: "MHU-149/E",
         capacities: Capacities(maximum: 6),
-        weights: BoxWeights(gross: 1426000.0, net: 64000.0, netExplosive: 522000.0),
+        weights:
+            BoxWeights(gross: 1426000.0, net: 64000.0, netExplosive: 522000.0),
         dimensions: Dimensions(height: 851, width: 902, length: 1575),
         maxStackLevel: 99,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK82]!,
@@ -124,7 +124,7 @@ class DatabaseBoxes {
     BoxType.CHAFF_BOX: new Box(
         name: "Skrzynia z RR170AL",
         capacities: Capacities(maximum: 120),
-        weights: BoxWeights(gross: 16800, net: 1000, netExplosive:43.544856),
+        weights: BoxWeights(gross: 16800, net: 1000, netExplosive: 43.544856),
         dimensions: Dimensions(height: 265, width: 410, length: 350),
         maxStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.RR170AL]!,

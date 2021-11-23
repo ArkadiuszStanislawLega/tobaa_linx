@@ -133,6 +133,14 @@ class DatabaseAssets {
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.bomb),
+
+
+
+
+
+
+
+
     BattleAirAssetType.MK84: new BattleAirAsset(
         type: BattleAirAssetType.MK84,
         boxType: BoxType.MK79,
@@ -146,6 +154,15 @@ class DatabaseAssets {
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.bomb),
+
+
+
+
+
+
+
+
+
     BattleAirAssetType.MPLD: new BattleAirAsset(
         type: BattleAirAssetType.MPLD,
         boxType: BoxType.M548MPLD,

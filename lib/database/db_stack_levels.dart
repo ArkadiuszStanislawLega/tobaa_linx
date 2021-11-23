@@ -69,7 +69,7 @@ class DatabaseStackLevels {
       dimensions: StackDimensions(height: 616, width: 965, length: 2515),
       weights: StackWeights(
         maxNet: 1850000.0,
-        maxGross: 1854400.0,
+        maxGross: 1894000.0,
         maxNetExplosion: 856000.0,
       ),
       capacities: Capacities(maximum: 2),
