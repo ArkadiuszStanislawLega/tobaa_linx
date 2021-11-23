@@ -49,6 +49,4 @@ class StackLevel {
     bool isDimensionsFit = this.dimensions.isWillBeFit(box.dimensions);
     return isCapacityFit && isWeightFit && isDimensionsFit;
   }
-
-
 }

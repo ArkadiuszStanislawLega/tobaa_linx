@@ -1,36 +1,23 @@
 part of models;
 
-class StackDimensions extends Dimensions{
-  late Dimensions _occupied;
+class StackDimensions extends Dimensions {
+  int _occupiedCapacity = 0;
 
-  StackDimensions({
-    int height = 0,
-    int width= 0,
-    int length= 0
-  }) : super(height: height, width: width, length: length){
-    this._initial();
-  }
+  StackDimensions({int height = 0, int width = 0, int length = 0})
+      : super(height: height, width: width, length: length);
 
-  Dimensions get occupied => _occupied;
-
-  void _initial(){
-    this._occupied = new Dimensions();
-  }
+  int get occupied => _occupiedCapacity;
 
   bool isWillBeFit(Dimensions dimensions) {
-    var dimensionAddedToCurrentOccupiedWidth = this._occupied.width +
-        dimensions.width;
-    var capacityWithAddedDimension = dimensions.length * dimensions.height *
-        dimensionAddedToCurrentOccupiedWidth;
-    return capacityWithAddedDimension <= this.capacity;
+    var fitWidth = this.width >= dimensions.width;
+    var fitLength = this.length >= dimensions.length;
+    var fitCapacity = this._occupiedCapacity + dimensions.capacity <= this.capacity;
+    return fitWidth && fitLength && fitCapacity;
   }
 
-  void append(Dimensions dimensions){
+  void append(Dimensions dimensions) {
     if (this.isWillBeFit(dimensions)) {
-      this._occupied.length = dimensions.length;
-      this._occupied.height = dimensions.height;
-      this._occupied.width += dimensions.width;
+      this._occupiedCapacity += dimensions.capacity;
     }
   }
-
 }
