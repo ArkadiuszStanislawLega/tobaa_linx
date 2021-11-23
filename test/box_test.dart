@@ -30,7 +30,8 @@ void main() {
         dimensions: Dimensions(height: 3, width: 1, length: 10),
         maxStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test,
+    coordinates: Coordinates());
     expect(box.name, BOX_NAME);
     expect(box.maxStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
   });
@@ -43,7 +44,7 @@ void main() {
         dimensions: Dimensions(height: 3, width: 1, length: 10),
         maxStackLevel: 0,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test, coordinates: Coordinates());
     expect(box.name, BOX_NAME);
     expect(box.maxStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
   });
@@ -56,7 +57,7 @@ void main() {
         dimensions: Dimensions(height: 3, width: 1, length: 10),
         maxStackLevel: -1,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test, coordinates: Coordinates());
     expect(box.name, BOX_NAME);
     expect(box.maxStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
   });
@@ -69,7 +70,7 @@ void main() {
         dimensions: Dimensions(height: 3, width: 1, length: 10),
         maxStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test, coordinates: Coordinates());
     box.dimensions = new Dimensions(height: 1, width: 1, length: 1);
     expect(box.dimensions.capacity, 1);
 
@@ -106,7 +107,8 @@ void main() {
         dimensions: Dimensions(height: 3, width: 1, length: 10),
         maxStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test,
+        coordinates: Coordinates());
 
     box.fillToMaximum();
 
@@ -152,7 +154,8 @@ void main() {
         dimensions: Dimensions(height: 3, width: 1, length: 10),
         maxStackLevel: BOX_MAX_STACK_LEVEL,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test,
+        coordinates: Coordinates());
 
     var fillBoxOneBaa = 1;
     var currentGrossWhenIncreaseOneBaa = 2.0;

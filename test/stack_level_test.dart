@@ -32,26 +32,27 @@ void main() {
         dimensions: Dimensions(height: 1, width: 1, length: 5),
         maxStackLevel: 2,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test,
+        coordinates: Coordinates());
     box.fillToMaximum();
 
     expect(stackLevel.isBoxWillBeFit(box), true);
 
-    stackLevel.tryAppendBox(box);
+    stackLevel.appendBox(box);
     expect(stackLevel.capacities.current, 10);
     expect(stackLevel.weights.net, 10);
     expect(stackLevel.dimensions.occupied, 5);
     expect(stackLevel.weights.netExplosive, 5);
     expect(stackLevel.weights.gross, 11);
 
-    stackLevel.tryAppendBox(box);
+    stackLevel.appendBox(box);
     expect(stackLevel.capacities.current, 20);
     expect(stackLevel.weights.net, 20);
     expect(stackLevel.dimensions.occupied, 10);
     expect(stackLevel.weights.netExplosive, 10);
     expect(stackLevel.weights.gross, 22);
 
-    stackLevel.tryAppendBox(box);
+    stackLevel.appendBox(box);
     expect(stackLevel.capacities.current, 30);
     expect(stackLevel.weights.net, 30);
     expect(stackLevel.dimensions.occupied, 15);
@@ -89,11 +90,14 @@ void main() {
         dimensions: Dimensions(height: 1, width: 1, length: 5),
         maxStackLevel: 2,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test,
+        coordinates: Coordinates());
     box.fillToMaximum();
 
     List<Box> boxes = [box, box, box];
-    stackLevel.tryAppendBoxes(boxes);
+    boxes.forEach((box) {
+      stackLevel.appendBox(box);
+    });
 
     expect(stackLevel.capacities.current, 30);
     expect(stackLevel.dimensions.occupied, 15);
@@ -103,41 +107,43 @@ void main() {
     expect(stackLevel.isBoxWillBeFit(box), false);
   });
 
-  // test("Append TPRRR box to stack level.", () {
-  //   StackLevel stackLevel = DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
-  //   Box box = DatabaseBoxes.container[BoxType.M548_TPRRR]!;
-  //
-  //   box.fillBox(100);
-  //   expect(stackLevel.isBoxWillBeFit(box), true);
-  //
-  //   stackLevel.tryAppendBox(box);
-  //
-  //   expect(stackLevel.weights.netExplosive, 3900);
-  // });
-  //
-  // test("Append MK84 box to stack level.", () {
-  //   StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MK79]!;
-  //   Box box = DatabaseBoxes.container[BoxType.MK79]!;
-  //
-  //   box.fillBox(1);
-  //   expect(stackLevel.isBoxWillBeFit(box), true);
-  //
-  //   stackLevel.tryAppendBox(box);
-  //
-  //   expect(stackLevel.weights.netExplosive, 856000);
-  // });
+  test("Append TPRRR box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
+    Box box = DatabaseBoxes.container[BoxType.M548_TPRRR]!;
 
-  // test("Append MK82 box to stack level.", () {
-  //   StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MHU149]!;
-  //   Box box = DatabaseBoxes.container[BoxType.MHU149]!;
-  //
-  //   box.fillBox(3);
-  //   expect(stackLevel.isBoxWillBeFit(box), true);
-  //
-  //   stackLevel.tryAppendBox(box);
-  //
-  //   expect(stackLevel.weights.netExplosive, 522000);
-  // });
+    box.fillBox(100);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+
+    stackLevel.appendBox(box);
+
+    expect(stackLevel.weights.netExplosive, 3900);
+  });
+
+  test("Append MK84 box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MK79]!;
+    Box box = DatabaseBoxes.container[BoxType.MK79]!;
+
+    box.fillBox(1);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+
+    stackLevel.appendBox(box);
+    stackLevel.appendBox(box);
+    expect(stackLevel.weights.netExplosive, 856000);
+  });
+
+  test("Append MK82 box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MHU149]!;
+    Box box = DatabaseBoxes.container[BoxType.MHU149]!;
+
+    box.fillBox(6);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+
+    stackLevel.appendBox(box);
+    expect(stackLevel.capacities.current, 6);
+    expect(stackLevel.weights.net, 1362000);
+    expect(stackLevel.weights.gross, 1426000);
+    expect(stackLevel.weights.netExplosive, 522000);
+  });
 
   test("Append MJU7A/B box to stack level.", () {
     StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MJU7ABOX]!;
@@ -145,8 +151,9 @@ void main() {
 
     box.fillBox(60);
     expect(stackLevel.isBoxWillBeFit(box), true);
-    for(int i = 0; i < 18; i++)
-      stackLevel.tryAppendBox(box);
+    for (int i = 0; i <= 17; i++) {
+      if (stackLevel.isBoxWillBeFit(box)) stackLevel.appendBox(box);
+    }
 
     expect(stackLevel.capacities.current, 1080);
   });

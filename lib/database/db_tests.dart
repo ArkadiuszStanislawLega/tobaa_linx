@@ -78,6 +78,7 @@ class DatabaseTests {
       dimensions: Dimensions(width: 11, length: 7, height: 2),
       weights: BoxWeights(gross: 11, net: 1, netExplosive: 5),
       battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
+        coordinates: Coordinates()
     ),
     BoxType.oversizeTest: Box(
         type: BoxType.oversizeTest,
@@ -86,7 +87,8 @@ class DatabaseTests {
         dimensions: Dimensions(width: 7, length: 7, height: 7),
         weights: BoxWeights(gross: 2.0, net: 1.0, netExplosive: 0.5),
         battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
-        maxStackLevel: 2),
+        maxStackLevel: 2,
+        coordinates: Coordinates()),
     BoxType.correctSizeTest: Box(
         type: BoxType.correctSizeTest,
         name: "Box with new Baa",
@@ -94,7 +96,8 @@ class DatabaseTests {
         dimensions: Dimensions(width: 1, length: 5, height: 10),
         weights: BoxWeights(gross: 2.0, net: 1.0, netExplosive: 0.5),
         battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
-        maxStackLevel: 2),
+        maxStackLevel: 2,
+        coordinates: Coordinates()),
     BoxType.heavyTest: Box(
         type: BoxType.heavyTest,
         name: "Box with new Baa",
@@ -102,7 +105,8 @@ class DatabaseTests {
         dimensions: Dimensions(width: 1, length: 5, height: 1),
         weights: BoxWeights(gross: 1500001, net: 1500000, netExplosive: 0.5),
         battleAirAsset: assetsContainer[BattleAirAssetType.test]!,
-        maxStackLevel: 2),
+        maxStackLevel: 2,
+        coordinates: Coordinates()),
   };
   static Map<BoxType, StackLevel> stackLevelContainer = {
     BoxType.test: StackLevel(

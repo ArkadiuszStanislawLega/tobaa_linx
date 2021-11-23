@@ -9,7 +9,9 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 787, width: 794, length: 4600),
         maxStackLevel: 1,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
-        type: BoxType.CNU672),
+        type: BoxType.CNU672,
+        coordinates: Coordinates()
+    ),
     BoxType.CNU614: new Box(
         name: "CNU-614",
         capacities: Capacities(maximum: 1),
@@ -17,7 +19,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 940, width: 990, length: 4572),
         maxStackLevel: 1,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM158]!,
-        type: BoxType.CNU614),
+        type: BoxType.CNU614,
+        coordinates: Coordinates()),
     BoxType.CNU445: new Box(
         name: "CNU-445",
         capacities: Capacities(maximum: 1),
@@ -25,7 +28,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(width: 1016, length: 2743, height: 762),
         maxStackLevel: 1,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM65G]!,
-        type: BoxType.CNU445),
+        type: BoxType.CNU445,
+        coordinates: Coordinates()),
     BoxType.CNU431: new Box(
         name: "CNU-431",
         capacities: Capacities(maximum: 4),
@@ -33,7 +37,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 480, width: 968, length: 4416),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
-        type: BoxType.CNU431),
+        type: BoxType.CNU431,
+        coordinates: Coordinates()),
     BoxType.CNU609: new Box(
         name: "CNU-609",
         capacities: Capacities(maximum: 4),
@@ -41,7 +46,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 584, width: 1067, length: 3505),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM9x]!,
-        type: BoxType.CNU609),
+        type: BoxType.CNU609,
+        coordinates: Coordinates()),
     BoxType.BBU35BOX: new Box(
         name: "Karton z BBU35",
         capacities: Capacities(maximum: 4),
@@ -49,7 +55,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 1, width: 1, length: 1),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.BBU35]!,
-        type: BoxType.BBU35BOX),
+        type: BoxType.BBU35BOX,
+        coordinates: Coordinates()),
     BoxType.BBU36BOX: new Box(
         name: "Karton z BB36",
         capacities: Capacities(maximum: 2160),
@@ -57,7 +64,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 300, width: 400, length: 600),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.BBU36]!,
-        type: BoxType.BBU36BOX),
+        type: BoxType.BBU36BOX,
+        coordinates: Coordinates()),
     BoxType.M2A1: new Box(
         name: "M2A1",
         capacities: Capacities(maximum: 50),
@@ -65,7 +73,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 191, width: 152, length: 298),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.CXU3]!,
-        type: BoxType.M2A1),
+        type: BoxType.M2A1,
+        coordinates: Coordinates()),
     BoxType.MJU7ABOX: new Box(
         name: "Skrzynia z MJU7AB",
         capacities: Capacities(maximum: 60),
@@ -73,7 +82,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 298, width: 429, length: 479),
         maxStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MJU7AB]!,
-        type: BoxType.MJU7ABOX),
+        type: BoxType.MJU7ABOX,
+        coordinates: Coordinates()),
     BoxType.MK79: new Box(
         name: "MK-79",
         capacities: Capacities(maximum: 2),
@@ -82,7 +92,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 616, width: 965, length: 2515),
         maxStackLevel: 99,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK84]!,
-        type: BoxType.MK79),
+        type: BoxType.MK79,
+        coordinates: Coordinates()),
     BoxType.MHU149: new Box(
         name: "MHU-149/E",
         capacities: Capacities(maximum: 6),
@@ -90,7 +101,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 851, width: 902, length: 1575),
         maxStackLevel: 99,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MK82]!,
-        type: BoxType.MHU149),
+        type: BoxType.MHU149,
+        coordinates: Coordinates()),
     BoxType.M548_TPRRR: new Box(
         name: "M548 TPRRR",
         capacities: Capacities(maximum: 200),
@@ -98,7 +110,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 380, width: 211, length: 475),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.TPRRR]!,
-        type: BoxType.M548_TPRRR),
+        type: BoxType.M548_TPRRR,
+        coordinates: Coordinates()),
     BoxType.M548MPLD: new Box(
         name: "M548 MPLD",
         capacities: Capacities(maximum: 200),
@@ -106,7 +119,8 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 380, width: 211, length: 475),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MPLD]!,
-        type: BoxType.M548MPLD),
+        type: BoxType.M548MPLD,
+        coordinates: Coordinates()),
     BoxType.CHAFF_BOX: new Box(
         name: "Skrzynia z RR170AL",
         capacities: Capacities(maximum: 120),
@@ -114,6 +128,7 @@ class DatabaseBoxes {
         dimensions: Dimensions(height: 265, width: 410, length: 350),
         maxStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.RR170AL]!,
-        type: BoxType.CHAFF_BOX),
+        type: BoxType.CHAFF_BOX,
+        coordinates: Coordinates()),
   };
 }

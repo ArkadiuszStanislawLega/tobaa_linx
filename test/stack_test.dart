@@ -74,7 +74,8 @@ void main() {
         dimensions: Dimensions(height: 1, width: 1, length: 5),
         maxStackLevel: 2,
         battleAirAsset: baa,
-        type: BoxType.None);
+        type: BoxType.None,
+        coordinates: Coordinates());
     box.fillToMaximum();
 
     WarehouseStack stack = new WarehouseStack(

@@ -105,7 +105,8 @@ void main() {
         dimensions: Dimensions(height: 480, width: 968, length: 4416),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
-        type: BoxType.CNU431);
+        type: BoxType.CNU431,
+        coordinates: Coordinates());
 
     Box box2 = new Box(
         name: "CNU-431",
@@ -114,7 +115,8 @@ void main() {
         dimensions: Dimensions(height: 480, width: 968, length: 4416),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
-        type: BoxType.CNU431);
+        type: BoxType.CNU431,
+        coordinates: Coordinates());
 
     box.capacities.fillToMaximum();
     box2.capacities.tryIncreaseCurrent(3);
@@ -144,7 +146,8 @@ void main() {
         dimensions: Dimensions(height: 480, width: 968, length: 4416),
         maxStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
-        type: BoxType.CNU431);
+        type: BoxType.CNU431,
+        coordinates: Coordinates());
 
     box.capacities.fillToMaximum();
 

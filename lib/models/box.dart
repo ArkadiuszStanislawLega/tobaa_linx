@@ -9,6 +9,7 @@ class Box {
   late BoxWeights weights;
   late Capacities capacities;
   late BattleAirAsset battleAirAsset;
+  late Coordinates coordinates;
 
   late BoxType type;
 
@@ -25,6 +26,7 @@ class Box {
     this.battleAirAsset = BattleAirAsset.empty();
     this.type = BoxType.None;
     this.maxStackLevel = maxStackLevel;
+    this.coordinates = Coordinates();
   }
 
   void _copyValuesFromDB(BoxType boxType){
@@ -58,7 +60,8 @@ class Box {
       required this.weights,
       required this.capacities,
       required this.battleAirAsset,
-      required this.type}) {
+      required this.type,
+      required this.coordinates}) {
     this.maxStackLevel = maxStackLevel;
   }
 

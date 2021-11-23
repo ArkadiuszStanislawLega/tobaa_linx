@@ -32,7 +32,8 @@ void main() {
         dimensions: Dimensions(height: 1, width: 1, length: 5),
         maxStackLevel: 2,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test,
+        coordinates: Coordinates());
 
     b1.fillBox(9);
 
@@ -43,7 +44,8 @@ void main() {
         dimensions: Dimensions(height: 1, width: 1, length: 5),
         maxStackLevel: 2,
         battleAirAsset: baa,
-        type: BoxType.test);
+        type: BoxType.test,
+        coordinates: Coordinates());
 
     b2.fillBox(9);
 

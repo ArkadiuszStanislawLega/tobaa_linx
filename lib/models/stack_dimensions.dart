@@ -11,13 +11,13 @@ class StackDimensions extends Dimensions {
   bool isWillBeFit(Dimensions dimensions) {
     var fitWidth = this.width >= dimensions.width;
     var fitLength = this.length >= dimensions.length;
-    var fitCapacity = this._occupiedCapacity + dimensions.capacity <= this.capacity;
+    var updateCapacity = this._occupiedCapacity+dimensions.capacity;
+    var capacityCurrent = this.capacity;
+    var fitCapacity = updateCapacity <= capacityCurrent;
     return fitWidth && fitLength && fitCapacity;
   }
 
   void append(Dimensions dimensions) {
-    if (this.isWillBeFit(dimensions)) {
-      this._occupiedCapacity += dimensions.capacity;
-    }
+    this._occupiedCapacity += dimensions.capacity;
   }
 }

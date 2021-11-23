@@ -7,7 +7,6 @@ void main() {
   const double CORRECT_VALUE = 0.3;
 
   const double EQUAL_ZERO = 0;
-  const double BELOW_ZERO = -0.1;
 
   test("Constructor", () {
     BoxWeights weights = new BoxWeights();

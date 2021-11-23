@@ -21,8 +21,6 @@ class Transport {
   late double _grossWeightOfNewBoxes;
   late double _netExplosiveWeightOfNewPackages;
 
-  static Map<CarType, LoadingAreaWeights> _carWeightLimits = {};
-
   int capacity() {
     int value = 0;
     this._cars.forEach((element) {
@@ -177,7 +175,8 @@ class Transport {
             length: modelBox.dimensions.length),
         maxStackLevel: modelBox.maxStackLevel,
         battleAirAsset: modelBox.battleAirAsset,
-        type: modelBox.type);
+        type: modelBox.type,
+    coordinates: modelBox.coordinates);
   }
 
   void _fillBox() {

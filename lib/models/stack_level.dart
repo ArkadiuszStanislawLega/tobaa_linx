@@ -6,7 +6,7 @@ class StackLevel {
   late Capacities capacities;
   late List<Box> boxes;
 
-  StackLevel.empty(){
+  StackLevel.empty() {
     this.dimensions = StackDimensions();
     this.weights = StackWeights();
     this.capacities = Capacities();
@@ -21,30 +21,17 @@ class StackLevel {
     this.boxes = [];
   }
 
-  List<Box> tryAppendBoxes(List<Box> boxes) {
-    List<Box> notFitBoxes = [];
-    for (int i = 0; i < boxes.length; i++) {
-      if (!this.tryAppendBox(boxes[i])) {
-        notFitBoxes.add(boxes[i]);
-      }
-    }
-    return notFitBoxes;
-  }
-
-  bool tryAppendBox(Box box) {
-    if (this.isBoxWillBeFit(box)) {
-      this.capacities.tryIncreaseCurrent(box.capacities.current);
-      this.weights.addBoxWeights(box);
-      this.dimensions.append(box.dimensions);
-      this.boxes.add(box);
-      return true;
-    }
-    return false;
+  void appendBox(Box box) {
+    this.capacities.tryIncreaseCurrent(box.capacities.current);
+    this.weights.addBoxWeights(box);
+    this.dimensions.append(box.dimensions);
+    this.boxes.add(box);
   }
 
   bool isBoxWillBeFit(Box box) {
-    bool isCapacityFit = this.capacities.isValueMeetsTheConditionsToIncrease(
-        box.capacities.current);
+    bool isCapacityFit = this
+        .capacities
+        .isValueMeetsTheConditionsToIncrease(box.capacities.current);
     bool isWeightFit = this.weights.isBoxMeetsConditionsToBeAdd(box);
     bool isDimensionsFit = this.dimensions.isWillBeFit(box.dimensions);
     return isCapacityFit && isWeightFit && isDimensionsFit;

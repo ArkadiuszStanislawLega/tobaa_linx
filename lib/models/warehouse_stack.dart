@@ -177,22 +177,22 @@ class WarehouseStack {
     return value;
   }
 
-  void _addBoxToStack() {
-    for (int i = 0; i < this.levels.length; i++) {
-      if (this._isBoxAddedToStack(i)) {
-        this._increaseStackProperties(i);
-      }
-    }
+  bool _isBoxCanBeAddToStackLevel(StackLevel stackLevel){
+    return stackLevel.isBoxWillBeFit(this._currentBox);
   }
 
-  bool _isBoxAddedToStack(int index) {
-    return this.levels[index].tryAppendBox(this._currentBox);
+  void _addBoxToStack(){
+    this.levels.forEach((stackLevel) {
+      if(this._isBoxCanBeAddToStackLevel(stackLevel))
+        stackLevel.appendBox(this._currentBox);
+        this._increaseStackProperties(stackLevel);
+    });
   }
 
-  void _increaseStackProperties(int index) {
+  void _increaseStackProperties(StackLevel stackLevel) {
     this._increaseCapacities();
     this._increaseWeights();
-    this._increaseDimensions(index);
+    this._increaseDimensions(stackLevel);
   }
 
   void _increaseCapacities() {
@@ -201,19 +201,20 @@ class WarehouseStack {
         .tryIncreaseCurrent(this._currentBox.capacities.current);
   }
 
-  void _increaseDimensions(int index) {
-    if (this.levels[index].dimensions.length >= this.dimensions.length)
-      this.dimensions.length = this.levels[index].dimensions.length;
+  void _increaseDimensions(StackLevel stackLevel) {
+    if (stackLevel.dimensions.length >= this.dimensions.length)
+      this.dimensions.length = stackLevel.dimensions.length;
 
-    if (this.levels[index].dimensions.width >= this.dimensions.width)
-      this.dimensions.width = this.levels[index].dimensions.width;
+    if (stackLevel.dimensions.width >= this.dimensions.width)
+      this.dimensions.width = stackLevel.dimensions.width;
 
-    if (index == 0)
-      this.dimensions.height = this.levels[index].dimensions.height;
 
-    if (index > 0)
+    if (this.levels.length == 0)
+      this.dimensions.height = stackLevel.dimensions.height;
+
+    if (this.levels.length > 0)
       this.dimensions.height =
-          this.currentStackLevel * this.levels[index].dimensions.height;
+          this.currentStackLevel * stackLevel.dimensions.height;
   }
 
   void _increaseWeights() {
