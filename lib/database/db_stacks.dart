@@ -154,7 +154,7 @@ class DatabaseStacks {
     ),
     BoxType.MJU7ABOX: WarehouseStack(
       maximumStackLevel: 1,
-      battleAirAssetCapacities: Capacities(maximum: 540),
+      battleAirAssetCapacities: Capacities(maximum: 1080),
       defaultStackLevel: _mju7ab,
       weights: StackWeights(
           maxGross: _mju7ab.weights.maxGross,
@@ -163,7 +163,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _mju7ab.dimensions.length,
           width: _mju7ab.dimensions.width,
-          height: 3* _mju7ab
+          height: 3 * _mju7ab
               .dimensions.height // maximum stack level * stack level height
       ),
     ),

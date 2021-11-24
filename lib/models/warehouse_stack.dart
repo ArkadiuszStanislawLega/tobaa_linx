@@ -198,8 +198,7 @@ class WarehouseStack {
   }
 
   void _increaseCapacities() {
-    this
-        .battleAirAssetCapacities
+    this.battleAirAssetCapacities
         .tryIncreaseCurrent(this._currentBox.capacities.current);
   }
 
