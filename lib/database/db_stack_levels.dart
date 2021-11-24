@@ -23,17 +23,18 @@ class DatabaseStackLevels {
     BoxType.CNU445: StackLevel(
       dimensions: StackDimensions(height: 762, width: 1016, length: 2743),
       weights: StackWeights(
-        maxNet: 197313.0,
+        maxNet: 306100.0,
         maxGross: 503413.0,
         maxNetExplosion: 65500.0,
       ),
       capacities: Capacities(maximum: 1),
     ),
+    //TODO: DOWIEDZIEĆ SIĘ JAKA WAGA KONTENERA JEST I WTEDY POPRAWIC MAXGROSS
     BoxType.CNU614: StackLevel(
       dimensions: StackDimensions(height: 940, width: 990, length: 4572),
       weights: StackWeights(
-        maxNet: 197313.0,
-        maxGross: 1172513.0,
+        maxNet: 497000.0,
+        maxGross: 497001.0,
         maxNetExplosion: 108860.0,
       ),
       capacities: Capacities(maximum: 1),

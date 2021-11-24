@@ -11,6 +11,7 @@ class DatabaseBoxes {
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
         type: BoxType.CNU672,
         coordinates: Coordinates()),
+    //TODO: WAGA KONTENERA NAGRAĆ
     BoxType.CNU614: new Box(
         name: "CNU-614",
         capacities: Capacities(maximum: 1),

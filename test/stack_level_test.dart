@@ -5,6 +5,30 @@ import 'package:tobaa/enumerators/library.dart';
 import 'package:tobaa/models/library.dart';
 
 void main() {
+  test("Append JASSM box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.CNU614]!;
+    Box box = DatabaseBoxes.container[BoxType.CNU614]!;
+
+    box.fillBox(box.capacities.maximum);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+    stackLevel.appendBox(box);
+    expect(stackLevel.weights.net, stackLevel.weights.maxNet);
+    expect(stackLevel.weights.netExplosive, stackLevel.weights.maxNetExplosion);
+    expect(stackLevel.weights.gross, stackLevel.weights.maxGross);
+  });
+
+  test("Append MAVERIC box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.CNU445]!;
+    Box box = DatabaseBoxes.container[BoxType.CNU445]!;
+
+    box.fillBox(box.capacities.maximum);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+    stackLevel.appendBox(box);
+    expect(stackLevel.weights.net, stackLevel.weights.maxNet);
+    expect(stackLevel.weights.netExplosive, stackLevel.weights.maxNetExplosion);
+    expect(stackLevel.weights.gross, stackLevel.weights.maxGross);
+  });
+
   test("Append AIM120 box to stack level.", () {
     StackLevel stackLevel = DatabaseStackLevels.container[BoxType.CNU431]!;
     Box box = DatabaseBoxes.container[BoxType.CNU431]!;
