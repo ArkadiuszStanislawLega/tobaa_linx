@@ -103,9 +103,7 @@ class WarehouseStack {
 
   void addBox(Box box) {
     this._currentBox = box;
-    var isAddingToCurrentLevelWasSuccessful = this._tryAddBox();
-
-    if (!isAddingToCurrentLevelWasSuccessful) this._tryAddBoxToNewStackLevel();
+    if (!this._tryAddBox()) this._tryAddBoxToNewStackLevel();
   }
 
   bool _isBoxTypeFitToStack() {
@@ -132,26 +130,24 @@ class WarehouseStack {
   }
 
   void _tryAddBoxToNewStackLevel() {
-    if (this._isNewStackLevelIsAdded()) {
-      this._tryAddBox();
-    }
+    if (this._isNewStackLevelIsAdded()) this._tryAddBox();
   }
 
   bool _isNewStackLevelIsAdded() {
-    bool isStackLevelCanBeAdd = this._isStackLvlCanBeAdd();
-    if (isStackLevelCanBeAdd) {
+    if (this._isStackLvlCanBeAdd()) {
       this.levels.add(this._copyDefaultStackLevel());
       this.dimensions.height += this.defaultStackLevel.dimensions.height;
+      return true;
     }
-    return isStackLevelCanBeAdd;
+    return false;
   }
 
   bool _tryAddBox() {
-    bool isFitToStack = this._isFitToStack();
-    if (isFitToStack) {
+    if (this._isFitToStack()) {
       this._addBoxToStack();
+      return true;
     }
-    return isFitToStack;
+    return false;
   }
 
   int _countCapacitiesWithNewBoxes() {
@@ -182,11 +178,13 @@ class WarehouseStack {
   }
 
   void _addBoxToStack(){
-    this.levels.forEach((stackLevel) {
-      if(this._isBoxCanBeAddToStackLevel(stackLevel))
-        stackLevel.appendBox(this._currentBox);
-        this._increaseStackProperties(stackLevel);
-    });
+    for(int i = 0; i < this.levels.length; i++){
+      var level = this.levels[i];
+      if(this._isBoxCanBeAddToStackLevel(level))
+        level.appendBox(this._currentBox);
+        this._increaseStackProperties(level);
+        break;
+    }
   }
 
   void _increaseStackProperties(StackLevel stackLevel) {

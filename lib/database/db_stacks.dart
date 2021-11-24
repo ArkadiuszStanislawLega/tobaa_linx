@@ -36,16 +36,16 @@ class DatabaseStacks {
     ),
     BoxType.CNU609: WarehouseStack(
       maximumStackLevel: 2,
-      battleAirAssetCapacities: Capacities(maximum: 4),
+      battleAirAssetCapacities: Capacities(maximum: 8),
       defaultStackLevel: _cnu609,
       weights: StackWeights(
-          maxGross: _cnu609.weights.maxGross,
-          maxNet: _cnu609.weights.maxNet,
-          maxNetExplosion: _cnu609.weights.maxNetExplosion),
+          maxGross: 2*_cnu609.weights.maxGross,
+          maxNet: 2*_cnu609.weights.maxNet,
+          maxNetExplosion: 2*_cnu609.weights.maxNetExplosion),
       dimensions: StackDimensions(
           length: _cnu609.dimensions.length,
           width: _cnu609.dimensions.width,
-          height: 1168 // maximum stack level * stack level height
+          height: 2*_cnu609.dimensions.height,// maximum stack level * stack level height
           ),
     ),
     BoxType.CNU445: WarehouseStack(
@@ -163,8 +163,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _mju7ab.dimensions.length,
           width: _mju7ab.dimensions.width,
-          height: 3 * _mju7ab
-              .dimensions.height // maximum stack level * stack level height
+          height: 3 * _mju7ab.dimensions.height // maximum stack level * stack level height
       ),
     ),
   };
