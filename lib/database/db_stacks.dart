@@ -22,16 +22,16 @@ class DatabaseStacks {
   static final Map<BoxType, WarehouseStack> container = {
     BoxType.CNU431: WarehouseStack(
       maximumStackLevel: 2,
-      battleAirAssetCapacities: Capacities(maximum: 4),
+      battleAirAssetCapacities: Capacities(maximum: 8),
       defaultStackLevel: _cnu431,
       weights: StackWeights(
-          maxGross: _cnu431.weights.maxGross,
-          maxNet: _cnu431.weights.maxNet,
-          maxNetExplosion: _cnu431.weights.maxNetExplosion),
+          maxGross: 2*_cnu431.weights.maxGross,
+          maxNet: 2*_cnu431.weights.maxNet,
+          maxNetExplosion: 2*_cnu431.weights.maxNetExplosion),
       dimensions: StackDimensions(
           length: _cnu431.dimensions.length,
           width: _cnu431.dimensions.width,
-          height: 960 // maximum stack level * stack level height
+          height: 2*_cnu431.dimensions.height// maximum stack level * stack level height
           ),
     ),
     BoxType.CNU609: WarehouseStack(

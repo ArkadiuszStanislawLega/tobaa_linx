@@ -47,6 +47,34 @@ void main() {
     expect(stack.weights.netExplosive, stack.weights.maxNetExplosion);
   });
 
+  test('Stack with aim120', (){
+    WarehouseStack stack = DatabaseStacks.container[BoxType.CNU431]!;
+    Box box = DatabaseBoxes.container[BoxType.CNU431]!;
+    box.fillToMaximum();
+
+    expect(stack.isBoxCanBeAddedToStack(box), true);
+    stack.addBox(box);
+
+    expect(stack.battleAirAssetCapacities.current, 4);
+    expect(stack.dimensions.length, box.dimensions.length);
+    expect(stack.dimensions.width, box.dimensions.width);
+    expect(stack.dimensions.height, box.dimensions.height);
+    expect(stack.weights.net, 4*161500);
+    expect(stack.weights.gross, box.weights.gross);
+    expect(stack.weights.netExplosive, box.weights.netExplosive);
+
+    expect(stack.isBoxCanBeAddedToStack(box), true);
+    stack.addBox(box);
+
+    expect(stack.levels.length, 2);
+    expect(stack.battleAirAssetCapacities.current, 8);
+    expect(stack.dimensions.length, box.dimensions.length);
+    expect(stack.dimensions.width, box.dimensions.width);
+    expect(stack.dimensions.height, 2*box.dimensions.height);
+    expect(stack.weights.net, stack.weights.maxNet);
+    expect(stack.weights.gross, stack.weights.maxGross);
+    expect(stack.weights.netExplosive, stack.weights.maxNetExplosion);
+  });
 
   test("Stack with MJU7A/B", () {
     const int MAX_NUMBER_OF_BOXES_IN_STACK = 18;
