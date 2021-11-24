@@ -6,6 +6,8 @@ class Box {
   late int _maxStackLevel = MINIMUM_STACK_LEVEL;
 
   late Dimensions dimensions;
+  ///gross - box weight + assets weight,
+  ///net - only box weight.
   late BoxWeights weights;
   late Capacities capacities;
   late BattleAirAsset battleAirAsset;

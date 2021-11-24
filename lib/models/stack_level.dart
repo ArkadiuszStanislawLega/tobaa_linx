@@ -2,6 +2,9 @@ part of models;
 
 class StackLevel {
   late StackDimensions dimensions;
+
+  ///maxGross - all assets + all boxes weights,
+  ///maxNet - all assets weights.
   late StackWeights weights;
   late Capacities capacities;
   late List<Box> boxes;

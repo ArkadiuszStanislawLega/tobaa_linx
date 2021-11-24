@@ -5,7 +5,7 @@ class DatabaseStackLevels {
     BoxType.CNU431: StackLevel(
       dimensions: StackDimensions(height: 480, width: 968, length: 4416),
       weights: StackWeights(
-        maxNet: 281000.0,
+        maxNet: 646000.0,
         maxGross: 927000.0,
         maxNetExplosion: 232800.0,
       ),
@@ -14,7 +14,7 @@ class DatabaseStackLevels {
     BoxType.CNU609: StackLevel(
       dimensions: StackDimensions(height: 584, width: 1067, length: 3505),
       weights: StackWeights(
-        maxNet: 283495.0,
+        maxNet: 340000.0,
         maxGross: 623495.0,
         maxNetExplosion: 123200.0,
       ),

@@ -3,6 +3,8 @@ part of models;
 class WarehouseStack {
   late int maximumStackLevel;
   late Dimensions dimensions;
+  ///gross - all boxes + all assets weights,
+  ///net - all assets weights.
   late StackWeights weights;
   late Capacities battleAirAssetCapacities;
   late List<StackLevel> levels;
