@@ -2,10 +2,11 @@ part of database;
 
 class DatabaseBoxes {
   static final Map<BoxType, Box> container = {
+    //TODO: Waga kontenera do sprawdzenia.
     BoxType.CNU672: new Box(
         name: "CNU-672",
         capacities: Capacities(maximum: 1),
-        weights: BoxWeights(gross: 523129, net: 523129, netExplosive: 88900),
+        weights: BoxWeights(gross: 497000+1, net: 1, netExplosive: 88900),
         dimensions: Dimensions(height: 787, width: 794, length: 4600),
         maxStackLevel: 1,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,

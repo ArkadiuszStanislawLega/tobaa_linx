@@ -17,6 +17,18 @@ void main() {
     expect(stackLevel.weights.gross, stackLevel.weights.maxGross);
   });
 
+  test("Append JSOW box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.CNU672]!;
+    Box box = DatabaseBoxes.container[BoxType.CNU672]!;
+
+    box.fillBox(box.capacities.maximum);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+    stackLevel.appendBox(box);
+    expect(stackLevel.weights.net, stackLevel.weights.maxNet);
+    expect(stackLevel.weights.netExplosive, stackLevel.weights.maxNetExplosion);
+    expect(stackLevel.weights.gross, stackLevel.weights.maxGross);
+  });
+
   test("Append MAVERIC box to stack level.", () {
     StackLevel stackLevel = DatabaseStackLevels.container[BoxType.CNU445]!;
     Box box = DatabaseBoxes.container[BoxType.CNU445]!;

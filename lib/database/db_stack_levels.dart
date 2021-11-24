@@ -39,11 +39,12 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 1),
     ),
+    //TODO: Waga kontenera do sprawdzenia i poprawa maxGross
     BoxType.CNU672: StackLevel(
       dimensions: StackDimensions(height: 787, width: 794, length: 4600),
       weights: StackWeights(
-        maxNet: 523129.0,
-        maxGross: 1020129.0,
+        maxNet: 497000.0,
+        maxGross: 497001.0,
         maxNetExplosion: 88900.0,
       ),
       capacities: Capacities(maximum: 1),
