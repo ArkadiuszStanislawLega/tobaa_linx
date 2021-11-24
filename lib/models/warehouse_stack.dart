@@ -173,17 +173,16 @@ class WarehouseStack {
     return false;
   }
 
-  bool _isBoxCanBeAddToStackLevel(StackLevel stackLevel){
-    return stackLevel.isBoxWillBeFit(this._currentBox);
-  }
 
   void _addBoxToStack(){
     for(int i = 0; i < this.levels.length; i++){
       var level = this.levels[i];
-      if(this._isBoxCanBeAddToStackLevel(level))
+      var isBoxFitToLevel = level.isBoxWillBeFit(this._currentBox);
+      if(isBoxFitToLevel) {
         level.appendBox(this._currentBox);
         this._increaseStackProperties(level);
         break;
+      }
     }
   }
 

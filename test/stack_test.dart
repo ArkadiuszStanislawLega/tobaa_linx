@@ -4,20 +4,6 @@ import 'package:tobaa/enumerators/library.dart';
 import 'package:tobaa/models/library.dart';
 
 void main() {
-  test('Fill maverics', () {
-    var stack = WarehouseStack.cnu445();
-    stack.addBox(Box.cnu445f());
-
-    expect(stack.battleAirAssetCapacities.current, 1);
-    expect(stack.weights.gross, 503413.0);
-    expect(stack.weights.net, 306100.0);
-    expect(stack.weights.netExplosive, 65500.0);
-    expect(stack.dimensions.length, 2743);
-    expect(stack.dimensions.width, 1016);
-    expect(stack.dimensions.height, 762);
-    expect(stack.currentNumberOfBoxes, 1);
-  });
-
   test('Stack with AIM9X', (){
     WarehouseStack stack = DatabaseStacks.container[BoxType.CNU609]!;
     Box box = DatabaseBoxes.container[BoxType.CNU609]!;
@@ -93,14 +79,6 @@ void main() {
     expect(stack.weights.netExplosive, box.weights.netExplosive);
 
     expect(stack.isBoxCanBeAddedToStack(box), false);
-
-    expect(stack.battleAirAssetCapacities.current, 1);
-    expect(stack.dimensions.length, box.dimensions.length);
-    expect(stack.dimensions.width, box.dimensions.width);
-    expect(stack.dimensions.height, box.dimensions.height);
-    expect(stack.weights.net, 306100);
-    expect(stack.weights.gross, box.weights.gross);
-    expect(stack.weights.netExplosive, box.weights.netExplosive);
   });
 
   test('Stack with JASSM', (){
@@ -120,14 +98,6 @@ void main() {
     expect(stack.weights.netExplosive, box.weights.netExplosive);
 
     expect(stack.isBoxCanBeAddedToStack(box), false);
-
-    expect(stack.battleAirAssetCapacities.current, 1);
-    expect(stack.dimensions.length, box.dimensions.length);
-    expect(stack.dimensions.width, box.dimensions.width);
-    expect(stack.dimensions.height, box.dimensions.height);
-    expect(stack.weights.net, 497000);
-    expect(stack.weights.gross, box.weights.gross);
-    expect(stack.weights.netExplosive, box.weights.netExplosive);
   });
 
   test('Stack with JSOW', (){
@@ -147,14 +117,6 @@ void main() {
     expect(stack.weights.netExplosive, box.weights.netExplosive);
 
     expect(stack.isBoxCanBeAddedToStack(box), false);
-
-    expect(stack.battleAirAssetCapacities.current, 1);
-    expect(stack.dimensions.length, box.dimensions.length);
-    expect(stack.dimensions.width, box.dimensions.width);
-    expect(stack.dimensions.height, box.dimensions.height);
-    expect(stack.weights.net, 497000);
-    expect(stack.weights.gross, box.weights.gross);
-    expect(stack.weights.netExplosive, box.weights.netExplosive);
   });
 
   test("Stack with MJU7A/B", () {
