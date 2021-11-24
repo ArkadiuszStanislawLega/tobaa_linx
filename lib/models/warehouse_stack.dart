@@ -115,20 +115,19 @@ class WarehouseStack {
     return firstBoxInStack.type == this._currentBox.type;
   }
 
+  ///Before use it validate list by isBoxesCanBeAddedToStack method.
   void addAllBoxes(List<Box> boxes) {
     this._boxesToAdd = boxes;
     this._addBoxToSomeStackLevel();
-
-    // this._currentBox = null;
   }
 
   void _addBoxToSomeStackLevel() {
-    for (int i = 0; i < this._boxesToAdd.length; i++) {
-      this._currentBox = this._boxesToAdd[i];
-      var isAddingToCurrentLevelWasSuccessful = this._tryAddBox();
-
-      if (!isAddingToCurrentLevelWasSuccessful)
-        this._tryAddBoxToNewStackLevel();
+    if (this._boxesToAdd.isNotEmpty) {
+      this._boxesToAdd.forEach((box) {
+        this._currentBox = box;
+        if (!this._tryAddBox())
+          this._tryAddBoxToNewStackLevel();
+      });
     }
   }
 
@@ -158,9 +157,9 @@ class WarehouseStack {
   int _countCapacitiesWithNewBoxes() {
     int boxesCapacity = 0;
     if (this._boxesToAdd.isNotEmpty) {
-      for (int i = 0; i < this._boxesToAdd.length; i++) {
-        boxesCapacity += this._boxesToAdd[i].capacities.current;
-      }
+      this._boxesToAdd.forEach((box) {
+        boxesCapacity += box.capacities.current;
+      });
     }
     return boxesCapacity;
   }
@@ -171,11 +170,11 @@ class WarehouseStack {
   }
 
   bool _isFitToStack() {
-    bool value = false;
     for (int j = 0; j < this.levels.length; j++) {
-      value = this.levels[j].isBoxWillBeFit(this._currentBox);
+      if (this.levels[j].isBoxWillBeFit(this._currentBox))
+        return true;
     }
-    return value;
+    return false;
   }
 
   bool _isBoxCanBeAddToStackLevel(StackLevel stackLevel){

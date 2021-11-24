@@ -4,36 +4,6 @@ import 'package:tobaa/enumerators/library.dart';
 import 'package:tobaa/models/library.dart';
 
 void main() {
-  test("Constructor", () {
-    StackLevel stackLevel = StackLevel(
-        dimensions: StackDimensions(height: 1, length: 5, width: 3),
-        weights: StackWeights(maxNetExplosion: 15, maxGross: 33, maxNet: 30),
-        capacities: Capacities(maximum: 30));
-
-    var maximumStackLevel;
-    var dimensions;
-    var weights;
-    var battleAirAssetCapacities;
-    var defaultStackLevel;
-
-    WarehouseStack stack = new WarehouseStack(
-        maximumStackLevel: maximumStackLevel,
-        dimensions: dimensions,
-        weights: weights,
-        battleAirAssetCapacities: battleAirAssetCapacities,
-        defaultStackLevel: defaultStackLevel);
-    WarehouseStack(
-        maximumStackLevel: 2,
-        dimensions: StackDimensions(height: 1, width: 1, length: 5),
-        weights:
-            StackWeights(maxNet: 1.0, maxGross: 33.0, maxNetExplosion: 15.0),
-        battleAirAssetCapacities: Capacities(maximum: 30),
-        defaultStackLevel: stackLevel);
-    expect(stack.battleAirAssetCapacities.isFull, false);
-    expect(stack.weights.gross, 0.0);
-    expect(stack.dimensions.capacity, 5);
-  });
-
   test('Fill maverics', () {
     var stack = WarehouseStack.cnu445();
     stack.addBox(Box.cnu445f());
