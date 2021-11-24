@@ -117,9 +117,8 @@ class WarehouseStack {
 
   void addAllBoxes(List<Box> boxes) {
     this._boxesToAdd = boxes;
-    if (this.isBoxesCanBeAddedToStack(this._boxesToAdd)) {
-      this._addBoxToSomeStackLevel();
-    }
+    this._addBoxToSomeStackLevel();
+
     // this._currentBox = null;
   }
 
