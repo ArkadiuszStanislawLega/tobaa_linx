@@ -2,6 +2,7 @@ part of database;
 
 class DatabaseAssets {
   static Map<BattleAirAssetType, BattleAirAsset> container = {
+    //TODO: Sprawdzić wagę netto jsow-a i jassma
     BattleAirAssetType.AGM154: new BattleAirAsset(
         type: BattleAirAssetType.AGM154,
         boxType: BoxType.CNU672,

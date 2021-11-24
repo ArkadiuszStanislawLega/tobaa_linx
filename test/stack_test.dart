@@ -130,6 +130,33 @@ void main() {
     expect(stack.weights.netExplosive, box.weights.netExplosive);
   });
 
+  test('Stack with JSOW', (){
+    WarehouseStack stack = DatabaseStacks.container[BoxType.CNU614]!;
+    Box box = DatabaseBoxes.container[BoxType.CNU614]!;
+    box.fillToMaximum();
+
+    expect(stack.isBoxCanBeAddedToStack(box), true);
+    stack.addBox(box);
+
+    expect(stack.battleAirAssetCapacities.current, 1);
+    expect(stack.dimensions.length, box.dimensions.length);
+    expect(stack.dimensions.width, box.dimensions.width);
+    expect(stack.dimensions.height, box.dimensions.height);
+    expect(stack.weights.net, 497000);
+    expect(stack.weights.gross, box.weights.gross);
+    expect(stack.weights.netExplosive, box.weights.netExplosive);
+
+    expect(stack.isBoxCanBeAddedToStack(box), false);
+
+    expect(stack.battleAirAssetCapacities.current, 1);
+    expect(stack.dimensions.length, box.dimensions.length);
+    expect(stack.dimensions.width, box.dimensions.width);
+    expect(stack.dimensions.height, box.dimensions.height);
+    expect(stack.weights.net, 497000);
+    expect(stack.weights.gross, box.weights.gross);
+    expect(stack.weights.netExplosive, box.weights.netExplosive);
+  });
+
   test("Stack with MJU7A/B", () {
     const int MAX_NUMBER_OF_BOXES_IN_STACK = 18;
     WarehouseStack stack = DatabaseStacks.container[BoxType.MJU7ABOX]!;
