@@ -17,6 +17,19 @@ void main() {
     expect(stackLevel.weights.gross, stackLevel.weights.maxGross);
   });
 
+
+  test("Append MPLD box to stack level.", () {
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.M548MPLD]!;
+    Box box = DatabaseBoxes.container[BoxType.M548MPLD]!;
+
+    box.fillBox(box.capacities.maximum);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+    for (int i = 0; i < 9; i++) stackLevel.appendBox(box);
+    expect(stackLevel.weights.net, stackLevel.weights.maxNet);
+    expect(stackLevel.weights.netExplosive, stackLevel.weights.maxNetExplosion);
+    expect(stackLevel.weights.gross, stackLevel.weights.maxGross);
+  });
+
   test("Append MK84 box to stack level.", () {
     StackLevel stackLevel = DatabaseStackLevels.container[BoxType.MK79]!;
     Box box = DatabaseBoxes.container[BoxType.MK79]!;
