@@ -45,27 +45,9 @@ void main() {
     expect(car.capacity(), 7);
   });
 
-  test("euro-cargo tests", () {
-    Car car = Car(
-      weightOfLoadingArea:
-          LoadingAreaWeights(maximum: 15990000, maximumNetExplosive: 1500000),
-      type: CarType.smallCarTest,
-      carWeights: Weights(gross: 6770000, net: 677000),
-      name: 'IVECO - EUROCARGO',
-      stacks: [],
-      dimensionOfLoadingArea:
-          LoadingAreaDimensions(height: 1807, length: 6054, width: 2470),
-    );
-
-    Box box = new Box(
-        name: "CNU-431",
-        capacities: Capacities(maximum: 4),
-        weights: BoxWeights(gross: 927000, net: 281000, netExplosive: 232800),
-        dimensions: Dimensions(height: 480, width: 968, length: 4416),
-        maxStackLevel: 2,
-        battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
-        type: BoxType.CNU431,
-        coordinates: Coordinates());
+  test("euro-cargo create stacks and stack levels tests", () {
+    Car car = DatabaseCars.container[CarType.euro_cargo]!;
+    Box box = DatabaseBoxes.container[BoxType.CNU431]!;
 
     box.capacities.fillToMaximum();
 
