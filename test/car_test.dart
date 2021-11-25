@@ -47,9 +47,7 @@ void main() {
 
   test("euro-cargo create stacks and stack levels tests", () {
     Car car = DatabaseCars.container[CarType.euro_cargo]!;
-    Box box = DatabaseBoxes.container[BoxType.CNU431]!;
-
-    box.capacities.fillToMaximum();
+    Box box = Box.specificType(BoxType.CNU431);
 
     List<Box> boxes = [box, box, box];
 

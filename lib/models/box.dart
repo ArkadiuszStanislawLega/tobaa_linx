@@ -6,6 +6,7 @@ class Box {
   late int _maxStackLevel = MINIMUM_STACK_LEVEL;
 
   late Dimensions dimensions;
+
   ///gross - box weight + assets weight,
   ///net - only box weight.
   late BoxWeights weights;
@@ -15,8 +16,26 @@ class Box {
 
   late BoxType type;
 
+  Box(
+      {int maxStackLevel = MINIMUM_STACK_LEVEL,
+      required this.name,
+      required this.dimensions,
+      required this.weights,
+      required this.capacities,
+      required this.battleAirAsset,
+      required this.type,
+      required this.coordinates}) {
+    this.maxStackLevel = maxStackLevel;
+  }
+
   Box.empty() {
     this._initialEmptyValues();
+  }
+
+  Box.specificType(BoxType type, {bool filled = true}) {
+    this._initialEmptyValues();
+    this._copyValuesFromDB(type);
+    if (filled) this.fillToMaximum();
   }
 
   void _initialEmptyValues() {
@@ -31,7 +50,7 @@ class Box {
     this.coordinates = Coordinates();
   }
 
-  void _copyValuesFromDB(BoxType boxType){
+  void _copyValuesFromDB(BoxType boxType) {
     Box box = DatabaseBoxes.container[boxType] as Box;
     this.weights = BoxWeights(
         net: box.weights.net,
@@ -41,30 +60,11 @@ class Box {
         height: box.dimensions.height,
         width: box.dimensions.width,
         length: box.dimensions.length);
-  }
-  //Empty box
-  Box.cnu445e() {
-    this._initialEmptyValues();
-    this._copyValuesFromDB(BoxType.CNU445);
-  }
-
-  //Filled box
-  Box.cnu445f() {
-    this._initialEmptyValues();
-    this._copyValuesFromDB(BoxType.CNU445);
-    this.fillToMaximum();
-  }
-
-  Box(
-      {int maxStackLevel = MINIMUM_STACK_LEVEL,
-      required this.name,
-      required this.dimensions,
-      required this.weights,
-      required this.capacities,
-      required this.battleAirAsset,
-      required this.type,
-      required this.coordinates}) {
-    this.maxStackLevel = maxStackLevel;
+    this.capacities = Capacities(maximum: box.capacities.maximum);
+    this.battleAirAsset = box.battleAirAsset;
+    this.type = box.type;
+    this.maxStackLevel = box.maxStackLevel;
+    this.coordinates = box.coordinates;
   }
 
   int get maxStackLevel => _maxStackLevel;
