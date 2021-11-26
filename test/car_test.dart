@@ -49,13 +49,12 @@ void main() {
     Car car = DatabaseCars.container[CarType.euro_cargo]!;
     Box box = Box.specificType(BoxType.CNU431);
 
-    List<Box> boxes = [box, box, box];
+    List<Box> boxes = [box, box, box,box, box, box,box, box, box,box, box, box];
 
-    boxes.forEach((element) {
-      car.addBox(element);
-    });
 
-    expect(car.capacity(), 12);
+    car.addBoxes(boxes);
+
+    expect(car.capacity(), 24);
     expect(car.stacks.length, 2);
     expect(car.stacks.first.levels.length, 2);
   });

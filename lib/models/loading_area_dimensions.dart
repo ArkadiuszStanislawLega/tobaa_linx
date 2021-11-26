@@ -1,25 +1,32 @@
 part of models;
 
 class LoadingAreaDimensions extends Dimensions {
-  late Dimensions _occupied;
+  int _rowCounter = 0;
+  List<Dimensions> _occupiedDimensions = [];
 
   LoadingAreaDimensions({int height = 0, int width = 0, int length = 0})
-      : super(height: height, width: width, length: length) {
-    this._occupied = new Dimensions();
+      : super(height: height, width: width, length: length);
+
+  int get occupiedCapacity {
+    var occupiedCapacity = 0;
+    this._occupiedDimensions.forEach((dimensions){
+      occupiedCapacity += dimensions.capacity;
+    });
+
+    return occupiedCapacity;
   }
 
-  Dimensions get occupied => _occupied;
-
   bool isWillBeFit(Dimensions dimensions) {
-    var increasedCapacity = this._occupied.surfaceArea + dimensions.surfaceArea;
-    return increasedCapacity <= this.surfaceArea ?  true :  false;
+    return this.capacity >= this.occupiedCapacity + dimensions.capacity;
   }
 
   void append(Dimensions dimensions) {
-    if (this.isWillBeFit(dimensions)) {
-      this._occupied.length = dimensions.length;
-      this._occupied.height = dimensions.height;
-      this._occupied.width += dimensions.width;
-    }
+    this._occupiedDimensions.add(dimensions);
+    //
+    // if (this.isWillBeFit(dimensions)) {
+    //   this._occupied.length = dimensions.length;
+    //   this._occupied.height = dimensions.height;
+    //   this._occupied.width += dimensions.width;
+    // }
   }
 }

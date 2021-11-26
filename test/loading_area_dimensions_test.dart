@@ -16,40 +16,101 @@ void main() {
     expect(loadingAreaDimensions.isWillBeFit(dimensions), true);
 
     loadingAreaDimensions.append(dimensions);
-    expect(loadingAreaDimensions.occupied.capacity, 1);
+    expect(loadingAreaDimensions.occupiedCapacity, 1);
   });
 
-  test("CNU431", () {
-    int euroCargoHeight = 1870;
-    int euroCargoLength = 6054;
-    int euroCargoWidth = 2470;
+  test("increase current - incorrect value", () {
+    LoadingAreaDimensions loadingAreaDimensions = LoadingAreaDimensions();
+    loadingAreaDimensions.length = 1;
+    loadingAreaDimensions.width = 1;
+    loadingAreaDimensions.height = 1;
 
-    int cnu431Height = 480;
-    int cnu431Width = 968;
-    int cnu431Length = 4416;
-    int capacityOneCNU431 = cnu431Length*cnu431Width*cnu431Height;
+    Dimensions dimensions = new Dimensions();
+    dimensions.length = 2;
+    dimensions.width = 1;
+    dimensions.height = 1;
 
-    Dimensions cnu431Dimension = new Dimensions(
-        height: cnu431Height, width: cnu431Width, length: cnu431Length);
+    expect(loadingAreaDimensions.isWillBeFit(dimensions), false);
+  });
 
-    LoadingAreaDimensions lad = LoadingAreaDimensions(
-        height: euroCargoHeight,
-        length: euroCargoLength,
-        width: euroCargoWidth);
+  //    2
+  //  1   1
+  //2 __|__
+  //2 __|__
+  test("increase few correct values", () {
+    LoadingAreaDimensions loadingAreaDimensions = LoadingAreaDimensions();
+    loadingAreaDimensions.length = 4;
+    loadingAreaDimensions.width = 2;
+    loadingAreaDimensions.height = 1;
 
-    expect(lad.isWillBeFit(cnu431Dimension), true);
-    lad.append(cnu431Dimension);
+    Dimensions dimensions = new Dimensions();
+    dimensions.length = 2;
+    dimensions.width = 1;
+    dimensions.height = 1;
 
-    expect(lad.occupied.capacity, capacityOneCNU431);
+    expect(loadingAreaDimensions.isWillBeFit(dimensions), true);
+    loadingAreaDimensions.append(dimensions);
+    expect(loadingAreaDimensions.isWillBeFit(dimensions), true);
+    loadingAreaDimensions.append(dimensions);
+    expect(loadingAreaDimensions.isWillBeFit(dimensions), true);
+    loadingAreaDimensions.append(dimensions);
+    expect(loadingAreaDimensions.isWillBeFit(dimensions), true);
+    loadingAreaDimensions.append(dimensions);
+    expect(loadingAreaDimensions.isWillBeFit(dimensions), false);
+  });
 
-    expect(lad.isWillBeFit(cnu431Dimension), true);
-    lad.append(cnu431Dimension);
+  //    2
+  //  1   1
+  //4   |__ 2
+  //  __|__ 2
+  test("increase few 1 long and 2 short dimensions correct values", () {
+    LoadingAreaDimensions loadingAreaDimensions = LoadingAreaDimensions();
+    loadingAreaDimensions.length = 4;
+    loadingAreaDimensions.width = 2;
+    loadingAreaDimensions.height = 1;
 
-    expect(lad.occupied.capacity, 2*capacityOneCNU431);
+    Dimensions shortDimensions = new Dimensions();
+    shortDimensions.length = 2;
+    shortDimensions.width = 1;
+    shortDimensions.height = 1;
 
-    expect(lad.isWillBeFit(cnu431Dimension), true);
-    lad.append(cnu431Dimension);
+    Dimensions longDimensions = new Dimensions();
+    longDimensions.length = 4;
+    longDimensions.width = 1;
+    longDimensions.height = 1;
 
-    expect(lad.occupied.capacity, 2*capacityOneCNU431);
+    expect(loadingAreaDimensions.isWillBeFit(longDimensions), true);
+    loadingAreaDimensions.append(longDimensions);
+    expect(loadingAreaDimensions.isWillBeFit(shortDimensions), true);
+    loadingAreaDimensions.append(shortDimensions);
+    expect(loadingAreaDimensions.isWillBeFit(shortDimensions), true);
+    loadingAreaDimensions.append(shortDimensions);
+    expect(loadingAreaDimensions.isWillBeFit(shortDimensions), false);
+  });
+
+  //   8
+  //3|3|2
+  //------
+  //4|4|
+  //------
+  //2
+  //dwie powierzchnie 3x4 zajete
+  //skrajne 1 maja powierzchnie 1x4 pusta przestrzeń i dolna 2x4 to też pust
+  test("increase few 2 long dimensions correct values", () {
+    LoadingAreaDimensions loadingAreaDimensions = LoadingAreaDimensions();
+    loadingAreaDimensions.length = 6;
+    loadingAreaDimensions.width = 8;
+    loadingAreaDimensions.height = 1;
+
+    Dimensions longDimensions = new Dimensions();
+    longDimensions.length = 4;
+    longDimensions.width = 3;
+    longDimensions.height = 1;
+
+    expect(loadingAreaDimensions.isWillBeFit(longDimensions), true);
+    loadingAreaDimensions.append(longDimensions);
+    expect(loadingAreaDimensions.isWillBeFit(longDimensions), true);
+    loadingAreaDimensions.append(longDimensions);
+    expect(loadingAreaDimensions.isWillBeFit(longDimensions), false);
   });
 }

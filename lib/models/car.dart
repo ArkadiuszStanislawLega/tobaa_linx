@@ -2,7 +2,6 @@ part of models;
 
 class Car {
   late ExplosionClass _explosionClass;
-  late List<Box> _boxesToAdd;
   late Box _boxToAdd;
 
   late String name;
@@ -75,13 +74,10 @@ class Car {
 
   void addBoxes(List<Box> boxes) {
     if (boxes.isNotEmpty) {
-
-      this._boxesToAdd = boxes;
-
-      this._ifCarEmptyAddNewStack();
-      this._tryAddBoxesToStacks();
+      boxes.forEach((box) {
+        this.addBox(box);
+      });
     }
-    this._boxesToAdd.clear();
   }
   
   void addBox(Box box) {
@@ -134,33 +130,6 @@ class Car {
   bool _isNetExplosiveWeightNotExceeded(double netExplosive) {
     return netExplosive + this.weightOfLoadingArea.currentNetExplosive <= this.weightOfLoadingArea.maximumNetExplosive;
   }
-
-  void _tryAddBoxesToStacks() {
-    this._boxesToAdd.forEach((currentBox) {
-      if (this.stacks.isNotEmpty)
-        for (int i = 0; i < this.stacks.length; i++) {
-          var isBoxCanBeAdd = this.stacks[i].isBoxCanBeAddedToStack(currentBox);
-          var isIteratorHasMaxValue = i == this.stacks.length - 1;
-
-          if (isBoxCanBeAdd) {
-            this.stacks[i].addBox(currentBox);
-            this._increaseProperties();
-            break;
-          }
-
-          if (!isBoxCanBeAdd && isIteratorHasMaxValue) {
-            if (this._isNewStackCanBeAdd()) {
-              this._addNewStack();
-              this._addBoxToLastStack();
-              break;
-            }
-          }
-        }
-
-    });
-
-  }
-
 
   void _addNewStack() {
     var stack = this._copyStackFromDB();
