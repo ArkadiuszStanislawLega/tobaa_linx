@@ -26,6 +26,7 @@ class LoadingAreaDimensions extends Dimensions {
   }
 
   void append(Dimensions dimensions) {
+    this._prepareDimensionsWhenIsFirst(dimensions);
     this._occupiedDimensions.add(dimensions);
     //
     // if (this.isWillBeFit(dimensions)) {
@@ -33,6 +34,19 @@ class LoadingAreaDimensions extends Dimensions {
     //   this._occupied.height = dimensions.height;
     //   this._occupied.width += dimensions.width;
     // }
+  }
+
+  void _prepareDimensionsWhenIsFirst(Dimensions dimensions){
+    if (this._occupiedDimensions.isEmpty && this._isCapacityFit(dimensions.capacity)) {
+      this._setCoordinates(dimensions);
+    }
+  }
+
+  void _setCoordinates(Dimensions dimensions){
+    dimensions.coordinates.add(Coordinates(x:0, y:0, z:0));
+    dimensions.coordinates.add(Coordinates(x:dimensions.width, y:0, z:0));
+    dimensions.coordinates.add(Coordinates(x:0, y:dimensions.length, z:0));
+    dimensions.coordinates.add(Coordinates(x:dimensions.width, y:dimensions.length, z:0));
   }
 
   /*

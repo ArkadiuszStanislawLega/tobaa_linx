@@ -5,6 +5,7 @@ class Dimensions {
   late int _height;
   late int _width;
   late int _length;
+  late List<Coordinates> coordinates;
 
   Dimensions({
     height = MINIMUM_SIZE,
@@ -18,6 +19,7 @@ class Dimensions {
     this.height = height;
     this.width = width;
     this.length = length;
+    this.coordinates = [];
   }
 
   int get height => this._height;
