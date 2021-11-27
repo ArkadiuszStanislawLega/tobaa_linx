@@ -30,31 +30,102 @@ class LoadingAreaDimensions extends Dimensions {
   bool _isValidated(Dimensions dimensions) {
     List<Coordinates> coordinateForNewDimensions =
         this._coordinatesInSameRow(dimensions);
-    //Drugi element listy to element skrajny prawy od góry
-    //Trzeci elementy listy to elementy skrajny prawt dolny dla nowego koordynatów wymiaru
-    if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3])) return true;
+
+    if (this._isSizeValidated(
+        coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
+      if (!this.isOccupied(coordinateForNewDimensions)) {
+        return true;
+      } else {
+        var lastDimens = this._occupiedDimensions.last;
+        coordinateForNewDimensions[0].x += lastDimens.width;
+        coordinateForNewDimensions[1].x += lastDimens.width;
+        coordinateForNewDimensions[2].x += lastDimens.width;
+        coordinateForNewDimensions[3].x += lastDimens.width;
+        return true;
+      }
+    }
 
     coordinateForNewDimensions.clear();
     coordinateForNewDimensions = this._coordinatesInNewRow(dimensions);
 
-    if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3])) return true;
+    if (this._isSizeValidated(
+        coordinateForNewDimensions[1], coordinateForNewDimensions[3]))
+      return true;
 
     return false;
   }
 
-  bool _isSizeValidated(Coordinates topRight, Coordinates bottomRight){
+  bool isOccupied(List<Coordinates> coordinates) {
+    bool v1 = false;
+    bool v2 = false;
+    bool v3 = false;
+    bool v4 = false;
+    for (int i = 0; i < this._occupiedDimensions.length; i++) {
+      var currentDimensions = this._occupiedDimensions[i];
+      v1 = czy_przecinaja(currentDimensions.coordinates[0],
+          currentDimensions.coordinates[2], coordinates[0], coordinates[2]);
+      v2 = czy_przecinaja(currentDimensions.coordinates[0],
+          currentDimensions.coordinates[1], coordinates[0], coordinates[1]);
+      v3 = czy_przecinaja(currentDimensions.coordinates[1],
+          currentDimensions.coordinates[3], coordinates[1], coordinates[3]);
+      v4 = czy_przecinaja(currentDimensions.coordinates[2],
+          currentDimensions.coordinates[3], coordinates[2], coordinates[3]);
+      if (v1 || v2 || v3 || v4) return true;
+    }
+    return false;
+  }
+
+  int iloczyn_wektorowy(Coordinates X, Coordinates Y, Coordinates Z) {
+    int x1 = Z.x - X.x, y1 = Z.y - X.y, x2 = Y.x - X.x, y2 = Y.y - X.y;
+    return x1 * y2 - x2 * y1;
+  }
+
+//sprawdzenie, czy punkt Z(koniec odcinka pierwszego)
+//leży na odcinku XY
+  bool sprawdz(Coordinates X, Coordinates Y, Coordinates Z) {
+    return min(X.x, Y.x) <= Z.x &&
+        Z.x <= max(X.x, Y.x) &&
+        min(X.y, Y.y) <= Z.y &&
+        Z.y <= max(X.y, Y.y);
+  }
+
+  bool czy_przecinaja(
+      Coordinates A, Coordinates B, Coordinates C, Coordinates D) {
+    int v1 = iloczyn_wektorowy(C, D, A),
+        v2 = iloczyn_wektorowy(C, D, B),
+        v3 = iloczyn_wektorowy(A, B, C),
+        v4 = iloczyn_wektorowy(A, B, D);
+
+    //sprawdzenie czy się przecinają - dla niedużych liczb
+    //if(v1*v2 < 0 && v3*v4 < 0) return 1;
+
+    //sprawdzenie czy się przecinają - dla większych liczb
+    if ((v1 > 0 && v2 < 0 || v1 < 0 && v2 > 0) &&
+        (v3 > 0 && v4 < 0 || v3 < 0 && v4 > 0)) return false;
+
+    //sprawdzenie, czy koniec odcinka leży na drugim
+    if (v1 == 0 && sprawdz(C, D, A)) return true;
+    if (v2 == 0 && sprawdz(C, D, B)) return true;
+    if (v3 == 0 && sprawdz(A, B, C)) return true;
+    if (v4 == 0 && sprawdz(A, B, D)) return true;
+
+    //odcinki nie mają punktów wspólnych
+    return false;
+  }
+
+  bool _isSizeValidated(Coordinates topRight, Coordinates bottomRight) {
     return this._isWidthFit(topRight) && this._isLengthFit(bottomRight);
   }
 
-  bool _isWidthFit(Coordinates coordinates){
+  bool _isWidthFit(Coordinates coordinates) {
     return coordinates.x <= this.width;
   }
 
-  bool _isLengthFit(Coordinates coordinates){
+  bool _isLengthFit(Coordinates coordinates) {
     return coordinates.y <= this.length;
   }
 
-  List<Coordinates> _coordinatesInNewRow(Dimensions dimensions){
+  List<Coordinates> _coordinatesInNewRow(Dimensions dimensions) {
     var lastElement = this._occupiedDimensions.last;
     return [
       Coordinates(
@@ -98,25 +169,19 @@ class LoadingAreaDimensions extends Dimensions {
     ];
   }
 
-
   void append(Dimensions dimensions) {
     this._prepareDimensionsWhenIsFirst(dimensions);
     this._setSpecCoordinates(dimensions);
     this._occupiedDimensions.add(dimensions);
-    //
-    // if (this.isWillBeFit(dimensions)) {
-    //   this._occupied.length = dimensions.length;
-    //   this._occupied.height = dimensions.height;
-    //   this._occupied.width += dimensions.width;
-    // }
   }
 
-  void _setSpecCoordinates(Dimensions dimensions){
-    if(this._occupiedDimensions.isNotEmpty) {
+  void _setSpecCoordinates(Dimensions dimensions) {
+    if (this._occupiedDimensions.isNotEmpty) {
       List<Coordinates> coordinateForNewDimensions =
-      this._coordinatesInSameRow(dimensions);
+          this._coordinatesInSameRow(dimensions);
 
-      if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
+      if (this._isSizeValidated(
+          coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
         dimensions.coordinates = coordinateForNewDimensions;
         return;
       }
@@ -124,8 +189,20 @@ class LoadingAreaDimensions extends Dimensions {
       coordinateForNewDimensions.clear();
       coordinateForNewDimensions = this._coordinatesInNewRow(dimensions);
 
-      if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3]))
-        dimensions.coordinates = coordinateForNewDimensions;
+      if (this._isSizeValidated(
+          coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
+
+        if (!this.isOccupied(coordinateForNewDimensions)) {
+          dimensions.coordinates = coordinateForNewDimensions;
+        } else {
+          var lastDimens = this._occupiedDimensions.last;
+          coordinateForNewDimensions[0].x += 1 + lastDimens.width;
+          coordinateForNewDimensions[1].x += 1 + lastDimens.width;
+          coordinateForNewDimensions[2].x += 1 + lastDimens.width;
+          coordinateForNewDimensions[3].x += 1 + lastDimens.width;
+          dimensions.coordinates = coordinateForNewDimensions;
+        }
+      }
     }
   }
 
@@ -152,42 +229,4 @@ class LoadingAreaDimensions extends Dimensions {
         y: coordinates.y + dimensions.length,
         z: coordinates.z));
   }
-
-/*
-  stary obszar x1
-  nowy obszar x2
-  1. biorę ostatni element z listy zajetych obszarów
-  2. biorę skrajny punkt z najwikszym x i najmniejszym y
-  3. powiekszam w osi x o 1 i dodaje szerokość nowego obszaru do osi x
-  4. sprawdzam czy wystaje po za pojazd
-    a. tak - jeżeli wystaje:
-      - biorę ostatniego elentu dolny skrajne po lewej rog
-      - powiekszam o jeden w osi y i w osi x o szerokosc
-      - sprawdzam czy element wystaje za pojazd w osi y
-        @ tak:
-          - objekt sie nie miesci
-        @ nie:
-          - sprawdzam czy miesci sie w osi x
-            # tak:
-              - objekt sie miesci
-            # nie:
-              - objekt sie nie miesc
-
-    b. nie - nie wystaje:
-      - dodaje do nowego obszaru dlugosc obszaru, powiekszam os y
-      - sprawdzam czy wystaje z pojazdu
-        - tak:
-          - biore ostatni element z listy i jego punkty o najmniejszym x i najwiekszym y
-          - powiekszam w osi y o dlugosc i sprawdzam czy sie miesci
-            - tak:
-              - sprawdzam czy miesci sie na szeroksc
-                - tak:
-                  - miesci sie
-                - nie:
-                  - nie miesci sie
-             - nie:
-              - nie miesci sie
-        - nie:
-          - miesci sie
-   */
 }
