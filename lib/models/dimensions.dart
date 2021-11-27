@@ -10,8 +10,7 @@ class Dimensions {
   Dimensions({
     height = MINIMUM_SIZE,
     width = MINIMUM_SIZE,
-    length= MINIMUM_SIZE
-  }){
+    length= MINIMUM_SIZE, }){
     this._height = MINIMUM_SIZE;
     this._width = MINIMUM_SIZE;
     this._length = MINIMUM_SIZE;

@@ -28,52 +28,80 @@ class LoadingAreaDimensions extends Dimensions {
   }
 
   bool _isValidated(Dimensions dimensions) {
-    var lastElement = this._occupiedDimensions.last;
-    var pointExtremeRightAtTheTop =
-        this._pointExtremeRightAtTheTop(lastElement);
-    var pointFurthestLeft = this._pointFurthestLeft(lastElement);
+    List<Coordinates> coordinateForNewDimensions =
+        this._coordinatesInSameRow(dimensions);
+    //Drugi element listy to element skrajny prawy od góry
+    //Trzeci elementy listy to elementy skrajny prawt dolny dla nowego koordynatów wymiaru
+    if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3])) return true;
 
-    pointExtremeRightAtTheTop.x += 1 + dimensions.width;
+    coordinateForNewDimensions.clear();
+    coordinateForNewDimensions = this._coordinatesInNewRow(dimensions);
 
-    if (pointExtremeRightAtTheTop.x <= this.width) {
-      pointExtremeRightAtTheTop.y += dimensions.height;
-      if (pointExtremeRightAtTheTop.y <= this.length)
-        return true;
-      else {
-        pointFurthestLeft.y += 1;
-        pointFurthestLeft.x += dimensions.width;
-        if (pointFurthestLeft.x <= this.width) {
-          pointFurthestLeft.y += dimensions.length;
-          if (pointFurthestLeft.y <= this.length) return true;
-        }
-      }
-    }
+    if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3])) return true;
+
     return false;
   }
 
-  Coordinates _pointFurthestLeft(Dimensions dimensions) {
-    Coordinates answer = Coordinates();
-    dimensions.coordinates.forEach((current) {
-      var isXLess = answer.x < 0 || current.x < answer.x;
-      var isYGrater = current.y > answer.y;
-      if (isXLess && isYGrater) answer = current;
-    });
-    return answer;
+  bool _isSizeValidated(Coordinates topRight, Coordinates bottomRight){
+    return this._isWidthFit(topRight) && this._isLengthFit(bottomRight);
   }
 
-  Coordinates _pointExtremeRightAtTheTop(Dimensions dimensions) {
-    Coordinates answer = Coordinates();
-    dimensions.coordinates.forEach((current) {
-      var isXGreater = current.x > answer.x;
-      var isYLess = answer.y < 0 || current.y < answer.y;
-      if (isXGreater && isYLess) answer = current;
-    });
-    return answer;
+  bool _isWidthFit(Coordinates coordinates){
+    return coordinates.x <= this.width;
   }
+
+  bool _isLengthFit(Coordinates coordinates){
+    return coordinates.y <= this.length;
+  }
+
+  List<Coordinates> _coordinatesInNewRow(Dimensions dimensions){
+    var lastElement = this._occupiedDimensions.last;
+    return [
+      Coordinates(
+          x: 1,
+          y: lastElement.coordinates[2].y + 1,
+          z: lastElement.coordinates[2].z),
+      Coordinates(
+          x: 1 + dimensions.width,
+          y: lastElement.coordinates[2].y + 1,
+          z: lastElement.coordinates[2].z),
+      Coordinates(
+          x: 1,
+          y: lastElement.coordinates[2].y + dimensions.length,
+          z: lastElement.coordinates[2].z),
+      Coordinates(
+          x: 1 + dimensions.width,
+          y: lastElement.coordinates[2].y + dimensions.length,
+          z: lastElement.coordinates[2].z),
+    ];
+  }
+
+  List<Coordinates> _coordinatesInSameRow(Dimensions dimensions) {
+    var lastElement = this._occupiedDimensions.last;
+    return [
+      Coordinates(
+          x: lastElement.coordinates[1].x + 1,
+          y: lastElement.coordinates[1].y,
+          z: lastElement.coordinates[1].z),
+      Coordinates(
+          x: lastElement.coordinates[1].x + 1 + dimensions.width,
+          y: lastElement.coordinates[1].y,
+          z: lastElement.coordinates[1].z),
+      Coordinates(
+          x: lastElement.coordinates[1].x + 1,
+          y: lastElement.coordinates[1].y + dimensions.length,
+          z: lastElement.coordinates[1].z),
+      Coordinates(
+          x: lastElement.coordinates[1].x + 1 + dimensions.width,
+          y: lastElement.coordinates[1].y + dimensions.length,
+          z: lastElement.coordinates[1].z),
+    ];
+  }
+
 
   void append(Dimensions dimensions) {
     this._prepareDimensionsWhenIsFirst(dimensions);
-
+    this._setSpecCoordinates(dimensions);
     this._occupiedDimensions.add(dimensions);
     //
     // if (this.isWillBeFit(dimensions)) {
@@ -83,10 +111,28 @@ class LoadingAreaDimensions extends Dimensions {
     // }
   }
 
+  void _setSpecCoordinates(Dimensions dimensions){
+    if(this._occupiedDimensions.isNotEmpty) {
+      List<Coordinates> coordinateForNewDimensions =
+      this._coordinatesInSameRow(dimensions);
+
+      if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
+        dimensions.coordinates = coordinateForNewDimensions;
+        return;
+      }
+
+      coordinateForNewDimensions.clear();
+      coordinateForNewDimensions = this._coordinatesInNewRow(dimensions);
+
+      if (this._isSizeValidated(coordinateForNewDimensions[1], coordinateForNewDimensions[3]))
+        dimensions.coordinates = coordinateForNewDimensions;
+    }
+  }
+
   void _prepareDimensionsWhenIsFirst(Dimensions dimensions) {
     if (this._occupiedDimensions.isEmpty &&
         this._isCapacityFit(dimensions.capacity)) {
-      this._setCoordinates(dimensions, Coordinates(x: 0, y:0, z:0));
+      this._setCoordinates(dimensions, Coordinates(x: 1, y: 1, z: 1));
     }
   }
 

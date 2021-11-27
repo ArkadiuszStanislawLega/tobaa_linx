@@ -4,21 +4,21 @@ import 'package:tobaa/models/library.dart';
 void main() {
   test("increase current - correct value", () {
     LoadingAreaDimensions loadingAreaDimensions =
-        LoadingAreaDimensions(width: 1, length: 1, height: 1);
+        LoadingAreaDimensions(width: 10, length: 10, height: 10);
 
-    Dimensions dimensions = Dimensions(width: 1, length: 1, height: 1);
+    Dimensions dimensions = Dimensions(width: 10, length: 10, height: 10);
 
     expect(loadingAreaDimensions.isWillBeFit(dimensions), true);
 
     loadingAreaDimensions.append(dimensions);
-    expect(loadingAreaDimensions.occupiedCapacity, 1);
+    expect(loadingAreaDimensions.occupiedCapacity, 1000);
   });
 
   test("increase current - incorrect value", () {
     LoadingAreaDimensions loadingAreaDimensions =
-        LoadingAreaDimensions(width: 1, length: 1, height: 1);
+        LoadingAreaDimensions(width: 10, length: 10, height: 10);
 
-    Dimensions dimensions = Dimensions(width: 1, length: 2, height: 1);
+    Dimensions dimensions = Dimensions(width: 10, length: 20, height: 10);
     expect(loadingAreaDimensions.isWillBeFit(dimensions), false);
   });
 
@@ -28,14 +28,14 @@ void main() {
   //2 __|__
   test("increase few correct values", () {
     LoadingAreaDimensions loadingAreaDimensions =
-        LoadingAreaDimensions(width: 4, length: 2, height: 1);
+        LoadingAreaDimensions(width: 24, length: 44, height: 10);
 
     List<Dimensions> dimensionsList = [
-      Dimensions(width: 1, length: 2, height: 1),
-      Dimensions(width: 1, length: 2, height: 1),
-      Dimensions(width: 1, length: 2, height: 1),
-      Dimensions(width: 1, length: 2, height: 1),
-      Dimensions(width: 1, length: 2, height: 1),
+      Dimensions(width: 10, length: 20, height: 10),
+      Dimensions(width: 10, length: 20, height: 10),
+      Dimensions(width: 10, length: 20, height: 10),
+      Dimensions(width: 10, length: 20, height: 10),
+      Dimensions(width: 10, length: 20, height: 10),
     ];
     expect(loadingAreaDimensions.isWillBeFit(dimensionsList[0]), true);
     loadingAreaDimensions.append(dimensionsList[0]);
@@ -54,13 +54,13 @@ void main() {
   //  __|__ 2
   test("increase few 1 long and 2 short dimensions correct values", () {
     LoadingAreaDimensions loadingAreaDimensions =
-        LoadingAreaDimensions(width: 4, length: 2, height: 1);
+        LoadingAreaDimensions(width: 40, length: 20, height: 10);
 
     List<Dimensions> dimensionsList = [
-      Dimensions(width: 1, length: 4, height: 1),
-      Dimensions(width: 1, length: 2, height: 1),
-      Dimensions(width: 1, length: 2, height: 1),
-      Dimensions(width: 1, length: 2, height: 1),
+      Dimensions(width: 10, length: 40, height: 10),
+      Dimensions(width: 10, length: 20, height: 10),
+      Dimensions(width: 10, length: 20, height: 10),
+      Dimensions(width: 10, length: 20, height: 10),
     ];
 
     expect(loadingAreaDimensions.isWillBeFit(dimensionsList[0]), true);
@@ -82,12 +82,12 @@ void main() {
   //skrajne 1 maja powierzchnie 1x4 pusta przestrzeń i dolna 2x4 to też pust
   test("increase few 2 long dimensions correct values", () {
     LoadingAreaDimensions loadingAreaDimensions =
-        LoadingAreaDimensions(width: 8, length: 6, height: 1);
+        LoadingAreaDimensions(width: 80, length: 60, height: 10);
 
     List<Dimensions> dimensionsList = [
-      Dimensions(width: 3, length: 4, height: 1),
-      Dimensions(width: 3, length: 4, height: 1),
-      Dimensions(width: 3, length: 4, height: 1),
+      Dimensions(width: 30, length: 40, height: 10),
+      Dimensions(width: 30, length: 40, height: 10),
+      Dimensions(width: 30, length: 40, height: 10),
     ];
 
     expect(loadingAreaDimensions.isWillBeFit(dimensionsList[0]), true);
