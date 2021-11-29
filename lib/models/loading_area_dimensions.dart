@@ -150,8 +150,8 @@ class LoadingAreaDimensions extends Dimensions {
     List<Coordinates> coordinateForNewDimensions =
         this._coordinatesInSameRow(dimensions);
 
-    var topRight = coordinateForNewDimensions[1];
-    var bottomRight = coordinateForNewDimensions[3];
+    Coordinates topRight = coordinateForNewDimensions[1],
+        bottomRight = coordinateForNewDimensions[3];
 
     if (this._isSizeValidated(topRight, bottomRight)) {
       dimensions.coordinates = coordinateForNewDimensions;
@@ -241,15 +241,15 @@ class LoadingAreaDimensions extends Dimensions {
   void _setCoordinatesToDimensions(
       Dimensions dimensions, Coordinates coordinates) {
     int xWithWidth = coordinates.x + dimensions.width,
-        yWithLength = coordinates.y + dimensions.length;
-    Coordinates topLeft =
-            Coordinates(x: coordinates.x, y: coordinates.y, z: coordinates.z),
-        topRight =
-            Coordinates(x: xWithWidth, y: coordinates.y, z: coordinates.z),
-        bottomLeft =
-            Coordinates(x: coordinates.x, y: yWithLength, z: coordinates.z),
-        bottomRight =
-            Coordinates(x: xWithWidth, y: yWithLength, z: coordinates.z);
+        yWithLength = coordinates.y + dimensions.length,
+        x = coordinates.x,
+        y = coordinates.y,
+        z = coordinates.z;
+
+    Coordinates topLeft = Coordinates(x: x, y: y, z: z),
+        topRight = Coordinates(x: xWithWidth, y: y, z: z),
+        bottomLeft = Coordinates(x: x, y: yWithLength, z: z),
+        bottomRight = Coordinates(x: xWithWidth, y: yWithLength, z: z);
 
     dimensions.coordinates.add(topLeft);
     dimensions.coordinates.add(topRight);
