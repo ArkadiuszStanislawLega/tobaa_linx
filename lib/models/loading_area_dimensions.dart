@@ -93,7 +93,7 @@ class LoadingAreaDimensions extends Dimensions {
     return coordinates.y <= this.length;
   }
 
-  List<Coordinates> _coordinatesInNewRow(Dimensions dimensions) {
+  List<Coordinates> _coordinatesInNextRow(Dimensions dimensions) {
     var lastElement = this._occupiedDimensions.last;
     return [
       Coordinates(
@@ -155,50 +155,73 @@ class LoadingAreaDimensions extends Dimensions {
       }
 
       coordinateForNewDimensions.clear();
-      coordinateForNewDimensions = this._coordinatesInNewRow(dimensions);
+      coordinateForNewDimensions = this._coordinatesInNextRow(dimensions);
 
       if (this._isSizeValidated(
           coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
         if (!this.isOccupied(coordinateForNewDimensions)) {
           dimensions.coordinates = coordinateForNewDimensions;
         } else {
-          var lastDimens = this._occupiedDimensions.last;
-          coordinateForNewDimensions[0].x += 1 + lastDimens.width;
-          coordinateForNewDimensions[1].x += 1 + lastDimens.width;
-          coordinateForNewDimensions[2].x += 1 + lastDimens.width;
-          coordinateForNewDimensions[3].x += 1 + lastDimens.width;
-          dimensions.coordinates = coordinateForNewDimensions;
+          this._addToCoordinatesWidth(coordinateForNewDimensions, dimensions);
         }
       }
     }
   }
 
+  void _addToCoordinatesWidth(
+      List<Coordinates> coordinateForNewDimensions, Dimensions dimensions) {
+
+    var indexBeforeLastOne = this._occupiedDimensions.length - 2;
+    var dimensionsBeforeTheLastOne = this._occupiedDimensions.length > 2
+        ? this._occupiedDimensions[indexBeforeLastOne]
+        : this._occupiedDimensions.first;
+    coordinateForNewDimensions[0].x += 1 + dimensionsBeforeTheLastOne.width;
+    coordinateForNewDimensions[1].x += 1 + dimensionsBeforeTheLastOne.width;
+    coordinateForNewDimensions[2].x += 1 + dimensionsBeforeTheLastOne.width;
+    coordinateForNewDimensions[3].x += 1 + dimensionsBeforeTheLastOne.width;
+    dimensions.coordinates = coordinateForNewDimensions;
+  }
+
   bool _isValidated(Dimensions dimensions) {
+    if(this._isFitInTheSameRow(dimensions)) return true;
+    return this._isFitIntTheNextRow(dimensions);
+  }
+
+  bool _isFitIntTheNextRow(Dimensions dimensions){
     List<Coordinates> coordinateForNewDimensions =
-    this._coordinatesInSameRow(dimensions);
+    this._coordinatesInNextRow(dimensions);
 
-    if (this._isSizeValidated(
-        coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
-      if (!this.isOccupied(coordinateForNewDimensions)) {
-        return true;
-      } else {
-        var lastDimens = this._occupiedDimensions.last;
-        coordinateForNewDimensions[0].x += lastDimens.width;
-        coordinateForNewDimensions[1].x += lastDimens.width;
-        coordinateForNewDimensions[2].x += lastDimens.width;
-        coordinateForNewDimensions[3].x += lastDimens.width;
-        return true;
-      }
-    }
+    var topRight = coordinateForNewDimensions[1];
+    var bottomRight = coordinateForNewDimensions[3];
 
-    coordinateForNewDimensions.clear();
-    coordinateForNewDimensions = this._coordinatesInNewRow(dimensions);
-
-    if (this._isSizeValidated(
-        coordinateForNewDimensions[1], coordinateForNewDimensions[3]))
+    if (this._isSizeValidated(topRight, bottomRight))
       return true;
 
     return false;
+  }
+
+  bool _isFitInTheSameRow(Dimensions dimensions){
+    List<Coordinates> coordinateForNewDimensions = this._coordinatesInSameRow(dimensions);
+
+    if(this._isDimensionsFitToSpecificLocation(coordinateForNewDimensions))
+      return true;
+
+    this._addToCoordinatesWidth(coordinateForNewDimensions, dimensions);
+    return this._isDimensionsFitToSpecificLocation(coordinateForNewDimensions);
+  }
+
+  bool _isDimensionsFitToSpecificLocation(List<Coordinates> coordinateForNewDimensions){
+
+      var topRight = coordinateForNewDimensions[1];
+      var bottomRight = coordinateForNewDimensions[3];
+
+      if (this._isSizeValidated(topRight, bottomRight)) {
+        if (!this.isOccupied(coordinateForNewDimensions))
+          return true;
+      }
+
+    return false;
+
   }
 
   void _prepareDimensionsWhenIsFirst(Dimensions dimensions) {
