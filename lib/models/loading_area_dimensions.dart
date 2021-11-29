@@ -31,15 +31,21 @@ class LoadingAreaDimensions extends Dimensions {
   bool isOccupied(List<Coordinates> coordinates) {
     bool v1 = false, v2 = false, v3 = false, v4 = false;
     for (int i = 0; i < this._occupiedDimensions.length; i++) {
-      var currentDimensions = this._occupiedDimensions[i];
-      v1 = isTheyIntersect(currentDimensions.coordinates[0],
-          currentDimensions.coordinates[2], coordinates[0], coordinates[2]);
-      v2 = isTheyIntersect(currentDimensions.coordinates[0],
-          currentDimensions.coordinates[1], coordinates[0], coordinates[1]);
-      v3 = isTheyIntersect(currentDimensions.coordinates[1],
-          currentDimensions.coordinates[3], coordinates[1], coordinates[3]);
-      v4 = isTheyIntersect(currentDimensions.coordinates[2],
-          currentDimensions.coordinates[3], coordinates[2], coordinates[3]);
+      Dimensions currentDimensions = this._occupiedDimensions[i];
+      Coordinates cdTopLeft = currentDimensions.coordinates[0],
+          cdTopRight = currentDimensions.coordinates[1],
+          cdBottomLeft = currentDimensions.coordinates[2],
+          cdBottomRight = currentDimensions.coordinates[3],
+          topLeft = coordinates[0],
+          topRight = coordinates[1],
+          bottomLeft = coordinates[2],
+          bottomRight = coordinates[3];
+
+      v1 = isTheyIntersect(cdTopLeft, cdBottomLeft, topLeft, bottomLeft);
+      v2 = isTheyIntersect(cdTopLeft, cdTopRight, topLeft, topRight);
+      v3 = isTheyIntersect(cdTopRight, cdBottomRight, topRight, bottomRight);
+      v4 =
+          isTheyIntersect(cdBottomLeft, cdBottomRight, bottomLeft, bottomRight);
       if (v1 || v2 || v3 || v4) return true;
     }
     return false;
@@ -168,14 +174,15 @@ class LoadingAreaDimensions extends Dimensions {
 
   void _addToCoordinatesWidth(
       List<Coordinates> coordinateForNewDimensions, Dimensions dimensions) {
-    var indexBeforeLastOne = this._occupiedDimensions.length - 2;
-    var dimensionsBeforeTheLastOne = this._occupiedDimensions.length > 2
+    int indexBeforeLastOne = this._occupiedDimensions.length - 2;
+    Dimensions dimensionsBeforeTheLastOne = this._occupiedDimensions.length > 2
         ? this._occupiedDimensions[indexBeforeLastOne]
         : this._occupiedDimensions.first;
-    coordinateForNewDimensions[0].x += 1 + dimensionsBeforeTheLastOne.width;
-    coordinateForNewDimensions[1].x += 1 + dimensionsBeforeTheLastOne.width;
-    coordinateForNewDimensions[2].x += 1 + dimensionsBeforeTheLastOne.width;
-    coordinateForNewDimensions[3].x += 1 + dimensionsBeforeTheLastOne.width;
+
+    coordinateForNewDimensions.forEach((coordinate) {
+      coordinate.x += GAP_BETWEEN_ELEMENTS + dimensionsBeforeTheLastOne.width;
+    });
+
     dimensions.coordinates = coordinateForNewDimensions;
   }
 
