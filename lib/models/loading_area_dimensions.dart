@@ -1,7 +1,8 @@
 part of models;
 
 class LoadingAreaDimensions extends Dimensions {
-  int _rowCounter = 0;
+  static const int FIRST_OCCUPIED_MM = 1;
+  static const int GAP_BETWEEN_ELEMENTS = 1;
   List<Dimensions> _occupiedDimensions = [];
 
   LoadingAreaDimensions({int height = 0, int width = 0, int length = 0})
@@ -94,46 +95,35 @@ class LoadingAreaDimensions extends Dimensions {
   }
 
   List<Coordinates> _coordinatesInNextRow(Dimensions dimensions) {
-    var lastElement = this._occupiedDimensions.last;
+    Coordinates lastElementBottomLeft =
+        this._occupiedDimensions.last.coordinates[2];
+    int yWithGap = GAP_BETWEEN_ELEMENTS + lastElementBottomLeft.y,
+        yWithLengthAndGap = yWithGap + dimensions.length,
+        xWithWidth = FIRST_OCCUPIED_MM + dimensions.width,
+        z = lastElementBottomLeft.z;
     return [
-      Coordinates(
-          x: 1,
-          y: lastElement.coordinates[2].y + 1,
-          z: lastElement.coordinates[2].z),
-      Coordinates(
-          x: 1 + dimensions.width,
-          y: lastElement.coordinates[2].y + 1,
-          z: lastElement.coordinates[2].z),
-      Coordinates(
-          x: 1,
-          y: lastElement.coordinates[2].y + dimensions.length,
-          z: lastElement.coordinates[2].z),
-      Coordinates(
-          x: 1 + dimensions.width,
-          y: lastElement.coordinates[2].y + dimensions.length,
-          z: lastElement.coordinates[2].z),
+      Coordinates(x: FIRST_OCCUPIED_MM, y: yWithGap, z: z),
+      Coordinates(x: xWithWidth, y: yWithGap, z: z),
+      Coordinates(x: FIRST_OCCUPIED_MM, y: yWithLengthAndGap, z: z),
+      Coordinates(x: xWithWidth, y: yWithLengthAndGap, z: z),
     ];
   }
 
   List<Coordinates> _coordinatesInSameRow(Dimensions dimensions) {
-    var lastElement = this._occupiedDimensions.last;
+    Coordinates topRightCornerOfLastOccupiedDimension =
+        this._occupiedDimensions.last.coordinates[1];
+    int xWithGap =
+            topRightCornerOfLastOccupiedDimension.x + GAP_BETWEEN_ELEMENTS,
+        xWithGapAndWidth = xWithGap + dimensions.width,
+        yWithLength =
+            topRightCornerOfLastOccupiedDimension.y + dimensions.length,
+        y = topRightCornerOfLastOccupiedDimension.y,
+        z = topRightCornerOfLastOccupiedDimension.z;
     return [
-      Coordinates(
-          x: lastElement.coordinates[1].x + 1,
-          y: lastElement.coordinates[1].y,
-          z: lastElement.coordinates[1].z),
-      Coordinates(
-          x: lastElement.coordinates[1].x + 1 + dimensions.width,
-          y: lastElement.coordinates[1].y,
-          z: lastElement.coordinates[1].z),
-      Coordinates(
-          x: lastElement.coordinates[1].x + 1,
-          y: lastElement.coordinates[1].y + dimensions.length,
-          z: lastElement.coordinates[1].z),
-      Coordinates(
-          x: lastElement.coordinates[1].x + 1 + dimensions.width,
-          y: lastElement.coordinates[1].y + dimensions.length,
-          z: lastElement.coordinates[1].z),
+      Coordinates(x: xWithGap, y: y, z: z),
+      Coordinates(x: xWithGapAndWidth, y: y, z: z),
+      Coordinates(x: xWithGap, y: yWithLength, z: z),
+      Coordinates(x: xWithGapAndWidth, y: yWithLength, z: z),
     ];
   }
 
@@ -150,9 +140,9 @@ class LoadingAreaDimensions extends Dimensions {
     }
   }
 
-  bool _setCoordinatesInSameRow(Dimensions dimensions){
+  bool _setCoordinatesInSameRow(Dimensions dimensions) {
     List<Coordinates> coordinateForNewDimensions =
-    this._coordinatesInSameRow(dimensions);
+        this._coordinatesInSameRow(dimensions);
 
     var topRight = coordinateForNewDimensions[1];
     var bottomRight = coordinateForNewDimensions[3];
@@ -165,19 +155,15 @@ class LoadingAreaDimensions extends Dimensions {
     return false;
   }
 
-  void _setCoordinatesInNextRow(Dimensions dimensions){
-    List<Coordinates> coordinateForNewDimensions = this._coordinatesInNextRow(dimensions);
+  void _setCoordinatesInNextRow(Dimensions dimensions) {
+    List<Coordinates> coordinateForNewDimensions =
+        this._coordinatesInNextRow(dimensions);
 
-    var topRight = coordinateForNewDimensions[1];
-    var bottomRight = coordinateForNewDimensions[3];
-
-    if (this._isSizeValidated(topRight, bottomRight)) {
-      if (!this.isOccupied(coordinateForNewDimensions)) {
-        dimensions.coordinates = coordinateForNewDimensions;
-      } else {
-        this._addToCoordinatesWidth(coordinateForNewDimensions, dimensions);
-      }
+    if (this._isDimensionsFitToSpecificLocation(coordinateForNewDimensions)) {
+      dimensions.coordinates = coordinateForNewDimensions;
+      return;
     }
+    this._addToCoordinatesWidth(coordinateForNewDimensions, dimensions);
   }
 
   void _addToCoordinatesWidth(
@@ -236,24 +222,31 @@ class LoadingAreaDimensions extends Dimensions {
   void _prepareDimensionsWhenIsFirst(Dimensions dimensions) {
     if (this._occupiedDimensions.isEmpty &&
         this._isCapacityFit(dimensions.capacity)) {
-      this._setCoordinates(dimensions, Coordinates(x: 1, y: 1, z: 1));
+      this._setCoordinatesToDimensions(
+          dimensions,
+          Coordinates(
+              x: FIRST_OCCUPIED_MM,
+              y: FIRST_OCCUPIED_MM,
+              z: FIRST_OCCUPIED_MM));
     }
   }
 
-  void _setCoordinates(Dimensions dimensions, Coordinates coordinates) {
-    dimensions.coordinates
-        .add(Coordinates(x: coordinates.x, y: coordinates.y, z: coordinates.z));
-    dimensions.coordinates.add(Coordinates(
-        x: coordinates.x + dimensions.width,
-        y: coordinates.y,
-        z: coordinates.z));
-    dimensions.coordinates.add(Coordinates(
-        x: coordinates.x,
-        y: coordinates.y + dimensions.length,
-        z: coordinates.z));
-    dimensions.coordinates.add(Coordinates(
-        x: coordinates.x + dimensions.width,
-        y: coordinates.y + dimensions.length,
-        z: coordinates.z));
+  void _setCoordinatesToDimensions(
+      Dimensions dimensions, Coordinates coordinates) {
+    int xWithWidth = coordinates.x + dimensions.width,
+        yWithLength = coordinates.y + dimensions.length;
+    Coordinates topLeft =
+            Coordinates(x: coordinates.x, y: coordinates.y, z: coordinates.z),
+        topRight =
+            Coordinates(x: xWithWidth, y: coordinates.y, z: coordinates.z),
+        bottomLeft =
+            Coordinates(x: coordinates.x, y: yWithLength, z: coordinates.z),
+        bottomRight =
+            Coordinates(x: xWithWidth, y: yWithLength, z: coordinates.z);
+
+    dimensions.coordinates.add(topLeft);
+    dimensions.coordinates.add(topRight);
+    dimensions.coordinates.add(bottomLeft);
+    dimensions.coordinates.add(bottomRight);
   }
 }
