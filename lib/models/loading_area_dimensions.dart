@@ -139,38 +139,49 @@ class LoadingAreaDimensions extends Dimensions {
 
   void append(Dimensions dimensions) {
     this._prepareDimensionsWhenIsFirst(dimensions);
-    this._setSpecCoordinates(dimensions);
+    this._prepareDimensionsWhenAreaIsNotEmpty(dimensions);
     this._occupiedDimensions.add(dimensions);
   }
 
-  void _setSpecCoordinates(Dimensions dimensions) {
+  void _prepareDimensionsWhenAreaIsNotEmpty(Dimensions dimensions) {
     if (this._occupiedDimensions.isNotEmpty) {
-      List<Coordinates> coordinateForNewDimensions =
-          this._coordinatesInSameRow(dimensions);
+      if (this._setCoordinatesInSameRow(dimensions)) return;
+      this._setCoordinatesInNextRow(dimensions);
+    }
+  }
 
-      if (this._isSizeValidated(
-          coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
+  bool _setCoordinatesInSameRow(Dimensions dimensions){
+    List<Coordinates> coordinateForNewDimensions =
+    this._coordinatesInSameRow(dimensions);
+
+    var topRight = coordinateForNewDimensions[1];
+    var bottomRight = coordinateForNewDimensions[3];
+
+    if (this._isSizeValidated(topRight, bottomRight)) {
+      dimensions.coordinates = coordinateForNewDimensions;
+      return true;
+    }
+
+    return false;
+  }
+
+  void _setCoordinatesInNextRow(Dimensions dimensions){
+    List<Coordinates> coordinateForNewDimensions = this._coordinatesInNextRow(dimensions);
+
+    var topRight = coordinateForNewDimensions[1];
+    var bottomRight = coordinateForNewDimensions[3];
+
+    if (this._isSizeValidated(topRight, bottomRight)) {
+      if (!this.isOccupied(coordinateForNewDimensions)) {
         dimensions.coordinates = coordinateForNewDimensions;
-        return;
-      }
-
-      coordinateForNewDimensions.clear();
-      coordinateForNewDimensions = this._coordinatesInNextRow(dimensions);
-
-      if (this._isSizeValidated(
-          coordinateForNewDimensions[1], coordinateForNewDimensions[3])) {
-        if (!this.isOccupied(coordinateForNewDimensions)) {
-          dimensions.coordinates = coordinateForNewDimensions;
-        } else {
-          this._addToCoordinatesWidth(coordinateForNewDimensions, dimensions);
-        }
+      } else {
+        this._addToCoordinatesWidth(coordinateForNewDimensions, dimensions);
       }
     }
   }
 
   void _addToCoordinatesWidth(
       List<Coordinates> coordinateForNewDimensions, Dimensions dimensions) {
-
     var indexBeforeLastOne = this._occupiedDimensions.length - 2;
     var dimensionsBeforeTheLastOne = this._occupiedDimensions.length > 2
         ? this._occupiedDimensions[indexBeforeLastOne]
@@ -183,45 +194,43 @@ class LoadingAreaDimensions extends Dimensions {
   }
 
   bool _isValidated(Dimensions dimensions) {
-    if(this._isFitInTheSameRow(dimensions)) return true;
+    if (this._isFitInTheSameRow(dimensions)) return true;
     return this._isFitIntTheNextRow(dimensions);
   }
 
-  bool _isFitIntTheNextRow(Dimensions dimensions){
+  bool _isFitIntTheNextRow(Dimensions dimensions) {
     List<Coordinates> coordinateForNewDimensions =
-    this._coordinatesInNextRow(dimensions);
+        this._coordinatesInNextRow(dimensions);
 
     var topRight = coordinateForNewDimensions[1];
     var bottomRight = coordinateForNewDimensions[3];
 
-    if (this._isSizeValidated(topRight, bottomRight))
-      return true;
+    if (this._isSizeValidated(topRight, bottomRight)) return true;
 
     return false;
   }
 
-  bool _isFitInTheSameRow(Dimensions dimensions){
-    List<Coordinates> coordinateForNewDimensions = this._coordinatesInSameRow(dimensions);
+  bool _isFitInTheSameRow(Dimensions dimensions) {
+    List<Coordinates> coordinateForNewDimensions =
+        this._coordinatesInSameRow(dimensions);
 
-    if(this._isDimensionsFitToSpecificLocation(coordinateForNewDimensions))
+    if (this._isDimensionsFitToSpecificLocation(coordinateForNewDimensions))
       return true;
 
     this._addToCoordinatesWidth(coordinateForNewDimensions, dimensions);
     return this._isDimensionsFitToSpecificLocation(coordinateForNewDimensions);
   }
 
-  bool _isDimensionsFitToSpecificLocation(List<Coordinates> coordinateForNewDimensions){
+  bool _isDimensionsFitToSpecificLocation(
+      List<Coordinates> coordinateForNewDimensions) {
+    var topRight = coordinateForNewDimensions[1];
+    var bottomRight = coordinateForNewDimensions[3];
 
-      var topRight = coordinateForNewDimensions[1];
-      var bottomRight = coordinateForNewDimensions[3];
-
-      if (this._isSizeValidated(topRight, bottomRight)) {
-        if (!this.isOccupied(coordinateForNewDimensions))
-          return true;
-      }
+    if (this._isSizeValidated(topRight, bottomRight)) {
+      if (!this.isOccupied(coordinateForNewDimensions)) return true;
+    }
 
     return false;
-
   }
 
   void _prepareDimensionsWhenIsFirst(Dimensions dimensions) {
