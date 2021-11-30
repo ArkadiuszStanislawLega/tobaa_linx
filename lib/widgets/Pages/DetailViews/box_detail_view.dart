@@ -62,7 +62,7 @@ class BoxDetailView extends StatelessWidget {
           ),
           PropertyGameTemplate(
             name: Strings.MAX_STACK_LEVEL,
-            value: '${box.maxStackLevel}',
+            value: '${box.maxTransportStackLevel}',
             background: Colors.grey[300]!,
           ),
 

@@ -155,7 +155,7 @@ class _DetailBaa extends State<DetailBaa> {
                 ),
                 PropertyGameTemplate(
                   name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
-                  value: '${box.maxStackLevel} szt.',
+                  value: '${box.maxTransportStackLevel} szt.',
                   background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(

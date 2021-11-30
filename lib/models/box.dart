@@ -3,7 +3,7 @@ part of models;
 class Box {
   static const int MINIMUM_STACK_LEVEL = 1;
   late String name;
-  late int _maxStackLevel, _maxWarehouseStackLevel;
+  late int _maxTransportStackLevel, _maxWarehouseStackLevel;
 
   late Dimensions dimensions;
 
@@ -26,7 +26,7 @@ class Box {
       required this.battleAirAsset,
       required this.type,
       required this.coordinates}) {
-    this.maxStackLevel = maxStackLevel;
+    this.maxTransportStackLevel = maxStackLevel;
     this._maxWarehouseStackLevel = maxWarehouseStackLevel;
   }
 
@@ -48,7 +48,7 @@ class Box {
     this.capacities = Capacities();
     this.battleAirAsset = BattleAirAsset.empty();
     this.type = BoxType.None;
-    this.maxStackLevel = maxStackLevel;
+    this.maxTransportStackLevel = maxStackLevel;
     this._maxWarehouseStackLevel = MINIMUM_STACK_LEVEL;
     this.coordinates = Coordinates();
   }
@@ -66,18 +66,18 @@ class Box {
     this.capacities = Capacities(maximum: box.capacities.maximum);
     this.battleAirAsset = box.battleAirAsset;
     this.type = box.type;
-    this.maxStackLevel = box.maxStackLevel;
+    this.maxTransportStackLevel = box.maxTransportStackLevel;
     this._maxWarehouseStackLevel = box.maxWarehouseStackLevel;
     this.coordinates = box.coordinates;
   }
 
-  int get maxStackLevel => _maxStackLevel;
+  int get maxTransportStackLevel => _maxTransportStackLevel;
 
   int get maxWarehouseStackLevel => this._maxWarehouseStackLevel;
 
-  set maxStackLevel(int value) {
+  set maxTransportStackLevel(int value) {
     if (this._isStackLevelMinimumRequirementsReached(value)) {
-      this._maxStackLevel = value;
+      this._maxTransportStackLevel = value;
     }
   }
 

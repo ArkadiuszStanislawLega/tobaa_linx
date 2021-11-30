@@ -33,7 +33,7 @@ void main() {
         type: BoxType.test,
     coordinates: Coordinates());
     expect(box.name, BOX_NAME);
-    expect(box.maxStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
+    expect(box.maxTransportStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
   });
 
   test("Constructor with proper arguments - minimum stack level equal 0.", () {
@@ -46,7 +46,7 @@ void main() {
         battleAirAsset: baa,
         type: BoxType.test, coordinates: Coordinates());
     expect(box.name, BOX_NAME);
-    expect(box.maxStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
+    expect(box.maxTransportStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
   });
 
   test("Constructor with proper arguments  - minimum stack level equal -1", () {
@@ -59,7 +59,7 @@ void main() {
         battleAirAsset: baa,
         type: BoxType.test, coordinates: Coordinates());
     expect(box.name, BOX_NAME);
-    expect(box.maxStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
+    expect(box.maxTransportStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
   });
 
   test("Setters with correct values", () {
