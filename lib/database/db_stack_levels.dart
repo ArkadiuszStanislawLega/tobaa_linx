@@ -29,22 +29,20 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 1),
     ),
-    //TODO: DOWIEDZIEĆ SIĘ JAKA WAGA KONTENERA JEST I WTEDY POPRAWIC MAXGROSS
     BoxType.CNU614: StackLevel(
-      dimensions: StackDimensions(height: 940, width: 990, length: 4572),
+      dimensions: StackDimensions(height: 940, width: 927, length: 4572),
       weights: StackWeights(
-        maxNet: 497000.0,
-        maxGross: 497001.0,
-        maxNetExplosion: 108860.0,
+        maxNet: 975223.6,
+        maxGross: 1483247.1,
+        maxNetExplosion: 108862.2,
       ),
       capacities: Capacities(maximum: 1),
     ),
-    //TODO: Waga kontenera do sprawdzenia i poprawa maxGross
     BoxType.CNU672: StackLevel(
       dimensions: StackDimensions(height: 787, width: 794, length: 4600),
       weights: StackWeights(
-        maxNet: 497000.0,
-        maxGross: 497001.0,
+        maxNet: 497000,
+        maxGross: 982322.9,
         maxNetExplosion: 88900.0,
       ),
       capacities: Capacities(maximum: 1),
