@@ -3,7 +3,7 @@ part of models;
 class Box {
   static const int MINIMUM_STACK_LEVEL = 1;
   late String name;
-  late int _maxStackLevel = MINIMUM_STACK_LEVEL;
+  late int _maxStackLevel, _maxWarehouseStackLevel;
 
   late Dimensions dimensions;
 
@@ -18,6 +18,7 @@ class Box {
 
   Box(
       {int maxStackLevel = MINIMUM_STACK_LEVEL,
+        int maxWarehouseStackLevel = MINIMUM_STACK_LEVEL,
       required this.name,
       required this.dimensions,
       required this.weights,
@@ -26,6 +27,7 @@ class Box {
       required this.type,
       required this.coordinates}) {
     this.maxStackLevel = maxStackLevel;
+    this._maxWarehouseStackLevel = maxWarehouseStackLevel;
   }
 
   Box.empty() {
@@ -47,6 +49,7 @@ class Box {
     this.battleAirAsset = BattleAirAsset.empty();
     this.type = BoxType.None;
     this.maxStackLevel = maxStackLevel;
+    this._maxWarehouseStackLevel = MINIMUM_STACK_LEVEL;
     this.coordinates = Coordinates();
   }
 
@@ -64,10 +67,13 @@ class Box {
     this.battleAirAsset = box.battleAirAsset;
     this.type = box.type;
     this.maxStackLevel = box.maxStackLevel;
+    this._maxWarehouseStackLevel = box.maxWarehouseStackLevel;
     this.coordinates = box.coordinates;
   }
 
   int get maxStackLevel => _maxStackLevel;
+
+  int get maxWarehouseStackLevel => this._maxWarehouseStackLevel;
 
   set maxStackLevel(int value) {
     if (this._isStackLevelMinimumRequirementsReached(value)) {
