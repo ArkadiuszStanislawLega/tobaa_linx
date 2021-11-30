@@ -28,7 +28,7 @@ void main() {
         capacities: Capacities(maximum: 30),
         weights: BoxWeights(gross: 31, net: 1, netExplosive: 30),
         dimensions: Dimensions(height: 3, width: 1, length: 10),
-        maxStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
+        maxTransportStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
         battleAirAsset: baa,
         type: BoxType.test,
     coordinates: Coordinates());
@@ -42,7 +42,7 @@ void main() {
         capacities: Capacities(maximum: 30),
         weights: BoxWeights(gross: 31, net: 1, netExplosive: 30),
         dimensions: Dimensions(height: 3, width: 1, length: 10),
-        maxStackLevel: 0,
+        maxTransportStackLevel: 0,
         battleAirAsset: baa,
         type: BoxType.test, coordinates: Coordinates());
     expect(box.name, BOX_NAME);
@@ -55,7 +55,7 @@ void main() {
         capacities: Capacities(maximum: 30),
         weights: BoxWeights(gross: 31, net: 1, netExplosive: 30),
         dimensions: Dimensions(height: 3, width: 1, length: 10),
-        maxStackLevel: -1,
+        maxTransportStackLevel: -1,
         battleAirAsset: baa,
         type: BoxType.test, coordinates: Coordinates());
     expect(box.name, BOX_NAME);
@@ -68,7 +68,7 @@ void main() {
         capacities: Capacities(maximum: 30),
         weights: BoxWeights(gross: 31, net: 1, netExplosive: 30),
         dimensions: Dimensions(height: 3, width: 1, length: 10),
-        maxStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
+        maxTransportStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
         battleAirAsset: baa,
         type: BoxType.test, coordinates: Coordinates());
     box.dimensions = new Dimensions(height: 1, width: 1, length: 1);
@@ -105,7 +105,7 @@ void main() {
         capacities: Capacities(maximum: 10),
         weights: BoxWeights(gross: 31, net: 1, netExplosive: 30),
         dimensions: Dimensions(height: 3, width: 1, length: 10),
-        maxStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
+        maxTransportStackLevel: CORRECT_MINIMUM_STACK_LEVEL,
         battleAirAsset: baa,
         type: BoxType.test,
         coordinates: Coordinates());
@@ -152,7 +152,7 @@ void main() {
             net: BOX_NET_WEIGHT,
             netExplosive: BOX_NET_EXPLOSIVE_WEIGHT),
         dimensions: Dimensions(height: 3, width: 1, length: 10),
-        maxStackLevel: BOX_MAX_STACK_LEVEL,
+        maxTransportStackLevel: BOX_MAX_STACK_LEVEL,
         battleAirAsset: baa,
         type: BoxType.test,
         coordinates: Coordinates());

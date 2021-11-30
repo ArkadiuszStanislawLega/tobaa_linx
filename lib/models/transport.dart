@@ -173,7 +173,7 @@ class Transport {
             height: modelBox.dimensions.height,
             width: modelBox.dimensions.width,
             length: modelBox.dimensions.length),
-        maxStackLevel: modelBox.maxTransportStackLevel,
+        maxTransportStackLevel: modelBox.maxTransportStackLevel,
         battleAirAsset: modelBox.battleAirAsset,
         type: modelBox.type,
     coordinates: modelBox.coordinates);

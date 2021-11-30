@@ -30,7 +30,7 @@ void main() {
         capacities: Capacities(maximum: 10),
         weights: BoxWeights(gross: 11.0, net: 1.0, netExplosive: 5.0),
         dimensions: Dimensions(height: 1, width: 1, length: 5),
-        maxStackLevel: 2,
+        maxTransportStackLevel: 2,
         battleAirAsset: baa,
         type: BoxType.test,
         coordinates: Coordinates());
@@ -42,7 +42,7 @@ void main() {
         capacities: Capacities(maximum: 10),
         weights: BoxWeights(gross: 11.0, net: 1.0, netExplosive: 5.0),
         dimensions: Dimensions(height: 1, width: 1, length: 5),
-        maxStackLevel: 2,
+        maxTransportStackLevel: 2,
         battleAirAsset: baa,
         type: BoxType.test,
         coordinates: Coordinates());

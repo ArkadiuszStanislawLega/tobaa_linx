@@ -10,7 +10,7 @@ class DatabaseAssets {
         materialIdentificationNumber: DatabaseUnCodes.container[34]!,
         hexogeneEquivalent: 69.23,
         weights: Weights(gross: 497000, netExplosive: 88900, net: 497000),
-        dimensions: Dimensions(height: 1, length: 1, width: 1),
+        dimensions: Dimensions(height: 533, length: 4064, width: 419),
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
@@ -23,8 +23,8 @@ class DatabaseAssets {
         name: "AGM-158-6 JASSM",
         materialIdentificationNumber: DatabaseUnCodes.container[34]!,
         hexogeneEquivalent: 0.0,
-        weights: Weights(gross: 497000, netExplosive: 108860, net: 497000),
-        dimensions: Dimensions(height: 1, length: 1, width: 1),
+        weights: Weights(gross: 975223.6, netExplosive: 108862.2, net: 975223.6),
+        dimensions: Dimensions(height: 508, length: 4267, width: 632),
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.J]!,

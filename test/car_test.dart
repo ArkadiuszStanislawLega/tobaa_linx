@@ -21,7 +21,7 @@ void main() {
         capacities: Capacities(maximum: 4),
         weights: BoxWeights(gross: 927000, net: 281000, netExplosive: 232800),
         dimensions: Dimensions(height: 480, width: 968, length: 4416),
-        maxStackLevel: 2,
+        maxTransportStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
         type: BoxType.CNU431,
         coordinates: Coordinates());
@@ -31,7 +31,7 @@ void main() {
         capacities: Capacities(maximum: 4),
         weights: BoxWeights(gross: 927000, net: 281000, netExplosive: 232800),
         dimensions: Dimensions(height: 480, width: 968, length: 4416),
-        maxStackLevel: 2,
+        maxTransportStackLevel: 2,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AIM120]!,
         type: BoxType.CNU431,
         coordinates: Coordinates());

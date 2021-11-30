@@ -17,7 +17,7 @@ class Box {
   late BoxType type;
 
   Box(
-      {int maxStackLevel = MINIMUM_STACK_LEVEL,
+      {int maxTransportStackLevel = MINIMUM_STACK_LEVEL,
         int maxWarehouseStackLevel = MINIMUM_STACK_LEVEL,
       required this.name,
       required this.dimensions,
@@ -26,7 +26,7 @@ class Box {
       required this.battleAirAsset,
       required this.type,
       required this.coordinates}) {
-    this.maxTransportStackLevel = maxStackLevel;
+    this.maxTransportStackLevel = maxTransportStackLevel;
     this._maxWarehouseStackLevel = maxWarehouseStackLevel;
   }
 
