@@ -53,11 +53,7 @@ class _DetailBaa extends State<DetailBaa> {
                 LengthPropertyTemplate(this.battleAirAsset.dimensions.length),
                 WidthPropertyTemplate(this.battleAirAsset.dimensions.width),
                 HeightPropertyTemplate(this.battleAirAsset.dimensions.height),
-                PropertyGameTemplate(
-                  name: Strings.GROSS_WEIGHT,
-                  value: '${massConverter(this.battleAirAsset.weights.gross)}',
-                  background: Colors.grey[400]!,
-                ),
+                GrossWeightPropertyTemplate(this.battleAirAsset.weights.gross),
                 PropertyGameTemplate(
                   name: Strings.NET_WEIGHT,
                   value: '${massConverter(this.battleAirAsset.weights.net)}',

@@ -51,3 +51,4 @@ part 'package:tobaa/widgets/Templates/weight_template.dart';
 part 'package:tobaa/widgets/Templates/length_property_template.dart';
 part 'package:tobaa/widgets/Templates/width_property_template.dart';
 part 'package:tobaa/widgets/Templates/height_property_template.dart';
+part 'package:tobaa/widgets/Templates/gross_weight_property_template.dart';
