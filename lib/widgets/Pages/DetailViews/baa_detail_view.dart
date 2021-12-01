@@ -52,12 +52,7 @@ class _DetailBaa extends State<DetailBaa> {
               children: [
                 LengthPropertyTemplate(this.battleAirAsset.dimensions.length),
                 WidthPropertyTemplate(this.battleAirAsset.dimensions.width),
-                PropertyGameTemplate(
-                  name: Strings.HEIGHT,
-                  value:
-                      '${sizeConverter(this.battleAirAsset.dimensions.height)}',
-                  background: Colors.grey[300]!,
-                ),
+                HeightPropertyTemplate(this.battleAirAsset.dimensions.height),
                 PropertyGameTemplate(
                   name: Strings.GROSS_WEIGHT,
                   value: '${massConverter(this.battleAirAsset.weights.gross)}',
