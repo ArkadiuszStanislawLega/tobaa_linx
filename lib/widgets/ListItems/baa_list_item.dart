@@ -59,7 +59,8 @@ class _BaaListItemState extends State<BaaListItem> {
             children: [
               ExplosivesWeightTemplate(this.baa.weights.netExplosive *
                   TOBAAApp.values[baa.type]!),
-
+              SizedBox(width: 10,),
+              WeightTemplate(this.baa.weights.gross * TOBAAApp.values[baa.type]!)
             ],
           )
               : Container(),
