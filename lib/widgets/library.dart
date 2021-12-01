@@ -53,3 +53,4 @@ part 'package:tobaa/widgets/Templates/width_property_template.dart';
 part 'package:tobaa/widgets/Templates/height_property_template.dart';
 part 'package:tobaa/widgets/Templates/gross_weight_property_template.dart';
 part 'package:tobaa/widgets/Templates/net_weight_property_template.dart';
+part 'package:tobaa/widgets/Templates/net_explosive_weight_property_template.dart';
