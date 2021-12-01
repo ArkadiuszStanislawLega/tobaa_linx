@@ -85,19 +85,19 @@ class _DetailBaa extends State<DetailBaa> {
                   background: Colors.grey[200]!,
                 ),
                 PropertyGameTemplate(
-                  name: 'Równoznacznik heksogenowy',
+                  name: Strings.HEXOGEN_EQUIVALENT,
                   value:
                   '${massConverter(this.battleAirAsset.hexogeneEquivalent)}',
                   background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
-                  name: 'Cod UN',
+                  name: Strings.UN_CODE,
                   value:
                       '${intToUnCodeConverter(this.battleAirAsset.materialIdentificationNumber.unCode)}',
                   background: Colors.grey[300]!,
                 ),
                 PropertyTextValue(
-                  name: 'Nazwa transportowa',
+                  name: Strings.TRANSPORT_NAME,
                   value: '${ this
                       .battleAirAsset
                       .materialIdentificationNumber
