@@ -1,5 +1,6 @@
 part of widgets;
 
+
 class DetailBaa extends StatefulWidget {
   final BattleAirAsset battleAirAsset;
 
@@ -50,51 +51,47 @@ class _DetailBaa extends State<DetailBaa> {
               crossAxisCount: 3,
               shrinkWrap: true,
               children: [
-                PropertyGameTemplate(
-                  name: Strings.LENGTH,
-                  value:
-                      '${sizeConverter(this.battleAirAsset.dimensions.length)}',
-                  background: Colors.grey[100]!,
-                ),
+                LengthPropertyTemplate(this.battleAirAsset.dimensions.length),
+
                 PropertyGameTemplate(
                   name: Strings.WIDTH,
                   value:
                       '${sizeConverter(this.battleAirAsset.dimensions.width)}',
-                  background: Colors.grey[100]!,
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
                   value:
                       '${sizeConverter(this.battleAirAsset.dimensions.height)}',
-                  background: Colors.grey[100]!,
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.GROSS_WEIGHT,
                   value: '${massConverter(this.battleAirAsset.weights.gross)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NET_WEIGHT,
                   value: '${massConverter(this.battleAirAsset.weights.net)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NEW,
                   value:
                       '${massConverter(this.battleAirAsset.weights.netExplosive)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEXOGEN_EQUIVALENT,
                   value:
                   '${massConverter(this.battleAirAsset.hexogeneEquivalent)}',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[500]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.UN_CODE,
                   value:
                       '${intToUnCodeConverter(this.battleAirAsset.materialIdentificationNumber.unCode)}',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[500]!,
                 ),
                 PropertyTextValue(
                   name: Strings.TRANSPORT_NAME,
@@ -106,7 +103,7 @@ class _DetailBaa extends State<DetailBaa> {
                       .materialIdentificationNumber
                       .shippingDescription
                   }',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[500]!,
                 ),
 
               ],
@@ -121,49 +118,54 @@ class _DetailBaa extends State<DetailBaa> {
                 PropertyGameTemplate(
                   name: Strings.LENGTH,
                   value: '${sizeConverter(box.dimensions.length)}',
-                  background: Colors.grey[100]!,
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.WIDTH,
                   value: '${sizeConverter(box.dimensions.width)}',
-                  background: Colors.grey[100]!,
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
                   value: '${sizeConverter(box.dimensions.height)}',
-                  background: Colors.grey[100]!,
+                  background: Colors.grey[300]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CONTAINER_NET_WEIGHT,
                   value: '${massConverter(box.weights.net)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CONTAINER_FULLY_LOADED_GROSS_WEIGHT,
                   value: '${massConverter(box.weights.gross)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CONTAINER_FULLY_LOADED_NEW,
                   value: '${massConverter(box.weights.netExplosive)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.CAPACITY,
                   value: '${box.capacities.maximum}',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[500]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
                   value: '${box.maxTransportStackLevel} szt.',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[500]!,
+                ),
+                PropertyGameTemplate(
+                  name: Strings.MAX_WAREHOUSE_STACK_LEVEL,
+                  value: '${box.maxWarehouseStackLevel} szt.',
+                  background: Colors.grey[500]!,
                 ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_CHOSEN_BAA,
                   value: TOBAAApp.values.containsKey(this.battleAirAsset.type)
                       ? '${TOBAAApp.values[this.battleAirAsset.type]} szt.'
                       : '0 szt.',
-                  background: Colors.grey[300]!,
+                  background: Colors.grey[600]!,
                 ),
               ],
             ),

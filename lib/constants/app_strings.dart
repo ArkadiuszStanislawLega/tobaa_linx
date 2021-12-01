@@ -45,6 +45,7 @@ class Strings {
       MAX_STACK_HEIGHT_DURING_TRANSPORT =
           'Maksymalna wysokość stosu w trakcie transportu',
       MAX_STACK_LEVEL = 'Maksymalny poziom stosu',
+      MAX_WAREHOUSE_STACK_LEVEL = 'Maksymalny poziom stosu w czasie magazynowania',
       NAME = 'Nazwa',
       NAME_OF_THE_CAR = 'Nazwa pojazdu',
       NEW = 'Waga ładunków wybuchowych',
