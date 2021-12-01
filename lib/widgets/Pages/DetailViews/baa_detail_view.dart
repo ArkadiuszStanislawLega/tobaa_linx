@@ -58,12 +58,7 @@ class _DetailBaa extends State<DetailBaa> {
                 NetExplosiveWeightPropertyTemplate(
                     this.battleAirAsset.weights.netExplosive),
                 HexogeneEquivalentPropertyTemplate(this.battleAirAsset.hexogeneEquivalent),
-                PropertyGameTemplate(
-                  name: Strings.UN_CODE,
-                  value:
-                      '${intToUnCodeConverter(this.battleAirAsset.materialIdentificationNumber.unCode)}',
-                  background: Colors.grey[500]!,
-                ),
+                UnCodePropertyTemplate(this.battleAirAsset.materialIdentificationNumber.unCode),
                 PropertyTextValue(
                   name: Strings.TRANSPORT_NAME,
                   value:
