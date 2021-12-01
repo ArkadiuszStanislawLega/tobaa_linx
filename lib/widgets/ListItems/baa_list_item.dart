@@ -40,14 +40,29 @@ class _BaaListItemState extends State<BaaListItem> {
         borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(10), topRight: Radius.circular(20)),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child: Column(
         children: [
-          AssetNameTemplate(this.baa.name),
-          SizedBox(width: 5),
-          BoxNameTemplate(this.baa.boxType),
-          SizedBox(width: 5),
-          HazardClassTemplate(this.baa.explosionClass)
+          Row(
+            children: [
+              AssetNameTemplate(this.baa.name),
+              SizedBox(width: 5),
+              BoxNameTemplate(this.baa.boxType),
+              SizedBox(width: 5),
+              HazardClassTemplate(this.baa.explosionClass)
+            ],
+          ),
+          SizedBox(height: 10,),
+          TOBAAApp.values.isNotEmpty &&
+              TOBAAApp.values.containsKey(baa.type) &&
+              TOBAAApp.values[baa.type]! > 0
+              ? Row(
+            children: [
+              ExplosivesWeightTemplate(this.baa.weights.netExplosive *
+                  TOBAAApp.values[baa.type]!),
+
+            ],
+          )
+              : Container(),
         ],
       ),
     );
