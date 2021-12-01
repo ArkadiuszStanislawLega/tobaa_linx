@@ -1,6 +1,5 @@
 part of widgets;
 
-
 class DetailBaa extends StatefulWidget {
   final BattleAirAsset battleAirAsset;
 
@@ -52,13 +51,7 @@ class _DetailBaa extends State<DetailBaa> {
               shrinkWrap: true,
               children: [
                 LengthPropertyTemplate(this.battleAirAsset.dimensions.length),
-
-                PropertyGameTemplate(
-                  name: Strings.WIDTH,
-                  value:
-                      '${sizeConverter(this.battleAirAsset.dimensions.width)}',
-                  background: Colors.grey[300]!,
-                ),
+                WidthPropertyTemplate(this.battleAirAsset.dimensions.width),
                 PropertyGameTemplate(
                   name: Strings.HEIGHT,
                   value:
@@ -84,7 +77,7 @@ class _DetailBaa extends State<DetailBaa> {
                 PropertyGameTemplate(
                   name: Strings.HEXOGEN_EQUIVALENT,
                   value:
-                  '${massConverter(this.battleAirAsset.hexogeneEquivalent)}',
+                      '${massConverter(this.battleAirAsset.hexogeneEquivalent)}',
                   background: Colors.grey[500]!,
                 ),
                 PropertyGameTemplate(
@@ -95,17 +88,10 @@ class _DetailBaa extends State<DetailBaa> {
                 ),
                 PropertyTextValue(
                   name: Strings.TRANSPORT_NAME,
-                  value: '${ this
-                      .battleAirAsset
-                      .materialIdentificationNumber
-                      .shippingName} ${this
-                      .battleAirAsset
-                      .materialIdentificationNumber
-                      .shippingDescription
-                  }',
+                  value:
+                      '${this.battleAirAsset.materialIdentificationNumber.shippingName} ${this.battleAirAsset.materialIdentificationNumber.shippingDescription}',
                   background: Colors.grey[500]!,
                 ),
-
               ],
             ),
             GridView.count(
