@@ -57,14 +57,12 @@ class _DetailBaa extends State<DetailBaa> {
                 NetWeightPropertyTemplate(this.battleAirAsset.weights.net),
                 NetExplosiveWeightPropertyTemplate(
                     this.battleAirAsset.weights.netExplosive),
-                HexogeneEquivalentPropertyTemplate(this.battleAirAsset.hexogeneEquivalent),
-                UnCodePropertyTemplate(this.battleAirAsset.materialIdentificationNumber.unCode),
-                PropertyTextValue(
-                  name: Strings.TRANSPORT_NAME,
-                  value:
-                      '${this.battleAirAsset.materialIdentificationNumber.shippingName} ${this.battleAirAsset.materialIdentificationNumber.shippingDescription}',
-                  background: Colors.grey[500]!,
-                ),
+                HexogeneEquivalentPropertyTemplate(
+                    this.battleAirAsset.hexogeneEquivalent),
+                UnCodePropertyTemplate(
+                    this.battleAirAsset.materialIdentificationNumber.unCode),
+                TransportNamePropertyTemplate(
+                    this.battleAirAsset.materialIdentificationNumber),
               ],
             ),
             GridView.count(
