@@ -131,14 +131,14 @@ class DatabaseBoxes {
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.MPLD]!,
         type: BoxType.M548MPLD,
         coordinates: Coordinates()),
-    BoxType.CHAFF_BOX: new Box(
-        name: "Skrzynia z RR170AL",
+    BoxType.RR170AL_BOX: new Box(
+        name: "Karton z RR170AL",
         capacities: Capacities(maximum: 120),
-        weights: BoxWeights(gross: 16800, net: 1000, netExplosive: 43.544856),
+        weights: BoxWeights(gross: 17800, net: 1000, netExplosive: 43.54486751999988),
         dimensions: Dimensions(height: 265, width: 410, length: 350),
         maxTransportStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.RR170AL]!,
-        type: BoxType.CHAFF_BOX,
+        type: BoxType.RR170AL_BOX,
         coordinates: Coordinates()),
   };
 }

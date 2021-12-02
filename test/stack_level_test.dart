@@ -136,4 +136,24 @@ void main() {
     expect(stackLevel.weights.netExplosive, stackLevel.weights.maxNetExplosion);
     expect(stackLevel.weights.net, stackLevel.weights.maxNet);
   });
+
+  test("Append RR170A/AL box to stack level.", () {
+    const int MAX_NUMBER_OF_BOXES_IN_STACK = 6;
+    StackLevel stackLevel = DatabaseStackLevels.container[BoxType.RR170AL_BOX]!;
+    Box box = DatabaseBoxes.container[BoxType.RR170AL_BOX]!;
+
+    box.fillBox(box.capacities.maximum);
+    expect(stackLevel.isBoxWillBeFit(box), true);
+    for (int i = 0; i < MAX_NUMBER_OF_BOXES_IN_STACK; i++) {
+      if (stackLevel.isBoxWillBeFit(box)) stackLevel.appendBox(box);
+    }
+
+    expect(stackLevel.capacities.current, stackLevel.capacities.maximum);
+    expect(stackLevel.dimensions.width, 1245);
+    expect(stackLevel.dimensions.length, 705);
+    expect(stackLevel.dimensions.height, 265);
+    expect(stackLevel.weights.gross, stackLevel.weights.maxGross);
+    expect(stackLevel.weights.netExplosive, stackLevel.weights.maxNetExplosion);
+    expect(stackLevel.weights.net, stackLevel.weights.maxNet);
+  });
 }

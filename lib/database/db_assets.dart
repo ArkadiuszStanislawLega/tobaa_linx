@@ -189,12 +189,12 @@ class DatabaseAssets {
 
     BattleAirAssetType.RR170AL: new BattleAirAsset(
         type: BattleAirAssetType.RR170AL,
-        boxType: BoxType.CHAFF_BOX,
+        boxType: BoxType.RR170AL_BOX,
         name: "RR-170A/AL",
         materialIdentificationNumber: MaterialIdentificationNumber.empty(),
         hexogeneEquivalent: 0,
         weights: Weights(gross: 140, netExplosive: 0.362873896, net: 140),
-        dimensions: Dimensions(height: 205, length: 0, width: 25),
+        dimensions: Dimensions(height: 205, length: 25, width: 25),
         explosionClass: ExplosionClass(
             compatibilityGroup:
                 DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,

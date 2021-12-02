@@ -62,6 +62,14 @@ void main() {
     expect(box.maxTransportStackLevel, CORRECT_MINIMUM_STACK_LEVEL);
   });
 
+  test('Fill box RR170A/AL', (){
+    Box box = DatabaseBoxes.container[BoxType.RR170AL_BOX]!;
+    box.fillBox(120);
+    expect(box.capacities.current, 120);
+    expect(box.weights.currentNetExplosive, 43.54486751999988);
+    expect(box.weights.currentGross, 17800);
+  });
+
   test("Setters with correct values", () {
     Box box = new Box(
         name: BOX_NAME,

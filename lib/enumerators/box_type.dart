@@ -19,5 +19,5 @@ enum BoxType{
   MJU7ABOX,
   M548MPLD,
   M548_TPRRR,
-  CHAFF_BOX
+  RR170AL_BOX
 }

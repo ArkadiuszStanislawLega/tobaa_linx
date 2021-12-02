@@ -92,5 +92,14 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 1080),
     ),
+    BoxType.RR170AL_BOX: StackLevel(
+      dimensions: StackDimensions(height: 265, width: 1245, length: 705),
+      weights: StackWeights(
+        maxNet: 100800.0,
+        maxGross: 106800.0,
+        maxNetExplosion: 261.2692051199993,
+      ),
+      capacities: Capacities(maximum: 720),
+    ),
   };
 }
