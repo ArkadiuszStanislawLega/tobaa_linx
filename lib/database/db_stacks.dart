@@ -168,13 +168,13 @@ class DatabaseStacks {
       ),
     ),
     BoxType.RR170AL_BOX: WarehouseStack(
-      maximumStackLevel: 1,
+      maximumStackLevel: 3,
       battleAirAssetCapacities: Capacities(maximum: 2160),
       defaultStackLevel: _rr170al,
       weights: StackWeights(
-          maxGross: _rr170al.weights.maxGross,
-          maxNet: _rr170al.weights.maxNet,
-          maxNetExplosion: _rr170al.weights.maxNetExplosion),
+          maxGross: 3*_rr170al.weights.maxGross,
+          maxNet: 3*_rr170al.weights.maxNet,
+          maxNetExplosion: 3*_rr170al.weights.maxNetExplosion),
       dimensions: StackDimensions(
           length: _rr170al.dimensions.length,
           width: _rr170al.dimensions.width,

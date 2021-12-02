@@ -1,7 +1,7 @@
 part of models;
 
 class ExplosionClass implements Comparable {
-  static const double NOT_LIMITED_WEIGHT = -1;
+  static const double NOT_LIMITED_WEIGHT = 999999999;
   static const int COMPARABLE_VALUE_IS_EQUAL = 1;
   static const int COMPARABLE_VALUE_IS_NOT_EQUAL = 0;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_ONE_A = 6.25;

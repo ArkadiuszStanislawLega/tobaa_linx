@@ -93,7 +93,7 @@ void main() {
     expect(stack.dimensions.length, box.dimensions.length);
     expect(stack.dimensions.width, box.dimensions.width);
     expect(stack.dimensions.height, box.dimensions.height);
-    expect(stack.weights.net, 497000);
+    expect(stack.weights.net, 975223.6000000001);
     expect(stack.weights.gross, box.weights.gross);
     expect(stack.weights.netExplosive, box.weights.netExplosive);
 
@@ -157,9 +157,7 @@ void main() {
     expect(stack.isBoxesCanBeAddedToStack(boxes), true);
     stack.addAllBoxes(boxes);
 
-    expect(stack.levels.length, 1);
-    expect(stack.levels.first.capacities.current, 720);
-
+    expect(stack.levels.length, 3);
     expect(stack.battleAirAssetCapacities.current, 2160);
     expect(stack.weights.net, stack.weights.maxNet);
     expect(stack.weights.gross, stack.weights.maxGross);
