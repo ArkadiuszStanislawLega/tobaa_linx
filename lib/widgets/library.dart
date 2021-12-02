@@ -58,3 +58,4 @@ part 'package:tobaa/widgets/Templates/hexogene_equivalent_property_template.dart
 part 'package:tobaa/widgets/Templates/un_code_property_template.dart';
 part 'package:tobaa/widgets/Templates/transport_name_property_template.dart';
 part 'package:tobaa/widgets/Templates/capacity_property_template.dart';
+part 'package:tobaa/widgets/Templates/max_stack_trans_prop_temp.dart';

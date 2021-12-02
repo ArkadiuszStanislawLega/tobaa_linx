@@ -72,7 +72,6 @@ class _DetailBaa extends State<DetailBaa> {
               mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
-
                 LengthPropertyTemplate(box.dimensions.length),
                 WidthPropertyTemplate(box.dimensions.width),
                 HeightPropertyTemplate(box.dimensions.height),
@@ -80,14 +79,11 @@ class _DetailBaa extends State<DetailBaa> {
                 GrossWeightPropertyTemplate(box.weights.gross),
                 NetWeightPropertyTemplate(box.weights.net),
                 NetExplosiveWeightPropertyTemplate(box.weights.netExplosive),
+
                 CapacityPropertyTemplate(box.capacities.current),
+                MaxStackTransPropTemp(box.maxTransportStackLevel),
 
 
-                PropertyGameTemplate(
-                  name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
-                  value: '${box.maxTransportStackLevel} szt.',
-                  background: Colors.grey[500]!,
-                ),
                 PropertyGameTemplate(
                   name: Strings.MAX_WAREHOUSE_STACK_LEVEL,
                   value: '${box.maxWarehouseStackLevel} szt.',
