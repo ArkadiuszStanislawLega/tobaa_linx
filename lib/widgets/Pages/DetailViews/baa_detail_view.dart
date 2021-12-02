@@ -75,22 +75,16 @@ class _DetailBaa extends State<DetailBaa> {
                 LengthPropertyTemplate(box.dimensions.length),
                 WidthPropertyTemplate(box.dimensions.width),
                 HeightPropertyTemplate(box.dimensions.height),
-
                 GrossWeightPropertyTemplate(box.weights.gross),
                 NetWeightPropertyTemplate(box.weights.net),
                 NetExplosiveWeightPropertyTemplate(box.weights.netExplosive),
-
                 CapacityPropertyTemplate(box.capacities.current),
                 MaxStackTransPropTemp(box.maxTransportStackLevel),
                 MaxStackWarehousePropTemp(box.maxWarehouseStackLevel),
-
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_CHOSEN_BAA,
-                  value: TOBAAApp.values.containsKey(this.battleAirAsset.type)
-                      ? '${TOBAAApp.values[this.battleAirAsset.type]} szt.'
-                      : '0 szt.',
-                  background: Colors.grey[600]!,
-                ),
+                BaaCounterPropertyTemplate(
+                    TOBAAApp.values.containsKey(this.battleAirAsset.type)
+                        ? TOBAAApp.values[this.battleAirAsset.type]!
+                        : 0)
               ],
             ),
           ],
@@ -105,7 +99,7 @@ class _DetailBaa extends State<DetailBaa> {
         .explosionClass
         .compatibilityGroup
         .convertCompatibilityGroup(
-        this.battleAirAsset.explosionClass.compatibilityGroup.group);
+            this.battleAirAsset.explosionClass.compatibilityGroup.group);
     showDialog(
         builder: (BuildContext context) {
           return AlertDialog(
@@ -148,8 +142,7 @@ class _DetailBaa extends State<DetailBaa> {
             ],
           ),
           Text(
-            '${this.battleAirAsset.explosionClass.explosionSubclass
-                .description}',
+            '${this.battleAirAsset.explosionClass.explosionSubclass.description}',
             style: TextStyle(fontStyle: FontStyle.italic),
           ),
         ],
@@ -172,8 +165,7 @@ class _DetailBaa extends State<DetailBaa> {
             ],
           ),
           Text(
-            '${this.battleAirAsset.explosionClass.compatibilityGroup
-                .description}',
+            '${this.battleAirAsset.explosionClass.compatibilityGroup.description}',
             style: TextStyle(fontStyle: FontStyle.italic),
           ),
         ],
