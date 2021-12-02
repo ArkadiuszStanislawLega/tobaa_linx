@@ -40,13 +40,13 @@ class StackLevelDetailView extends StatelessWidget {
                   hint: Strings.HINT_NET_WEIGHT,
                   propertyName: Strings.NET_WEIGHT,
                   propertyValue: '${massConverter(stackLevel.weights.net)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_GROSS_WEIGHT,
                   propertyName: Strings.GROSS_WEIGHT,
                   propertyValue: '${massConverter(stackLevel.weights.gross)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 NumberOfBoxesPropertyTemplate(stackLevel.boxes.length),
                 NumberOfBaaPropertyTemplate(stackLevel.capacities.current)

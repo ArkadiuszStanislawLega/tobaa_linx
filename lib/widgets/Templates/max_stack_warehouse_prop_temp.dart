@@ -10,7 +10,7 @@ class MaxStackWarehousePropTemp extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.MAX_WAREHOUSE_STACK_LEVEL,
       value: '$maxWarehouseStackLevel',
-      background: Colors.grey[500]!,
+      background: Colors.white30,
     );
   }
 }

@@ -10,7 +10,7 @@ class NumberOfStackLevelsPropertyTemplate extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.NUMBER_OF_STACK_LEVELS,
       value: '$numberOfLevels',
-      background: Colors.grey[800]!,
+      background: Colors.grey[600]!,
     );
   }
 }

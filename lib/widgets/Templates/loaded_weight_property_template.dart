@@ -10,7 +10,7 @@ class LoadedWeightPropertyTemplate extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.LOAD_WEIGHT,
       value: '${massConverter(this.loadedWeight)}',
-      background: Colors.grey[300]!,
+      background: Colors.grey[400]!,
     );
   }
 }

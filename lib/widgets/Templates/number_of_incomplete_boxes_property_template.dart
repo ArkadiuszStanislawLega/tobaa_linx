@@ -10,7 +10,7 @@ class NumberOfIncompleteBoxesPropertyTemplate extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.NUMBER_OF_INCOMPLETE_BOXES,
       value: '$numberOfIncompleteBoxes',
-      background: Colors.grey[400]!,
+      background: Colors.grey[600]!,
     );
   }
 }

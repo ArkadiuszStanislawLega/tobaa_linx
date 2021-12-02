@@ -10,7 +10,7 @@ class NumberOfStacksPropertyTemplate extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.NUMBER_OF_THE_STACKS,
       value: '$numberOfStacks',
-      background: Colors.grey[300]!,
+      background: Colors.grey[600]!,
     );
   }
 }

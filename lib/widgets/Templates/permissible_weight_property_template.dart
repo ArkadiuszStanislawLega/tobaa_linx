@@ -10,7 +10,7 @@ class PermissibleWeightPropertyTemplate extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.PERMISSIBLE_WEIGHT,
       value: '${massConverter(this.weightLimit)}',
-      background: Colors.grey[200]!,
+      background: Colors.grey[400]!,
     );
   }
 }

@@ -10,7 +10,8 @@ class ExplosionClassPropertyTemplate extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.EXPLOSION_CLASS,
       value: this.explosionClass,
-      background: Colors.grey[200]!,
+      background: Colors.orangeAccent[700]!,
+      fontColor: Colors.white,
     );
   }
 }

@@ -32,7 +32,7 @@ class Strings {
       HEIGHT = 'Wysokość',
       HEXOGEN_EQUIVALENT = "Równoznacznik heksogenowy",
       INFORMATION = 'Informacje',
-      NUMBER_OF_INCOMPLETE_BOXES = 'Liczba niepełnych kontenerów',
+      NUMBER_OF_INCOMPLETE_BOXES = 'Ilość niepełnych kontenerów',
       LENGTH = 'Długość',
       LOAD_WEIGHT = 'Waga ładunku',
       LOADED_CARGO_PARAMETERS = 'Parametry załadowanego ładunku',

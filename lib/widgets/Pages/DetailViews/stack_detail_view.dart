@@ -35,24 +35,27 @@ class StackDetailView extends StatelessWidget {
                 LengthPropertyTemplate(stack.dimensions.length),
                 WidthPropertyTemplate(stack.dimensions.width),
                 HeightPropertyTemplate(stack.dimensions.height),
-                NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
+
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
                   propertyName: Strings.NET_WEIGHT,
                   propertyValue: '${massConverter(stack.weights.net)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_GROSS_WEIGHT,
                   propertyName: Strings.GROSS_WEIGHT,
                   propertyValue: '${massConverter(stack.weights.gross)}',
-                  background: Colors.grey[200]!,
+                  background: Colors.grey[400]!,
                 ),
+                NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
+                MaxStackTransPropTemp(stack.maximumStackLevel),
+                NumberOfStackLevelsPropertyTemplate(stack.levels.length),
                 NumberOfBoxesPropertyTemplate(stack.currentNumberOfBoxes),
                 NumberOfBaaPropertyTemplate(
                     stack.battleAirAssetCapacities.current),
-                MaxStackTransPropTemp(stack.maximumStackLevel),
-                NumberOfStackLevelsPropertyTemplate(stack.levels.length)
+
+
               ],
             ),
             StackLevelsListView(stack.levels),

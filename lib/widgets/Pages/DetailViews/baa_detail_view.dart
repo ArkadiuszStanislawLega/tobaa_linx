@@ -78,7 +78,7 @@ class _DetailBaa extends State<DetailBaa> {
                 GrossWeightPropertyTemplate(box.weights.gross),
                 NetWeightPropertyTemplate(box.weights.net),
                 NetExplosiveWeightPropertyTemplate(box.weights.netExplosive),
-                CapacityPropertyTemplate(box.capacities.current),
+                CapacityPropertyTemplate(box.capacities.maximum),
                 MaxStackTransPropTemp(box.maxTransportStackLevel),
                 MaxStackWarehousePropTemp(box.maxWarehouseStackLevel),
                 BaaCounterPropertyTemplate(

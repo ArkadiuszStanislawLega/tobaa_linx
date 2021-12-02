@@ -10,7 +10,7 @@ class MaxStackTransPropTemp extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
       value: '$transportMaxStackLevel',
-      background: Colors.grey[500]!,
+      background: Colors.white30,
     );
   }
 }

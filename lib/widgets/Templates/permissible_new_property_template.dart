@@ -10,7 +10,7 @@ class PermissibleNewPropertyTemplate extends StatelessWidget {
     return PropertyGameTemplate(
       name: Strings.PERMISSIBLE_NEW,
       value: '${massConverter(this.netExplosionWeightLimit)}',
-      background: Colors.grey[200]!,
+      background: Colors.grey[400]!,
     );
   }
 }
