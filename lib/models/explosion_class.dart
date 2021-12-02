@@ -1,13 +1,14 @@
 part of models;
 
 class ExplosionClass implements Comparable {
+  static const double NOT_LIMITED_WEIGHT = -1;
   static const int COMPARABLE_VALUE_IS_EQUAL = 1;
   static const int COMPARABLE_VALUE_IS_NOT_EQUAL = 0;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_ONE_A = 6.25;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_ONE = 1000000.0;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_TWO = 3000000.0;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_TREE = 5000000.0;
-  static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_FOUR_S = -1.0;
+  static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_FOUR_S = NOT_LIMITED_WEIGHT;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_FOUR = 15000000.0;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_FIVE = 5000000.0;
   static const double ACCEPTABLE_WEIGHT_LIMIT_ONE_POINT_SIX = 5000000.0;

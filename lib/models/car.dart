@@ -11,8 +11,7 @@ class Car {
   late List<WarehouseStack> stacks;
   late CarType type;
 
-
-  Car.empty(){
+  Car.empty() {
     this.name = "";
     this.carWeights = new Weights();
     this.weightOfLoadingArea = new LoadingAreaWeights();
@@ -30,17 +29,16 @@ class Car {
     required this.dimensionOfLoadingArea,
     required this.stacks,
     required this.type,
-  }){
+  }) {
     this._explosionClass = new ExplosionClass(
-      compatibilityGroup: CompatibilityGroup(),
-      explosionSubclass: ExplosionSubclass()
-    );
+        compatibilityGroup: CompatibilityGroup(),
+        explosionSubclass: ExplosionSubclass());
     this._boxToAdd = new Box.empty();
   }
 
   ExplosionClass get explosionClass => _explosionClass;
 
-  int get numberOfBoxes{
+  int get numberOfBoxes {
     int value = 0;
     this.stacks.forEach((stack) {
       value += stack.currentNumberOfBoxes;
@@ -48,7 +46,7 @@ class Car {
     return value;
   }
 
-  int get numberOfBaa{
+  int get numberOfBaa {
     int value = 0;
     this.stacks.forEach((stack) {
       value += stack.battleAirAssetCapacities.current;
@@ -56,15 +54,18 @@ class Car {
     return value;
   }
 
-  int get numberOfIncompleteBoxes{
+  int get numberOfIncompleteBoxes {
     int value = 0;
     this.stacks.forEach((stack) {
-      value += stack.battleAirAssetCapacities.current == stack.battleAirAssetCapacities.maximum ? 0 : 1;
+      value += stack.battleAirAssetCapacities.current ==
+              stack.battleAirAssetCapacities.maximum
+          ? 0
+          : 1;
     });
     return value;
   }
 
-  int capacity(){
+  int capacity() {
     int value = 0;
     this.stacks.forEach((element) {
       value += element.battleAirAssetCapacities.current;
@@ -79,7 +80,7 @@ class Car {
       });
     }
   }
-  
+
   void addBox(Box box) {
     this._boxToAdd = box;
     bool isBoxAdded = false;
@@ -101,7 +102,7 @@ class Car {
     }
   }
 
-  void _addBox(int stackIndex){
+  void _addBox(int stackIndex) {
     this.stacks[stackIndex].addBox(this._boxToAdd);
     this._increaseProperties();
   }
@@ -124,11 +125,13 @@ class Car {
   }
 
   bool _isGrossWeightNotExceeded(double gross) {
-    return gross + this.weightOfLoadingArea.current <= this.weightOfLoadingArea.maximum;
+    return gross + this.weightOfLoadingArea.current <=
+        this.weightOfLoadingArea.maximum;
   }
 
   bool _isNetExplosiveWeightNotExceeded(double netExplosive) {
-    return netExplosive + this.weightOfLoadingArea.currentNetExplosive <= this.weightOfLoadingArea.maximumNetExplosive;
+    return netExplosive + this.weightOfLoadingArea.currentNetExplosive <=
+        this.weightOfLoadingArea.maximumNetExplosive;
   }
 
   void _addNewStack() {
@@ -138,34 +141,33 @@ class Car {
   }
 
   /// Use to check is boxes can be fit in car during wartime.
-  bool isBoxesWillFit(List<Box> boxes){
+  bool isBoxesWillFit(List<Box> boxes) {
     bool answer = false;
-    for(int i = 0; i < boxes.length; i++){
+    for (int i = 0; i < boxes.length; i++) {
       answer = this.isBoxWillFit(boxes[i]);
     }
     return answer;
   }
-  
-  bool isBoxWillFit(Box box){
+
+  bool isBoxWillFit(Box box) {
     this._boxToAdd = box;
     var isExplosiveCompatible = this._isBoxExplosiveClassIsCompatible(box);
     var isSizeFit = false;
     var isWeightFit = false;
 
-    if (isExplosiveCompatible)
-      isSizeFit = this._isBoxSizeFit();
-      if (isSizeFit)
-        isWeightFit = this._isBoxWeightsFit();
+    if (isExplosiveCompatible) isSizeFit = this._isBoxSizeFit();
+    if (isSizeFit) isWeightFit = this._isBoxWeightsFit();
 
     return isExplosiveCompatible && isSizeFit && isWeightFit;
   }
 
   bool _isBoxWeightsFit() {
     return _isGrossWeightNotExceeded(this._boxToAdd.weights.currentGross) &&
-    _isNetExplosiveWeightNotExceeded(this._boxToAdd.weights.currentNetExplosive);
+        _isNetExplosiveWeightNotExceeded(
+            this._boxToAdd.weights.currentNetExplosive);
   }
 
-  bool _isBoxSizeFit(){
+  bool _isBoxSizeFit() {
     var answer = this._isBoxFitIntoAnIncompleteStack(this._boxToAdd);
     if (!answer) {
       answer = this._isNewStackCanBeAdd();
@@ -183,47 +185,49 @@ class Car {
     return false;
   }
 
-  bool _isBoxExplosiveClassIsCompatible(Box box){
-    var transportTogether = this._isCompatibilityGroupCanBeTransportTogether(box);
+  bool _isBoxExplosiveClassIsCompatible(Box box) {
+    var transportTogether =
+        this._isCompatibilityGroupCanBeTransportTogether(box);
     if (transportTogether) {
-      if(!this._isNetExplosiveWeightsLimitMustBeReduced(box))
+      if (!this._isNetExplosiveWeightsLimitMustBeReduced(box))
         return transportTogether;
     }
 
-    return transportTogether && this._isNetExplosiveAfterReducedIsFitInLimit(box);
+    return transportTogether &&
+        this._isNetExplosiveAfterReducedIsFitInLimit(box);
   }
 
   bool _isCompatibilityGroupCanBeTransportTogether(Box box) {
     if (this._explosionClass.compatibilityGroup.group ==
-        CompatibilityGroupType.None)
-      return true;
+        CompatibilityGroupType.None) return true;
 
-    var boxCompatibilityGroupType = box.battleAirAsset.explosionClass
-        .compatibilityGroup;
+    var boxCompatibilityGroupType =
+        box.battleAirAsset.explosionClass.compatibilityGroup;
     var carCompatibilityGroupType = this.explosionClass.compatibilityGroup;
 
-    var answer = carCompatibilityGroupType.canBeStorageWith(boxCompatibilityGroupType);
+    var answer =
+        carCompatibilityGroupType.canBeStorageWith(boxCompatibilityGroupType);
     //TODO: Dopisać case 3, 4, 5.
 
     switch (answer) {
       case 1:
 
-      /// Return - 1 - its mean that groups can be storage together.
+        /// Return - 1 - its mean that groups can be storage together.
         return true;
       case 2:
 
-      /// Return - 2 - środki bojowe o grupie B mogą być ładowane do tego samego pojazdu
-      /// lub do tego samego konterera razem ze środkami bojowymi grupy D pod warunkiem,
-      /// że śa one skutecznie od siebie oddzielone tzn., że wykluczone jest niebezpieczeństwo
-      /// przeniesienia wybuchu ze środków grupy zgodności D;
+        /// Return - 2 - środki bojowe o grupie B mogą być ładowane do tego samego pojazdu
+        /// lub do tego samego konterera razem ze środkami bojowymi grupy D pod warunkiem,
+        /// że śa one skutecznie od siebie oddzielone tzn., że wykluczone jest niebezpieczeństwo
+        /// przeniesienia wybuchu ze środków grupy zgodności D;
         {
-          var isCarCompatibilityGroupB = this._explosionClass.compatibilityGroup
-              .group ==
-              CompatibilityGroupType.B;
+          var isCarCompatibilityGroupB =
+              this._explosionClass.compatibilityGroup.group ==
+                  CompatibilityGroupType.B;
 
-          var isBoxCompatibilityGroupD = box.battleAirAsset.explosionClass
-              .compatibilityGroup.group ==
-              CompatibilityGroupType.D;
+          var isBoxCompatibilityGroupD =
+              box.battleAirAsset.explosionClass.compatibilityGroup.group ==
+                  CompatibilityGroupType.D;
 
           if (isCarCompatibilityGroupB && isBoxCompatibilityGroupD)
             return false;
@@ -232,35 +236,35 @@ class Car {
         }
       case 3:
 
-      /// Return - 3 - środki bojowe zaklasyfikowane do 1.6N mogą być przewożone razem jako
-      /// środki 1.6N tylko wtedy, jeżeli wykazano na podstawie badań lub przez analogię, że
-      /// nie istnieje dodatkowe zagrożenie wybuchem wtórnym pomiędzy tymi środkami.
-      /// W przeciwnym przypadku środki te powinny być zaliczone do podklasy 1.1;
+        /// Return - 3 - środki bojowe zaklasyfikowane do 1.6N mogą być przewożone razem jako
+        /// środki 1.6N tylko wtedy, jeżeli wykazano na podstawie badań lub przez analogię, że
+        /// nie istnieje dodatkowe zagrożenie wybuchem wtórnym pomiędzy tymi środkami.
+        /// W przeciwnym przypadku środki te powinny być zaliczone do podklasy 1.1;
         throw new UnimplementedError();
         return false;
       case 4:
 
-      /// Return - 4 -jeżeli środki bojowe grupy zgodności N są przewożone ze środkami
-      /// bojowymi grup zgodności C,D lub E, to środki grupy zgodności N powinny być
-      /// uważane za środki bojowe posiadające właściwości grupy zgodności D.
-       throw new UnimplementedError();
-        return false;
+        /// Return - 4 -jeżeli środki bojowe grupy zgodności N są przewożone ze środkami
+        /// bojowymi grup zgodności C,D lub E, to środki grupy zgodności N powinny być
+        /// uważane za środki bojowe posiadające właściwości grupy zgodności D.
+        throw new UnimplementedError();
+        return true;
       case 5:
 
-      /// Return - 5 - tyczy się opisu "return 4" i "return 3"
+        /// Return - 5 - tyczy się opisu "return 4" i "return 3"
         throw new UnimplementedError();
         return false;
       case 6:
 
-      /// Return - 6 - środki bojowe grupy zgodności L mogą być ładowane razem do tego samego
-      /// rodzaju, należące do wymienionej grupy zgodności
-        var isCarCompatibilityGroupL = this._explosionClass.compatibilityGroup
-            .group ==
-            CompatibilityGroupType.L;
+        /// Return - 6 - środki bojowe grupy zgodności L mogą być ładowane razem do tego samego
+        /// rodzaju, należące do wymienionej grupy zgodności
+        var isCarCompatibilityGroupL =
+            this._explosionClass.compatibilityGroup.group ==
+                CompatibilityGroupType.L;
 
-        var isBoxCompatibilityGroupL = box.battleAirAsset.explosionClass
-            .compatibilityGroup.group ==
-            CompatibilityGroupType.L;
+        var isBoxCompatibilityGroupL =
+            box.battleAirAsset.explosionClass.compatibilityGroup.group ==
+                CompatibilityGroupType.L;
 
         if (isCarCompatibilityGroupL && isBoxCompatibilityGroupL) {
           return true;
@@ -273,58 +277,54 @@ class Car {
   }
 
   bool _isNetExplosiveWeightsLimitMustBeReduced(Box box) {
-    if ( this._explosionClass.compatibilityGroup.group == CompatibilityGroupType.None)
-      return true;
-
+    if (this._explosionClass.compatibilityGroup.group ==
+        CompatibilityGroupType.None) return true;
+    if (box.battleAirAsset.explosionClass.explosionSubclass.id == 1.4 &&
+        box.battleAirAsset.explosionClass.compatibilityGroup.group ==
+            CompatibilityGroupType.S) return false;
     return box.battleAirAsset.explosionClass.weightLimit <
         this._explosionClass.weightLimit;
   }
 
-  bool _isNetExplosiveAfterReducedIsFitInLimit(Box box){
+  bool _isNetExplosiveAfterReducedIsFitInLimit(Box box) {
     var netExplosiveReduced = box.battleAirAsset.explosionClass.weightLimit;
     var explosiveCarAndBox = this.weightOfLoadingArea.currentNetExplosive +
         box.weights.currentNetExplosive;
-
+    if (netExplosiveReduced == ExplosionClass.NOT_LIMITED_WEIGHT) return true;
     return explosiveCarAndBox <= netExplosiveReduced;
   }
-
 
   /// Is adding new stack and then add boxes to the new stack.
   /// [index] - iterator of list boxes to add
   void _addBoxToLastStack() {
-      this.stacks.last.addBox(this._boxToAdd);
-      this._increaseProperties();
+    this.stacks.last.addBox(this._boxToAdd);
+    this._increaseProperties();
   }
 
-  WarehouseStack _copyStackFromDB(){
+  WarehouseStack _copyStackFromDB() {
     WarehouseStack copied = DatabaseStacks.container[this._boxToAdd.type]!;
     return WarehouseStack(
       maximumStackLevel: copied.maximumStackLevel,
-      battleAirAssetCapacities: Capacities(
-          maximum: copied.battleAirAssetCapacities.maximum
-      ),
+      battleAirAssetCapacities:
+          Capacities(maximum: copied.battleAirAssetCapacities.maximum),
       defaultStackLevel: DatabaseStackLevels.container[this._boxToAdd.type]!,
       weights: StackWeights(
           maxGross: copied.weights.maxGross,
           maxNet: copied.weights.maxNet,
-          maxNetExplosion: copied.weights.maxNetExplosion
-      ),
+          maxNetExplosion: copied.weights.maxNetExplosion),
       dimensions: StackDimensions(
           length: copied.dimensions.length,
           width: copied.dimensions.width,
-          height: copied.dimensions.height // maximum stack level * stack level height
-      ),
+          height: copied
+              .dimensions.height // maximum stack level * stack level height
+          ),
     );
   }
 
-  // /// [index] - iterator of list boxes to add
-  // void _addBoxes(int index) {
-  //   this.stacks[index].addAllBoxes(this._boxesToAdd);
-  //   this._increaseProperties();
-  // }
-
   void _increaseProperties() {
-    this.weightOfLoadingArea.tryIncreaseCurrentWeight(this._boxToAdd.weights.currentGross);
+    this
+        .weightOfLoadingArea
+        .tryIncreaseCurrentWeight(this._boxToAdd.weights.currentGross);
     this.weightOfLoadingArea.tryIncreaseCurrentNetExplosiveWeight(
         this._boxToAdd.weights.currentNetExplosive);
     this.explosionClass = this._boxToAdd.battleAirAsset.explosionClass;
@@ -354,8 +354,7 @@ class Car {
   set explosionClass(ExplosionClass explosionClass) {
     if (this._isExplosionClassNone()) {
       this._explosionClass = explosionClass;
-    }
-    else {
+    } else {
       if (this._isExplosionSubclassHaveHigherPriority(
           explosionClass.explosionSubclass)) {
         this._setCurrentExplosionSubclass(explosionClass);
@@ -363,21 +362,21 @@ class Car {
     }
   }
 
-  bool _isExplosionClassNone(){
-    return this._explosionClass.compatibilityGroup.group == CompatibilityGroupType.None;
+  bool _isExplosionClassNone() {
+    return this._explosionClass.compatibilityGroup.group ==
+        CompatibilityGroupType.None;
   }
 
-  bool _isExplosionSubclassHaveHigherPriority(ExplosionSubclass explosionSubclass) {
-    var comparing = this._explosionClass.explosionSubclass.compareTo(
-        explosionSubclass);
-    return comparing == ExplosionSubclass.COMPARABLE_VALUE_HAS_HIGHER_PRIORITY ? true : false;
+  bool _isExplosionSubclassHaveHigherPriority(
+      ExplosionSubclass explosionSubclass) {
+    var comparing =
+        this._explosionClass.explosionSubclass.compareTo(explosionSubclass);
+    return comparing == ExplosionSubclass.COMPARABLE_VALUE_HAS_HIGHER_PRIORITY;
   }
 
-  void _setCurrentExplosionSubclass(ExplosionClass explosionClass){
+  void _setCurrentExplosionSubclass(ExplosionClass explosionClass) {
     //TODO: Sprawdzić i poprawić.
     this._explosionClass.explosionSubclass = explosionClass.explosionSubclass;
-    this.weightOfLoadingArea.maximumNetExplosive =
-        explosionClass.weightLimit;
+    this.weightOfLoadingArea.maximumNetExplosive = explosionClass.weightLimit;
   }
-
 }

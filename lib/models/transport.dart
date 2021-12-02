@@ -247,32 +247,35 @@ class Transport {
   }
 
   void _spendToCarInPeaceTime() {
-    if (!this.isWarTime) {
-      for (int i = 0; i < this._boxesToAdd.length; i++) {
-        this._boxToAdd = this._boxesToAdd[i];
+    if (!this.isWarTime && this._boxesToAdd.isNotEmpty) {
+      this._boxesToAdd.forEach((box) {
+        this._boxToAdd = box;
         if (!this._isAddedBoxToAnIncompleteCarPeaceTime()) {
           this._spendBoxesToNewCarPeaceTime();
         }
-      }
+      });
     }
   }
 
   bool _isAddedBoxToAnIncompleteCarPeaceTime() {
-    bool isBoxFit = false;
-    bool isBoxFitInThePeacetimeLimits = false;
-    for (int i = 0; i < this._cars.length; i++) {
-      this._currentCarToFill = this._cars[i];
+    if (this._cars.isNotEmpty) {
+      bool isBoxFit = false;
+      bool isBoxFitInThePeacetimeLimits = false;
 
-      isBoxFit = this._currentCarToFill.isBoxWillFit(this._boxToAdd);
-      isBoxFitInThePeacetimeLimits = this.isBoxInPeacetimeLimit();
+      for (int i = 0; i < this._cars.length; i++) {
+        this._currentCarToFill = this._cars[i];
 
-      if (isBoxFit && isBoxFitInThePeacetimeLimits) {
-        this._currentCarToFill.addBox(this._boxToAdd);
-        break;
+        isBoxFit = this._currentCarToFill.isBoxWillFit(this._boxToAdd);
+        isBoxFitInThePeacetimeLimits = this.isBoxInPeacetimeLimit();
+
+        if (isBoxFit && isBoxFitInThePeacetimeLimits) {
+          this._currentCarToFill.addBox(this._boxToAdd);
+          break;
+        }
       }
+      return isBoxFit && isBoxFitInThePeacetimeLimits;
     }
-
-    return isBoxFit && isBoxFitInThePeacetimeLimits;
+    return false;
   }
 
   bool isBoxInPeacetimeLimit() {
@@ -299,7 +302,9 @@ class Transport {
   }
 
   void _spendBoxesToNewCarPeaceTime() {
-    if (this._copyCarFromDB().isBoxWillFit(this._boxToAdd)) {
+    var car = this._copyCarFromDB();
+    var isFit = car.isBoxWillFit(this._boxToAdd);
+    if (isFit) {
       this.addCar();
       this._cars.last.addBox(this._boxToAdd);
     }
@@ -311,7 +316,7 @@ class Transport {
       weightOfLoadingArea: LoadingAreaWeights(
           maximum: dbCar.weightOfLoadingArea.maximum,
           maximumNetExplosive: dbCar.weightOfLoadingArea.maximumNetExplosive),
-      type: CarType.smallCarTest,
+      type: dbCar.type,
       carWeights:
           Weights(gross: dbCar.carWeights.gross, net: dbCar.carWeights.net),
       name: dbCar.name,
