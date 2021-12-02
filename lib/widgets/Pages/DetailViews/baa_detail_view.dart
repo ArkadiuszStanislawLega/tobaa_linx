@@ -82,13 +82,8 @@ class _DetailBaa extends State<DetailBaa> {
 
                 CapacityPropertyTemplate(box.capacities.current),
                 MaxStackTransPropTemp(box.maxTransportStackLevel),
+                MaxStackWarehousePropTemp(box.maxWarehouseStackLevel),
 
-
-                PropertyGameTemplate(
-                  name: Strings.MAX_WAREHOUSE_STACK_LEVEL,
-                  value: '${box.maxWarehouseStackLevel} szt.',
-                  background: Colors.grey[500]!,
-                ),
                 PropertyGameTemplate(
                   name: Strings.NUMBER_OF_CHOSEN_BAA,
                   value: TOBAAApp.values.containsKey(this.battleAirAsset.type)
