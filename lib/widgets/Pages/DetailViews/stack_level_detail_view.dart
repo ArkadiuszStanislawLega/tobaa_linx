@@ -31,26 +31,11 @@ class StackLevelDetailView extends StatelessWidget {
               mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
-                PropertyGameTemplate(
-                  name: Strings.WIDTH,
-                  value: '${sizeConverter(stackLevel.dimensions.width)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.LENGTH,
-                  value: '${sizeConverter(stackLevel.dimensions.length)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.HEIGHT,
-                  value: '${sizeConverter(stackLevel.dimensions.height)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NEW,
-                  value: '${massConverter(stackLevel.weights.netExplosive)}',
-                  background: Colors.grey[200]!,
-                ),
+
+                LengthPropertyTemplate(stackLevel.dimensions.length),
+                WidthPropertyTemplate(stackLevel.dimensions.width),
+                HeightPropertyTemplate(stackLevel.dimensions.height),
+                NetExplosiveWeightPropertyTemplate(stackLevel.weights.netExplosive),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
                   propertyName: Strings.NET_WEIGHT,
@@ -63,16 +48,8 @@ class StackLevelDetailView extends StatelessWidget {
                   propertyValue: '${massConverter(stackLevel.weights.gross)}',
                   background: Colors.grey[200]!,
                 ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_CONTAINERS,
-                  value: '${stackLevel.boxes.length}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_BAA,
-                  value: '${stackLevel.capacities.current}',
-                  background: Colors.grey[300]!,
-                ),
+                NumberOfBoxesPropertyTemplate(stackLevel.boxes.length),
+                NumberOfBaaPropertyTemplate(stackLevel.capacities.current)
               ],
             ),
             BoxesListView(stackLevel.boxes),
