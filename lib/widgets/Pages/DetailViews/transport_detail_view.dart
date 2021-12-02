@@ -31,47 +31,22 @@ class TransportDetailView extends StatelessWidget {
               mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
-                PropertyGameTemplate(
-                  name: Strings.NEW,
-                  value:
-                      '${massConverter(transport.transportNetExplosiveWeight)}',
-                  background: Colors.grey[100]!,
-                ),
+                NetExplosiveWeightPropertyTemplate(transport.transportNetExplosiveWeight),
+                LoadedWeightPropertyTemplate(transport.transportGrossWeight),
                 PropertyGameTemplate(
                   name: Strings.WEIGHT_OF_ALL_BAA,
                   value: '${massConverter(transport.transportNetWeight)}',
                   background: Colors.grey[100]!,
                 ),
                 PropertyGameTemplate(
-                  name: Strings.GROSS_WEIGHT,
-                  value: '${massConverter(transport.transportGrossWeight)}',
-                  background: Colors.grey[200]!,
-                ),
-                PropertyGameTemplate(
                   name: Strings.NUMBER_OF_CARS,
                   value: '${transport.numberOfCars}',
                   background: Colors.grey[200]!,
                 ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_CONTAINERS,
-                  value: '${transport.numberOfBoxes}',
-                  background: Colors.grey[200]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_BAA,
-                  value: '${transport.numberOfBaa}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_INCOMPLETE_BOXES,
-                  value: '${transport.numberOfIncompleteBoxes}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_STACKS,
-                  value: '${transport.numberOfStacks}',
-                  background: Colors.grey[300]!,
-                ),
+                NumberOfStacksPropertyTemplate(transport.numberOfStacks),
+                NumberOfBoxesPropertyTemplate(transport.numberOfBoxes),
+                NumberOfIncompleteBoxesPropertyTemplate(transport.numberOfIncompleteBoxes),
+                NumberOfBaaPropertyTemplate(transport.numberOfBaa),
                 PropertyGameTemplate(
                   name: Strings.WAR_TIME,
                   value: '${transport.isWarTime ? Strings.YES : Strings.NO}',
