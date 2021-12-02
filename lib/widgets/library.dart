@@ -62,3 +62,4 @@ part 'package:tobaa/widgets/Templates/max_stack_trans_prop_temp.dart';
 part 'package:tobaa/widgets/Templates/max_stack_warehouse_prop_temp.dart';
 part 'package:tobaa/widgets/Templates/baa_counter_property_template.dart';
 part 'package:tobaa/widgets/Templates/number_of_baa_property_template.dart';
+part 'package:tobaa/widgets/Templates/number_of_boxes_property_template.dart';
