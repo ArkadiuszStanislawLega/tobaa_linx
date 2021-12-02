@@ -64,3 +64,8 @@ part 'package:tobaa/widgets/Templates/baa_counter_property_template.dart';
 part 'package:tobaa/widgets/Templates/number_of_baa_property_template.dart';
 part 'package:tobaa/widgets/Templates/number_of_boxes_property_template.dart';
 part 'package:tobaa/widgets/Templates/number_of_stack_levels_property_template.dart';
+part 'package:tobaa/widgets/Templates/explosion_class_property_template.dart';
+part 'package:tobaa/widgets/Templates/number_of_incomplete_boxes_property_template.dart';
+part 'package:tobaa/widgets/Templates/number_of_stacks_property_template.dart';
+part 'package:tobaa/widgets/Templates/permissible_new_property_template.dart';
+part 'package:tobaa/widgets/Templates/permissible_weight_property_template.dart';

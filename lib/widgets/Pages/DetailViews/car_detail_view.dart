@@ -31,68 +31,22 @@ class CarDetailView extends StatelessWidget {
               mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
-                PropertyGameTemplate(
-                  name: Strings.LENGTH,
-                  value: '${sizeConverter(car.dimensionOfLoadingArea.length)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.WIDTH,
-                  value: '${sizeConverter(car.dimensionOfLoadingArea.width)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.HEIGHT,
-                  value: '${sizeConverter(car.dimensionOfLoadingArea.height)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.PERMISSIBLE_WEIGHT,
-                  value: '${massConverter(car.weightOfLoadingArea.maximum)}',
-                  background: Colors.grey[200]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.PERMISSIBLE_NEW,
-                  value:
-                      '${massConverter(car.explosionClass.weightLimit)}',
-                  background: Colors.grey[200]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.EXPLOSION_CLASS,
-                  value: '${car.explosionClass.toString()}',
-                  background: Colors.grey[200]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NEW,
-                  value:
-                      '${massConverter(car.weightOfLoadingArea.currentNetExplosive)}',
-                  background: Colors.grey[300]!,
-                ),
+                LengthPropertyTemplate(car.dimensionOfLoadingArea.length),
+                WidthPropertyTemplate(car.dimensionOfLoadingArea.width),
+                HeightPropertyTemplate(car.dimensionOfLoadingArea.width),
+                PermissibleWeightPropertyTemplate(car.weightOfLoadingArea.maximum),
+                PermissibleNewPropertyTemplate(car.explosionClass.weightLimit),
+                ExplosionClassPropertyTemplate(car.explosionClass.toString()),
+                NetExplosiveWeightPropertyTemplate(car.weightOfLoadingArea.currentNetExplosive),
                 PropertyGameTemplate(
                   name: Strings.LOAD_WEIGHT,
                   value: '${massConverter(car.weightOfLoadingArea.current)}',
                   background: Colors.grey[300]!,
                 ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_STACKS,
-                  value: '${car.stacks.length}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_CONTAINERS,
-                  value: '${car.numberOfBoxes}',
-                  background: Colors.grey[400]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_BAA,
-                  value: '${car.numberOfBaa}',
-                  background: Colors.grey[400]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_INCOMPLETE_BOXES,
-                  value: '${car.numberOfIncompleteBoxes}',
-                  background: Colors.grey[400]!,
-                ),
+                NumberOfBoxesPropertyTemplate(car.numberOfBoxes),
+                NumberOfBaaPropertyTemplate(car.numberOfBaa),
+                NumberOfStacksPropertyTemplate(car.stacks.length),
+                NumberOfIncompleteBoxesPropertyTemplate(car.numberOfIncompleteBoxes),
               ],
             ),
             StacksListView(car.stacks)
