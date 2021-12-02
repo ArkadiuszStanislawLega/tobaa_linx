@@ -6,7 +6,7 @@ class StackDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var map = ModalRoute.of(context)!.settings.arguments as Map;
-    var stack = map[Keys.SELECTED_STACK]!;
+    WarehouseStack stack = map[Keys.SELECTED_STACK]!;
     int index = map[Keys.CHOSEN_INDEX];
 
     return DefaultTabController(
@@ -32,26 +32,10 @@ class StackDetailView extends StatelessWidget {
               mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
-                PropertyGameTemplate(
-                  name: Strings.WIDTH,
-                  value: '${sizeConverter(stack.dimensions.width)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.LENGTH,
-                  value: '${sizeConverter(stack.dimensions.length)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.HEIGHT,
-                  value: '${sizeConverter(stack.dimensions.height)}',
-                  background: Colors.grey[100]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NEW,
-                  value: '${massConverter(stack.weights.netExplosive)}',
-                  background: Colors.grey[200]!,
-                ),
+                LengthPropertyTemplate(stack.dimensions.length),
+                WidthPropertyTemplate(stack.dimensions.width),
+                HeightPropertyTemplate(stack.dimensions.height),
+                NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
                   propertyName: Strings.NET_WEIGHT,
@@ -64,21 +48,11 @@ class StackDetailView extends StatelessWidget {
                   propertyValue: '${massConverter(stack.weights.gross)}',
                   background: Colors.grey[200]!,
                 ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_THE_BAA,
-                  value: '${stack.battleAirAssetCapacities.current}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.MAX_STACK_LEVEL,
-                  value: '${stack.maximumStackLevel}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.NUMBER_OF_STACK_LEVELS,
-                  value: '${stack.levels.length}',
-                  background: Colors.grey[300]!,
-                ),
+                NumberOfBoxesPropertyTemplate(stack.currentNumberOfBoxes),
+                NumberOfBaaPropertyTemplate(
+                    stack.battleAirAssetCapacities.current),
+                MaxStackTransPropTemp(stack.maximumStackLevel),
+                NumberOfStackLevelsPropertyTemplate(stack.levels.length)
               ],
             ),
             StackLevelsListView(stack.levels),

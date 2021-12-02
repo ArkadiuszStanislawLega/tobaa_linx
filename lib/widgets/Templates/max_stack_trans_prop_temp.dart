@@ -9,7 +9,7 @@ class MaxStackTransPropTemp extends StatelessWidget {
   Widget build(BuildContext context) {
     return PropertyGameTemplate(
       name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
-      value: '$transportMaxStackLevel szt.',
+      value: '$transportMaxStackLevel',
       background: Colors.grey[500]!,
     );
   }

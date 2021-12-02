@@ -27,13 +27,7 @@ class BoxDetailView extends StatelessWidget {
           CapacityPropertyTemplate(box.capacities.current),
           MaxStackTransPropTemp(box.maxTransportStackLevel),
           MaxStackWarehousePropTemp(box.maxWarehouseStackLevel),
-          PropertyGameTemplate(
-            name: Strings.NUMBER_OF_THE_BAA,
-            value: '${box.capacities.current} szt.',
-            background: Colors.grey[600]!,
-          ),
-
-
+          NumberOfBaaPropertyTemplate(box.capacities.current)
         ],
       ),
     );

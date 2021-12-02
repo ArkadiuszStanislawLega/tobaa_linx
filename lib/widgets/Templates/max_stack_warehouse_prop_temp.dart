@@ -9,7 +9,7 @@ class MaxStackWarehousePropTemp extends StatelessWidget {
   Widget build(BuildContext context) {
     return PropertyGameTemplate(
       name: Strings.MAX_WAREHOUSE_STACK_LEVEL,
-      value: '$maxWarehouseStackLevel szt.',
+      value: '$maxWarehouseStackLevel',
       background: Colors.grey[500]!,
     );
   }
