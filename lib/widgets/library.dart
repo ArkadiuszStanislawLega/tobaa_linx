@@ -57,3 +57,4 @@ part 'package:tobaa/widgets/Templates/net_explosive_weight_property_template.dar
 part 'package:tobaa/widgets/Templates/hexogene_equivalent_property_template.dart';
 part 'package:tobaa/widgets/Templates/un_code_property_template.dart';
 part 'package:tobaa/widgets/Templates/transport_name_property_template.dart';
+part 'package:tobaa/widgets/Templates/capacity_property_template.dart';

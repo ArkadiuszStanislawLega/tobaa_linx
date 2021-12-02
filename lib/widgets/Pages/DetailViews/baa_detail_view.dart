@@ -72,41 +72,17 @@ class _DetailBaa extends State<DetailBaa> {
               mainAxisSpacing: 5,
               crossAxisCount: 3,
               children: [
-                PropertyGameTemplate(
-                  name: Strings.LENGTH,
-                  value: '${sizeConverter(box.dimensions.length)}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.WIDTH,
-                  value: '${sizeConverter(box.dimensions.width)}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.HEIGHT,
-                  value: '${sizeConverter(box.dimensions.height)}',
-                  background: Colors.grey[300]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.CONTAINER_NET_WEIGHT,
-                  value: '${massConverter(box.weights.net)}',
-                  background: Colors.grey[400]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.CONTAINER_FULLY_LOADED_GROSS_WEIGHT,
-                  value: '${massConverter(box.weights.gross)}',
-                  background: Colors.grey[400]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.CONTAINER_FULLY_LOADED_NEW,
-                  value: '${massConverter(box.weights.netExplosive)}',
-                  background: Colors.grey[400]!,
-                ),
-                PropertyGameTemplate(
-                  name: Strings.CAPACITY,
-                  value: '${box.capacities.maximum}',
-                  background: Colors.grey[500]!,
-                ),
+
+                LengthPropertyTemplate(box.dimensions.length),
+                WidthPropertyTemplate(box.dimensions.width),
+                HeightPropertyTemplate(box.dimensions.height),
+
+                GrossWeightPropertyTemplate(box.weights.gross),
+                NetWeightPropertyTemplate(box.weights.net),
+                NetExplosiveWeightPropertyTemplate(box.weights.netExplosive),
+                CapacityPropertyTemplate(box.capacities.current),
+
+
                 PropertyGameTemplate(
                   name: Strings.MAX_STACK_HEIGHT_DURING_TRANSPORT,
                   value: '${box.maxTransportStackLevel} szt.',
@@ -138,7 +114,7 @@ class _DetailBaa extends State<DetailBaa> {
         .explosionClass
         .compatibilityGroup
         .convertCompatibilityGroup(
-            this.battleAirAsset.explosionClass.compatibilityGroup.group);
+        this.battleAirAsset.explosionClass.compatibilityGroup.group);
     showDialog(
         builder: (BuildContext context) {
           return AlertDialog(
@@ -181,7 +157,8 @@ class _DetailBaa extends State<DetailBaa> {
             ],
           ),
           Text(
-            '${this.battleAirAsset.explosionClass.explosionSubclass.description}',
+            '${this.battleAirAsset.explosionClass.explosionSubclass
+                .description}',
             style: TextStyle(fontStyle: FontStyle.italic),
           ),
         ],
@@ -204,7 +181,8 @@ class _DetailBaa extends State<DetailBaa> {
             ],
           ),
           Text(
-            '${this.battleAirAsset.explosionClass.compatibilityGroup.description}',
+            '${this.battleAirAsset.explosionClass.compatibilityGroup
+                .description}',
             style: TextStyle(fontStyle: FontStyle.italic),
           ),
         ],
