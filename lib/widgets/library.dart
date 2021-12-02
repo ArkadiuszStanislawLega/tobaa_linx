@@ -69,3 +69,4 @@ part 'package:tobaa/widgets/Templates/number_of_incomplete_boxes_property_templa
 part 'package:tobaa/widgets/Templates/number_of_stacks_property_template.dart';
 part 'package:tobaa/widgets/Templates/permissible_new_property_template.dart';
 part 'package:tobaa/widgets/Templates/permissible_weight_property_template.dart';
+part 'package:tobaa/widgets/Templates/loaded_weight_property_template.dart';
