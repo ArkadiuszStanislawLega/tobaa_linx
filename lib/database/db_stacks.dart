@@ -154,13 +154,13 @@ class DatabaseStacks {
       ),
     ),
     BoxType.MJU7ABOX: WarehouseStack(
-      maximumStackLevel: 1,
+      maximumStackLevel: 3,
       battleAirAssetCapacities: Capacities(maximum: 1080),
       defaultStackLevel: _mju7ab,
       weights: StackWeights(
-          maxGross: _mju7ab.weights.maxGross,
-          maxNet: _mju7ab.weights.maxNet,
-          maxNetExplosion: _mju7ab.weights.maxNetExplosion),
+          maxGross: 3*_mju7ab.weights.maxGross,
+          maxNet: 3*_mju7ab.weights.maxNet,
+          maxNetExplosion: 3*_mju7ab.weights.maxNetExplosion),
       dimensions: StackDimensions(
           length: _mju7ab.dimensions.length,
           width: _mju7ab.dimensions.width,

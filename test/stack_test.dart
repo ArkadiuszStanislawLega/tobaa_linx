@@ -134,8 +134,8 @@ void main() {
     expect(stack.isBoxesCanBeAddedToStack(boxes), true);
     stack.addAllBoxes(boxes);
 
-    expect(stack.levels.length, 1);
-    expect(stack.levels.first.capacities.current, 1080);
+    expect(stack.levels.length, 3);
+    expect(stack.levels.first.capacities.current, 360);
     expect(stack.battleAirAssetCapacities.current, 1080);
     expect(stack.weights.net, stack.weights.maxNet);
     expect(stack.weights.gross, stack.weights.maxGross);
