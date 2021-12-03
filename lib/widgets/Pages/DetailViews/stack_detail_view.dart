@@ -50,7 +50,6 @@ class StackDetailView extends StatelessWidget {
                 ),
                 NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
                 MaxStackTransPropTemp(stack.maximumStackLevel),
-                MaxStackWarehousePropTemp(stack.)
                 NumberOfStackLevelsPropertyTemplate(stack.levels.length),
                 NumberOfBoxesPropertyTemplate(stack.currentNumberOfBoxes),
                 NumberOfBaaPropertyTemplate(
