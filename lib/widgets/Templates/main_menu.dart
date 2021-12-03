@@ -43,7 +43,7 @@ class _MainMenu extends State<MainMenu> {
             TextButton(
               child: Text(Strings.ABOUT),
               onPressed: () => {
-                Navigator.pushNamed(context, Url.SETTINGS),
+                Navigator.pushNamed(context, Url.ABOUT),
               },
             ),
             Expanded(

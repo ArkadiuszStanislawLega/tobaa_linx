@@ -35,6 +35,7 @@ class TOBAAApp extends StatelessWidget {
       initialRoute: Url.HOME,
       routes: {
         Url.EMPTY: (context) => SelectView(),
+        Url.ABOUT: (context) => AboutView(),
         Url.HOME: (context) => SelectView(),
         Url.DETAIL: (context) => DetailBaa(DatabaseAssets.container[index]!),
         Url.SETTINGS: (context) => SettingsView(),

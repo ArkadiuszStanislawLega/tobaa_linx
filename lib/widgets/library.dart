@@ -24,6 +24,7 @@ part 'package:tobaa/widgets/ListViews/stack_levels_list_view.dart';
 part 'package:tobaa/widgets/ListViews/stacks_list_view.dart';
 part 'package:tobaa/widgets/ListViews/transports_list_view.dart';
 
+part 'package:tobaa/widgets/Pages/about_view.dart';
 part 'package:tobaa/widgets/Pages/counted_view.dart';
 part 'package:tobaa/widgets/Pages/select_view.dart';
 part 'package:tobaa/widgets/Pages/settings_view.dart';

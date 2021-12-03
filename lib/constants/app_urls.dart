@@ -2,6 +2,7 @@ part of constants;
 
 class Url {
   static const String EMPTY = '/';
+  static const String ABOUT = '/about';
   static const String HOME = '/home';
   static const String DETAIL = '/detail';
   static const String SETTINGS = '/settings';
