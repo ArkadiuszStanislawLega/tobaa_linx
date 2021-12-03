@@ -38,7 +38,6 @@ class AboutView extends StatelessWidget {
             Text(' - Obliczanie ilości środków bojowych dla BBU36,'),
             Text(' - Obliczanie ilości środków bojowych dla CXU-3A/B,'),
             Text(' - Obliczanie ilości środków bojowych dla MK4MOD3.'),
-
           ],
         ),
       ),
