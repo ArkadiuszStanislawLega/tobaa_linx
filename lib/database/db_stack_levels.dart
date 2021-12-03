@@ -39,10 +39,10 @@ class DatabaseStackLevels {
       capacities: Capacities(maximum: 1),
     ),
     BoxType.CNU672: StackLevel(
-      dimensions: StackDimensions(height: 787, width: 794, length: 4600),
+      dimensions: StackDimensions(height: 787, width: 794, length: 4330),
       weights: StackWeights(
-        maxNet: 497000,
-        maxGross: 982322.9,
+        maxNet: 497000.0,
+        maxGross: 1034000.0,
         maxNetExplosion: 88900.0,
       ),
       capacities: Capacities(maximum: 1),

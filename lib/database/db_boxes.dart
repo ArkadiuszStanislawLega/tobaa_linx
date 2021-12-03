@@ -5,8 +5,8 @@ class DatabaseBoxes {
     BoxType.CNU672: new Box(
         name: "CNU-672",
         capacities: Capacities(maximum: 1),
-        weights: BoxWeights(gross: 982322.9 , net: 485322.9, netExplosive: 88900),
-        dimensions: Dimensions(height: 787, width: 794, length: 4600),
+        weights: BoxWeights(gross: 1034000 , net: 537000, netExplosive: 88900),
+        dimensions: Dimensions(height: 787, width: 794, length: 433),
         maxTransportStackLevel: 1,
         maxWarehouseStackLevel: 6,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,

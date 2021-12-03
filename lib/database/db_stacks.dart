@@ -1,6 +1,5 @@
 part of database;
 
-
 class DatabaseStacks {
   static final StackLevel _cnu431 =
       DatabaseStackLevels.container[BoxType.CNU431]!;
@@ -15,39 +14,41 @@ class DatabaseStacks {
   static final StackLevel _m54TPRRR =
       DatabaseStackLevels.container[BoxType.M548_TPRRR]!;
   static final StackLevel _m54MPLD =
-  DatabaseStackLevels.container[BoxType.M548MPLD]!;
+      DatabaseStackLevels.container[BoxType.M548MPLD]!;
   static final StackLevel _mk79 = DatabaseStackLevels.container[BoxType.MK79]!;
-  static final StackLevel _mhu149 = DatabaseStackLevels.container[BoxType.MHU149]!;
-  static final StackLevel _mju7ab = DatabaseStackLevels.container[BoxType.MJU7ABOX]!;
-  static final StackLevel _rr170al = DatabaseStackLevels.container[BoxType.RR170AL_BOX]!;
+  static final StackLevel _mhu149 =
+      DatabaseStackLevels.container[BoxType.MHU149]!;
+  static final StackLevel _mju7ab =
+      DatabaseStackLevels.container[BoxType.MJU7ABOX]!;
+  static final StackLevel _rr170al =
+      DatabaseStackLevels.container[BoxType.RR170AL_BOX]!;
   static final Map<BoxType, WarehouseStack> container = {
     BoxType.CNU431: WarehouseStack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(maximum: 8),
       defaultStackLevel: _cnu431,
       weights: StackWeights(
-          maxGross: 2*_cnu431.weights.maxGross,
-          maxNet: 2*_cnu431.weights.maxNet,
-          maxNetExplosion: 2*_cnu431.weights.maxNetExplosion),
+          maxGross: 2 * _cnu431.weights.maxGross,
+          maxNet: 2 * _cnu431.weights.maxNet,
+          maxNetExplosion: 2 * _cnu431.weights.maxNetExplosion),
       dimensions: StackDimensions(
           length: _cnu431.dimensions.length,
           width: _cnu431.dimensions.width,
-          height: 2*_cnu431.dimensions.height// maximum stack level * stack level height
-          ),
+          height: 2 * _cnu431.dimensions.height),
     ),
     BoxType.CNU609: WarehouseStack(
       maximumStackLevel: 2,
       battleAirAssetCapacities: Capacities(maximum: 8),
       defaultStackLevel: _cnu609,
       weights: StackWeights(
-          maxGross: 2*_cnu609.weights.maxGross,
-          maxNet: 2*_cnu609.weights.maxNet,
-          maxNetExplosion: 2*_cnu609.weights.maxNetExplosion),
+          maxGross: 2 * _cnu609.weights.maxGross,
+          maxNet: 2 * _cnu609.weights.maxNet,
+          maxNetExplosion: 2 * _cnu609.weights.maxNetExplosion),
       dimensions: StackDimensions(
-          length: _cnu609.dimensions.length,
-          width: _cnu609.dimensions.width,
-          height: 2*_cnu609.dimensions.height,// maximum stack level * stack level height
-          ),
+        length: _cnu609.dimensions.length,
+        width: _cnu609.dimensions.width,
+        height: 2 * _cnu609.dimensions.height,
+      ),
     ),
     BoxType.CNU445: WarehouseStack(
       maximumStackLevel: 2,
@@ -72,11 +73,10 @@ class DatabaseStacks {
           maxNet: _cnu614.weights.maxNet,
           maxNetExplosion: _cnu614.weights.maxNetExplosion),
       dimensions: StackDimensions(
-          length: _cnu614.dimensions.length,
-          width: _cnu614.dimensions.width,
-          height: _cnu614
-              .dimensions.height // maximum stack level * stack level height
-          ),
+        length: _cnu614.dimensions.length,
+        width: _cnu614.dimensions.width,
+        height: _cnu614.dimensions.height,
+      ),
     ),
     BoxType.CNU672: WarehouseStack(
       maximumStackLevel: 2,
@@ -89,9 +89,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _cnu672.dimensions.length,
           width: _cnu672.dimensions.width,
-          height: _cnu672
-              .dimensions.height // maximum stack level * stack level height
-          ),
+          height: _cnu672.dimensions.height),
     ),
     BoxType.M548_TPRRR: WarehouseStack(
       maximumStackLevel: 1,
@@ -104,9 +102,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _m54TPRRR.dimensions.length,
           width: _m54TPRRR.dimensions.width,
-          height: _m54TPRRR
-              .dimensions.height // maximum stack level * stack level height
-          ),
+          height: _m54TPRRR.dimensions.height),
     ),
     BoxType.M548MPLD: WarehouseStack(
       maximumStackLevel: 1,
@@ -119,9 +115,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _m54MPLD.dimensions.length,
           width: _m54MPLD.dimensions.width,
-          height: _m54MPLD
-              .dimensions.height // maximum stack level * stack level height
-      ),
+          height: _m54MPLD.dimensions.height),
     ),
     BoxType.MK79: WarehouseStack(
       maximumStackLevel: 99,
@@ -134,9 +128,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _mk79.dimensions.length,
           width: _mk79.dimensions.width,
-          height: _mk79
-              .dimensions.height // maximum stack level * stack level height
-      ),
+          height: _mk79.dimensions.height),
     ),
     BoxType.MHU149: WarehouseStack(
       maximumStackLevel: 99,
@@ -149,9 +141,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _mhu149.dimensions.length,
           width: _mhu149.dimensions.width,
-          height: _mhu149
-              .dimensions.height // maximum stack level * stack level height
-      ),
+          height: _mhu149.dimensions.height),
     ),
     BoxType.MJU7ABOX: WarehouseStack(
       maximumStackLevel: 3,
@@ -164,8 +154,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _mju7ab.dimensions.length,
           width: _mju7ab.dimensions.width,
-          height: 3 * _mju7ab.dimensions.height // maximum stack level * stack level height
-      ),
+          height: 3 * _mju7ab.dimensions.height),
     ),
     BoxType.RR170AL_BOX: WarehouseStack(
       maximumStackLevel: 3,
@@ -178,8 +167,7 @@ class DatabaseStacks {
       dimensions: StackDimensions(
           length: _rr170al.dimensions.length,
           width: _rr170al.dimensions.width,
-          height: 3 * _rr170al.dimensions.height + 140  // maximum stack level * stack level height
-      ),
+          height: 3 * _rr170al.dimensions.height + 140),
     ),
   };
 }

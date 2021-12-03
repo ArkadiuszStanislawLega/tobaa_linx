@@ -81,4 +81,13 @@ void main() {
     expect(tr.capacity(), 1);
     expect(tr.cars.length, 1);
   });
+
+  test("RR170A/AL", () {
+    Transport tr = new Transport();
+    tr.selectedCar = CarType.euro_cargo;
+    tr.createTransport({BattleAirAssetType.RR170AL: 2160});
+    tr.isWarTime = false;
+    expect(tr.capacity(), 2160);
+    expect(tr.cars.length, 1);
+  });
 }
