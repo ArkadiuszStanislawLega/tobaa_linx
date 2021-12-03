@@ -33,11 +33,7 @@ class TransportDetailView extends StatelessWidget {
               children: [
                 NetExplosiveWeightPropertyTemplate(transport.transportNetExplosiveWeight),
                 LoadedWeightPropertyTemplate(transport.transportGrossWeight),
-                PropertyGameTemplate(
-                  name: Strings.WEIGHT_OF_ALL_BAA,
-                  value: '${massConverter(transport.transportNetWeight)}',
-                  background: Colors.grey[400]!,
-                ),
+                WeightOfAllBaaPropertyTemplate(transport.transportNetWeight),
                 NumberOfCarsPropertyTemplate(transport.numberOfCars),
                 NumberOfStacksPropertyTemplate(transport.numberOfStacks),
                 NumberOfBoxesPropertyTemplate(transport.numberOfBoxes),
