@@ -39,11 +39,7 @@ class TransportDetailView extends StatelessWidget {
                 NumberOfBoxesPropertyTemplate(transport.numberOfBoxes),
                 NumberOfIncompleteBoxesPropertyTemplate(transport.numberOfIncompleteBoxes),
                 NumberOfBaaPropertyTemplate(transport.numberOfBaa),
-                PropertyGameTemplate(
-                  name: Strings.WAR_TIME,
-                  value: '${transport.isWarTime ? Strings.YES : Strings.NO}',
-                  background: Colors.grey[400]!,
-                ),
+                IsWarPropertyTemplate(transport.isWarTime)
               ],
             ),
             CarsListView(transport.cars)

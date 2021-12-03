@@ -48,6 +48,7 @@ class StackDetailView extends StatelessWidget {
                   propertyValue: '${massConverter(stack.weights.gross)}',
                   background: Colors.grey[400]!,
                 ),
+
                 NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
                 MaxStackTransPropTemp(stack.maximumStackLevel),
                 NumberOfStackLevelsPropertyTemplate(stack.levels.length),

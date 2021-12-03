@@ -72,3 +72,4 @@ part 'package:tobaa/widgets/Templates/permissible_weight_property_template.dart'
 part 'package:tobaa/widgets/Templates/loaded_weight_property_template.dart';
 part 'package:tobaa/widgets/Templates/number_of_cars_property_template.dart';
 part 'package:tobaa/widgets/Templates/weight_of_all_baa_property_template.dart';
+part 'package:tobaa/widgets/Templates/is_war_property_template.dart';
