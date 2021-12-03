@@ -29,7 +29,7 @@ class TransportDetailView extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
-              crossAxisCount: 3,
+              crossAxisCount: MediaQuery.of(context).size.width > 400 ? 6 : 3,
               children: [
                 NetExplosiveWeightPropertyTemplate(transport.transportNetExplosiveWeight),
                 LoadedWeightPropertyTemplate(transport.transportGrossWeight),

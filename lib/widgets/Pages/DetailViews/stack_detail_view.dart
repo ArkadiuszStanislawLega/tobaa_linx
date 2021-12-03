@@ -30,12 +30,13 @@ class StackDetailView extends StatelessWidget {
               padding: const EdgeInsets.all(5),
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
-              crossAxisCount: 3,
+              crossAxisCount: MediaQuery.of(context).size.width > 400 ? 6 : 3,
               children: [
                 LengthPropertyTemplate(stack.dimensions.length),
                 WidthPropertyTemplate(stack.dimensions.width),
                 HeightPropertyTemplate(stack.dimensions.height),
 
+                NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
                   propertyName: Strings.NET_WEIGHT,
@@ -49,14 +50,10 @@ class StackDetailView extends StatelessWidget {
                   background: Colors.grey[400]!,
                 ),
 
-                NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
                 MaxStackTransPropTemp(stack.maximumStackLevel),
                 NumberOfStackLevelsPropertyTemplate(stack.levels.length),
                 NumberOfBoxesPropertyTemplate(stack.currentNumberOfBoxes),
-                NumberOfBaaPropertyTemplate(
-                    stack.battleAirAssetCapacities.current),
-
-
+                NumberOfBaaPropertyTemplate(stack.battleAirAssetCapacities.current),
               ],
             ),
             StackLevelsListView(stack.levels),
