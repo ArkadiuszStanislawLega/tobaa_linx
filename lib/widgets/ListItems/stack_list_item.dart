@@ -26,7 +26,7 @@ class StackListItem extends StatelessWidget {
           ),
         ),
         child: Row(
-          children: [this._left(), this._right()],
+          children: [this._left(), this._right(context)],
         ),
       ),
     );
@@ -52,7 +52,7 @@ class StackListItem extends StatelessWidget {
     );
   }
 
-  Widget _right() {
+  Widget _right(BuildContext context) {
     List<Widget> widgets = [];
     Map<BattleAirAssetType, int> container = {};
     Map<BattleAirAssetType, double> explosionWeights = {};
@@ -86,7 +86,15 @@ class StackListItem extends StatelessWidget {
         widgets.add(
           Column(
             children: [
-              Row(
+              MediaQuery.of(context).size.width > 400 ? Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ExplosivesWeightTemplate(explosionWeights[key]!),
+                  SizedBox(height: 4),
+                  WeightTemplate(weights[key]!),
+                  SizedBox(height: 4),
+                ],
+              ) : Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ExplosivesWeightTemplate(explosionWeights[key]!),
@@ -94,6 +102,7 @@ class StackListItem extends StatelessWidget {
                   HazardClassTemplate(ba.explosionClass),
                 ],
               ),
+              MediaQuery.of(context).size.width > 400 ?  HazardClassTemplate(ba.explosionClass) : SizedBox(height: 1),
               StackNameTemplate("${ba.name} - $value ${Strings.PCS}"),
             ],
           ),
