@@ -23,7 +23,7 @@ class StackLevelsListView extends StatelessWidget {
             title: StackLevelListItem(this._levels.elementAt(index), index));
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 4,
+          childAspectRatio:2,
           crossAxisCount: 2,
           mainAxisSpacing: 4,
         ),

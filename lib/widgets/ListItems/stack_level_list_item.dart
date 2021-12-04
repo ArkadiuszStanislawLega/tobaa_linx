@@ -26,7 +26,7 @@ class StackLevelListItem extends StatelessWidget {
           ),
         ),
         child: Row(
-          children: [this._left(), this._right()],
+          children: [this._left(), this._right(context)],
         ),
       ),
     );
@@ -52,7 +52,7 @@ class StackLevelListItem extends StatelessWidget {
     );
   }
 
-  Widget _right() {
+  Widget _right(BuildContext context) {
     List<Widget> widgets = [];
     Map<BattleAirAssetType, int> container = {};
 
@@ -64,10 +64,15 @@ class StackLevelListItem extends StatelessWidget {
     });
 
     container.forEach((key, value) {
-      widgets.add(
-        StackNameTemplate(
-            "${DatabaseAssets.container[key]!.name} - $value ${Strings.PCS}"),
-      );
+      widgets.add(MediaQuery.of(context).size.width > 400
+          ? Column(
+              children: [
+                StackNameTemplate("${DatabaseAssets.container[key]!.name}"),
+                StackNameTemplate("$value ${Strings.PCS}"),
+              ],
+            )
+          : StackNameTemplate(
+              "${DatabaseAssets.container[key]!.name} - $value ${Strings.PCS}"));
     });
 
     return Expanded(
