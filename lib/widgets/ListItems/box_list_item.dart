@@ -26,7 +26,7 @@ class BoxListItem extends StatelessWidget {
           ),
         ),
         child: Row(
-          children: [this._left(), this._right()],
+          children: [this._left(), this._right(context)],
         ),
       ),
     );
@@ -52,7 +52,7 @@ class BoxListItem extends StatelessWidget {
     );
   }
 
-  Widget _right() {
+  Widget _right(BuildContext context) {
     return Expanded(
       child: Container(
         padding: EdgeInsets.fromLTRB(4.0, 7.0, 4.0, 7.0),
@@ -65,7 +65,7 @@ class BoxListItem extends StatelessWidget {
         ),
         child: Column(
           children: [
-            this._header(),
+            this._header(context),
             StackNameTemplate('${this._box.name}'),
           ],
         ),
@@ -73,8 +73,20 @@ class BoxListItem extends StatelessWidget {
     );
   }
 
-  Widget _header(){
-    return Row(
+  Widget _header(BuildContext context){
+    return MediaQuery.of(context).size.width > 400 ?
+    Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(children: [ExplosivesWeightTemplate(this._box.weights.currentNetExplosive),
+          SizedBox(width: 2),
+          WeightTemplate(this._box.weights.currentGross),] ),
+        SizedBox(height: 10),
+        HazardClassTemplate(this._box.battleAirAsset.explosionClass),
+      ],
+    )
+        :
+    Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ExplosivesWeightTemplate(this._box.weights.currentNetExplosive),
