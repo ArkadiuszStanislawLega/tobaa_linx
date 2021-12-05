@@ -75,8 +75,8 @@ class DatabaseBoxes {
         name: "M2A1",
         capacities: Capacities(maximum: 50),
         weights: BoxWeights(gross: 600, net: 400, netExplosive: 158.5),
-        dimensions: Dimensions(height: 191, width: 152, length: 298),
-        maxTransportStackLevel: 2,
+        dimensions: Dimensions(height: 190, width: 155, length: 295),
+        maxTransportStackLevel: 4,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.CXU3]!,
         type: BoxType.M2A1,
         coordinates: Coordinates()),
@@ -140,5 +140,6 @@ class DatabaseBoxes {
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.RR170AL]!,
         type: BoxType.RR170AL_BOX,
         coordinates: Coordinates()),
+
   };
 }

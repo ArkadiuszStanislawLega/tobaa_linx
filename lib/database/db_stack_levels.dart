@@ -110,5 +110,14 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 12960),
     ),
+    BoxType.M2A1: StackLevel(
+      dimensions: StackDimensions(height: 190, width: 775, length: 1180),
+      weights: StackWeights(
+        maxNet: 4000.0,
+        maxGross: 12000.0,
+        maxNetExplosion: 3170.0,
+      ),
+      capacities: Capacities(maximum: 1000),
+    ),
   };
 }
