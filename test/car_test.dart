@@ -121,4 +121,14 @@ void main() {
     car.addBox(mk82);
     expect(car.explosionClass.weightLimit, DIFFERENT_11S_WEIGHT_LIMIT);
   });
+
+  test('Add box in war time', (){
+    Car car = DatabaseCars.container[CarType.euro_cargo]!;
+    Box box = DatabaseBoxes.container[BoxType.CNU609]!;
+    box.fillToMaximum();
+    expect(car.isBoxWillFitWarTime(box), true);
+
+    car.addBox(box);
+    expect(car.numberOfBoxes, 1);
+  });
 }
