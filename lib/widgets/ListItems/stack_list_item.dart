@@ -86,23 +86,29 @@ class StackListItem extends StatelessWidget {
         widgets.add(
           Column(
             children: [
-              MediaQuery.of(context).size.width > 400 ? Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ExplosivesWeightTemplate(explosionWeights[key]!),
-                  SizedBox(height: 4),
-                  WeightTemplate(weights[key]!),
-                  SizedBox(height: 4),
-                ],
-              ) : Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ExplosivesWeightTemplate(explosionWeights[key]!),
-                  WeightTemplate(weights[key]!),
-                  HazardClassTemplate(ba.explosionClass),
-                ],
-              ),
-              MediaQuery.of(context).size.width > 400 ?  HazardClassTemplate(ba.explosionClass) : SizedBox(height: 1),
+              MediaQuery.of(context).size.width > 400
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              ExplosivesWeightTemplate(explosionWeights[key]!),
+                              WeightTemplate(weights[key]!),
+                            ]),
+                      ],
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ExplosivesWeightTemplate(explosionWeights[key]!),
+                        WeightTemplate(weights[key]!),
+                        HazardClassTemplate(ba.explosionClass),
+                      ],
+                    ),
+              MediaQuery.of(context).size.width > 400
+                  ? HazardClassTemplate(ba.explosionClass)
+                  : SizedBox(height: 1),
               StackNameTemplate("${ba.name} - $value ${Strings.PCS}"),
             ],
           ),

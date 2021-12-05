@@ -73,26 +73,27 @@ class BoxListItem extends StatelessWidget {
     );
   }
 
-  Widget _header(BuildContext context){
-    return MediaQuery.of(context).size.width > 400 ?
-    Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(children: [ExplosivesWeightTemplate(this._box.weights.currentNetExplosive),
-          SizedBox(width: 2),
-          WeightTemplate(this._box.weights.currentGross),] ),
-        SizedBox(height: 10),
-        HazardClassTemplate(this._box.battleAirAsset.explosionClass),
-      ],
-    )
-        :
-    Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        ExplosivesWeightTemplate(this._box.weights.currentNetExplosive),
-        WeightTemplate(this._box.weights.currentGross),
-        HazardClassTemplate(this._box.battleAirAsset.explosionClass),
-      ],
-    );
+  Widget _header(BuildContext context) {
+    return MediaQuery.of(context).size.width > 400
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                ExplosivesWeightTemplate(this._box.weights.currentNetExplosive),
+                SizedBox(width: 2),
+                WeightTemplate(this._box.weights.currentGross),
+              ]),
+              SizedBox(height: 10),
+              HazardClassTemplate(this._box.battleAirAsset.explosionClass),
+            ],
+          )
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ExplosivesWeightTemplate(this._box.weights.currentNetExplosive),
+              WeightTemplate(this._box.weights.currentGross),
+              HazardClassTemplate(this._box.battleAirAsset.explosionClass),
+            ],
+          );
   }
 }
