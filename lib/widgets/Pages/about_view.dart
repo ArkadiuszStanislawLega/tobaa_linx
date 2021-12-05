@@ -33,13 +33,17 @@ class AboutView extends StatelessWidget {
               Text(' - Obliczanie ilości środków bojowych dla BBU35,'),
               Text(' - Obliczanie ilości środków bojowych dla MK4MOD3.'),
               SizedBox(height: 20),
+              Text('W przyszłości:'),
+              Text(' - Naprawa rzeczy niedziałających,'),
+              Text(' - Poprawienie algorytmu układającego skrzynie na powierzchni załadunkowej,'),
+              SizedBox(height: 20),
               Text(
                   'Różnica po między obliczaniem ładunków dla pojazdów w czasie pokoju i wojny są nastepujące. Dla czasu wojnu jest brany limit tylko i wyłącznie masowy oraz rozmiarowy dla danego typu pojazdu. Dla czasu pokoju brane są te same co dla wojny, ale dodatkow spradzane są wymagania które narzucają klasy wybuchowości - limit ładunków wybuchowych znajdujących się na pojazdach.'),
               SizedBox(height: 20),
               Text(
                   'Kolejność podawania środków bojowych ma znaczenie. Obliczenia są prowadze kolejno w zależności od wproawdzonych ilość środków, np. jeżeli wproawdzimy najpier AIM9X - 1000sz., a później AGM65 50szt., po mimo iż na liście jest wyżej obliczenia zostaną przeprowadzone w kolejności: 1000szt AIM9X,a później 50szt. AGM65.'),
               Text(
-                  'Dla poprawności wykonanych obliczeń, zalecane jest najpierw dodawanie środków bojowych o największych gabarytach.')
+                  'Dla poprawności wykonanych obliczeń, zalecane jest najpierw dodawanie środków bojowych o najmniejszych gabarytach.')
             ],
           ),
         ),

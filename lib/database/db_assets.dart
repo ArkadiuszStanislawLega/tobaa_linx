@@ -12,8 +12,7 @@ class DatabaseAssets {
         weights: Weights(gross: 497000, net: 497000, netExplosive: 88900),
         dimensions: Dimensions(height: 533, length: 4064, width: 419),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.rocket),
 
@@ -23,12 +22,10 @@ class DatabaseAssets {
         name: "AGM-158-6 JASSM",
         materialIdentificationNumber: DatabaseUnCodes.container[34]!,
         hexogeneEquivalent: 0.0,
-        weights:
-            Weights(gross: 975223.6, netExplosive: 108862.2, net: 975223.6),
+        weights: Weights(gross: 975223.6, netExplosive: 108862.2, net: 975223.6),
         dimensions: Dimensions(height: 508, length: 4267, width: 632),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.J]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.J]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.rocket),
 
@@ -41,8 +38,7 @@ class DatabaseAssets {
         weights: Weights(gross: 306100, netExplosive: 65500, net: 306100),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.rocket),
 
@@ -55,8 +51,7 @@ class DatabaseAssets {
         weights: Weights(gross: 85000, netExplosive: 30800, net: 85000),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.E]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.E]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.rocket),
 
@@ -69,8 +64,7 @@ class DatabaseAssets {
         weights: Weights(gross: 161500, netExplosive: 58200, net: 161500),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.E]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.E]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.2]!),
         combatAssetType: CombatAssetType.rocket),
 
@@ -83,8 +77,7 @@ class DatabaseAssets {
         weights: Weights(gross: 10, netExplosive: 0.3628739, net: 10),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
 
@@ -97,8 +90,7 @@ class DatabaseAssets {
         weights: Weights(gross: 17, netExplosive: 0.997903, net: 17),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
     //TODO: Sprawdzić wagę cxu 0.0032
@@ -111,8 +103,7 @@ class DatabaseAssets {
         weights: Weights(gross: 4, netExplosive: 3.17, net: 4),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
 
@@ -125,8 +116,7 @@ class DatabaseAssets {
         weights: Weights(gross: 370, netExplosive: 295, net: 370),
         dimensions: Dimensions(height: 205, length: 52, width: 25),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.3]!),
         combatAssetType: CombatAssetType.pyrotechnic),
 
@@ -139,8 +129,7 @@ class DatabaseAssets {
         weights: Weights(gross: 227000, netExplosive: 87000, net: 227000),
         dimensions: Dimensions(height: 1, length: 1575, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.bomb),
 
@@ -150,12 +139,10 @@ class DatabaseAssets {
         name: "MK-84",
         materialIdentificationNumber: DatabaseUnCodes.container[34]!,
         hexogeneEquivalent: 329400.0,
-        weights:
-            Weights(gross: 925000.0, netExplosive: 428000.0, net: 925000.0),
+        weights: Weights(gross: 925000.0, netExplosive: 428000.0, net: 925000.0),
         dimensions: Dimensions(height: 1, length: 2515, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.D]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.1]!),
         combatAssetType: CombatAssetType.bomb),
 
@@ -168,8 +155,7 @@ class DatabaseAssets {
         weights: Weights(gross: 270, netExplosive: 48, net: 270),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.2]!),
         combatAssetType: CombatAssetType.ammo),
 
@@ -182,8 +168,7 @@ class DatabaseAssets {
         weights: Weights(gross: 270, netExplosive: 39, net: 270),
         dimensions: Dimensions(height: 1, length: 1, width: 1),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.C]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.C]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.ammo),
 
@@ -196,8 +181,7 @@ class DatabaseAssets {
         weights: Weights(gross: 140, netExplosive: 0.362873896, net: 140),
         dimensions: Dimensions(height: 205, length: 25, width: 25),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
 
@@ -210,8 +194,7 @@ class DatabaseAssets {
         weights: Weights(gross: 140, netExplosive: 281, net: 140),
         dimensions: Dimensions(height: 205, length: 0, width: 25),
         explosionClass: ExplosionClass(
-            compatibilityGroup:
-                DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
   };
