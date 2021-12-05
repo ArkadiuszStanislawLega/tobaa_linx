@@ -33,7 +33,7 @@ class CarDetailView extends StatelessWidget {
               children: [
                 LengthPropertyTemplate(car.dimensionOfLoadingArea.length),
                 WidthPropertyTemplate(car.dimensionOfLoadingArea.width),
-                HeightPropertyTemplate(car.dimensionOfLoadingArea.width),
+                HeightPropertyTemplate(car.dimensionOfLoadingArea.height),
                 PermissibleWeightPropertyTemplate(car.weightOfLoadingArea.maximum),
                 LoadedWeightPropertyTemplate(car.weightOfLoadingArea.current),
                 PermissibleNewPropertyTemplate(car.explosionClass.weightLimit),

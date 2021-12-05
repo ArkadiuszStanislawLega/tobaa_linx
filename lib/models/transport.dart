@@ -213,32 +213,39 @@ class Transport {
   }
 
   void _spendToCarInWarTime() {
-    if (this.isWarTime) {
-      if (!this._isAddedBoxToAnIncompleteCarWarTime()) {
-        this._spendBoxesToNewCarWarTime();
-      }
+    if (this.isWarTime && this._boxesToAdd.isNotEmpty) {
+      this._boxesToAdd.forEach((box) {
+        this._boxToAdd = box;
+        if (!this._isAddedBoxToAnIncompleteCarWarTime()) {
+          this._spendBoxesToNewCarWarTime();
+        }
+      });
     }
   }
 
   bool _isAddedBoxToAnIncompleteCarWarTime() {
     bool isBoxesFit = false;
-    for (int i = 0; i < this._cars.length; i++) {
-      this._currentCarToFill = this._cars[i];
+    if (this._cars.isNotEmpty) {
+      for (int i = 0; i < this._cars.length; i++) {
+        this._currentCarToFill = this._cars[i];
 
-      isBoxesFit = this._currentCarToFill.isBoxesWillFitWarTime(this._boxesToAdd);
-      if (isBoxesFit) {
-        this._currentCarToFill.addBoxes(this._boxesToAdd);
-        break;
+        isBoxesFit =
+            this._currentCarToFill.isBoxWillFitWarTime(this._boxToAdd);
+        if (isBoxesFit) {
+          this._currentCarToFill.addBox(this._boxToAdd);
+          break;
+        }
       }
     }
     return isBoxesFit;
   }
 
   void _spendBoxesToNewCarWarTime() {
-    //TODO: Przetestować
-    if (this._copyCarFromDB().isBoxesWillFitPeacetime(this._boxesToAdd)) {
+    var car = this._copyCarFromDB();
+    var isFit = car.isBoxWillFitWarTime(this._boxToAdd);
+    if (isFit) {
       this.addCar();
-      this._cars.last.addBoxes(this._boxesToAdd);
+      this._cars.last.addBox(this._boxToAdd);
     }
   }
 
@@ -255,6 +262,7 @@ class Transport {
         }
       });
     }
+
   }
 
   bool _isAddedBoxToAnIncompleteCarPeaceTime() {

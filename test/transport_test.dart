@@ -14,11 +14,18 @@ void main() {
 
   test("Create transport in war time", (){
     Transport transport = new Transport();
+    transport.selectedCar = CarType.euro_cargo;
     transport.isWarTime = true;
     expect(transport.isWarTime, true);
 
-    transport.is
-    expect(transport.capacity(), 10);
+    transport.createTransport({BattleAirAssetType.TPRRR : 27000});
+    expect(transport.numberOfBaa, 27000);
+    expect(transport.cars.length, 1);
+    expect(transport.numberOfBoxes, 135);
+
+    transport.createTransport({BattleAirAssetType.TPRRR : 54000});
+    expect(transport.cars.length, 2);
+    expect(transport.numberOfBoxes, 270);
   });
 
   test("Create transport", () {

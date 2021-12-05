@@ -49,8 +49,20 @@ void main() {
     Car car = DatabaseCars.container[CarType.euro_cargo]!;
     Box box = Box.specificType(BoxType.CNU431);
 
-    List<Box> boxes = [box, box, box,box, box, box,box, box, box,box, box, box];
-
+    List<Box> boxes = [
+      box,
+      box,
+      box,
+      box,
+      box,
+      box,
+      box,
+      box,
+      box,
+      box,
+      box,
+      box
+    ];
 
     car.addBoxes(boxes);
 
@@ -77,13 +89,16 @@ void main() {
         DatabaseCompatibilityGroup.container[CompatibilityGroupType.G]!;
     expect(car.explosionClass.weightLimit, DIFFERENT14S_WEIGHT_LIMIT);
 
-    car.explosionClass.explosionSubclass = DatabaseExplosionSubclasses.container[1.3]!;
+    car.explosionClass.explosionSubclass =
+        DatabaseExplosionSubclasses.container[1.3]!;
     expect(car.explosionClass.weightLimit, ONE_POINT_TREE_WEIGHT_LIMIT);
 
-    car.explosionClass.explosionSubclass = DatabaseExplosionSubclasses.container[1.2]!;
+    car.explosionClass.explosionSubclass =
+        DatabaseExplosionSubclasses.container[1.2]!;
     expect(car.explosionClass.weightLimit, ONE_POINT_TWO_WEIGHT_LIMIT);
 
-    car.explosionClass.explosionSubclass = DatabaseExplosionSubclasses.container[1.1]!;
+    car.explosionClass.explosionSubclass =
+        DatabaseExplosionSubclasses.container[1.1]!;
     expect(car.explosionClass.weightLimit, DIFFERENT_11S_WEIGHT_LIMIT);
   });
 
@@ -122,7 +137,7 @@ void main() {
     expect(car.explosionClass.weightLimit, DIFFERENT_11S_WEIGHT_LIMIT);
   });
 
-  test('Add box in war time', (){
+  test('Add CNU-609 in war time', () {
     Car car = DatabaseCars.container[CarType.euro_cargo]!;
     Box box = DatabaseBoxes.container[BoxType.CNU609]!;
     box.fillToMaximum();
@@ -130,5 +145,31 @@ void main() {
 
     car.addBox(box);
     expect(car.numberOfBoxes, 1);
+    List<Box> boxes = [];
+    for(int i = 0; i < 3; i++){
+      boxes.add(box);
+    }
+
+    car.addBoxes(boxes);
+    expect(car.numberOfBoxes, 4);
+  });
+
+  test('Add TPRR in war time', () {
+    int numberOfBoxes = 14;
+    Car car = DatabaseCars.container[CarType.euro_cargo]!;
+    Box box = DatabaseBoxes.container[BoxType.M548_TPRRR]!;
+    box.fillToMaximum();
+    expect(car.isBoxWillFitWarTime(box), true);
+
+    car.addBox(box);
+    expect(car.numberOfBoxes, 1);
+
+    List<Box> boxes = [];
+    for(int i = 0; i < numberOfBoxes; i++){
+      boxes.add(box);
+    }
+
+    car.addBoxes(boxes);
+    expect(car.numberOfBoxes, numberOfBoxes+1);
   });
 }
