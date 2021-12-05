@@ -73,18 +73,14 @@ class CarListItem extends StatelessWidget {
   Widget _topRight() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        this._explosionWeightContainer(),
-        this._explosionClassContainer()
-      ],
+      children: [this._explosionWeightContainer(), this._explosionClassContainer()],
     );
   }
 
   Widget _explosionWeightContainer() {
     return ChipIconTemplate(
-        label:
-            '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
-        icon: Icons.flare      ,
+        label: '${massConverter(this._car.weightOfLoadingArea.currentNetExplosive)}',
+        icon: Icons.flare,
         backgroundColor: Colors.blueGrey,
         fontColor: Colors.white);
   }
@@ -109,10 +105,8 @@ class CarListItem extends StatelessWidget {
             level.boxes.forEach(
               (box) {
                 var value = 0;
-                if (container.containsKey(box.battleAirAsset.type))
-                  value = container[box.battleAirAsset.type]!;
-                container[box.battleAirAsset.type] =
-                    value + box.capacities.current;
+                if (container.containsKey(box.battleAirAsset.type)) value = container[box.battleAirAsset.type]!;
+                container[box.battleAirAsset.type] = value + box.capacities.current;
               },
             );
           },
@@ -135,8 +129,7 @@ class CarListItem extends StatelessWidget {
           elevation: 4.0,
           label: Text(
             baa,
-            style: TextStyle(
-                fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 11, color: Colors.white, fontWeight: FontWeight.bold),
             textAlign: TextAlign.right,
           ),
         ),

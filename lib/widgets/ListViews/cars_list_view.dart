@@ -24,7 +24,7 @@ class CarsListView extends StatelessWidget {
               title: CarListItem(this._cars.elementAt(index), index));
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 1.5,
+          childAspectRatio: 3,
           crossAxisCount: 2,
         ),
       );

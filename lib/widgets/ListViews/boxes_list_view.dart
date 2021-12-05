@@ -24,7 +24,7 @@ class BoxesListView extends StatelessWidget {
               title: BoxListItem(this._boxes.elementAt(index), index));
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio: 1.9,
+          childAspectRatio: 2.6,
           crossAxisCount: 2,
         ),
       );

@@ -5,10 +5,7 @@ class ChipTemplate extends StatelessWidget {
   final Color fontColor;
   final String label;
 
-  ChipTemplate(
-      {this.backgroundColor = Colors.deepOrange,
-      this.fontColor = Colors.white,
-      this.label = ''});
+  ChipTemplate({this.backgroundColor = Colors.deepOrange, this.fontColor = Colors.white, this.label = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +28,7 @@ class ChipTemplate extends StatelessWidget {
       ),
       child: Text(
         this.label,
-        style: TextStyle(
-            fontSize: 11, color: this.fontColor, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: 11, color: this.fontColor, fontWeight: FontWeight.bold),
         textAlign: TextAlign.right,
       ),
     );

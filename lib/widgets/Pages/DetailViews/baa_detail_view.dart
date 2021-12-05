@@ -71,14 +71,10 @@ class _DetailBaa extends State<DetailBaa> {
                 HeightPropertyTemplate(this.battleAirAsset.dimensions.height),
                 GrossWeightPropertyTemplate(this.battleAirAsset.weights.gross),
                 NetWeightPropertyTemplate(this.battleAirAsset.weights.net),
-                NetExplosiveWeightPropertyTemplate(
-                    this.battleAirAsset.weights.netExplosive),
-                HexogeneEquivalentPropertyTemplate(
-                    this.battleAirAsset.hexogeneEquivalent),
-                UnCodePropertyTemplate(
-                    this.battleAirAsset.materialIdentificationNumber.unCode),
-                TransportNamePropertyTemplate(
-                    this.battleAirAsset.materialIdentificationNumber),
+                NetExplosiveWeightPropertyTemplate(this.battleAirAsset.weights.netExplosive),
+                HexogeneEquivalentPropertyTemplate(this.battleAirAsset.hexogeneEquivalent),
+                UnCodePropertyTemplate(this.battleAirAsset.materialIdentificationNumber.unCode),
+                TransportNamePropertyTemplate(this.battleAirAsset.materialIdentificationNumber),
               ],
             ),
             GridView.count(
@@ -97,10 +93,9 @@ class _DetailBaa extends State<DetailBaa> {
                 CapacityPropertyTemplate(box.capacities.maximum),
                 MaxStackTransPropTemp(box.maxTransportStackLevel),
                 MaxStackWarehousePropTemp(box.maxWarehouseStackLevel),
-                BaaCounterPropertyTemplate(
-                    TOBAAApp.values.containsKey(this.battleAirAsset.type)
-                        ? TOBAAApp.values[this.battleAirAsset.type]!
-                        : 0)
+                BaaCounterPropertyTemplate(TOBAAApp.values.containsKey(this.battleAirAsset.type)
+                    ? TOBAAApp.values[this.battleAirAsset.type]!
+                    : 0)
               ],
             ),
           ],
@@ -114,8 +109,7 @@ class _DetailBaa extends State<DetailBaa> {
         .battleAirAsset
         .explosionClass
         .compatibilityGroup
-        .convertCompatibilityGroup(
-            this.battleAirAsset.explosionClass.compatibilityGroup.group);
+        .convertCompatibilityGroup(this.battleAirAsset.explosionClass.compatibilityGroup.group);
     showDialog(
         builder: (BuildContext context) {
           return AlertDialog(
@@ -123,10 +117,7 @@ class _DetailBaa extends State<DetailBaa> {
             content: Container(
               child: SingleChildScrollView(
                 child: Column(
-                  children: [
-                    this._explosionClass(),
-                    this._compatibilityGroup(compatibilityGroup)
-                  ],
+                  children: [this._explosionClass(), this._compatibilityGroup(compatibilityGroup)],
                 ),
               ),
             ),
