@@ -33,8 +33,24 @@ class _DetailBaa extends State<DetailBaa> {
           title: Row(
             children: [
               Text('${this.battleAirAsset.name}'),
+              SizedBox(
+                width: 10,
+              ),
               ElevatedButton(
-                child: Text('${this.battleAirAsset.explosionClass.toString()}'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.orangeAccent[700]!,
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    //to set border radius to button
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(39.0),
+                    ),
+                  ),
+                ),
+                child: Text(
+                  this.battleAirAsset.explosionClass.toString(),
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
                 onPressed: this._showExplosionClass,
               )
             ],
