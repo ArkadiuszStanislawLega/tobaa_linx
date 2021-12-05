@@ -20,8 +20,7 @@ class StackDetailView extends StatelessWidget {
               Tab(icon: Icon(Icons.list)),
             ],
           ),
-          title: Text(
-              '${Strings.STACK} nr: ${index + 1}, ${stack.levels.first.boxes.first.name}'),
+          title: Text('${Strings.STACK} nr: ${index + 1}, ${stack.levels.first.boxes.first.name}'),
         ),
         body: TabBarView(
           children: [
@@ -35,7 +34,6 @@ class StackDetailView extends StatelessWidget {
                 LengthPropertyTemplate(stack.dimensions.length),
                 WidthPropertyTemplate(stack.dimensions.width),
                 HeightPropertyTemplate(stack.dimensions.height),
-
                 NetExplosiveWeightPropertyTemplate(stack.weights.netExplosive),
                 PropertyWithHintTemplate(
                   hint: Strings.HINT_NET_WEIGHT,
@@ -49,7 +47,6 @@ class StackDetailView extends StatelessWidget {
                   propertyValue: '${massConverter(stack.weights.gross)}',
                   background: Colors.grey[400]!,
                 ),
-
                 MaxStackTransPropTemp(stack.maximumStackLevel),
                 NumberOfStackLevelsPropertyTemplate(stack.levels.length),
                 NumberOfBoxesPropertyTemplate(stack.currentNumberOfBoxes),

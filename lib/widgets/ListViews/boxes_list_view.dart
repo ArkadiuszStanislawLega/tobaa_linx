@@ -16,10 +16,7 @@ class BoxesListView extends StatelessWidget {
           return ListTile(
               onTap: () {
                 Navigator.pushNamed(context, Url.BOX_DETAIL,
-                    arguments: {
-                      Keys.SELECTED_BOX: this._boxes.elementAt(index),
-                      Keys.CHOSEN_INDEX: index
-                    });
+                    arguments: {Keys.SELECTED_BOX: this._boxes.elementAt(index), Keys.CHOSEN_INDEX: index});
               },
               title: BoxListItem(this._boxes.elementAt(index), index));
         },

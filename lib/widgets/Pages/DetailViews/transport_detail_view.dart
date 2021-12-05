@@ -5,8 +5,7 @@ class TransportDetailView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var map =
-        ModalRoute.of(context)!.settings.arguments as Map<String, Transport>;
+    var map = ModalRoute.of(context)!.settings.arguments as Map<String, Transport>;
     Transport transport = map[Keys.SELECTED_TRANSPORT]!;
 
     return DefaultTabController(

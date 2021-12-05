@@ -12,18 +12,16 @@ class StackLevelsListView extends StatelessWidget {
         primary: false,
         padding: const EdgeInsets.all(10),
         itemCount: this._levels.length,
-        itemBuilder: (BuildContext context, int index) {return ListTile(
-            onTap: () {
-              Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL,
-                  arguments: {
-                    Keys.SELECTED_STACK_LEVEL: this._levels.elementAt(index),
-                    Keys.CHOSEN_INDEX: index
-                  });
-            },
-            title: StackLevelListItem(this._levels.elementAt(index), index));
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+              onTap: () {
+                Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL,
+                    arguments: {Keys.SELECTED_STACK_LEVEL: this._levels.elementAt(index), Keys.CHOSEN_INDEX: index});
+              },
+              title: StackLevelListItem(this._levels.elementAt(index), index));
         },
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          childAspectRatio:2.6,
+          childAspectRatio: 2.6,
           crossAxisCount: 2,
           mainAxisSpacing: 4,
         ),
@@ -37,10 +35,7 @@ class StackLevelsListView extends StatelessWidget {
           return ListTile(
               onTap: () {
                 Navigator.pushNamed(context, Url.STACK_LEVEL_DETAIL,
-                    arguments: {
-                      Keys.SELECTED_STACK_LEVEL: this._levels.elementAt(index),
-                      Keys.CHOSEN_INDEX: index
-                    });
+                    arguments: {Keys.SELECTED_STACK_LEVEL: this._levels.elementAt(index), Keys.CHOSEN_INDEX: index});
               },
               title: StackLevelListItem(this._levels.elementAt(index), index));
         },

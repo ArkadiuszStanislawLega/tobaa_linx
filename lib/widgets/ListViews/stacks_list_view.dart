@@ -15,10 +15,8 @@ class StacksListView extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
               onTap: () {
-                Navigator.pushNamed(context, Url.STACK_DETAIL, arguments: {
-                  Keys.SELECTED_STACK: this._stacks.elementAt(index),
-                  Keys.CHOSEN_INDEX: index
-                });
+                Navigator.pushNamed(context, Url.STACK_DETAIL,
+                    arguments: {Keys.SELECTED_STACK: this._stacks.elementAt(index), Keys.CHOSEN_INDEX: index});
               },
               title: StackListItem(this._stacks.elementAt(index), index));
         },
@@ -36,10 +34,8 @@ class StacksListView extends StatelessWidget {
           return Center(
             child: ListTile(
               onTap: () {
-                Navigator.pushNamed(context, Url.STACK_DETAIL, arguments: {
-                  Keys.SELECTED_STACK: this._stacks.elementAt(index),
-                  Keys.CHOSEN_INDEX: index
-                });
+                Navigator.pushNamed(context, Url.STACK_DETAIL,
+                    arguments: {Keys.SELECTED_STACK: this._stacks.elementAt(index), Keys.CHOSEN_INDEX: index});
               },
               title: StackListItem(this._stacks.elementAt(index), index),
             ),

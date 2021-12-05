@@ -101,5 +101,14 @@ class DatabaseStackLevels {
       ),
       capacities: Capacities(maximum: 720),
     ),
+    BoxType.BBU36BOX: StackLevel(
+      dimensions: StackDimensions(height: 285, width: 1455, length: 980),
+      weights: StackWeights(
+        maxNet: 220320.0,
+        maxGross: 226320.0,
+        maxNetExplosion: 12932.82288,
+      ),
+      capacities: Capacities(maximum: 12960),
+    ),
   };
 }

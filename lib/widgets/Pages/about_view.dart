@@ -11,8 +11,7 @@ class AboutView extends StatelessWidget {
             children: [
               SizedBox(height: 30),
               Text('Autorem i główny testerem aplikacji jest Arkadiusz Łęga'),
-              Text(
-                  'Wszelkie spostrzeżenia i informacje o błędach proszę wysyłać na adres e-mail:'),
+              Text('Wszelkie spostrzeżenia i informacje o błędach proszę wysyłać na adres e-mail:'),
               SizedBox(
                 height: 20,
               ),
@@ -29,11 +28,9 @@ class AboutView extends StatelessWidget {
               Text(
                   'Działanie aplikacji, dobór pod wględem klas wybuchowości oraz limitów w środkach transportowych opiera się na:'),
               SizedBox(height: 10),
-              Text(
-                  ' - Umowa europejska dotycząca międzynarodowego przewozu drogowego towarów niebezpiecznych'),
+              Text(' - Umowa europejska dotycząca międzynarodowego przewozu drogowego towarów niebezpiecznych'),
               SizedBox(height: 20),
-              Text(
-                  'Elementy aplikacji które wymagają poprawy lub nie działają:'),
+              Text('Elementy aplikacji które wymagają poprawy lub nie działają:'),
               SizedBox(
                 height: 10,
               ),
