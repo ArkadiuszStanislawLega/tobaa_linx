@@ -225,7 +225,7 @@ class Transport {
     for (int i = 0; i < this._cars.length; i++) {
       this._currentCarToFill = this._cars[i];
 
-      isBoxesFit = this._currentCarToFill.isBoxesWillFit(this._boxesToAdd);
+      isBoxesFit = this._currentCarToFill.isBoxesWillFitWarTime(this._boxesToAdd);
       if (isBoxesFit) {
         this._currentCarToFill.addBoxes(this._boxesToAdd);
         break;
@@ -236,7 +236,7 @@ class Transport {
 
   void _spendBoxesToNewCarWarTime() {
     //TODO: Przetestować
-    if (this._copyCarFromDB().isBoxesWillFit(this._boxesToAdd)) {
+    if (this._copyCarFromDB().isBoxesWillFitPeacetime(this._boxesToAdd)) {
       this.addCar();
       this._cars.last.addBoxes(this._boxesToAdd);
     }
@@ -265,7 +265,7 @@ class Transport {
       for (int i = 0; i < this._cars.length; i++) {
         this._currentCarToFill = this._cars[i];
 
-        isBoxFit = this._currentCarToFill.isBoxWillFit(this._boxToAdd);
+        isBoxFit = this._currentCarToFill.isBoxWillFitPeacetime(this._boxToAdd);
         isBoxFitInThePeacetimeLimits = this.isBoxInPeacetimeLimit();
 
         if (isBoxFit && isBoxFitInThePeacetimeLimits) {
@@ -303,7 +303,7 @@ class Transport {
 
   void _spendBoxesToNewCarPeaceTime() {
     var car = this._copyCarFromDB();
-    var isFit = car.isBoxWillFit(this._boxToAdd);
+    var isFit = car.isBoxWillFitPeacetime(this._boxToAdd);
     if (isFit) {
       this.addCar();
       this._cars.last.addBox(this._boxToAdd);

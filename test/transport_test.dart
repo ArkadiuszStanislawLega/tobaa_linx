@@ -12,6 +12,15 @@ void main() {
     expect(transport.transportNetWeight, 0);
   });
 
+  test("Create transport in war time", (){
+    Transport transport = new Transport();
+    transport.isWarTime = true;
+    expect(transport.isWarTime, true);
+
+    transport.is
+    expect(transport.capacity(), 10);
+  });
+
   test("Create transport", () {
     // Transport transport = new Transport();
     //

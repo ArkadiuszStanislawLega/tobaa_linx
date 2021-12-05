@@ -141,15 +141,32 @@ class Car {
   }
 
   /// Use to check is boxes can be fit in car during wartime.
-  bool isBoxesWillFit(List<Box> boxes) {
+  bool isBoxesWillFitPeacetime(List<Box> boxes) {
     bool answer = false;
     for (int i = 0; i < boxes.length; i++) {
-      answer = this.isBoxWillFit(boxes[i]);
+      answer = this.isBoxWillFitPeacetime(boxes[i]);
     }
     return answer;
   }
+  
+  bool isBoxWillFitWarTime(Box box){
+    this._boxToAdd = box;
+    
+    var isSizeFit = this._isBoxSizeFit();
+    var isWeightFit = this._isGrossWeightNotExceeded(this._boxToAdd.weights.currentGross);
+    
+    return isSizeFit && isWeightFit;
+  }
 
-  bool isBoxWillFit(Box box) {
+  bool isBoxesWillFitWarTime(List<Box> boxes){
+    for(int i = 0; i < boxes.length; i++){
+      if(!this.isBoxWillFitWarTime(boxes[i]))
+         return false;
+    }
+    return true;
+  }
+
+  bool isBoxWillFitPeacetime(Box box) {
     this._boxToAdd = box;
     var isExplosiveCompatible = this._isBoxExplosiveClassIsCompatible(box);
     var isSizeFit = false;
