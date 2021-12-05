@@ -158,10 +158,15 @@ class Car {
     return isSizeFit && isWeightFit;
   }
 
+  /// Sprawdza czy list skrzyń się zmieści
+  /// True - jeśli wszystkie ze skrzyń się zmieści, nawet jeśli lista jest pusta.
+  /// False - jeśli chociaż jedna ze skrzyń się nie zmieści.
   bool isBoxesWillFitWarTime(List<Box> boxes){
-    for(int i = 0; i < boxes.length; i++){
-      if(!this.isBoxWillFitWarTime(boxes[i]))
-         return false;
+    if (boxes.isNotEmpty) {
+      for (int i = 0; i < boxes.length; i++) {
+        if (!this.isBoxWillFitWarTime(boxes[i]))
+          return false;
+      }
     }
     return true;
   }
