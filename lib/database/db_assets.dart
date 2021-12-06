@@ -185,17 +185,17 @@ class DatabaseAssets {
             explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
         combatAssetType: CombatAssetType.pyrotechnic),
 
-    BattleAirAssetType.MK4MOD3: new BattleAirAsset(
-        type: BattleAirAssetType.MK4MOD3,
-        boxType: BoxType.M2A1,
-        name: "MK4MOD3",
-        materialIdentificationNumber: MaterialIdentificationNumber.empty(),
-        hexogeneEquivalent: 0,
-        weights: Weights(gross: 140, netExplosive: 281, net: 140),
-        dimensions: Dimensions(height: 205, length: 0, width: 25),
-        explosionClass: ExplosionClass(
-            compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
-            explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
-        combatAssetType: CombatAssetType.pyrotechnic),
+    // BattleAirAssetType.MK4MOD3: new BattleAirAsset(
+    //     type: BattleAirAssetType.MK4MOD3,
+    //     boxType: BoxType.M2A1,
+    //     name: "MK4MOD3",
+    //     materialIdentificationNumber: MaterialIdentificationNumber.empty(),
+    //     hexogeneEquivalent: 0,
+    //     weights: Weights(gross: 140, netExplosive: 281, net: 140),
+    //     dimensions: Dimensions(height: 205, length: 0, width: 25),
+    //     explosionClass: ExplosionClass(
+    //         compatibilityGroup: DatabaseCompatibilityGroup.container[CompatibilityGroupType.S]!,
+    //         explosionSubclass: DatabaseExplosionSubclasses.container[1.4]!),
+    //     combatAssetType: CombatAssetType.pyrotechnic),
   };
 }

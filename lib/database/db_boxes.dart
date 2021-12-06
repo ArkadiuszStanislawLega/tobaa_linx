@@ -12,7 +12,6 @@ class DatabaseBoxes {
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.AGM154]!,
         type: BoxType.CNU672,
         coordinates: Coordinates()),
-
     BoxType.CNU614: new Box(
         name: "CNU-614",
         capacities: Capacities(maximum: 1),
@@ -55,10 +54,10 @@ class DatabaseBoxes {
         coordinates: Coordinates()),
     BoxType.BBU35BOX: new Box(
         name: "Karton z BBU35",
-        capacities: Capacities(maximum: 4),
-        weights: BoxWeights(gross: 1, net: 1, netExplosive: 1),
+        capacities: Capacities(maximum: 2160),
+        weights: BoxWeights(gross: 22600, net: 1000, netExplosive: 793.807624),
         dimensions: Dimensions(height: 285, width: 485, length: 490),
-        maxTransportStackLevel: 2,
+        maxTransportStackLevel: 3,
         battleAirAsset: DatabaseAssets.container[BattleAirAssetType.BBU35]!,
         type: BoxType.BBU35BOX,
         coordinates: Coordinates()),
