@@ -163,4 +163,50 @@ void main() {
     expect(stack.weights.gross, stack.weights.maxGross);
     expect(stack.weights.netExplosive, stack.weights.maxNetExplosion);
   });
+
+  test("Stack with BBU35", () {
+    const int MAX_NUMBER_OF_BOXES_IN_STACK = 18;
+    WarehouseStack stack = DatabaseStacks.container[BoxType.BBU35BOX]!;
+    Box box = DatabaseBoxes.container[BoxType.BBU35BOX]!;
+    List<Box> boxes = [];
+
+    box.fillBox(box.capacities.maximum);
+
+    for (int i = 0; i < MAX_NUMBER_OF_BOXES_IN_STACK; i++) {
+      boxes.add(box);
+    }
+
+    expect(stack.isBoxesCanBeAddedToStack(boxes), true);
+    stack.addAllBoxes(boxes);
+
+    expect(stack.levels.length, 3);
+    expect(stack.battleAirAssetCapacities.current, 38880);
+    expect(stack.weights.net, stack.weights.maxNet);
+    expect(stack.weights.gross, stack.weights.maxGross);
+    expect(stack.weights.netExplosive,14108.53723199957);
+  });
+
+
+  test("Stack with BBU36", () {
+    const int MAX_NUMBER_OF_BOXES_IN_STACK = 18;
+    WarehouseStack stack = DatabaseStacks.container[BoxType.BBU36BOX]!;
+    Box box = DatabaseBoxes.container[BoxType.BBU36BOX]!;
+    List<Box> boxes = [];
+
+    box.fillBox(box.capacities.maximum);
+
+    for (int i = 0; i < MAX_NUMBER_OF_BOXES_IN_STACK; i++) {
+      boxes.add(box);
+    }
+
+    expect(stack.isBoxesCanBeAddedToStack(boxes), true);
+    stack.addAllBoxes(boxes);
+
+    expect(stack.levels.length, 3);
+    expect(stack.battleAirAssetCapacities.current, 38880);
+    expect(stack.weights.net, stack.weights.maxNet);
+    expect(stack.weights.gross, stack.weights.maxGross);
+    expect(stack.weights.netExplosive, 38798.46863999862);
+  });
+
 }
