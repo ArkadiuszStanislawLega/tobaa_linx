@@ -30,7 +30,6 @@ class AboutView extends StatelessWidget {
               SizedBox(height: 20),
               Text('Elementy aplikacji które wymagają poprawy lub nie działają:'),
               SizedBox(height: 10),
-              Text(' - Obliczanie ilości środków bojowych dla BBU35,'),
               Text(' - Obliczanie ilości środków bojowych dla MK4MOD3.'),
               SizedBox(height: 20),
               Text('W przyszłości:'),
