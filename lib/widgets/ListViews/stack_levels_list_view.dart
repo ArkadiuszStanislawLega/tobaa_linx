@@ -7,7 +7,7 @@ class StackLevelsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (MediaQuery.of(context).size.width > 400) {
+    if (MediaQuery.of(context).size.width > 450) {
       return GridView.builder(
         primary: false,
         padding: const EdgeInsets.all(10),

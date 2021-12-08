@@ -63,7 +63,7 @@ class _DetailBaa extends State<DetailBaa> {
               padding: const EdgeInsets.all(5),
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
-              crossAxisCount: MediaQuery.of(context).size.width > 400 ? 6 : 3,
+              crossAxisCount: MediaQuery.of(context).size.width > 450 ? 6 : 3,
               shrinkWrap: true,
               children: [
                 LengthPropertyTemplate(this.battleAirAsset.dimensions.length),
@@ -82,7 +82,7 @@ class _DetailBaa extends State<DetailBaa> {
               padding: const EdgeInsets.all(5),
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
-              crossAxisCount: MediaQuery.of(context).size.width > 400 ? 6 : 3,
+              crossAxisCount: MediaQuery.of(context).size.width > 450 ? 6 : 3,
               children: [
                 LengthPropertyTemplate(box.dimensions.length),
                 WidthPropertyTemplate(box.dimensions.width),

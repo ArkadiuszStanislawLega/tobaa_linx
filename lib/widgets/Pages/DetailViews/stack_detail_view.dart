@@ -29,7 +29,7 @@ class StackDetailView extends StatelessWidget {
               padding: const EdgeInsets.all(5),
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
-              crossAxisCount: MediaQuery.of(context).size.width > 400 ? 6 : 3,
+              crossAxisCount: MediaQuery.of(context).size.width > 450 ? 6 : 3,
               children: [
                 LengthPropertyTemplate(stack.dimensions.length),
                 WidthPropertyTemplate(stack.dimensions.width),
