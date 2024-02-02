@@ -1,16 +1,5 @@
-# tobaa
+# Convoy Calculator 
 
-transporting organiser of battle air assets
+This is an application that allows you to calculate the number of vehicles needed to transport a specific amount of munitions in accordance with EU regulations. Stores data dating back to combat assets. Calculates the number of explosives transported during a convoy. In its calculations, it takes into account explosion classes and dosed quantities. It can also be used as an aid in warehouses or for staff involved in storing and processing funds.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The data collected in the application was collected on the basis of websites and then verified... . Data regarding regulations in the EU were introduced from the "European Agreement concerning the International Carriage of Dangerous Goods by Road".
